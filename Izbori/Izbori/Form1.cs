@@ -15,6 +15,7 @@ namespace Izbori
         public Form1()
         {
             InitializeComponent();
+            //komentar
         }
 
         private void Form1_Load(object sender, EventArgs e)
