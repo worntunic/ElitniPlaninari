@@ -1,0 +1,11 @@
+﻿Na osnovu baze podataka koju ste projektovali za I domaći zadatak
+treba kreirati komponentu za pristup podacima baziranu na korišćenju NHibernate ORM biblioteke.
+Kao rezultat domaćeg zadatka predajete:
+
+   - neophodne NHibernate POCO klase
+   - neophodne Fluent NHibernate mapiranja
+   - jednostavnu aplikaciju (po ugledu na demo aplikaciju sa laboratorijskih vežbi) koja testira korišćenje kreiranih mapiranja
+
+Rok za zradu domaćeg zadatka: 15.05.2016. godine
+
+Kreirani projekat na sajt postavlja jedan od članova tima korišćenjem definisanog zadatka.
