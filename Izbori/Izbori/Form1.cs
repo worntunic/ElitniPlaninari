@@ -15,6 +15,7 @@ namespace Izbori
         public Form1()
         {
             InitializeComponent();
+            //komentar
         }
     }
 }
