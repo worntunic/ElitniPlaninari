@@ -46,6 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entiteti\IntervjuNovine.cs" />
+    <Compile Include="Entiteti\NovinariIzNovina.cs" />
+    <Compile Include="Entiteti\NovineReklama.cs" />
+    <Compile Include="Entiteti\PanoReklama.cs" />
+    <Compile Include="Entiteti\PitanjaTVDuel.cs" />
+    <Compile Include="Entiteti\ProtivKandidatiTVDuel.cs" />
+    <Compile Include="Entiteti\Reklama.cs" />
+    <Compile Include="Entiteti\TVDuel.cs" />
+    <Compile Include="Entiteti\TVRadioGost.cs" />
+    <Compile Include="Entiteti\TVRadioReklama.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +90,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entiteti\" />
     <Folder Include="Mapiranja\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
