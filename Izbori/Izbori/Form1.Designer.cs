@@ -82,6 +82,7 @@
             this.AkcDeljLetBtn.TabIndex = 3;
             this.AkcDeljLetBtn.Text = "Dodaj Akciju Deljenja letaka";
             this.AkcDeljLetBtn.UseVisualStyleBackColor = true;
+            this.AkcDeljLetBtn.Click += new System.EventHandler(this.AkcDeljLetBtn_Click);
             // 
             // AkcSusKand
             // 
@@ -91,6 +92,7 @@
             this.AkcSusKand.TabIndex = 4;
             this.AkcSusKand.Text = "Dodaj Akciju Susreta Kandidata";
             this.AkcSusKand.UseVisualStyleBackColor = true;
+            this.AkcSusKand.Click += new System.EventHandler(this.AkcSusKand_Click);
             // 
             // AkcMitBtn
             // 
@@ -100,6 +102,7 @@
             this.AkcMitBtn.TabIndex = 5;
             this.AkcMitBtn.Text = "Dodaj Akciju Mitinga";
             this.AkcMitBtn.UseVisualStyleBackColor = true;
+            this.AkcMitBtn.Click += new System.EventHandler(this.AkcMitBtn_Click);
             // 
             // GostMitBtn
             // 

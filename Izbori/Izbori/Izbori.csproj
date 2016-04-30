@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,13 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entiteti\Akcija.cs" />
+    <Compile Include="DataLayer.cs" />
+    <Compile Include="Entiteti\DeljenjeLetaka.cs" />
+    <Compile Include="Entiteti\Gost.cs" />
     <Compile Include="Entiteti\IntervjuNovine.cs" />
+    <Compile Include="Entiteti\Miting.cs" />
+    <Compile Include="Entiteti\MitingZatvoreniP.cs" />
     <Compile Include="Entiteti\NovinariIzNovina.cs" />
     <Compile Include="Entiteti\NovineReklama.cs" />
     <Compile Include="Entiteti\PanoReklama.cs" />
     <Compile Include="Entiteti\PitanjaTVDuel.cs" />
     <Compile Include="Entiteti\ProtivKandidatiTVDuel.cs" />
     <Compile Include="Entiteti\Reklama.cs" />
+    <Compile Include="Entiteti\SusretKandidata.cs" />
     <Compile Include="Entiteti\TVDuel.cs" />
     <Compile Include="Entiteti\TVRadioGost.cs" />
     <Compile Include="Entiteti\TVRadioReklama.cs" />
@@ -62,6 +81,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mapiranja\AkcijaMapiranja.cs" />
+    <Compile Include="Mapiranja\DeljenjeLetakaMapiranja.cs" />
+    <Compile Include="Mapiranja\GostMapiranja.cs" />
+    <Compile Include="Mapiranja\MitingMapiranja.cs" />
+    <Compile Include="Mapiranja\MitingZatvoreniPMapiranja.cs" />
+    <Compile Include="Mapiranja\SusretKandidataMapiranja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -76,6 +101,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,9 +115,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapiranja\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
