@@ -21,7 +21,7 @@ namespace Izbori.Mapiranja
             Map(x => x.BrojKanc, "BROJ");
             Map(x => x.GradKanc, "GRAD");
 
-            HasMany(x => x.Saradnici).KeyColumn("ID").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.Saradnici).KeyColumn("IDKoord");
         }
     }
 }

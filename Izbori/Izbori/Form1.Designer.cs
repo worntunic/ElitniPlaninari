@@ -55,7 +55,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.ShowActv = new System.Windows.Forms.Button();
             this.ShowCoord = new System.Windows.Forms.Button();
-            this.AddHelper = new System.Windows.Forms.Button();
             this.AddNote = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,34 +64,37 @@
             // 
             // DodajAktivistuBtn
             // 
-            this.DodajAktivistuBtn.Location = new System.Drawing.Point(12, 25);
+            this.DodajAktivistuBtn.Location = new System.Drawing.Point(12, 28);
             this.DodajAktivistuBtn.Name = "DodajAktivistuBtn";
             this.DodajAktivistuBtn.Size = new System.Drawing.Size(182, 23);
             this.DodajAktivistuBtn.TabIndex = 0;
             this.DodajAktivistuBtn.Text = "Dodaj aktivistu";
             this.DodajAktivistuBtn.UseVisualStyleBackColor = true;
+            this.DodajAktivistuBtn.Click += new System.EventHandler(this.DodajAktivistuBtn_Click);
             // 
             // DodajKoordinatoraBtn
             // 
-            this.DodajKoordinatoraBtn.Location = new System.Drawing.Point(12, 133);
+            this.DodajKoordinatoraBtn.Location = new System.Drawing.Point(12, 134);
             this.DodajKoordinatoraBtn.Name = "DodajKoordinatoraBtn";
             this.DodajKoordinatoraBtn.Size = new System.Drawing.Size(182, 23);
             this.DodajKoordinatoraBtn.TabIndex = 1;
             this.DodajKoordinatoraBtn.Text = "Dodaj koordinatora";
             this.DodajKoordinatoraBtn.UseVisualStyleBackColor = true;
+            this.DodajKoordinatoraBtn.Click += new System.EventHandler(this.DodajKoordinatoraBtn_Click);
             // 
             // DodeliPomocnikeBtn
             // 
-            this.DodeliPomocnikeBtn.Location = new System.Drawing.Point(12, 162);
+            this.DodeliPomocnikeBtn.Location = new System.Drawing.Point(12, 192);
             this.DodeliPomocnikeBtn.Name = "DodeliPomocnikeBtn";
             this.DodeliPomocnikeBtn.Size = new System.Drawing.Size(182, 23);
             this.DodeliPomocnikeBtn.TabIndex = 2;
             this.DodeliPomocnikeBtn.Text = "Dodeli pomocnike koordinatora";
             this.DodeliPomocnikeBtn.UseVisualStyleBackColor = true;
+            this.DodeliPomocnikeBtn.Click += new System.EventHandler(this.DodeliPomocnikeBtn_Click);
             // 
             // AkcDeljLetBtn
             // 
-            this.AkcDeljLetBtn.Location = new System.Drawing.Point(221, 25);
+            this.AkcDeljLetBtn.Location = new System.Drawing.Point(221, 28);
             this.AkcDeljLetBtn.Name = "AkcDeljLetBtn";
             this.AkcDeljLetBtn.Size = new System.Drawing.Size(182, 23);
             this.AkcDeljLetBtn.TabIndex = 3;
@@ -102,7 +104,7 @@
             // 
             // AkcSusKand
             // 
-            this.AkcSusKand.Location = new System.Drawing.Point(221, 133);
+            this.AkcSusKand.Location = new System.Drawing.Point(221, 134);
             this.AkcSusKand.Name = "AkcSusKand";
             this.AkcSusKand.Size = new System.Drawing.Size(182, 23);
             this.AkcSusKand.TabIndex = 4;
@@ -112,7 +114,7 @@
             // 
             // AkcMitBtn
             // 
-            this.AkcMitBtn.Location = new System.Drawing.Point(12, 470);
+            this.AkcMitBtn.Location = new System.Drawing.Point(12, 433);
             this.AkcMitBtn.Name = "AkcMitBtn";
             this.AkcMitBtn.Size = new System.Drawing.Size(182, 23);
             this.AkcMitBtn.TabIndex = 5;
@@ -122,7 +124,7 @@
             // 
             // GostMitBtn
             // 
-            this.GostMitBtn.Location = new System.Drawing.Point(12, 499);
+            this.GostMitBtn.Location = new System.Drawing.Point(12, 462);
             this.GostMitBtn.Name = "GostMitBtn";
             this.GostMitBtn.Size = new System.Drawing.Size(182, 23);
             this.GostMitBtn.TabIndex = 6;
@@ -131,7 +133,7 @@
             // 
             // ReklPanoBtn
             // 
-            this.ReklPanoBtn.Location = new System.Drawing.Point(221, 324);
+            this.ReklPanoBtn.Location = new System.Drawing.Point(221, 298);
             this.ReklPanoBtn.Name = "ReklPanoBtn";
             this.ReklPanoBtn.Size = new System.Drawing.Size(182, 23);
             this.ReklPanoBtn.TabIndex = 7;
@@ -140,7 +142,7 @@
             // 
             // ReklNovineBtn
             // 
-            this.ReklNovineBtn.Location = new System.Drawing.Point(221, 295);
+            this.ReklNovineBtn.Location = new System.Drawing.Point(221, 269);
             this.ReklNovineBtn.Name = "ReklNovineBtn";
             this.ReklNovineBtn.Size = new System.Drawing.Size(182, 23);
             this.ReklNovineBtn.TabIndex = 8;
@@ -149,7 +151,7 @@
             // 
             // ReklTVRadioBtn
             // 
-            this.ReklTVRadioBtn.Location = new System.Drawing.Point(221, 266);
+            this.ReklTVRadioBtn.Location = new System.Drawing.Point(221, 240);
             this.ReklTVRadioBtn.Name = "ReklTVRadioBtn";
             this.ReklTVRadioBtn.Size = new System.Drawing.Size(182, 23);
             this.ReklTVRadioBtn.TabIndex = 9;
@@ -158,43 +160,43 @@
             // 
             // PojPKNovineBtn
             // 
-            this.PojPKNovineBtn.Location = new System.Drawing.Point(439, 137);
+            this.PojPKNovineBtn.Location = new System.Drawing.Point(439, 86);
             this.PojPKNovineBtn.Name = "PojPKNovineBtn";
-            this.PojPKNovineBtn.Size = new System.Drawing.Size(182, 48);
+            this.PojPKNovineBtn.Size = new System.Drawing.Size(182, 23);
             this.PojPKNovineBtn.TabIndex = 10;
             this.PojPKNovineBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata u Novinama";
             this.PojPKNovineBtn.UseVisualStyleBackColor = true;
             // 
             // PojPKTVRadBtn
             // 
-            this.PojPKTVRadBtn.Location = new System.Drawing.Point(439, 25);
+            this.PojPKTVRadBtn.Location = new System.Drawing.Point(439, 28);
             this.PojPKTVRadBtn.Name = "PojPKTVRadBtn";
-            this.PojPKTVRadBtn.Size = new System.Drawing.Size(182, 48);
+            this.PojPKTVRadBtn.Size = new System.Drawing.Size(182, 23);
             this.PojPKTVRadBtn.TabIndex = 11;
             this.PojPKTVRadBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata Na TV-u, odnosno Radiju";
             this.PojPKTVRadBtn.UseVisualStyleBackColor = true;
             // 
             // PojPKTVDuelBtn
             // 
-            this.PojPKTVDuelBtn.Location = new System.Drawing.Point(439, 82);
+            this.PojPKTVDuelBtn.Location = new System.Drawing.Point(439, 57);
             this.PojPKTVDuelBtn.Name = "PojPKTVDuelBtn";
-            this.PojPKTVDuelBtn.Size = new System.Drawing.Size(182, 48);
+            this.PojPKTVDuelBtn.Size = new System.Drawing.Size(182, 23);
             this.PojPKTVDuelBtn.TabIndex = 12;
             this.PojPKTVDuelBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata Na TV-Duelu";
             this.PojPKTVDuelBtn.UseVisualStyleBackColor = true;
             // 
             // AngAktnaGMBtn
             // 
-            this.AngAktnaGMBtn.Location = new System.Drawing.Point(12, 382);
+            this.AngAktnaGMBtn.Location = new System.Drawing.Point(12, 356);
             this.AngAktnaGMBtn.Name = "AngAktnaGMBtn";
-            this.AngAktnaGMBtn.Size = new System.Drawing.Size(182, 35);
+            this.AngAktnaGMBtn.Size = new System.Drawing.Size(182, 23);
             this.AngAktnaGMBtn.TabIndex = 13;
             this.AngAktnaGMBtn.Text = "Angazuj Aktivistu na Glasacko Mesto";
             this.AngAktnaGMBtn.UseVisualStyleBackColor = true;
             // 
             // GlasackoMestoBtn
             // 
-            this.GlasackoMestoBtn.Location = new System.Drawing.Point(12, 266);
+            this.GlasackoMestoBtn.Location = new System.Drawing.Point(12, 240);
             this.GlasackoMestoBtn.Name = "GlasackoMestoBtn";
             this.GlasackoMestoBtn.Size = new System.Drawing.Size(182, 23);
             this.GlasackoMestoBtn.TabIndex = 14;
@@ -203,7 +205,7 @@
             // 
             // RezIzbBtn
             // 
-            this.RezIzbBtn.Location = new System.Drawing.Point(12, 353);
+            this.RezIzbBtn.Location = new System.Drawing.Point(12, 327);
             this.RezIzbBtn.Name = "RezIzbBtn";
             this.RezIzbBtn.Size = new System.Drawing.Size(182, 23);
             this.RezIzbBtn.TabIndex = 15;
@@ -241,7 +243,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 117);
+            this.label3.Location = new System.Drawing.Point(9, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 19;
@@ -250,7 +252,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 454);
+            this.label4.Location = new System.Drawing.Point(9, 414);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 20;
@@ -259,7 +261,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(218, 117);
+            this.label5.Location = new System.Drawing.Point(218, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 21;
@@ -268,7 +270,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 250);
+            this.label6.Location = new System.Drawing.Point(9, 221);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 22;
@@ -286,7 +288,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(218, 250);
+            this.label9.Location = new System.Drawing.Point(218, 221);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(49, 13);
             this.label9.TabIndex = 25;
@@ -304,25 +306,17 @@
             // 
             // ShowCoord
             // 
-            this.ShowCoord.Location = new System.Drawing.Point(12, 191);
+            this.ShowCoord.Location = new System.Drawing.Point(12, 163);
             this.ShowCoord.Name = "ShowCoord";
             this.ShowCoord.Size = new System.Drawing.Size(182, 23);
             this.ShowCoord.TabIndex = 27;
             this.ShowCoord.Text = "Prikazi koordinatora";
             this.ShowCoord.UseVisualStyleBackColor = true;
-            // 
-            // AddHelper
-            // 
-            this.AddHelper.Location = new System.Drawing.Point(12, 220);
-            this.AddHelper.Name = "AddHelper";
-            this.AddHelper.Size = new System.Drawing.Size(182, 23);
-            this.AddHelper.TabIndex = 28;
-            this.AddHelper.Text = "Prikazi pomocnike koordinatora";
-            this.AddHelper.UseVisualStyleBackColor = true;
+            this.ShowCoord.Click += new System.EventHandler(this.ShowCoord_Click);
             // 
             // AddNote
             // 
-            this.AddNote.Location = new System.Drawing.Point(12, 423);
+            this.AddNote.Location = new System.Drawing.Point(12, 385);
             this.AddNote.Name = "AddNote";
             this.AddNote.Size = new System.Drawing.Size(182, 23);
             this.AddNote.TabIndex = 29;
@@ -331,7 +325,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 295);
+            this.button1.Location = new System.Drawing.Point(12, 269);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 23);
             this.button1.TabIndex = 30;
@@ -340,7 +334,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 324);
+            this.button2.Location = new System.Drawing.Point(12, 298);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(182, 23);
             this.button2.TabIndex = 31;
@@ -349,7 +343,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 528);
+            this.button3.Location = new System.Drawing.Point(12, 491);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(182, 23);
             this.button3.TabIndex = 32;
@@ -358,7 +352,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 557);
+            this.button4.Location = new System.Drawing.Point(12, 520);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(182, 23);
             this.button4.TabIndex = 33;
@@ -375,7 +369,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AddNote);
-            this.Controls.Add(this.AddHelper);
             this.Controls.Add(this.ShowCoord);
             this.Controls.Add(this.ShowActv);
             this.Controls.Add(this.label9);
@@ -440,7 +433,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ShowActv;
         private System.Windows.Forms.Button ShowCoord;
-        private System.Windows.Forms.Button AddHelper;
         private System.Windows.Forms.Button AddNote;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
