@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Izbori.Entiteti;
 
 namespace Izbori
 {
@@ -28,8 +29,7 @@ namespace Izbori
             try {
                 ISession s = DataLayer.GetSession();
 
-
-                Izbori.Entiteti.DeljenjeLetaka dl = new Izbori.Entiteti.DeljenjeLetaka();
+                DeljenjeLetaka dl = new DeljenjeLetaka();
 
 
                 dl.NazivAkcije = "Posejimo ulice";
@@ -48,7 +48,7 @@ namespace Izbori
                 ISession s = DataLayer.GetSession();
 
 
-                Izbori.Entiteti.SusretKandidata sk = new Izbori.Entiteti.SusretKandidata();
+                SusretKandidata sk = new SusretKandidata();
 
 
                 sk.NazivAkcije = "U susret budućnosti";
@@ -67,6 +67,43 @@ namespace Izbori
 
         private void AkcMitBtn_Click(object sender, EventArgs e) {
 
+        }
+
+        private void RezIzbBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowActv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Aktivista akt = s.Load<Aktivista>(2);
+
+                string info =
+                    "Licni podaci: " + akt.Ime + " " + akt.ImeRod + " " + akt.Prezime +
+                    "\nAdresa: " + akt.Ulica + " " + akt.Broj + " " + akt.Grad +
+                    "\nEmail: ";
+                for(int i = 0; i < akt.email.Count; i++)
+                {
+                    info += akt.email[i].eMail + " ";
+                }
+                info += "\nBrojevi telefona: ";
+                for(int i = 0; i < akt.brTel.Count; i++)
+                {
+                    info += akt.brTel[i].BrojTel + " ";
+                }
+                info += "\nNadredjeni aktivisti: " + akt.koord.Ime + " " + akt.koord.Prezime;
+
+                MessageBox.Show(info, "Aktivista sa ID " + akt.ID);
+                s.Close();
+            }
+            catch (Exception ex)
+	        {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

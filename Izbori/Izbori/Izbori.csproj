@@ -45,6 +45,10 @@
       <HintPath>..\packages\NHibernate.4.0.0.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.24160419\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,7 +64,10 @@
   <ItemGroup>
     <Compile Include="Entiteti\Akcija.cs" />
     <Compile Include="DataLayer.cs" />
+    <Compile Include="Entiteti\Aktivista.cs" />
+    <Compile Include="Entiteti\BrTel.cs" />
     <Compile Include="Entiteti\DeljenjeLetaka.cs" />
+    <Compile Include="Entiteti\EMailAktiviste.cs" />
     <Compile Include="Entiteti\Gost.cs" />
     <Compile Include="Entiteti\IntervjuNovine.cs" />
     <Compile Include="Entiteti\Miting.cs" />
@@ -82,8 +89,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Mapiranja\AkcijaMapiranja.cs" />
+    <Compile Include="Mapiranja\AktivistaMapiranja.cs" />
+    <Compile Include="Mapiranja\BrTelMapiranja.cs" />
     <Compile Include="Mapiranja\DeljenjeLetakaMapiranja.cs" />
+    <Compile Include="Mapiranja\EmailMapiranja.cs" />
     <Compile Include="Mapiranja\GostMapiranja.cs" />
+    <Compile Include="Mapiranja\KoordinatorMapiranja.cs" />
     <Compile Include="Mapiranja\MitingMapiranja.cs" />
     <Compile Include="Mapiranja\MitingZatvoreniPMapiranja.cs" />
     <Compile Include="Mapiranja\SusretKandidataMapiranja.cs" />
