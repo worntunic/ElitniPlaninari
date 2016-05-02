@@ -14,14 +14,13 @@ namespace Izbori.Mapiranja
         {
             Table("IntervjuNovine");
             
-            //HasMany()
-
             KeyColumn("ID");
-            Map(x => x.ID).Column("ID");
+                        
             Map(x => x.NazivLista).Column("NazivLista");
             Map(x => x.DatumObjavljivanja).Column("DatumObjavljivanja");
             Map(x => x.DatumIntervjua).Column("DatumIntervjua");
 
+            HasMany(x => x.Novinari).KeyColumn("Novinari").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

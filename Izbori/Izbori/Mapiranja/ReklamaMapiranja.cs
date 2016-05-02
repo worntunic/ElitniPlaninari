@@ -14,15 +14,11 @@ namespace Izbori.Mapiranja
         {
             Table("Reklama");
 
-            //DiscriminateSubClassesOnColumn("TIP");
-            
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity().UnsavedValue(-1);
+            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
             
             Map(x => x.CenaZakupa).Column("CenaZakupa");
             Map(x => x.DatumZakupa).Column("DatumZakupa");
             Map(x => x.TrajanjeZakupa).Column("TrajanjeZakupa");
-
-
         }
     }
 }

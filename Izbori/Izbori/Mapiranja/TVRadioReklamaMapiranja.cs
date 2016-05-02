@@ -15,8 +15,7 @@ namespace Izbori.Mapiranja
             Table("TVRadioReklama");
 
             KeyColumn("ID");
-
-            Map(x => x.ID).Column("ID");
+            
             Map(x => x.BrojPonavljanja).Column("BrojPonavljanja");
             Map(x => x.Trajanje).Column("Trajanje");
             Map(x => x.NazivStanice).Column("NazivStanice");

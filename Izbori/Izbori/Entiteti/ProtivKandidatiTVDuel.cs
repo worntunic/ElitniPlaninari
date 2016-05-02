@@ -10,5 +10,6 @@ namespace Izbori.Entiteti
     {
         public virtual TVDuel IDDuela { get; set; }
         public virtual string ImePK { get; set; } //ProtivKandidata
+        public virtual int IDPK { get; set; }//protivkandidata
     }
 }

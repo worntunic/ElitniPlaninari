@@ -15,8 +15,7 @@ namespace Izbori.Mapiranja
             Table("NovineReklama");
 
             KeyColumn("ID");
-
-            Map(x => x.ID).Column("ID");
+            
             Map(x => x.Uboji).Column("Uboji");
             Map(x => x.NazivLista).Column("NazivLista");
         }

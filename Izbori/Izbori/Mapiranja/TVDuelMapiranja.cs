@@ -16,7 +16,8 @@ namespace Izbori.Mapiranja
             
             KeyColumn("IDTVRG");
 
-            Map(x => x.IDTVRG).Column("IDTVRG");
+            HasMany(x => x.Pitanja).KeyColumn("Pitanja").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.ProtivKandidati).KeyColumn("ProtivKandidati").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

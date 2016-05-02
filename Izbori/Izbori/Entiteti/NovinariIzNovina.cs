@@ -10,5 +10,6 @@ namespace Izbori.Entiteti
     {
         public virtual IntervjuNovine IDIntervjua { get; set; }
         public virtual string ImeNovinara { get; set; }
+        public virtual int IDNovinara { get; set; }
     }
 }
