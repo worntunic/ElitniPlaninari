@@ -30,17 +30,15 @@ namespace Izbori {
         //konfiguracija i kreiranje session factory
         private static ISessionFactory CreateSessionFactory() {
             try {
-                var cfg = OracleManagedDataClientConfiguration.Oracle10
-                .ConnectionString(c =>
+                var cfg = OracleClientConfiguration.Oracle10
+                    .ShowSql()
+                    .ConnectionString(c =>
                     c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S14665;Password=Train94"));
 
                 return Fluently.Configure()
                     .Database(cfg)
-                    .Mappings(m => m.FluentMappings.Add<AkcijaMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<DeljenjeLetakaMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<SusretKandidataMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<MitingMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<MitingZatvoreniPMapiranja>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<AkcijaMapiranja>())
+                    //.Diagnostics(d => d.Enable().OutputToConsole())
                     .BuildSessionFactory();
             } catch (Exception ec) {
                 System.Windows.Forms.MessageBox.Show(ec.Message);
