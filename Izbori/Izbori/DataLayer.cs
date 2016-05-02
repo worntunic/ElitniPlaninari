@@ -30,14 +30,20 @@ namespace Izbori {
         //konfiguracija i kreiranje session factory
         private static ISessionFactory CreateSessionFactory() {
             try {
-                var cfg = OracleClientConfiguration.Oracle10
-                    .ShowSql()
+                var cfg = OracleManagedDataClientConfiguration.Oracle10
+                    //.ShowSql()
                     .ConnectionString(c =>
-                    c.Is("Data Source=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;User Id=S14665;Password=Train94"));
+                    c.Is("DATA SOURCE=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;USER ID=S14665;Password=Train94"));
 
                 return Fluently.Configure()
                     .Database(cfg)
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<AkcijaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<AkcijaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<DeljenjeLetakaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<LokacijaDeljenjaLetakaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<MitingMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<MitingZatvoreniPMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<GostMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<SusretKandidataMapiranja>())
                     //.Diagnostics(d => d.Enable().OutputToConsole())
                     .BuildSessionFactory();
             } catch (Exception ec) {

@@ -14,7 +14,7 @@ namespace Izbori.Mapiranja {
 
             Map(x => x.Lokacija).Column("Lokacija");
 
-            HasMany(x => x.Gosti).KeyColumn("IDMiting").LazyLoad().Cascade.All();
+            HasMany(x => x.Gosti).KeyColumn("IDMiting").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

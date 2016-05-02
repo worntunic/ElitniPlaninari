@@ -95,11 +95,11 @@ namespace Izbori
                 s.Save(gost1);
 
                 Gost gost2 = new Gost();
-                gost1.Ime = "Plameni";
-                gost1.Prezime = "Jezik";
-                gost1.Titula = "Grešnik";
-                gost1.Funkcija = "Ponizni";
-                gost1.Miting = mit;
+                gost2.Ime = "Plameni";
+                gost2.Prezime = "Jezik";
+                gost2.Titula = "Grešnik";
+                gost2.Funkcija = "Ponizni";
+                gost2.Miting = mit;
                 s.Save(gost2);
 
                 s.Close();
@@ -300,7 +300,7 @@ namespace Izbori
             try {
                 ISession s = DataLayer.GetSession();
 
-                Miting mit = s.Load<Miting>(1);
+                Miting mit = s.Load<Miting>(27);
 
                 string info =
                     "Miting je održan na lokaciji : \" " + mit.Lokacija + "\". \n";
@@ -308,7 +308,7 @@ namespace Izbori
                     info += "\n Od gostiju prisustvovali su:\n";
                 }
                 else {
-                    info += "Nije zabelezen nijedan gost :(.\n"
+                    info += "Nije zabelezen nijedan gost :(.\n";
                 }
                 for (int i = 0; i < mit.Gosti.Count; i++) {
                     info += mit.Gosti[i].Funkcija + " " + mit.Gosti[i].Titula + " "
@@ -325,8 +325,8 @@ namespace Izbori
             try {
                 ISession s = DataLayer.GetSession();
 
-                Miting mit = s.Load<Miting>(1);
-                string info;
+                Miting mit = s.Load<Miting>(26);
+                string info = "";
                 if (mit.Gosti.Count <= 0) {
                     info += "Nije zabelezen nijedan gost :(.\n";
                 } else {
