@@ -8,10 +8,9 @@ namespace Izbori.Entiteti
 {
     public class Akcija
     {
-        public virtual int ID { get; protected set; }
+        public virtual int ID { get; set; }
         public virtual string NazivAkcije { get; set; }
         public virtual string Grad { get; set; }
 
-        //TODO: Treba dodati entitete veza
     }
 }

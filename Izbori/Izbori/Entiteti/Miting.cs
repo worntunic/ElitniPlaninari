@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Izbori.Entiteti {
     public class Miting : Akcija {
         public virtual string Lokacija { get; set; }
-        public virtual IList<Gost> Gosti { get; set; }
+        public virtual IList<Gost> Gost { get; set; }
 
         public Miting() {
-            Gosti = new List<Gost>();
+            Gost = new List<Gost>();
         }
     }
 }

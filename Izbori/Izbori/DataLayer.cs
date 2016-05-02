@@ -31,7 +31,7 @@ namespace Izbori {
         private static ISessionFactory CreateSessionFactory() {
             try {
                 var cfg = OracleManagedDataClientConfiguration.Oracle10
-                    //.ShowSql()
+                    .ShowSql()
                     .ConnectionString(c =>
                     c.Is("DATA SOURCE=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;USER ID=S14665;Password=Train94"));
 

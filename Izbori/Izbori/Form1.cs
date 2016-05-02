@@ -299,12 +299,11 @@ namespace Izbori
         private void button3_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
+                Miting mit = s.Load<Miting>(26);
 
-                Miting mit = s.Load<Miting>(27);
-
-                string info =
-                    "Miting je održan na lokaciji : \" " + mit.Lokacija + "\". \n";
-                if(mit.Gosti.Count > 0) {
+                string info = "";
+                info += "Miting je održan na lokaciji : \" " + mit.Grad + "\". \n";
+                /*if(mit.Gosti.Count > 0) {
                     info += "\n Od gostiju prisustvovali su:\n";
                 }
                 else {
@@ -313,8 +312,10 @@ namespace Izbori
                 for (int i = 0; i < mit.Gosti.Count; i++) {
                     info += mit.Gosti[i].Funkcija + " " + mit.Gosti[i].Titula + " "
                         + mit.Gosti[i].Ime + " " + mit.Gosti[i].Prezime + "\n";
-                }
-                MessageBox.Show(info, "Miting sa ID " + mit.ID);
+                }*/
+
+                MessageBox.Show(info, "Miting sa ID " + mit.ID.ToString());
+
                 s.Close();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -327,16 +328,43 @@ namespace Izbori
 
                 Miting mit = s.Load<Miting>(26);
                 string info = "";
-                if (mit.Gosti.Count <= 0) {
+                if (mit.Gost.Count <= 0) {
                     info += "Nije zabelezen nijedan gost :(.\n";
                 } else {
-                    for (int i = 0; i < mit.Gosti.Count; i++) {
-                        info += mit.Gosti[i].Funkcija + " " + mit.Gosti[i].Titula + " "
-                            + mit.Gosti[i].Ime + " " + mit.Gosti[i].Prezime + "\n";
+                    for (int i = 0; i < mit.Gost.Count; i++) {
+                        info += mit.Gost[i].Funkcija + " " + mit.Gost[i].Titula + " "
+                            + mit.Gost[i].Ime + " " + mit.Gost[i].Prezime + "\n";
                     }
                 }
                 
                 MessageBox.Show(info, "Miting sa ID " + mit.ID);
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+                DeljenjeLetaka dl = s.Load<DeljenjeLetaka>(17);
+                string info = "";
+                info += "Deljenje Letaka " + dl.NazivAkcije + " u gradu " + dl.Grad;
+                MessageBox.Show(info, "Deljenje letaka " + dl.ID);
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+                SusretKandidata sk = s.Load<SusretKandidata>(20);
+                string info = "";
+                info += "Susret Kandidata " + sk.NazivAkcije + " u gradu " + sk.Grad;
+                info += "\n Pocinje u " + sk.PlaniranoVreme + " na lokaciji " + sk.Lokacija;
+                MessageBox.Show(info, "Deljenje letaka " + sk.ID);
                 s.Close();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
