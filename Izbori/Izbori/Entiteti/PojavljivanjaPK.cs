@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class ProtivKandidatiTVDuel
+    abstract class PojavljivanjaPK
     {
-        public virtual TVDuel IDDuela { get; set; }
-        public virtual string ImePK { get; set; } //ProtivKandidata
+        public virtual int ID { get; set; }
     }
 }

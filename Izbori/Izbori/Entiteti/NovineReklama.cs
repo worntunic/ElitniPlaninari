@@ -8,7 +8,7 @@ namespace Izbori.Entiteti
 {
     class NovineReklama : Reklama
     {
-        public virtual string UBoji { get; set; }
+        public virtual string Uboji { get; set; }
         public virtual string NazivLista { get; set; }
     }
 }
