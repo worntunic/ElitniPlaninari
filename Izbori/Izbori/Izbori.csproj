@@ -70,6 +70,7 @@
     <Compile Include="Entiteti\EMailAktiviste.cs" />
     <Compile Include="Entiteti\Gost.cs" />
     <Compile Include="Entiteti\IntervjuNovine.cs" />
+    <Compile Include="Entiteti\LokacijaDeljenjaLetaka.cs" />
     <Compile Include="Entiteti\Miting.cs" />
     <Compile Include="Entiteti\MitingZatvoreniP.cs" />
     <Compile Include="Entiteti\NovinariIzNovina.cs" />
@@ -95,9 +96,10 @@
     <Compile Include="Mapiranja\DeljenjeLetakaMapiranja.cs" />
     <Compile Include="Mapiranja\EmailMapiranja.cs" />
     <Compile Include="Mapiranja\GostMapiranja.cs" />
-	<Compile Include="Mapiranja\KoordinatorMapiranja.cs" />
-	 <Compile Include="Mapiranja\IntervjuNovineMapiranja.cs" />
-	 <Compile Include="Mapiranja\MitingMapiranja.cs" />
+    <Compile Include="Mapiranja\KoordinatorMapiranja.cs" />
+    <Compile Include="Mapiranja\IntervjuNovineMapiranja.cs" />
+    <Compile Include="Mapiranja\LokacijaDeljenjaLetakaMapiranja.cs" />
+    <Compile Include="Mapiranja\MitingMapiranja.cs" />
     <Compile Include="Mapiranja\MitingZatvoreniPMapiranja.cs" />
     <Compile Include="Mapiranja\NovinariIzNovinaMapiranja.cs" />
     <Compile Include="Mapiranja\NovineReklamaMapiranja.cs" />

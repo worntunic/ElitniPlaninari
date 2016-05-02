@@ -5,12 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Entiteti {
-    public class Miting : Akcija {
+    public class LokacijaDeljenjaLetaka {
+        public virtual int ID { get; set; }
+        public virtual DeljenjeLetaka DeljenjeLetaka { get; set; }
         public virtual string Lokacija { get; set; }
-        public virtual IList<Gost> Gosti { get; set; }
-
-        public Miting() {
-            Gosti = new List<Gost>();
-        }
     }
 }

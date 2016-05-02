@@ -322,14 +322,14 @@ INSERT INTO EMailAktivista (IDAkt, Email) VALUES (30, 'astranke@yahoo.com');
 
 -- Lokacije deljenja letaka
 
-INSERT INTO LokacijaDeljenjaLetaka VALUES (17, 'Bulevar Nemanjića');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (17, 'Bulevar Zorana Điniđića');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (18, 'Gradski trg');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (19, 'Trg Kralja Milana');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (15, 'Zemunski kej');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (15, 'Kalemegdan');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (16, 'Pobedina');
-INSERT INTO LokacijaDeljenjaLetaka VALUES (16, 'Plato ispred TC Kalča');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (17, 'Bulevar Nemanjića');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (17, 'Bulevar Zorana Điniđića');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (18, 'Gradski trg');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (19, 'Trg Kralja Milana');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (15, 'Zemunski kej');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (15, 'Kalemegdan');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (16, 'Pobedina');
+INSERT INTO LokacijaDeljenjaLetaka (IdAkcD, Lokacija) VALUES (16, 'Plato ispred TC Kalča');
 
 -- Aktivsi koji su posmatraci na glasackim mestima
 UPDATE AktivistaStranke

@@ -13,11 +13,11 @@ namespace Izbori.Mapiranja
         public ProtivKandidatiTVDuelMapiranja()
         {
             Table("ProtivKandidatiTVDuel");
-            CompositeId(x => x.Id)
+            /*CompositeId(x => x.Id)
                 .KeyReference(x => x.IDDuela, "IDDuela")
                 .KeyReference(x => x.ImePK, "ImePK");
             Map(x => x.IDDuela).Column("IDDuela");
-            Map(x => x.ImePK).Column("ImePK");
+            Map(x => x.ImePK).Column("ImePK");*/
         }
     }
 }

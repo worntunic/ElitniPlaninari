@@ -12,6 +12,8 @@ namespace Izbori.Mapiranja {
             Table("DeljenjeLetaka");
 
             KeyColumn("ID");
+
+            HasMany(x => x.LokacijaDeljenjaLetaka).KeyColumn("ID").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

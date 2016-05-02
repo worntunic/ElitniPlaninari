@@ -13,6 +13,8 @@ namespace Izbori.Mapiranja {
             KeyColumn("ID");
 
             Map(x => x.Lokacija).Column("Lokacija");
+
+            HasMany(x => x.Gosti).KeyColumn("IDMiting").LazyLoad().Cascade.All();
         }
     }
 }

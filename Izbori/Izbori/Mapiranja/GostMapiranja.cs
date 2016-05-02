@@ -11,11 +11,13 @@ namespace Izbori.Mapiranja {
             Table("Gost");
 
             Id(x => x.ID_GOST, "ID_GOST").GeneratedBy.TriggerIdentity();
-            //Mapiranje kljuca mitinga
+            References(x => x.Miting).Column("IDMiting").Cascade.None();
             Map(x => x.Ime, "Ime");
             Map(x => x.Prezime, "Prezime");
             Map(x => x.Titula, "Titula");
             Map(x => x.Funkcija, "Funkcija");
+
+
         }
     }
 }
