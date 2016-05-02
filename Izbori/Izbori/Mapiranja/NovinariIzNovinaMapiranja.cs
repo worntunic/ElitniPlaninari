@@ -8,12 +8,16 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class NovinariIzNovinaMapiranja : SubclassMap<NovinariIzNovina>
+    class NovinariIzNovinaMapiranja : ClassMap<NovinariIzNovina>
     {
         public NovinariIzNovinaMapiranja()
         {
             Table("NovinariIzNovina");
-            Map(x => x.ImeNovinara).Column("ImeNovinara");            
+
+            Id(x => x.IDNovinara, "IDNovinara").GeneratedBy.TriggerIdentity();
+
+            Map(x => x.ImeNovinara).Column("ImeNovinara");
+            References(x => x.IDIntervjua).Column("IDIntervjua").LazyLoad();
         }
     }
 }

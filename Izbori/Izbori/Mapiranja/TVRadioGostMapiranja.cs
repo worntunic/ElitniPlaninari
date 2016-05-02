@@ -15,8 +15,7 @@ namespace Izbori.Mapiranja
             Table("TVRadioGost");
 
             KeyColumn("ID");
-
-            Map(x => x.ID).Column("ID");
+                        
             Map(X => X.NazivStanice).Column("NazivStanice");
             Map(X => X.NazivEmisije).Column("NazivEmisije");
             Map(X => X.ImeVoditelja).Column("ImeVoditelja");

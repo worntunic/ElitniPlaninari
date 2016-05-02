@@ -15,8 +15,7 @@ namespace Izbori.Mapiranja
             Table("PanoReklama");
 
             KeyColumn("ID");
-
-            Map(x => x.ID).Column("ID");
+                        
             Map(x => x.Grad).Column("Grad");
             Map(x => x.Ulica).Column("Ulica");
             Map(x => x.Vlasnik).Column("Vlasnik");
