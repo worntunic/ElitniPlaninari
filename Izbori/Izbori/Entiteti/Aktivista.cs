@@ -20,11 +20,14 @@ namespace Izbori.Entiteti
         //public virtual int IDGM { get; set; } //id glasackog mesta na kome je posmatrac
         public virtual IList<EMailAktiviste> email { get; set; }
         public virtual IList<BrTel> brTel { get; set; }
-
+        public virtual IList<Akcija> Akcije { get; set; }
+        public virtual IList<Primedbe> Primedbe { get; set; }
         public Aktivista()
         {
             email = new List<EMailAktiviste>();
             brTel = new List<BrTel>();
+            Akcije = new List<Akcija>();
+            Primedbe = new List<Primedbe>();
         }
     }
 

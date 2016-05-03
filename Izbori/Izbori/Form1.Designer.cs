@@ -196,6 +196,7 @@
             this.AngAktnaGMBtn.TabIndex = 13;
             this.AngAktnaGMBtn.Text = "Angazuj Aktivistu na Glasacko Mesto";
             this.AngAktnaGMBtn.UseVisualStyleBackColor = true;
+            this.AngAktnaGMBtn.Click += new System.EventHandler(this.AngAktnaGMBtn_Click);
             // 
             // GlasackoMestoBtn
             // 
@@ -205,6 +206,7 @@
             this.GlasackoMestoBtn.TabIndex = 14;
             this.GlasackoMestoBtn.Text = "Dodaj Glasacko Mesto";
             this.GlasackoMestoBtn.UseVisualStyleBackColor = true;
+            this.GlasackoMestoBtn.Click += new System.EventHandler(this.GlasackoMestoBtn_Click);
             // 
             // RezIzbBtn
             // 
@@ -325,6 +327,7 @@
             this.AddNote.TabIndex = 29;
             this.AddNote.Text = "Dodaj primedbe aktiviste";
             this.AddNote.UseVisualStyleBackColor = true;
+            this.AddNote.Click += new System.EventHandler(this.AddNote_Click);
             // 
             // button1
             // 
@@ -334,6 +337,7 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "Prikazi glasacko mesto";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -343,6 +347,7 @@
             this.button2.TabIndex = 31;
             this.button2.Text = "Dodaj rezultate izbora";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 

@@ -68,6 +68,7 @@
     <Compile Include="Entiteti\BrTel.cs" />
     <Compile Include="Entiteti\DeljenjeLetaka.cs" />
     <Compile Include="Entiteti\EMailAktiviste.cs" />
+    <Compile Include="Entiteti\GlasackoMesto.cs" />
     <Compile Include="Entiteti\Gost.cs" />
     <Compile Include="Entiteti\IntervjuNovine.cs" />
     <Compile Include="Entiteti\LokacijaDeljenjaLetaka.cs" />
@@ -78,8 +79,10 @@
     <Compile Include="Entiteti\PanoReklama.cs" />
     <Compile Include="Entiteti\PitanjaTVDuel.cs" />
     <Compile Include="Entiteti\PojavljivanjaPK.cs" />
+    <Compile Include="Entiteti\Primedbe.cs" />
     <Compile Include="Entiteti\ProtivKandidatiTVDuel.cs" />
     <Compile Include="Entiteti\Reklama.cs" />
+    <Compile Include="Entiteti\RezultatiIzbora.cs" />
     <Compile Include="Entiteti\SusretKandidata.cs" />
     <Compile Include="Entiteti\TVDuel.cs" />
     <Compile Include="Entiteti\TVRadioGost.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="Mapiranja\BrTelMapiranja.cs" />
     <Compile Include="Mapiranja\DeljenjeLetakaMapiranja.cs" />
     <Compile Include="Mapiranja\EmailMapiranja.cs" />
+    <Compile Include="Mapiranja\GlasackoMestoMapiranja.cs" />
     <Compile Include="Mapiranja\GostMapiranja.cs" />
     <Compile Include="Mapiranja\KoordinatorMapiranja.cs" />
     <Compile Include="Mapiranja\IntervjuNovineMapiranja.cs" />
@@ -106,8 +110,10 @@
     <Compile Include="Mapiranja\PanoReklamaMapiranja.cs" />
     <Compile Include="Mapiranja\PitanjaTVDuelMapiranja.cs" />
     <Compile Include="Mapiranja\PojavljivanjaPKMapiranja.cs" />
+    <Compile Include="Mapiranja\PrimedbeMapiranja.cs" />
     <Compile Include="Mapiranja\ProtivKandidatiTVDuelMapiranja.cs" />
     <Compile Include="Mapiranja\ReklamaMapiranja.cs" />
+    <Compile Include="Mapiranja\RezultatiIzboraMapiranja.cs" />
     <Compile Include="Mapiranja\SusretKandidataMapiranja.cs" />
     <Compile Include="Mapiranja\TVDuelMapiranja.cs" />
     <Compile Include="Mapiranja\TVRadioGostMapiranja.cs" />

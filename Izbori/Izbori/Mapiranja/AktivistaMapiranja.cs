@@ -27,6 +27,13 @@ namespace Izbori.Mapiranja
             HasMany(x => x.brTel).KeyColumn("IDAkt").LazyLoad().Cascade.All().Inverse();
 
             References(x => x.koord).Column("IDKOORD").LazyLoad();
+
+            HasManyToMany(x => x.Akcije)
+                .Table("AktivnostiAktivista")
+                .ParentKeyColumn("IDAkt")
+                .ChildKeyColumn("IDAkc")
+                .Inverse().Cascade.All();
+            HasMany(x => x.Primedbe).KeyColumn("IDAkt").Inverse().Cascade.All();
             //References(x => x.IDGM).Column("IDGM").LazyLoad();
         }
     }

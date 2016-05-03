@@ -111,7 +111,19 @@ namespace Izbori
 
         private void RezIzbBtn_Click(object sender, EventArgs e)
         {
-
+            try {
+                ISession s = DataLayer.GetSession();
+                RezultatiIzbora ri = s.Load<RezultatiIzbora>(4);
+                string info = "";
+                info += "Na izbore odrzane na glasackom mestu " + ri.GlasackoMesto.Naziv
+                    + ", u " + ri.BrKruga + ". krugu, izaslo je " + ri.BrBiraca + 
+                    " biraca od ukupno " + ri.GlasackoMesto.BrojRegBir + " registrovanih, od cega je " 
+                    + ri.ProcenatZaKandidata + "% glasalo za naseg kandidata.";
+                MessageBox.Show(info, "Glasacko mesto " + ri.ID);
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ShowActv_Click(object sender, EventArgs e)
@@ -366,6 +378,111 @@ namespace Izbori
                 info += "\n Pocinje u " + sk.PlaniranoVreme + " na lokaciji " + sk.Lokacija;
                 MessageBox.Show(info, "Deljenje letaka " + sk.ID);
                 s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+                GlasackoMesto gm = s.Load<GlasackoMesto>(3);
+                string info = "";
+                info += "Glasacko Mesto: " + gm.Naziv + "\n sa rednim brojem " + gm.BrojGM
+                    + "\n obuhvata " + gm.BrojRegBir + " registrovanih glasaca.";
+                MessageBox.Show(info, "Glasacko mesto " + gm.ID);
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GlasackoMestoBtn_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                GlasackoMesto gm = new GlasackoMesto();
+
+                gm.Naziv = "Osnovna Škola Ivan Goran Kovačić Niška Banja";
+                gm.BrojRegBir = 4800;
+                gm.BrojGM = 152;
+                s.Save(gm);
+
+                /*RezultatiIzbora ri = new RezultatiIzbora();
+                ri.BrBiraca = 2200;
+                ri.BrKruga = 1;
+                ri.GlasackoMesto = gm;
+                ri.ProcenatZaKandidata = 12;
+                s.Save(ri);*/
+                              
+
+                s.Close();
+
+                MessageBox.Show("Uspesno sacuvan");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                GlasackoMesto gm = s.Load<GlasackoMesto>(151);
+
+                RezultatiIzbora ri = new RezultatiIzbora();
+                ri.BrBiraca = 2200;
+                ri.BrKruga = 1;
+                ri.GlasackoMesto = gm;
+                ri.ProcenatZaKandidata = 12;
+                s.Save(ri);
+
+
+                s.Close();
+
+                MessageBox.Show("Uspesno sacuvan");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AngAktnaGMBtn_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                GlasackoMesto gm = s.Load<GlasackoMesto>(151);
+                Aktivista akt = s.Load<Aktivista>(62);
+                Primedbe pr = new Primedbe();
+                pr.Aktivista = akt;
+                pr.GlasackoMesto = gm;
+                pr.TekstPrim = " ";
+                s.Save(pr);
+
+
+                s.Close();
+
+                MessageBox.Show("Uspesno sacuvan");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AddNote_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                GlasackoMesto gm = s.Load<GlasackoMesto>(2);
+                Aktivista akt = s.Load<Aktivista>(20);
+                Primedbe pr = new Primedbe();
+                pr.Aktivista = akt;
+                pr.GlasackoMesto = gm;
+                pr.TekstPrim = "Posluženje je bilo skromno";
+                s.Save(pr);
+
+
+                s.Close();
+
+                MessageBox.Show("Uspesno sacuvan");
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }

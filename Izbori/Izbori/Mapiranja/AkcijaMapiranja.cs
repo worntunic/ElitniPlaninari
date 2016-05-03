@@ -16,7 +16,10 @@ namespace Izbori.Mapiranja {
             Map(x => x.NazivAkcije).Column("NazivAkcije");
             Map(x => x.Grad).Column("Grad");
 
-            //TODO: Kada se dodaju entiteti veza, dodati njihova mapiranja
+            HasManyToMany(x => x.Aktiviste)
+                .Table("AktivnostiAktivista")
+                .ParentKeyColumn("IDAkc")
+                .ChildKeyColumn("IDAkt");
         }
     }
 }
