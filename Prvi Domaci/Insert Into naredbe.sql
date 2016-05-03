@@ -207,11 +207,11 @@ INSERT INTO GlasackoMesto (Naziv, BrojGM, BrojRegBir) VALUES ('Gradska opština 
 
 -- Rezultati izbora
 
-INSERT INTO RezultatiIzbora VALUES (1, 2879, 8, 1);
-INSERT INTO RezultatiIzbora VALUES (1, 4326, 6, 2);
-INSERT INTO RezultatiIzbora VALUES (1, 5123, 9, 3);
-INSERT INTO RezultatiIzbora VALUES (1, 6871, 7, 4);
-INSERT INTO RezultatiIzbora VALUES (1, 5913, 9, 5);
+INSERT INTO RezultatiIzbora (BrKruga, BrBiraca, ProcenatZaKandidata, IDGM) VALUES (1, 2879, 8, 1);
+INSERT INTO RezultatiIzbora (BrKruga, BrBiraca, ProcenatZaKandidata, IDGM) VALUES (1, 4326, 6, 2);
+INSERT INTO RezultatiIzbora (BrKruga, BrBiraca, ProcenatZaKandidata, IDGM) VALUES (1, 5123, 9, 3);
+INSERT INTO RezultatiIzbora (BrKruga, BrBiraca, ProcenatZaKandidata, IDGM) VALUES (1, 6871, 7, 4);
+INSERT INTO RezultatiIzbora (BrKruga, BrBiraca, ProcenatZaKandidata, IDGM) VALUES (1, 5913, 9, 5);
 
 -- Gosti na mitinzima
 
@@ -224,23 +224,23 @@ INSERT INTO GOST (IDMiting, Ime, Prezime, Funkcija) VALUES (28, 'Andrija', 'Milo
 INSERT INTO GOST (IDMiting, Ime, Prezime, Titula, Funkcija) VALUES (28, 'Slobodan', 'Dačić', 'General', 'Ministar odbrane');
 
 -- Akcije aktivista
-INSERT INTO AktivnostiAktivista VALUES (1, 26);
-INSERT INTO AktivnostiAktivista VALUES (1, 21);
-INSERT INTO AktivnostiAktivista VALUES (4, 27);
-INSERT INTO AktivnostiAktivista VALUES (6, 16);
-INSERT INTO AktivnostiAktivista VALUES (9, 15);
-INSERT INTO AktivnostiAktivista VALUES (23, 22);
-INSERT INTO AktivnostiAktivista VALUES (21, 28);
-INSERT INTO AktivnostiAktivista VALUES (23, 19);
-INSERT INTO AktivnostiAktivista VALUES (25, 27);
-INSERT INTO AktivnostiAktivista VALUES (21, 24);
-INSERT INTO AktivnostiAktivista VALUES (2, 20);
-INSERT INTO AktivnostiAktivista VALUES (4, 17);
-INSERT INTO AktivnostiAktivista VALUES (9, 23);
-INSERT INTO AktivnostiAktivista VALUES (10, 18);
-INSERT INTO AktivnostiAktivista VALUES (14, 25);
-INSERT INTO AktivnostiAktivista VALUES (16, 26);
-INSERT INTO AktivnostiAktivista VALUES (17, 28);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (1, 26);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (1, 21);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (4, 27);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (6, 16);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (9, 15);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (23, 22);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (21, 28);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (23, 19);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (25, 27);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (21, 24);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (2, 20);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (4, 17);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (9, 23);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (10, 18);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (14, 25);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (16, 26);
+INSERT INTO AktivnostiAktivista (IDAkt, IDAkc) VALUES (17, 28);
 
 -- Brojevi telefona aktivista
 INSERT INTO BrTelAktivista (IDAkt, BrTel) VALUES (1, '063-555-0141');
@@ -353,7 +353,7 @@ SET IDGM = 5
 WHERE ID = 5 OR ID = 7 OR ID = 11;
 
 -- Primedbe
-INSERT INTO Primedbe VALUES (14, 1, 'Sugerisanje članova SRS-a penzionerima za koga da glasaju.');
-INSERT INTO Primedbe VALUES (18, 2, 'Dopuštanje glasačima da vode svoju decu do panoa gde zaokružuju listić. Trebalo bi da samo glasač stoji tamo, bez ikog drugog.');
-INSERT INTO Primedbe VALUES (5, 5, 'Jedna žena je gledala šta drugi zaokružuju i glasno komentarisala to. Intervenisala je policija.');
-INSERT INTO Primedbe VALUES (30, 3, 'Obećana je koka kola, a zapravo smo dobili bi kolu.');
+INSERT INTO Primedbe (IDAkt, IDGM, TekstPrim) VALUES (14, 1, 'Sugerisanje članova SRS-a penzionerima za koga da glasaju.');
+INSERT INTO Primedbe (IDAkt, IDGM, TekstPrim) VALUES (18, 2, 'Dopuštanje glasačima da vode svoju decu do panoa gde zaokružuju listić. Trebalo bi da samo glasač stoji tamo, bez ikog drugog.');
+INSERT INTO Primedbe (IDAkt, IDGM, TekstPrim) VALUES (5, 5, 'Jedna žena je gledala šta drugi zaokružuju i glasno komentarisala to. Intervenisala je policija.');
+INSERT INTO Primedbe (IDAkt, IDGM, TekstPrim) VALUES (30, 3, 'Obećana je koka kola, a zapravo smo dobili bi kolu.');
