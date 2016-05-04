@@ -305,7 +305,29 @@ namespace Izbori
         }
 
         private void GostMitBtn_Click(object sender, EventArgs e) {
-            //Ovo mozemo da uradimo samo za specificni miting, tako da mora da postoji prosleđivanje istog
+            try {
+                ISession s = DataLayer.GetSession();
+                Miting mit = s.Load<Miting>(26);
+
+                string info = "";
+                info += "Miting je održan na lokaciji : \" " + mit.Grad + "\". \n";
+                if(mit.Gosti.Count > 0) {
+                    info += "\n Od gostiju prisustvovali su:\n";
+                }
+                else {
+                    info += "Nije zabelezen nijedan gost :(.\n";
+                }
+                for (int i = 0; i < mit.Gosti.Count; i++) {
+                    info += mit.Gosti[i].Funkcija + " " + mit.Gosti[i].Titula + " "
+                        + mit.Gosti[i].Ime + " " + mit.Gosti[i].Prezime + "\n";
+                }
+
+                MessageBox.Show(info, "Miting sa ID " + mit.ID.ToString());
+
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e) {
@@ -340,12 +362,12 @@ namespace Izbori
 
                 Miting mit = s.Load<Miting>(26);
                 string info = "";
-                if (mit.Gost.Count <= 0) {
+                if (mit.Gosti.Count <= 0) {
                     info += "Nije zabelezen nijedan gost :(.\n";
                 } else {
-                    for (int i = 0; i < mit.Gost.Count; i++) {
-                        info += mit.Gost[i].Funkcija + " " + mit.Gost[i].Titula + " "
-                            + mit.Gost[i].Ime + " " + mit.Gost[i].Prezime + "\n";
+                    for (int i = 0; i < mit.Gosti.Count; i++) {
+                        info += mit.Gosti[i].Funkcija + " " + mit.Gosti[i].Titula + " "
+                            + mit.Gosti[i].Ime + " " + mit.Gosti[i].Prezime + "\n";
                     }
                 }
                 
@@ -480,6 +502,38 @@ namespace Izbori
                 s.Save(pr);
 
 
+                s.Close();
+
+                MessageBox.Show("Uspesno sacuvan");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void AkcijaAktivistiBtn_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                Aktivista akt = s.Load<Aktivista>(2);
+
+                DeljenjeLetaka dl = new DeljenjeLetaka();
+                dl.Aktiviste.Add(akt);
+                akt.Akcije.Add(dl);
+                dl.Grad = "Prosek";
+                dl.NazivAkcije = "Natprosečno prosečni";
+                s.Save(dl);
+
+                LokacijaDeljenjaLetaka ldl1 = new LokacijaDeljenjaLetaka();
+                ldl1.DeljenjeLetaka = dl;
+                ldl1.Lokacija = "Kod reke";
+                s.Save(ldl1);
+
+                LokacijaDeljenjaLetaka ldl2 = new LokacijaDeljenjaLetaka();
+                ldl2.DeljenjeLetaka = dl;
+                ldl2.Lokacija = "Na mostu";
+                s.Save(ldl2);
+
+                s.SaveOrUpdate(akt);
                 s.Close();
 
                 MessageBox.Show("Uspesno sacuvan");

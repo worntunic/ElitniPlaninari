@@ -19,7 +19,8 @@ namespace Izbori.Mapiranja {
             HasManyToMany(x => x.Aktiviste)
                 .Table("AktivnostiAktivista")
                 .ParentKeyColumn("IDAkc")
-                .ChildKeyColumn("IDAkt");
+                .ChildKeyColumn("IDAkt")
+                .Cascade.None();
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Izbori.Mapiranja {
         public MitingZatvoreniPMapiranja() {
             Table("MitingZatvoreniP");
 
-            KeyColumn("ID");
+            KeyColumn("IDMiting");
 
-            Map(x => x.NazivIznajmljivaca).Column("NazivIznajmljivaca");
+            Map(x => x.NazivIznajmljivaca).Column("Iznajmljivac");
             Map(x => x.Cena).Column("Cena");
         }
     }

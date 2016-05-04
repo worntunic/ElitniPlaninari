@@ -226,6 +226,7 @@
             this.AkcijaAktivistiBtn.TabIndex = 16;
             this.AkcijaAktivistiBtn.Text = "Dodeli Akciju Aktivisti";
             this.AkcijaAktivistiBtn.UseVisualStyleBackColor = true;
+            this.AkcijaAktivistiBtn.Click += new System.EventHandler(this.AkcijaAktivistiBtn_Click);
             // 
             // label1
             // 
