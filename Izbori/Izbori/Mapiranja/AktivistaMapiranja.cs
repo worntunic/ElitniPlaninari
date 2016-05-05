@@ -31,8 +31,7 @@ namespace Izbori.Mapiranja
             HasManyToMany(x => x.Akcije)
                 .Table("AktivnostiAktivista")
                 .ParentKeyColumn("IDAkt")
-                .ChildKeyColumn("IDAkc")
-                .Inverse().Cascade.All();
+                .ChildKeyColumn("IDAkc");
             HasMany(x => x.Primedbe).KeyColumn("IDAkt").Inverse().Cascade.All();
             //References(x => x.IDGM).Column("IDGM").LazyLoad();
         }

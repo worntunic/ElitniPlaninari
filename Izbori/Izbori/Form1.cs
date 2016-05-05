@@ -132,7 +132,7 @@ namespace Izbori
             {
                 ISession s = DataLayer.GetSession();
 
-                Aktivista akt = s.Load<Aktivista>(1);
+                Aktivista akt = s.Load<Aktivista>(18);
 
                 string info =
                     "Licni podaci: " + akt.Ime + " " + akt.ImeRod + " " + akt.Prezime +
@@ -151,6 +151,24 @@ namespace Izbori
                 if (akt.koord != null)
                 {
                     info += "\nNadredjeni aktivisti: " + akt.koord.Ime + " " + akt.koord.Prezime;
+                }
+
+                info += "\nAkcije: ";
+                for(int i = 0; i< akt.Akcije.Count; i++)
+                {
+                    info += akt.Akcije[i].NazivAkcije + "\n";
+                }
+                info += "\nPrimedbe: ";
+                for(int i = 0; i < akt.Primedbe.Count; i++)
+                {
+                    info += "Aktivista je angazovan na " + akt.Primedbe[i].GlasackoMesto.Naziv;
+                    if(akt.Primedbe[i].TekstPrim != null)
+                    {
+                        info += "\nImao je sledece primedbe: " + akt.Primedbe[i].TekstPrim;
+                    }else
+                    {
+                        info += "\nNije imao primedbe.";
+                    }
                 }
 
                 MessageBox.Show(info, "Aktivista sa ID " + akt.ID);
@@ -235,6 +253,8 @@ namespace Izbori
         {
             try
             {
+                //TODO
+
                 ISession s = DataLayer.GetSession();
                 int id = 2;
                 //kako izvrsiti proveru da li je lepo ucitan ili ne???
@@ -534,6 +554,7 @@ namespace Izbori
                 s.Save(ldl2);
 
                 s.SaveOrUpdate(akt);
+                s.Flush();
                 s.Close();
 
                 MessageBox.Show("Uspesno sacuvan");

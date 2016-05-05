@@ -20,7 +20,7 @@ namespace Izbori.Mapiranja {
                 .Table("AktivnostiAktivista")
                 .ParentKeyColumn("IDAkc")
                 .ChildKeyColumn("IDAkt")
-                .Cascade.None();
+                .Inverse().Cascade.All();
         }
     }
 }

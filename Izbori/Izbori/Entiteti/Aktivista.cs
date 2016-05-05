@@ -15,13 +15,12 @@ namespace Izbori.Entiteti
         public virtual string Ulica { get; set; }
         public virtual int Broj { get; set; }
         public virtual string Grad { get; set; }
-        public virtual Koordinator koord { get; set; } //id koordinatora ciji je pomconik
-        //TODO Glasacko mesto
-        //public virtual int IDGM { get; set; } //id glasackog mesta na kome je posmatrac
+        public virtual Koordinator koord { get; set; }
         public virtual IList<EMailAktiviste> email { get; set; }
         public virtual IList<BrTel> brTel { get; set; }
         public virtual IList<Akcija> Akcije { get; set; }
         public virtual IList<Primedbe> Primedbe { get; set; }
+
         public Aktivista()
         {
             email = new List<EMailAktiviste>();
@@ -33,7 +32,6 @@ namespace Izbori.Entiteti
 
     public class Koordinator : Aktivista
     {
-        //public virtual int IDAkt { get; set; }
         public virtual string Opstina { get; set; }
         public virtual string UlicaKanc { get; set; }
         public virtual string BrojKanc { get; set; }
