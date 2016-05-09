@@ -37,6 +37,8 @@ namespace Izbori {
 
                 return Fluently.Configure()
                     .Database(cfg)
+                    //.Mappings(m=>m.FluentMappings.AddFromAssemblyOf<AkcijaMapiranja>())
+                    //prepraviti da bude addFromAsemblyOf
                     .Mappings(m => m.FluentMappings.Add<AkcijaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<AktivistaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<BrTelMapiranja>())
@@ -51,7 +53,7 @@ namespace Izbori {
                     .Mappings(m => m.FluentMappings.Add<MitingZatvoreniPMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<GostMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<SusretKandidataMapiranja>())
-                    //.Diagnostics(d => d.Enable().OutputToConsole())
+                    .Diagnostics(d => d.Enable().OutputToConsole())
                     .BuildSessionFactory();
             } catch (Exception ec) {
                 System.Windows.Forms.MessageBox.Show(ec.Message);

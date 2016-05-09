@@ -16,6 +16,7 @@ namespace Izbori.Entiteti
         public virtual int Broj { get; set; }
         public virtual string Grad { get; set; }
         public virtual Koordinator koord { get; set; }
+        public virtual GlasackoMesto gm { get; set; }
         public virtual IList<EMailAktiviste> email { get; set; }
         public virtual IList<BrTel> brTel { get; set; }
         public virtual IList<Akcija> Akcije { get; set; }
@@ -34,13 +35,31 @@ namespace Izbori.Entiteti
     {
         public virtual string Opstina { get; set; }
         public virtual string UlicaKanc { get; set; }
-        public virtual string BrojKanc { get; set; }
+        public virtual int BrojKanc { get; set; }
         public virtual string GradKanc { get; set; }
         public virtual IList<Aktivista> Saradnici { get; set; }
 
         public Koordinator()
         {
             Saradnici = new List<Aktivista>();
+        }
+
+        public Koordinator(Aktivista a)
+        {
+            this.ID = a.ID;
+            this.Ime = a.Ime;
+            this.ImeRod = a.ImeRod;
+            this.Prezime = a.Prezime;
+            this.Ulica = a.Ulica;
+            this.Broj = a.Broj;
+            this.Grad = a.Grad;
+            this.email = a.email;
+            this.brTel = a.brTel;
+            this.Akcije = a.Akcije;
+            this.Primedbe = a.Primedbe;
+            this.gm = a.gm;
+
+            this.Saradnici = new List<Aktivista>();
         }
     }
 }

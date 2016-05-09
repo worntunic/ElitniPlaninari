@@ -33,7 +33,7 @@ namespace Izbori.Mapiranja
                 .ParentKeyColumn("IDAkt")
                 .ChildKeyColumn("IDAkc");
             HasMany(x => x.Primedbe).KeyColumn("IDAkt").Inverse().Cascade.All();
-            //References(x => x.IDGM).Column("IDGM").LazyLoad();
+            References(x => x.gm).Column("IDGM").LazyLoad();
         }
     }
 }

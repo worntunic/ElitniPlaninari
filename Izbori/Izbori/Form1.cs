@@ -55,11 +55,9 @@ namespace Izbori
         private void AkcSusKand_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
-
-
+                
                 SusretKandidata sk = new SusretKandidata();
-
-
+                
                 sk.NazivAkcije = "U susret budućnosti";
                 sk.Grad = "Jagodina";
                 sk.Lokacija = "Boks Klub Jagodinski Tigrovi";
@@ -68,7 +66,6 @@ namespace Izbori
                 s.Save(sk);
 
                 s.Close();
-
             } catch (Exception ec) {
                 MessageBox.Show(ec.Message);
             }
@@ -79,7 +76,6 @@ namespace Izbori
                 ISession s = DataLayer.GetSession();
 
                 Miting mit = new Miting();
-
 
                 mit.NazivAkcije = "Karma policija";
                 mit.Grad = "Vavilon";
@@ -161,7 +157,7 @@ namespace Izbori
                 info += "\nPrimedbe: ";
                 for(int i = 0; i < akt.Primedbe.Count; i++)
                 {
-                    info += "Aktivista je angazovan na " + akt.Primedbe[i].GlasackoMesto.Naziv;
+                    info += "Aktivista je angazovan na " + akt.gm.Naziv;
                     if(akt.Primedbe[i].TekstPrim != null)
                     {
                         info += "\nImao je sledece primedbe: " + akt.Primedbe[i].TekstPrim;
@@ -253,31 +249,38 @@ namespace Izbori
         {
             try
             {
-                //TODO
-
                 ISession s = DataLayer.GetSession();
-                int id = 2;
-                //kako izvrsiti proveru da li je lepo ucitan ili ne???
-
-                Aktivista akt = s.Load<Aktivista>(id);
-                Koordinator koord = s.Load<Koordinator>(id);
-                
-                //provera ne valja bas
-                if(akt != null && akt.koord == null && koord == null)
+                int id = 0;
+                bool notHelper = false;
+                bool notKoord = false;
+                Aktivista akt = null;
+                do
                 {
-                    IQuery q = s.CreateSQLQuery("insert into koordinator values (?, ?, ?, ?, ?)");
-                    q.SetParameter(0, akt.ID);
-                    q.SetParameter(1, "Stari grad");
-                    q.SetParameter(2, "Strahinića Bana");
-                    q.SetParameter(3, 21);
-                    q.SetParameter(4, "Beograd");
-                    q.ExecuteUpdate();
+                    //trazenje prvog koji nije koordinator a ni pomocnik
+                    id++;
+                    akt = s.Load<Aktivista>(id);
+                    notHelper = akt.koord == null;
+                    notKoord = s.QueryOver<Koordinator>().Where(x => x.ID == akt.ID).RowCount() == 0;
+                } while (!notHelper || !notKoord);
+
+                if (notKoord && notHelper)
+                {
+                    Koordinator koord = new Koordinator(akt);
+
+                    //koord.ID = akt.ID;
+
+                    koord.Opstina = "Stari grad";
+                    koord.UlicaKanc = "Strahinića Bana";
+                    koord.BrojKanc = 21;
+                    koord.GradKanc = "Beograd";
+                    s.Delete(akt);
+                    s.Save(koord);
                     
                     MessageBox.Show("Uspesno dodat koordinator.");
 
                     s.Close();
                 }
-                else if (akt.koord == null)
+                else if (notHelper)
                 {
                     MessageBox.Show("Ovaj aktivista je vec koordinator.");
                 }

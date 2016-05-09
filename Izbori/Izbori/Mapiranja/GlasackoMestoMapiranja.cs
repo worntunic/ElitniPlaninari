@@ -18,6 +18,7 @@ namespace Izbori.Mapiranja {
 
             HasMany(x => x.RezultatiIzbora).KeyColumn("IDGM").Inverse();
             HasMany(x => x.Primedbe).KeyColumn("IDGM").Inverse();
+            HasMany(x => x.Posmatraci).KeyColumn("IDGM").Inverse();
         }
     }
 }
