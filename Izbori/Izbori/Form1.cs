@@ -265,16 +265,32 @@ namespace Izbori
 
                 if (notKoord && notHelper)
                 {
+                    //KAKO URADITI PROMOCIJU IZ RODITELJA U DETE?
+                    //http://stackoverflow.com/questions/19387672/nhibernate-table-per-type-persist-child-from-existing-parent
+                    //Tri nacina:
+                    //1. Insert + delete
+                    //2. Drugacija struktura
+                    //3. SQL insert
+
+                    //Koordinator koord = new Koordinator();
                     Koordinator koord = new Koordinator(akt);
 
-                    //koord.ID = akt.ID;
 
+                    //IQuery q = s.CreateSQLQuery("insert into koordinator values (?, ?, ?, ?, ?)");
+                    //q.SetParameter(0, akt.ID);
+                    //q.SetParameter(1, "Stari grad");
+                    //q.SetParameter(2, "Strahinića Bana");
+                    //q.SetParameter(3, 21);
+                    //q.SetParameter(4, "Beograd");
+                    //q.ExecuteUpdate();
+
+                    //koord.ID = akt.ID;
                     koord.Opstina = "Stari grad";
                     koord.UlicaKanc = "Strahinića Bana";
                     koord.BrojKanc = 21;
                     koord.GradKanc = "Beograd";
-                    s.Delete(akt);
-                    s.Save(koord);
+
+                    s.Merge(koord);
                     
                     MessageBox.Show("Uspesno dodat koordinator.");
 
