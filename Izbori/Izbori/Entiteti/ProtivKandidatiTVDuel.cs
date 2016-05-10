@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class ProtivKandidatiTVDuel
+    public class ProtivKandidatiTVDuel
     {
+        public virtual int ID { get; set; }//protivkandidata
         public virtual TVDuel IDDuela { get; set; }
         public virtual string ImePK { get; set; } //ProtivKandidata
-        public virtual int IDPK { get; set; }//protivkandidata
     }
 }

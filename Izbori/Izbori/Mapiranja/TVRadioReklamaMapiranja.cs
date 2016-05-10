@@ -8,17 +8,19 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class TVRadioReklamaMapiranja : SubclassMap<TVRadioReklama>
+    public class TVRadioReklamaMapiranja : SubclassMap<TVRadioReklama>
     {
         public TVRadioReklamaMapiranja()
         {
             Table("TVRadioReklama");
 
             KeyColumn("ID");
-            
+
             Map(x => x.BrojPonavljanja).Column("BrojPonavljanja");
             Map(x => x.Trajanje).Column("Trajanje");
             Map(x => x.NazivStanice).Column("NazivStanice");
+
+
         }
     }
 }

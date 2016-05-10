@@ -14,7 +14,7 @@ namespace Izbori.Mapiranja
         {
             Table("TVDuel");
             
-            KeyColumn("IDTVRG");
+            KeyColumn("ID");
 
             HasMany(x => x.Pitanja).KeyColumn("Pitanja").LazyLoad().Cascade.All().Inverse();
             HasMany(x => x.ProtivKandidati).KeyColumn("ProtivKandidati").LazyLoad().Cascade.All().Inverse();

@@ -8,7 +8,7 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class NovineReklamaMapiranja : SubclassMap<NovineReklama>
+    public class NovineReklamaMapiranja : SubclassMap<NovineReklama>
     {
         public NovineReklamaMapiranja()
         {

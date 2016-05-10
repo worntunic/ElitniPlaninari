@@ -8,11 +8,14 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class PojavljivanjaPKMapiranja : ClassMap<PojavljivanjaPK>
+    public class PojavljivanjaPKMapiranja : ClassMap<PojavljivanjaPK>
     {
         public PojavljivanjaPKMapiranja()
         {
+            Table("PojavljivanjePK");
+
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+            Map(x => x.DummyColumn, "DUMMYCOLUMN");
         }
     }
 }

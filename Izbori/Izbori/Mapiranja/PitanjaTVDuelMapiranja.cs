@@ -8,14 +8,14 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class PitanjaTVDuelMapiranja : ClassMap<PitanjaTVDuel>
+    public class PitanjaTVDuelMapiranja : ClassMap<PitanjaTVDuel>
     {
         public PitanjaTVDuelMapiranja()
         {
             Table("PitanjaTVDuel");
 
-            Id(x => x.IDPitanja, "IDPitanja").GeneratedBy.TriggerIdentity();
-                        
+            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+
             Map(x => x.Tekst).Column("Tekst");
 
             References(x => x.IDDuela).Column("IDDuela").Cascade.None();

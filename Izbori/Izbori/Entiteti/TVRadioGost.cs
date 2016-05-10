@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class TVRadioGost
+    public class TVRadioGost : PojavljivanjaPK
     {        
         public virtual string NazivStanice { get; set; }
         public virtual string NazivEmisije { get; set; }

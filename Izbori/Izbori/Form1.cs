@@ -537,6 +537,8 @@ namespace Izbori
 
                 Aktivista akt = s.Load<Aktivista>(2);
 
+                s.Transaction.Begin();
+
                 DeljenjeLetaka dl = new DeljenjeLetaka();
                 dl.Aktiviste.Add(akt);
                 akt.Akcije.Add(dl);
@@ -558,10 +560,132 @@ namespace Izbori
                 s.Flush();
                 s.Close();
 
+                s.Transaction.Commit();
+
                 MessageBox.Show("Uspesno sacuvan");
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ReklTVRadioBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+
+            try
+            {
+                s.Transaction.Begin();
+                TVRadioReklama reklama = new TVRadioReklama()
+                {
+                    NazivStanice = "Belami Radio",
+                    BrojPonavljanja = 666,
+                    CenaZakupa = 1000,
+                    DatumZakupa = DateTime.Now,
+                    Trajanje = 30,
+                    TrajanjeZakupa = 15
+                };
+                s.SaveOrUpdate(reklama);
+                s.Flush();
+
+                s.Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+        }
+
+        private void ReklNovineBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+
+            try
+            {
+                s.Transaction.Begin();
+                NovineReklama reklama = new NovineReklama()
+                {
+                    NazivLista = "Dezinformer",
+                    Uboji = 1,
+                    CenaZakupa = 1000,
+                    DatumZakupa = DateTime.Now,
+                    TrajanjeZakupa = 7
+                };
+                s.SaveOrUpdate(reklama);
+                s.Flush();
+
+                s.Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+
+        }
+
+        private void PojPKTVDuelBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+
+            try
+            {
+                s.Transaction.Begin();
+
+                var duel = new TVDuel()
+                {
+                    ImeVoditelja = "Jamezdin Kurtovic",
+                    NazivStanice = "TV Bubamara",
+                    NazivEmisije = "Total Soccer",
+                    ProtivKandidati = new List<ProtivKandidatiTVDuel>()
+                    {
+                        new ProtivKandidatiTVDuel
+                        {
+                            ImePK = "Sava Sumanovic"
+                        }
+                    },
+                    Pitanja = new List<PitanjaTVDuel>()
+                    {
+                        new PitanjaTVDuel
+                        {
+                            Tekst = "Da li vasi roditelji znaju da ste homoseksualac?"
+                        }
+                    },
+                    Gledanost = 666
+                };
+
+                s.SaveOrUpdate(duel);
+                s.Flush();
+
+                s.Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+        }
+
+        private void PojPKTVRadBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PojPKNovineBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

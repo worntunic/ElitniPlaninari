@@ -151,6 +151,7 @@
             this.ReklNovineBtn.TabIndex = 8;
             this.ReklNovineBtn.Text = "Dodaj Reklamu u Novinama";
             this.ReklNovineBtn.UseVisualStyleBackColor = true;
+            this.ReklNovineBtn.Click += new System.EventHandler(this.ReklNovineBtn_Click);
             // 
             // ReklTVRadioBtn
             // 
@@ -160,33 +161,37 @@
             this.ReklTVRadioBtn.TabIndex = 9;
             this.ReklTVRadioBtn.Text = "Dodaj TV/Radio Reklamu";
             this.ReklTVRadioBtn.UseVisualStyleBackColor = true;
+            this.ReklTVRadioBtn.Click += new System.EventHandler(this.ReklTVRadioBtn_Click);
             // 
             // PojPKNovineBtn
             // 
             this.PojPKNovineBtn.Location = new System.Drawing.Point(439, 86);
             this.PojPKNovineBtn.Name = "PojPKNovineBtn";
-            this.PojPKNovineBtn.Size = new System.Drawing.Size(182, 23);
+            this.PojPKNovineBtn.Size = new System.Drawing.Size(379, 23);
             this.PojPKNovineBtn.TabIndex = 10;
             this.PojPKNovineBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata u Novinama";
             this.PojPKNovineBtn.UseVisualStyleBackColor = true;
+            this.PojPKNovineBtn.Click += new System.EventHandler(this.PojPKNovineBtn_Click);
             // 
             // PojPKTVRadBtn
             // 
             this.PojPKTVRadBtn.Location = new System.Drawing.Point(439, 28);
             this.PojPKTVRadBtn.Name = "PojPKTVRadBtn";
-            this.PojPKTVRadBtn.Size = new System.Drawing.Size(182, 23);
+            this.PojPKTVRadBtn.Size = new System.Drawing.Size(379, 23);
             this.PojPKTVRadBtn.TabIndex = 11;
             this.PojPKTVRadBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata Na TV-u, odnosno Radiju";
             this.PojPKTVRadBtn.UseVisualStyleBackColor = true;
+            this.PojPKTVRadBtn.Click += new System.EventHandler(this.PojPKTVRadBtn_Click);
             // 
             // PojPKTVDuelBtn
             // 
             this.PojPKTVDuelBtn.Location = new System.Drawing.Point(439, 57);
             this.PojPKTVDuelBtn.Name = "PojPKTVDuelBtn";
-            this.PojPKTVDuelBtn.Size = new System.Drawing.Size(182, 23);
+            this.PojPKTVDuelBtn.Size = new System.Drawing.Size(379, 23);
             this.PojPKTVDuelBtn.TabIndex = 12;
             this.PojPKTVDuelBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata Na TV-Duelu";
             this.PojPKTVDuelBtn.UseVisualStyleBackColor = true;
+            this.PojPKTVDuelBtn.Click += new System.EventHandler(this.PojPKTVDuelBtn_Click);
             // 
             // AngAktnaGMBtn
             // 
@@ -394,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 596);
+            this.ClientSize = new System.Drawing.Size(1096, 596);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class TVRadioReklama : Reklama
+    public class TVRadioReklama : Reklama
     {
         public virtual int BrojPonavljanja { get; set; }
         public virtual int Trajanje { get; set; }//u sekundama

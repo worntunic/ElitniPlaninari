@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class PitanjaTVDuel
+    public class PitanjaTVDuel
     {
+        public virtual int ID { get; set; }
         public virtual TVDuel IDDuela { get; set; }
-        public virtual int IDPitanja { get; set; }
         public virtual string Tekst { get; set; }
     }
 }
