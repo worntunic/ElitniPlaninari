@@ -8,7 +8,6 @@ namespace Izbori.Entiteti
 {
     public abstract class PojavljivanjaPK
     {
-        public virtual int ID { get; set; }
-        public virtual int DummyColumn { get; set; }
+        public virtual int ID { get; set; }        
     }
 }

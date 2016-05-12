@@ -629,7 +629,6 @@ namespace Izbori
             {
                 s.Close();
             }
-
         }
 
         private void PojPKTVDuelBtn_Click(object sender, EventArgs e)
@@ -680,12 +679,106 @@ namespace Izbori
 
         private void PojPKTVRadBtn_Click(object sender, EventArgs e)
         {
+            ISession s = DataLayer.GetSession();
 
+            try
+            {
+                s.Transaction.Begin();
+                var reklama = new TVRadioGost()//gostovanje
+                {                    
+                    Gledanost = 1000,
+                    ImeVoditelja = "Crni Gruja",
+                    NazivEmisije = "Antiantidepresiv",
+                    NazivStanice = "Stodva zapeta dva gigaherca"
+                };
+                s.SaveOrUpdate(reklama);
+                s.Flush();
+
+                s.Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
         }
 
         private void PojPKNovineBtn_Click(object sender, EventArgs e)
         {
+            ISession s = DataLayer.GetSession();
 
+            try
+            {
+                s.Transaction.Begin();
+                var reklama = new IntervjuNovine()
+                {
+                    DatumObjavljivanja = DateTime.Now,
+                    DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0),
+                    NazivLista = "Ribolovacke Price",
+                    Novinari = new List<NovinariIzNovina>()
+                    {
+                        new NovinariIzNovina
+                        {
+                            ImeNovinara = "Dule Savic"
+                        },
+
+                        new NovinariIzNovina
+                        {
+                            ImeNovinara = "Jelena Karleusa"
+                        }
+                    }
+                };
+                s.SaveOrUpdate(reklama);
+                s.Flush();
+
+                s.Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+        }
+
+        private void ReklPanoBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+
+            try
+            {
+                s.Transaction.Begin();
+                var reklama = new PanoReklama()
+                {
+                    Grad = "Nis",
+                    DatumZakupa = DateTime.Now,
+                    Povrsina = 6.66, //kvadrata
+                    CenaZakupa = 1389,
+                    TrajanjeZakupa = 9, //dana
+                    Ulica = "Kraljevica Sarca",
+                    Vlasnik = "Vucko Aleksandrovic"
+                };
+                s.SaveOrUpdate(reklama);
+                s.Flush();
+
+                s.Transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
         }
     }
 }

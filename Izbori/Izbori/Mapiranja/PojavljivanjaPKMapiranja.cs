@@ -14,8 +14,7 @@ namespace Izbori.Mapiranja
         {
             Table("PojavljivanjePK");
 
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
-            Map(x => x.DummyColumn, "DUMMYCOLUMN");
+            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();            
         }
     }
 }

@@ -63,8 +63,6 @@ namespace Izbori
                     .Mappings(m => m.FluentMappings.Add<SusretKandidataMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<ReklamaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<PanoReklamaMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<IntervjuNovineMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<NovinariIzNovinaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<TVRadioReklamaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<NovineReklamaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<PojavljivanjaPKMapiranja>())
@@ -72,7 +70,8 @@ namespace Izbori
                     .Mappings(m => m.FluentMappings.Add<TVDuelMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<ProtivKandidatiTVDuelMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<PitanjaTVDuelMapiranja>())
-
+                    //.Mappings(m => m.FluentMappings.Add<IntervjuNovineMapiranja>())
+                    //.Mappings(m => m.FluentMappings.Add<NovinariIzNovinaMapiranja>())
                     .Diagnostics(d => d.Enable().OutputToConsole())
                     .BuildSessionFactory();
             }

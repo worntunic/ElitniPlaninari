@@ -142,6 +142,7 @@
             this.ReklPanoBtn.TabIndex = 7;
             this.ReklPanoBtn.Text = "Dodaj Reklamu na Panou";
             this.ReklPanoBtn.UseVisualStyleBackColor = true;
+            this.ReklPanoBtn.Click += new System.EventHandler(this.ReklPanoBtn_Click);
             // 
             // ReklNovineBtn
             // 
@@ -399,7 +400,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 596);
+            this.ClientSize = new System.Drawing.Size(830, 596);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
