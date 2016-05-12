@@ -8,7 +8,7 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class TVDuelMapiranja : SubclassMap<TVDuel>
+    public class TVDuelMapiranja : SubclassMap<TVDuel>
     {
         public TVDuelMapiranja()
         {

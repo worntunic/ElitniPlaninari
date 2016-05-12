@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class IntervjuNovine
+    public class IntervjuNovine
     {        
         public virtual string NazivLista { get; set; }
         public virtual DateTime DatumObjavljivanja { get; set; }

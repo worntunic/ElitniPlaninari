@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Mapiranja {
-    class RezultatiIzboraMapiranja : ClassMap<RezultatiIzbora>{
+    public class RezultatiIzboraMapiranja : ClassMap<RezultatiIzbora>{
         public RezultatiIzboraMapiranja() {
             Table("RezultatiIzbora");
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();

@@ -8,7 +8,7 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    class NovinariIzNovinaMapiranja : ClassMap<NovinariIzNovina>
+    public class NovinariIzNovinaMapiranja : ClassMap<NovinariIzNovina>
     {
         public NovinariIzNovinaMapiranja()
         {

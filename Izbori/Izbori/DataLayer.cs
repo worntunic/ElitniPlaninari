@@ -62,9 +62,11 @@ namespace Izbori
                     .Mappings(m => m.FluentMappings.Add<GostMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<SusretKandidataMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<ReklamaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<PanoReklamaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<IntervjuNovineMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<NovinariIzNovinaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<TVRadioReklamaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<NovineReklamaMapiranja>())
-
                     .Mappings(m => m.FluentMappings.Add<PojavljivanjaPKMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<TVRadioGostMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<TVDuelMapiranja>())

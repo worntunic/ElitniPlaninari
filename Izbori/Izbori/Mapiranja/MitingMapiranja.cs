@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Mapiranja {
-    class MitingMapiranja : SubclassMap<Izbori.Entiteti.Miting>{
+    public class MitingMapiranja : SubclassMap<Izbori.Entiteti.Miting>{
         public MitingMapiranja() {
             Table("Miting");
 

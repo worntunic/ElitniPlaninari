@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Mapiranja {
-    class GostMapiranja : ClassMap<Izbori.Entiteti.Gost> {
+    public class GostMapiranja : ClassMap<Izbori.Entiteti.Gost> {
         public GostMapiranja() {
             Table("Gost");
 

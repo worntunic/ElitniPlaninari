@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Mapiranja {
-    class SusretKandidataMapiranja : SubclassMap<Izbori.Entiteti.SusretKandidata>{
+    public class SusretKandidataMapiranja : SubclassMap<Izbori.Entiteti.SusretKandidata>{
         
         public SusretKandidataMapiranja() {
             Table("SusretKandidata");

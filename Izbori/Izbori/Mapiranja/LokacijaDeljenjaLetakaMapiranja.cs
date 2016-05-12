@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Mapiranja {
-    class LokacijaDeljenjaLetakaMapiranja : ClassMap<Izbori.Entiteti.LokacijaDeljenjaLetaka>{
+    public class LokacijaDeljenjaLetakaMapiranja : ClassMap<Izbori.Entiteti.LokacijaDeljenjaLetaka>{
         public LokacijaDeljenjaLetakaMapiranja() {
             Table("LokacijaDeljenjaLetaka");
 

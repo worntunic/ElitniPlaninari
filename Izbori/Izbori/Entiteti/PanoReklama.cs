@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    class PanoReklama : Reklama
+    public class PanoReklama : Reklama
     {
         public virtual string Grad { get; set; }
         public virtual string Ulica { get; set; }

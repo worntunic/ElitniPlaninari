@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Izbori.Mapiranja {
-    class GlasackoMestoMapiranja : ClassMap<GlasackoMesto> {
+    public class GlasackoMestoMapiranja : ClassMap<GlasackoMesto> {
         public GlasackoMestoMapiranja() {
             Table("GlasackoMesto");
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
