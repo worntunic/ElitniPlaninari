@@ -12,7 +12,7 @@ namespace Izbori.Mapiranja
     {
         public PojavljivanjaPKMapiranja()
         {
-            Table("PojavljivanjePK");
+            Table("PojavljivanjaPK");
 
             Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();            
         }

@@ -14,10 +14,10 @@ namespace Izbori.Mapiranja
         {
             Table("TVDuel");
             
-            KeyColumn("ID");
+            KeyColumn("IDTVRG");
 
-            HasMany(x => x.Pitanja).KeyColumn("Pitanja").LazyLoad().Cascade.All().Inverse();
-            HasMany(x => x.ProtivKandidati).KeyColumn("ProtivKandidati").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.Pitanja).KeyColumn("IDDuela").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.ProtivKandidati).KeyColumn("IDPK").LazyLoad().Cascade.All().Inverse();
         }
     }
 }

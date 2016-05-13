@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
-    public abstract class PojavljivanjaPK
+    public class PojavljivanjaPK
     {
         public virtual int ID { get; set; }        
     }

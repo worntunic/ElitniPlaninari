@@ -778,8 +778,8 @@ namespace Izbori
                 {
                     DatumObjavljivanja = DateTime.Now,
                     DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0),
-                    NazivLista = "Ribolovacke Price",
-                    Novinari = new List<NovinariIzNovina>()
+                    NazivLista = "Ribolovacke Price"
+                    /*Novinari = new List<NovinariIzNovina>()
                     {
                         new NovinariIzNovina
                         {
@@ -790,7 +790,7 @@ namespace Izbori
                         {
                             ImeNovinara = "Jelena Karleusa"
                         }
-                    }
+                    }*/
                 };
                 s.SaveOrUpdate(reklama);
                 s.Flush();
@@ -867,6 +867,22 @@ namespace Izbori
             finally
             {
                 s.Close();
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                PojavljivanjaPK gm = new PojavljivanjaPK();
+
+                s.Save(gm);
+                
+                s.Close();
+
+                MessageBox.Show("Uspesno sacuvan");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
     }

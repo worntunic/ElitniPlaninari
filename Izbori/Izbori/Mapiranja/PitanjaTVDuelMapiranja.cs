@@ -14,7 +14,7 @@ namespace Izbori.Mapiranja
         {
             Table("PitanjaTVDuel");
 
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.ID, "IDPitanja").GeneratedBy.TriggerIdentity();
 
             Map(x => x.Tekst).Column("Tekst");
 

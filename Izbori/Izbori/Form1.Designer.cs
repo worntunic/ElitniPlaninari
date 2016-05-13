@@ -65,6 +65,7 @@
             this.ShowReklTVRadioBtn = new System.Windows.Forms.Button();
             this.ShowReklNovineBtn = new System.Windows.Forms.Button();
             this.ShowReklPanoBtn = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DodajAktivistuBtn
@@ -429,11 +430,22 @@
             this.ShowReklPanoBtn.UseVisualStyleBackColor = true;
             this.ShowReklPanoBtn.Click += new System.EventHandler(this.ShowReklPanoBtn_Click);
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(439, 116);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(379, 23);
+            this.button7.TabIndex = 39;
+            this.button7.Text = "Dodaj PojavljivanjePK";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 596);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.ShowReklPanoBtn);
             this.Controls.Add(this.ShowReklNovineBtn);
             this.Controls.Add(this.ShowReklTVRadioBtn);
@@ -518,6 +530,7 @@
         private System.Windows.Forms.Button ShowReklTVRadioBtn;
         private System.Windows.Forms.Button ShowReklNovineBtn;
         private System.Windows.Forms.Button ShowReklPanoBtn;
+        private System.Windows.Forms.Button button7;
     }
 }
 

@@ -14,7 +14,7 @@ namespace Izbori.Mapiranja
         {
             Table("ProtivKandidatiTVDuel");
 
-            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+            Id(x => x.ID, "IDPK").GeneratedBy.TriggerIdentity();
 
             Map(x => x.ImePK).Column("ImePK");
 
