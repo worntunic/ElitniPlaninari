@@ -588,10 +588,38 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
                 s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+        }
+
+        private void ShowReklTVRadioBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+            try
+            {
+                var reklama = s.Load<TVRadioReklama>(1);
+
+                string info = "";
+                info += "Na stanici: \"" + reklama.NazivStanice + "\""
+                    + "\nBroj ponavljanja: " + reklama.BrojPonavljanja
+                    + "\nTrajanje reklame: " + reklama.Trajanje + " sekundi"
+                    + "\nCena Zakupa: " + reklama.CenaZakupa
+                    + "\nDatum Zakupa" + reklama.DatumZakupa
+                    + "\nTrajanje Zakupa" + reklama.TrajanjeZakupa + " dana.";
+
+                MessageBox.Show(info, "TV/Radio Reklama: " + reklama.ID);
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -619,10 +647,40 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
                 s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+        }
+
+        private void ShowReklNovineBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+            try
+            {
+                var reklama = s.Load<NovineReklama>(7);
+
+                string info = "";
+                info += "Na listu: \"" + reklama.NazivLista + "\"";
+                if (reklama.Uboji == 1)
+                    info += " koji je u boji";
+                else
+                    info += " koji nije u boji";
+                info += "\nCena Zakupa: " + reklama.CenaZakupa
+                + "\nDatum Zakupa" + reklama.DatumZakupa
+                + "\nTrajanje Zakupa" + reklama.TrajanjeZakupa + " dana.";
+
+                MessageBox.Show(info, "Reklama u novinama: " + reklama.ID);
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
             finally
@@ -665,6 +723,7 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
@@ -695,6 +754,7 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
@@ -736,6 +796,7 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
@@ -769,10 +830,38 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
                 s.Transaction.Rollback();
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                s.Close();
+            }
+        }
+        private void ShowReklPanoBtn_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+            try
+            {
+                var reklama = s.Load<PanoReklama>(11);
+
+                string info = "";
+                info += "Naziv Grada: " + reklama.Grad
+                + "\nNaziv Ulice: " + reklama.Ulica
+                + "\nVlasnik panoa: " + reklama.Vlasnik
+                + "\nVelicina panoa: " + reklama.Povrsina + "m^2"
+                + "\nCena Zakupa: " + reklama.CenaZakupa
+                + "\nDatum Zakupa" + reklama.DatumZakupa
+                + "\nTrajanje Zakupa" + reklama.TrajanjeZakupa + " dana.";
+
+                MessageBox.Show(info, "Pano Reklama: " + reklama.ID);
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
             finally

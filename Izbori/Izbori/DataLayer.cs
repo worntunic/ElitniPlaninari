@@ -47,6 +47,7 @@ namespace Izbori
                     .Database(cfg)
                     //.Mappings(m=>m.FluentMappings.AddFromAssemblyOf<AkcijaMapiranja>())
                     //prepraviti da bude addFromAsemblyOf
+                    //Kada se doda da bude AddFromAssemblyOf program iz not responding
                     .Mappings(m => m.FluentMappings.Add<AkcijaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<AktivistaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<BrTelMapiranja>())

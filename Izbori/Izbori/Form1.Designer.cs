@@ -62,6 +62,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.ShowReklTVRadioBtn = new System.Windows.Forms.Button();
+            this.ShowReklNovineBtn = new System.Windows.Forms.Button();
+            this.ShowReklPanoBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DodajAktivistuBtn
@@ -136,7 +139,7 @@
             // 
             // ReklPanoBtn
             // 
-            this.ReklPanoBtn.Location = new System.Drawing.Point(221, 298);
+            this.ReklPanoBtn.Location = new System.Drawing.Point(221, 356);
             this.ReklPanoBtn.Name = "ReklPanoBtn";
             this.ReklPanoBtn.Size = new System.Drawing.Size(182, 23);
             this.ReklPanoBtn.TabIndex = 7;
@@ -146,7 +149,7 @@
             // 
             // ReklNovineBtn
             // 
-            this.ReklNovineBtn.Location = new System.Drawing.Point(221, 269);
+            this.ReklNovineBtn.Location = new System.Drawing.Point(221, 298);
             this.ReklNovineBtn.Name = "ReklNovineBtn";
             this.ReklNovineBtn.Size = new System.Drawing.Size(182, 23);
             this.ReklNovineBtn.TabIndex = 8;
@@ -396,11 +399,44 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // ShowReklTVRadioBtn
+            // 
+            this.ShowReklTVRadioBtn.Location = new System.Drawing.Point(221, 269);
+            this.ShowReklTVRadioBtn.Name = "ShowReklTVRadioBtn";
+            this.ShowReklTVRadioBtn.Size = new System.Drawing.Size(182, 23);
+            this.ShowReklTVRadioBtn.TabIndex = 36;
+            this.ShowReklTVRadioBtn.Text = "Prikazi TV/Radio Reklamu";
+            this.ShowReklTVRadioBtn.UseVisualStyleBackColor = true;
+            this.ShowReklTVRadioBtn.Click += new System.EventHandler(this.ShowReklTVRadioBtn_Click);
+            // 
+            // ShowReklNovineBtn
+            // 
+            this.ShowReklNovineBtn.Location = new System.Drawing.Point(221, 327);
+            this.ShowReklNovineBtn.Name = "ShowReklNovineBtn";
+            this.ShowReklNovineBtn.Size = new System.Drawing.Size(182, 23);
+            this.ShowReklNovineBtn.TabIndex = 37;
+            this.ShowReklNovineBtn.Text = "Prikazi Reklamu u Novinama";
+            this.ShowReklNovineBtn.UseVisualStyleBackColor = true;
+            this.ShowReklNovineBtn.Click += new System.EventHandler(this.ShowReklNovineBtn_Click);
+            // 
+            // ShowReklPanoBtn
+            // 
+            this.ShowReklPanoBtn.Location = new System.Drawing.Point(221, 385);
+            this.ShowReklPanoBtn.Name = "ShowReklPanoBtn";
+            this.ShowReklPanoBtn.Size = new System.Drawing.Size(182, 23);
+            this.ShowReklPanoBtn.TabIndex = 38;
+            this.ShowReklPanoBtn.Text = "Prikazi Reklamu na Panou";
+            this.ShowReklPanoBtn.UseVisualStyleBackColor = true;
+            this.ShowReklPanoBtn.Click += new System.EventHandler(this.ShowReklPanoBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 596);
+            this.Controls.Add(this.ShowReklPanoBtn);
+            this.Controls.Add(this.ShowReklNovineBtn);
+            this.Controls.Add(this.ShowReklTVRadioBtn);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -479,6 +515,9 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button ShowReklTVRadioBtn;
+        private System.Windows.Forms.Button ShowReklNovineBtn;
+        private System.Windows.Forms.Button ShowReklPanoBtn;
     }
 }
 
