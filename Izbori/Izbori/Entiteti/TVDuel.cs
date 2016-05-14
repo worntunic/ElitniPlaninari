@@ -8,7 +8,6 @@ namespace Izbori.Entiteti
 {
     public class TVDuel : TVRadioGost
     {
-        //public virtual TVRadioGost ID { get; set; }
         public virtual IList<ProtivKandidatiTVDuel> ProtivKandidati { get; set; }
         public virtual IList<PitanjaTVDuel> Pitanja { get; set; }
     }

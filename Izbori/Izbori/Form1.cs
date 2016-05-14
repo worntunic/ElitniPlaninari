@@ -613,8 +613,8 @@ namespace Izbori
                     + "\nBroj ponavljanja: " + reklama.BrojPonavljanja
                     + "\nTrajanje reklame: " + reklama.Trajanje + " sekundi"
                     + "\nCena Zakupa: " + reklama.CenaZakupa
-                    + "\nDatum Zakupa" + reklama.DatumZakupa
-                    + "\nTrajanje Zakupa" + reklama.TrajanjeZakupa + " dana.";
+                    + "\nDatum Zakupa: " + reklama.DatumZakupa
+                    + "\nTrajanje Zakupa: " + reklama.TrajanjeZakupa + " dana.";
 
                 MessageBox.Show(info, "TV/Radio Reklama: " + reklama.ID);
             }
@@ -674,8 +674,8 @@ namespace Izbori
                 else
                     info += " koji nije u boji";
                 info += "\nCena Zakupa: " + reklama.CenaZakupa
-                + "\nDatum Zakupa" + reklama.DatumZakupa
-                + "\nTrajanje Zakupa" + reklama.TrajanjeZakupa + " dana.";
+                + "\nDatum Zakupa: " + reklama.DatumZakupa
+                + "\nTrajanje Zakupa: " + reklama.TrajanjeZakupa + " dana.";
 
                 MessageBox.Show(info, "Reklama u novinama: " + reklama.ID);
             }
@@ -779,7 +779,7 @@ namespace Izbori
                     DatumObjavljivanja = DateTime.Now,
                     DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0),
                     NazivLista = "Ribolovacke Price",
-                    Novinari = new List<NovinariIzNovina>()
+                    NovinariIzNovina = new List<NovinariIzNovina>()
                     {
                         new NovinariIzNovina
                         {
@@ -855,8 +855,8 @@ namespace Izbori
                 + "\nVlasnik panoa: " + reklama.Vlasnik
                 + "\nVelicina panoa: " + reklama.Povrsina + "m^2"
                 + "\nCena Zakupa: " + reklama.CenaZakupa
-                + "\nDatum Zakupa" + reklama.DatumZakupa
-                + "\nTrajanje Zakupa" + reklama.TrajanjeZakupa + " dana.";
+                + "\nDatum Zakupa: " + reklama.DatumZakupa
+                + "\nTrajanje Zakupa: " + reklama.TrajanjeZakupa + " dana.";
 
                 MessageBox.Show(info, "Pano Reklama: " + reklama.ID);
             }

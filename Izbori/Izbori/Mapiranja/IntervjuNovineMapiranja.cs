@@ -20,7 +20,7 @@ namespace Izbori.Mapiranja
             Map(x => x.DatumObjavljivanja).Column("DatumObjavljivanja");
             Map(x => x.DatumIntervjua).Column("DatumIntervjua");
 
-            HasMany(x => x.Novinari).KeyColumn("Novinari").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.NovinariIzNovina).KeyColumn("IDIntervjua").Inverse();
         }
     }
 }
