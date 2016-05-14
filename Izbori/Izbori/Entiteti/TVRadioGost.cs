@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+/*using System.Threading.Tasks;
 
 namespace Izbori.Entiteti
 {
@@ -13,4 +13,4 @@ namespace Izbori.Entiteti
         public virtual string ImeVoditelja { get; set; }
         public virtual int Gledanost { get; set; }
     }
-}
+}*/

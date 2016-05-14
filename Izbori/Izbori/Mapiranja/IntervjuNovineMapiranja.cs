@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,4 +23,4 @@ namespace Izbori.Mapiranja
             HasMany(x => x.Novinari).KeyColumn("IDIntervjua").LazyLoad().Cascade.All().Inverse();
         }
     }
-}
+}*/

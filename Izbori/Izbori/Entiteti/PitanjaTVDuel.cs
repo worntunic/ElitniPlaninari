@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +12,4 @@ namespace Izbori.Entiteti
         public virtual TVDuel IDDuela { get; set; }
         public virtual string Tekst { get; set; }
     }
-}
+}*/

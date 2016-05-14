@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,4 +11,4 @@ namespace Izbori.Entiteti
         public virtual IList<ProtivKandidatiTVDuel> ProtivKandidati { get; set; }
         public virtual IList<PitanjaTVDuel> Pitanja { get; set; }
     }
-}
+}*/

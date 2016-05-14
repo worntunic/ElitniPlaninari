@@ -697,7 +697,7 @@ namespace Izbori
             {
                 s.Transaction.Begin();
 
-                var duel = new TVDuel()
+                /*var duel = new TVDuel()
                 {
                     ImeVoditelja = "Jamezdin Kurtovic",
                     NazivStanice = "TV Bubamara",
@@ -723,7 +723,7 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");
+                MessageBox.Show("Uspesno sacuvan");*/
             }
             catch (Exception ex)
             {
@@ -742,7 +742,7 @@ namespace Izbori
 
             try
             {
-                s.Transaction.Begin();
+               /* s.Transaction.Begin();
                 var reklama = new TVRadioGost()//gostovanje
                 {                    
                     Gledanost = 1000,
@@ -754,7 +754,7 @@ namespace Izbori
                 s.Flush();
 
                 s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");
+                MessageBox.Show("Uspesno sacuvan");*/
             }
             catch (Exception ex)
             {
@@ -774,7 +774,7 @@ namespace Izbori
             try
             {
                 s.Transaction.Begin();
-                var reklama = new IntervjuNovine()
+                /*var reklama = new IntervjuNovine()
                 {
                     DatumObjavljivanja = DateTime.Now,
                     DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0),
@@ -790,9 +790,9 @@ namespace Izbori
                         {
                             ImeNovinara = "Jelena Karleusa"
                         }
-                    }*/
+                    }
                 };
-                s.SaveOrUpdate(reklama);
+                s.SaveOrUpdate(reklama);*/
                 s.Flush();
 
                 s.Transaction.Commit();
@@ -873,10 +873,9 @@ namespace Izbori
         private void button7_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
-
-                PojavljivanjaPK gm = new PojavljivanjaPK();
-
-                s.Save(gm);
+                IQuery q = s.CreateSQLQuery("insert into PojavljivanjaPK values (?)");
+                q.SetParameter(0, 132);
+                q.ExecuteUpdate();
                 
                 s.Close();
 

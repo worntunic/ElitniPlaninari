@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,4 +13,4 @@ namespace Izbori.Entiteti
         public virtual DateTime DatumIntervjua { get; set; }
         public virtual IList<NovinariIzNovina> NovinariIzNovina { get; set; }
     }
-}
+}*/
