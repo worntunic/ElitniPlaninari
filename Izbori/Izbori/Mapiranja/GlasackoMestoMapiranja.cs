@@ -16,9 +16,9 @@ namespace Izbori.Mapiranja {
             Map(x => x.BrojGM, "BrojGM");
             Map(x => x.BrojRegBir, "BrojRegBir");
 
-            HasMany(x => x.RezultatiIzbora).KeyColumn("IDGM").Inverse();
-            HasMany(x => x.Primedbe).KeyColumn("IDGM").Inverse();
-            HasMany(x => x.Posmatraci).KeyColumn("IDGM").Inverse();
+            //HasMany(x => x.RezultatiIzbora).KeyColumn("IDGM").Inverse();
+            //HasMany(x => x.Primedbe).KeyColumn("IDGM").Inverse();
+            //HasMany(x => x.Posmatraci).KeyColumn("IDGM").Inverse();
         }
     }
 }

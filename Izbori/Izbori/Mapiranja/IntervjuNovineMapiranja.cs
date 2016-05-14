@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +8,19 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    public class IntervjuNovineMapiranja : SubclassMap<IntervjuNovine>
+    public class IntervjuNovineMapiranja : ClassMap<IntervjuNovine>
     {
         public IntervjuNovineMapiranja()
         {
             Table("IntervjuNovine");
-            
-            KeyColumn("ID");
-                        
+
+            Id(x => x.ID, "ID").GeneratedBy.TriggerIdentity();
+
             Map(x => x.NazivLista).Column("NazivLista");
             Map(x => x.DatumObjavljivanja).Column("DatumObjavljivanja");
             Map(x => x.DatumIntervjua).Column("DatumIntervjua");
 
-            HasMany(x => x.Novinari).KeyColumn("IDIntervjua").LazyLoad().Cascade.All().Inverse();
+            HasMany(x => x.NovinariIzNovina).KeyColumn("IDIntervjua").LazyLoad().Cascade.All().Inverse();
         }
     }
-}*/
+}

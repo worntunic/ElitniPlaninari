@@ -66,6 +66,8 @@
             this.ShowReklNovineBtn = new System.Windows.Forms.Button();
             this.ShowReklPanoBtn = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DodajAktivistuBtn
@@ -170,7 +172,7 @@
             // 
             // PojPKNovineBtn
             // 
-            this.PojPKNovineBtn.Location = new System.Drawing.Point(439, 86);
+            this.PojPKNovineBtn.Location = new System.Drawing.Point(439, 144);
             this.PojPKNovineBtn.Name = "PojPKNovineBtn";
             this.PojPKNovineBtn.Size = new System.Drawing.Size(379, 23);
             this.PojPKNovineBtn.TabIndex = 10;
@@ -190,7 +192,7 @@
             // 
             // PojPKTVDuelBtn
             // 
-            this.PojPKTVDuelBtn.Location = new System.Drawing.Point(439, 57);
+            this.PojPKTVDuelBtn.Location = new System.Drawing.Point(439, 86);
             this.PojPKTVDuelBtn.Name = "PojPKTVDuelBtn";
             this.PojPKTVDuelBtn.Size = new System.Drawing.Size(379, 23);
             this.PojPKTVDuelBtn.TabIndex = 12;
@@ -432,19 +434,41 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(439, 116);
+            this.button7.Location = new System.Drawing.Point(439, 173);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(379, 23);
             this.button7.TabIndex = 39;
-            this.button7.Text = "Dodaj PojavljivanjePK";
+            this.button7.Text = "Prikazi Pojavljivanje Predsednickog Kandidata u Novinama";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(439, 57);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(379, 23);
+            this.button8.TabIndex = 40;
+            this.button8.Text = "Prikazi Pojavljivanje Predsednickog Kandidata na TV-u, odnosno Radiju";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(439, 115);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(379, 23);
+            this.button9.TabIndex = 41;
+            this.button9.Text = "Prikazi Pojavljivanje Predsednickog Kandidata Na TV-Duelu";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 596);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.ShowReklPanoBtn);
             this.Controls.Add(this.ShowReklNovineBtn);
@@ -484,7 +508,7 @@
             this.Controls.Add(this.DodajKoordinatoraBtn);
             this.Controls.Add(this.DodajAktivistuBtn);
             this.Name = "Form1";
-            this.Text = "Lazar iz Pazar";
+            this.Text = "Projekat iz sistema baza podataka, Izbori, domaći 2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -531,6 +555,8 @@
         private System.Windows.Forms.Button ShowReklNovineBtn;
         private System.Windows.Forms.Button ShowReklPanoBtn;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
     }
 }
 

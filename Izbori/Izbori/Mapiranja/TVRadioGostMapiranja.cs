@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +8,13 @@ using FluentNHibernate.Mapping;
 
 namespace Izbori.Mapiranja
 {
-    public class TVRadioGostMapiranja : SubclassMap<TVRadioGost>
+    public class TVRadioGostMapiranja : ClassMap<TVRadioGost>
     {
         public TVRadioGostMapiranja()
         {
             Table("TVRadioGost");
 
-            KeyColumn("ID");
+            Id(x => x.ID).GeneratedBy.TriggerIdentity();
                         
             Map(X => X.NazivStanice).Column("NazivStanice");
             Map(X => X.NazivEmisije).Column("NazivEmisije");
@@ -22,4 +22,4 @@ namespace Izbori.Mapiranja
             Map(X => X.Gledanost).Column("Gledanost");
         }
     }
-}*/
+}

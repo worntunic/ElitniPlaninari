@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,4 +12,4 @@ namespace Izbori.Entiteti
         public virtual string ImeNovinara { get; set; }
         public virtual int IDNovinara { get; set; }
     }
-}*/
+}

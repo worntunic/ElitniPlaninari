@@ -46,7 +46,7 @@ namespace Izbori
                 ldl2.Lokacija = "Tamnog Vilajeta";
                 s.Save(ldl2);
                 s.Close();
-
+                MessageBox.Show("Uspešno sačuvan");
             } catch (Exception ec) {
                 MessageBox.Show(ec.Message);
             }
@@ -66,6 +66,7 @@ namespace Izbori
                 s.Save(sk);
 
                 s.Close();
+                MessageBox.Show("Uspešno sačuvan");
             } catch (Exception ec) {
                 MessageBox.Show(ec.Message);
             }
@@ -99,7 +100,7 @@ namespace Izbori
                 s.Save(gost2);
 
                 s.Close();
-
+                MessageBox.Show("Uspešno sačuvan");
             } catch (Exception ec) {
                 MessageBox.Show(ec.Message);
             }
@@ -318,6 +319,7 @@ namespace Izbori
                 }
                 s.Flush();
                 s.Close();
+                MessageBox.Show("Uspesno sacuvani");
             }
             catch(Exception ex)
             {
@@ -445,10 +447,10 @@ namespace Izbori
                 ISession s = DataLayer.GetSession();
 
                 GlasackoMesto gm = new GlasackoMesto();
-
-                gm.Naziv = "Osnovna Škola Ivan Goran Kovačić Niška Banja";
-                gm.BrojRegBir = 4800;
-                gm.BrojGM = 152;
+                Random rand = new Random();
+                gm.Naziv = "osnovna skola";
+                gm.BrojRegBir = 22;
+                gm.BrojGM = rand.Next(22222, 1222222);
                 s.Save(gm);
 
                 /*RezultatiIzbora ri = new RezultatiIzbora();
@@ -537,8 +539,6 @@ namespace Izbori
 
                 Aktivista akt = s.Load<Aktivista>(2);
 
-                s.Transaction.Begin();
-
                 DeljenjeLetaka dl = new DeljenjeLetaka();
                 dl.Aktiviste.Add(akt);
                 akt.Akcije.Add(dl);
@@ -559,8 +559,6 @@ namespace Izbori
                 s.SaveOrUpdate(akt);
                 s.Flush();
                 s.Close();
-
-                s.Transaction.Commit();
 
                 MessageBox.Show("Uspesno sacuvan");
             } catch (Exception ex) {
@@ -691,121 +689,94 @@ namespace Izbori
 
         private void PojPKTVDuelBtn_Click(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
+
 
             try
             {
-                s.Transaction.Begin();
+                ISession s = DataLayer.GetSession();
+                var duel = new TVDuel();
+                duel.ImeVoditelja = "Andrija Andrejević";
+                duel.NazivStanice = "TV Bubamara";
+                duel.NazivEmisije = "Total Soccer";
+                s.Save(duel);
+                ProtivKandidatiTVDuel pktd1 = new ProtivKandidatiTVDuel();
+                pktd1.ImePK = "Sava Savanović";
+                pktd1.IDDuela = duel;
+                s.Save(pktd1);
+                ProtivKandidatiTVDuel pktd2 = new ProtivKandidatiTVDuel();
+                pktd2.ImePK = "Boris Borisavljević";
+                pktd2.IDDuela = duel;
+                s.Save(pktd2);
+                PitanjaTVDuel ptd1 = new PitanjaTVDuel();
+                ptd1.Tekst = "Koje je Vaše pravo ime?";
+                ptd1.IDDuela = duel;
+                s.Save(ptd1);
+                PitanjaTVDuel ptd2 = new PitanjaTVDuel();
+                ptd2.Tekst = "Koje je Vaše pravo prezime?";
+                ptd2.IDDuela = duel;
+                s.Save(ptd2);
 
-                /*var duel = new TVDuel()
-                {
-                    ImeVoditelja = "Jamezdin Kurtovic",
-                    NazivStanice = "TV Bubamara",
-                    NazivEmisije = "Total Soccer",
-                    ProtivKandidati = new List<ProtivKandidatiTVDuel>()
-                    {
-                        new ProtivKandidatiTVDuel
-                        {
-                            ImePK = "Sava Sumanovic"
-                        }
-                    },
-                    Pitanja = new List<PitanjaTVDuel>()
-                    {
-                        new PitanjaTVDuel
-                        {
-                            Tekst = "Da li vasi roditelji znaju da ste homoseksualac?"
-                        }
-                    },
-                    Gledanost = 666
-                };
-
-                s.SaveOrUpdate(duel);
                 s.Flush();
-
-                s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");*/
+                s.Close();
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
-                s.Transaction.Rollback();
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                s.Close();
-            }
+
         }
 
         private void PojPKTVRadBtn_Click(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
+
 
             try
             {
-               /* s.Transaction.Begin();
-                var reklama = new TVRadioGost()//gostovanje
-                {                    
-                    Gledanost = 1000,
-                    ImeVoditelja = "Crni Gruja",
-                    NazivEmisije = "Antiantidepresiv",
-                    NazivStanice = "Stodva zapeta dva gigaherca"
-                };
-                s.SaveOrUpdate(reklama);
+                ISession s = DataLayer.GetSession();
+                var tvradg = new TVRadioGost();
+                tvradg.Gledanost = 1000;
+                tvradg.ImeVoditelja = "Crni Gruja";
+                tvradg.NazivEmisije = "Antiantidepresiv";
+                tvradg.NazivStanice = "Stodva zapeta dva gigaherca";
+                s.Save(tvradg);
                 s.Flush();
 
-                s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");*/
+                MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
-                s.Transaction.Rollback();
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                s.Close();
             }
         }
 
         private void PojPKNovineBtn_Click(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
 
+            ISession s = DataLayer.GetSession();
             try
             {
-                s.Transaction.Begin();
-                /*var reklama = new IntervjuNovine()
-                {
-                    DatumObjavljivanja = DateTime.Now,
-                    DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0),
-                    NazivLista = "Ribolovacke Price"
-                    /*Novinari = new List<NovinariIzNovina>()
-                    {
-                        new NovinariIzNovina
-                        {
-                            ImeNovinara = "Dule Savic"
-                        },
 
-                        new NovinariIzNovina
-                        {
-                            ImeNovinara = "Jelena Karleusa"
-                        }
-                    }
-                };
-                s.SaveOrUpdate(reklama);*/
-                s.Flush();
+                var reklama = new IntervjuNovine();
+                reklama.DatumObjavljivanja = DateTime.Now;
+                reklama.DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0);
+                reklama.NazivLista = "Ribolovacke Price";
+                s.Save(reklama);
 
-                s.Transaction.Commit();
+                NovinariIzNovina nin1 = new NovinariIzNovina();
+                nin1.ImeNovinara = "Veselin Marković";
+                nin1.IDIntervjua = reklama;
+                s.Save(nin1);
+                NovinariIzNovina nin2 = new NovinariIzNovina();
+                nin2.ImeNovinara = "Vladislav Kopnenić";
+                nin2.IDIntervjua = reklama;
+                s.Save(nin2);
+                s.Close();
                 MessageBox.Show("Uspesno sacuvan");
             }
             catch (Exception ex)
             {
-                s.Transaction.Rollback();
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                s.Close();
             }
         }
 
@@ -873,13 +844,66 @@ namespace Izbori
         private void button7_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
-                IQuery q = s.CreateSQLQuery("insert into PojavljivanjaPK values (?)");
-                q.SetParameter(0, 132);
-                q.ExecuteUpdate();
-                
-                s.Close();
 
-                MessageBox.Show("Uspesno sacuvan");
+                IntervjuNovine intNov = s.Load<IntervjuNovine>(13);
+
+                string info =
+                    "Pojavljivanje Predsednickog kandidata u novinama " + intNov.NazivLista 
+                    + ", dana " + intNov.DatumObjavljivanja.ToShortDateString() +
+                    ", obavili su novinari ";
+                for (int i = 0; i < intNov.NovinariIzNovina.Count; i++) {
+                    info += intNov.NovinariIzNovina[i].ImeNovinara;
+                    if (intNov.NovinariIzNovina.Count != 1) {
+                        if (i < intNov.NovinariIzNovina.Count - 2) {
+                            info += ", ";
+                        } else if (i == intNov.NovinariIzNovina.Count - 2) {
+                            info += " i ";
+                        }
+                    }
+                }
+                info += " dana " + intNov.DatumIntervjua.ToShortDateString();
+                MessageBox.Show(info, "IntervjuNovine sa ID " + intNov.ID);
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                TVRadioGost tvradg = s.Load<TVRadioGost>(5);
+
+                string info = "Gostovanje na TV ili Radio emisiji pod nazivom " + tvradg.NazivEmisije
+                    + " koju vodi " + tvradg.ImeVoditelja + " na stanici " + tvradg.NazivStanice +
+                    ", pratilo je " + tvradg.Gledanost + " ljudi.";
+                MessageBox.Show(info, "TV/Radio sa ID " + tvradg.ID);
+                s.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e) {
+            try {
+                ISession s = DataLayer.GetSession();
+
+                TVDuel tvd = s.Load<TVDuel>(6);
+
+                string info = "Gostovanje na TV duelu " + tvd.NazivEmisije
+                    + " koju vodi " + tvd.ImeVoditelja + " na stanici " + tvd.NazivStanice +
+                    ", pratilo je " + tvd.Gledanost + " ljudi.";
+                info += "\n Protivkandidati u duelu bili su: \n";
+                for(int i = 0; i < tvd.ProtivKandidati.Count; i++) {
+                    info += tvd.ProtivKandidati[i].ImePK + "\n";
+                }
+                info += "\nZajedno sa njima, Naš Predsednički Kandidat odgovarao je na sledeća pitanja:\n";
+                for (int i = 0; i < tvd.Pitanja.Count; i++) {
+                    info += tvd.Pitanja[i].Tekst + "\n";
+                }
+                MessageBox.Show(info, "TVDuel sa ID " + tvd.ID);
+                s.Close();
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }

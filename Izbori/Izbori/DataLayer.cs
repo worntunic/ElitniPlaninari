@@ -40,7 +40,7 @@ namespace Izbori
                 var cfg = OracleManagedDataClientConfiguration.Oracle10
                     .ShowSql()
                     .ConnectionString(c =>
-                    c.Is("DATA SOURCE=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;USER ID=S14929;Password=pass"));
+                    c.Is("DATA SOURCE=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;USER ID=S14665;Password=Train94"));
                 //c.Is("DATA SOURCE=gislab-oracle.elfak.ni.ac.rs:1521/SBP_PDB;PERSIST SECURITY INFO=True;USER ID=S14665;Password=Train94"));
 
                 return Fluently.Configure()
@@ -66,13 +66,12 @@ namespace Izbori
                     .Mappings(m => m.FluentMappings.Add<PanoReklamaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<TVRadioReklamaMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<NovineReklamaMapiranja>())
-                    .Mappings(m => m.FluentMappings.Add<PojavljivanjaPKMapiranja>())
-                    //.Mappings(m => m.FluentMappings.Add<TVRadioGostMapiranja>())
-                    //.Mappings(m => m.FluentMappings.Add<TVDuelMapiranja>())
-                    //.Mappings(m => m.FluentMappings.Add<ProtivKandidatiTVDuelMapiranja>())
-                    //.Mappings(m => m.FluentMappings.Add<PitanjaTVDuelMapiranja>())
-                    //.Mappings(m => m.FluentMappings.Add<IntervjuNovineMapiranja>())
-                    //.Mappings(m => m.FluentMappings.Add<NovinariIzNovinaMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<TVRadioGostMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<TVDuelMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<ProtivKandidatiTVDuelMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<PitanjaTVDuelMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<IntervjuNovineMapiranja>())
+                    .Mappings(m => m.FluentMappings.Add<NovinariIzNovinaMapiranja>())
                     .Diagnostics(d => d.Enable().OutputToConsole())
                     .BuildSessionFactory();
             }
