@@ -17,7 +17,7 @@ namespace Izbori.Mapiranja
             Id(x => x.IDNovinara, "IDNovinara").GeneratedBy.TriggerIdentity();
 
             Map(x => x.ImeNovinara).Column("ImeNovinara");
-            References(x => x.IDIntervjua).Column("IDIntervjua").LazyLoad();
+            References(x => x.IDIntervjua).Column("IDIntervjua").Cascade.None();
         }
     }
 }

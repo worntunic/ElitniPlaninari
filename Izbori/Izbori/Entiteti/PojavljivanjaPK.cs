@@ -8,6 +8,6 @@ namespace Izbori.Entiteti
 {
     public class PojavljivanjaPK
     {
-        public virtual int ID { get; set; }        
+        public virtual int ID { get; set; }
     }
 }
