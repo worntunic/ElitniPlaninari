@@ -141,24 +141,24 @@ INSERT INTO TVRadioGost (NazivStanice, NazivEmisije, ImeVoditelja, Gledanost) VA
 
 INSERT INTO TVRadioGost (NazivStanice, NazivEmisije, ImeVoditelja, Gledanost) VALUES ('TV Pink', 'Predizborna debata', 'Jelena Joksimović', 1250000);
 INSERT INTO TVDuel VALUES (3);
-INSERT INTO ProtivKandidatiTVDuel VALUES (3, 'Vojislav Šešelj');
-INSERT INTO ProtivKandidatiTVDuel VALUES (3, 'Saša Radulović');
-INSERT INTO ProtivKandidatiTVDuel VALUES (3, 'Aleksandar Vulin');
-INSERT INTO PitanjaTVDuel VALUES (3, 'Kakav je Vaš plan za oporavak privrede?');
-INSERT INTO PitanjaTVDuel VALUES (3, 'Kakav je Vaš stav o Beogradu na vodi?');
-INSERT INTO PitanjaTVDuel VALUES (3, 'Kako ćete se zalagati za poboljšanje prava studenata?');
-INSERT INTO PitanjaTVDuel VALUES (3, 'Da li Vaš plan socijalne zaštite obuhvata porodice na ivici egzistencije?');
+INSERT INTO ProtivKandidatiTVDuel (IDDuela, ImePK) VALUES (3, 'Vojislav Šešelj');
+INSERT INTO ProtivKandidatiTVDuel (IDDuela, ImePK) VALUES (3, 'Saša Radulović');
+INSERT INTO ProtivKandidatiTVDuel (IDDuela, ImePK) VALUES (3, 'Aleksandar Vulin');
+INSERT INTO PitanjaTVDuel (IDDuela, Tekst) VALUES (3, 'Kakav je Vaš plan za oporavak privrede?');
+INSERT INTO PitanjaTVDuel (IDDuela, Tekst) VALUES (3, 'Kakav je Vaš stav o Beogradu na vodi?');
+INSERT INTO PitanjaTVDuel (IDDuela, Tekst) VALUES (3, 'Kako ćete se zalagati za poboljšanje prava studenata?');
+INSERT INTO PitanjaTVDuel (IDDuela, Tekst) VALUES (3, 'Da li Vaš plan socijalne zaštite obuhvata porodice na ivici egzistencije?');
 
 INSERT INTO TVRadioGost (NazivStanice, NazivEmisije, ImeVoditelja, Gledanost) VALUES ('Banker radio', 'Veče sa Markonjerom', 'Marko Jovanović', 1200);
 
 -- Intervju novine
 INSERT INTO IntervjuNovine (NazivLista, DatumObjavljivanja, DatumIntervjua) VALUES ('Politika', TO_DATE('23.03.2016.', 'DD.MM.YYYY.'), TO_DATE('21.03.2016.', 'DD.MM.YYYY.'));
-INSERT INTO NovinariIzNovina VALUES (1, 'Ljubinka Klarić');
+INSERT INTO NovinariIzNovina (IDIntervjua, ImeNovinara) VALUES (1, 'Ljubinka Klarić');
 
 
 INSERT INTO IntervjuNovine (NazivLista, DatumObjavljivanja, DatumIntervjua) VALUES ('Narodne novine', TO_DATE('06.04.2016.', 'DD.MM.YYYY.'), TO_DATE('01.04.2016.', 'DD.MM.YYYY.'));
-INSERT INTO NovinariIzNovina VALUES (2, 'Aleksandra Kocić');
-INSERT INTO NovinariIzNovina VALUES (2, 'Tijana Jovanović');
+INSERT INTO NovinariIzNovina (IDIntervjua, ImeNovinara) VALUES (2, 'Aleksandra Kocić');
+INSERT INTO NovinariIzNovina (IDIntervjua, ImeNovinara) VALUES (2, 'Tijana Jovanović');
 
 -- TV i radio reklame
 
