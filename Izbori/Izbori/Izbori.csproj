@@ -118,6 +118,48 @@
     <Compile Include="Mapiranja\TVRadioReklamaMapiranja.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WriteForme\NovaNovineReklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovaNovineReklama.Designer.cs">
+      <DependentUpon>NovaNovineReklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NovaPanoReklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovaPanoReklama.Designer.cs">
+      <DependentUpon>NovaPanoReklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NovaTVRadioReklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovaTVRadioReklama.Designer.cs">
+      <DependentUpon>NovaTVRadioReklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NoviAktivista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NoviAktivista.Designer.cs">
+      <DependentUpon>NoviAktivista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NovoGlasackoMesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovoGlasackoMesto.Designer.cs">
+      <DependentUpon>NovoGlasackoMesto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NovoPojPKNovine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovoPojPKNovine.Designer.cs">
+      <DependentUpon>NovoPojPKNovine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NovoPojPKTVRadio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovoPojPKTVRadio.Designer.cs">
+      <DependentUpon>NovoPojPKTVRadio.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +172,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WriteForme\NovaNovineReklama.resx">
+      <DependentUpon>NovaNovineReklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovaPanoReklama.resx">
+      <DependentUpon>NovaPanoReklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovaTVRadioReklama.resx">
+      <DependentUpon>NovaTVRadioReklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NoviAktivista.resx">
+      <DependentUpon>NoviAktivista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovoGlasackoMesto.resx">
+      <DependentUpon>NovoGlasackoMesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovoPojPKNovine.resx">
+      <DependentUpon>NovoPojPKNovine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovoPojPKTVRadio.resx">
+      <DependentUpon>NovoPojPKTVRadio.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

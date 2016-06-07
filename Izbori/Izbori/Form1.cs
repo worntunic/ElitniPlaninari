@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Izbori.Entiteti;
+using Izbori.WriteForme;
 
 namespace Izbori
 {
@@ -206,44 +207,8 @@ namespace Izbori
 
         private void DodajAktivistuBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ISession s = DataLayer.GetSession();
-
-                Aktivista akt = new Aktivista();
-
-                akt.Ime = "Petar";
-                akt.ImeRod = "Dragan";
-                akt.Prezime = "Petrović";
-                akt.Ulica = "Draže Petrovića";
-                akt.Broj = 42;
-                akt.Grad = "Beograd";
-
-                s.Save(akt);
-
-                EMailAktiviste email = new EMailAktiviste();
-                email.Akt = akt;
-                email.eMail = "pera@petrovic.com";
-                s.Save(email);
-
-                email = new EMailAktiviste();
-                email.Akt = akt;
-                email.eMail = "pera2@petrovicdrugi.com";
-                s.Save(email);
-
-                BrTel brTel = new BrTel();
-                brTel.Aktivista = akt;
-                brTel.BrojTel = "011/232-23-21";
-                s.Save(brTel);
-
-                s.Close();
-
-                MessageBox.Show("Uspesno sacuvan");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            var forma = new NoviAktivista();
+            forma.Show();            
         }
 
         private void DodajKoordinatoraBtn_Click(object sender, EventArgs e)
@@ -442,31 +407,10 @@ namespace Izbori
             }
         }
 
-        private void GlasackoMestoBtn_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-
-                GlasackoMesto gm = new GlasackoMesto();
-                Random rand = new Random();
-                gm.Naziv = "osnovna skola";
-                gm.BrojRegBir = 22;
-                gm.BrojGM = rand.Next(22222, 1222222);
-                s.Save(gm);
-
-                /*RezultatiIzbora ri = new RezultatiIzbora();
-                ri.BrBiraca = 2200;
-                ri.BrKruga = 1;
-                ri.GlasackoMesto = gm;
-                ri.ProcenatZaKandidata = 12;
-                s.Save(ri);*/
-                              
-
-                s.Close();
-
-                MessageBox.Show("Uspesno sacuvan");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+        private void GlasackoMestoBtn_Click(object sender, EventArgs e)
+        {
+            var forma = new NovoGlasackoMesto();
+            forma.Show();
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -568,35 +512,8 @@ namespace Izbori
 
         private void ReklTVRadioBtn_Click(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
-
-            try
-            {
-                s.Transaction.Begin();
-                TVRadioReklama reklama = new TVRadioReklama()
-                {
-                    NazivStanice = "Belami Radio",
-                    BrojPonavljanja = 666,
-                    CenaZakupa = 1000,
-                    DatumZakupa = DateTime.Now,
-                    Trajanje = 30,
-                    TrajanjeZakupa = 15
-                };
-                s.SaveOrUpdate(reklama);
-                s.Flush();
-
-                s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");
-            }
-            catch (Exception ex)
-            {
-                s.Transaction.Rollback();
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                s.Close();
-            }
+            var forma = new NovaTVRadioReklama();
+            forma.Show();
         }
 
         private void ShowReklTVRadioBtn_Click(object sender, EventArgs e)
@@ -628,34 +545,8 @@ namespace Izbori
 
         private void ReklNovineBtn_Click(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
-
-            try
-            {
-                s.Transaction.Begin();
-                NovineReklama reklama = new NovineReklama()
-                {
-                    NazivLista = "Dezinformer",
-                    Uboji = 1,
-                    CenaZakupa = 1000,
-                    DatumZakupa = DateTime.Now,
-                    TrajanjeZakupa = 7
-                };
-                s.SaveOrUpdate(reklama);
-                s.Flush();
-
-                s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");
-            }
-            catch (Exception ex)
-            {
-                s.Transaction.Rollback();
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                s.Close();
-            }
+            var forma = new NovaNovineReklama();
+            forma.Show();
         }
 
         private void ShowReklNovineBtn_Click(object sender, EventArgs e)
@@ -729,8 +620,6 @@ namespace Izbori
 
         private void PojPKTVRadBtn_Click(object sender, EventArgs e)
         {
-
-
             try
             {
                 ISession s = DataLayer.GetSession();
@@ -752,67 +641,16 @@ namespace Izbori
 
         private void PojPKNovineBtn_Click(object sender, EventArgs e)
         {
-
-            ISession s = DataLayer.GetSession();
-            try
-            {
-
-                var reklama = new IntervjuNovine();
-                reklama.DatumObjavljivanja = DateTime.Now;
-                reklama.DatumIntervjua = new DateTime(2016, 5, 1, 18, 30, 0);
-                reklama.NazivLista = "Ribolovacke Price";
-                s.Save(reklama);
-
-                NovinariIzNovina nin1 = new NovinariIzNovina();
-                nin1.ImeNovinara = "Veselin Marković";
-                nin1.IDIntervjua = reklama;
-                s.Save(nin1);
-                NovinariIzNovina nin2 = new NovinariIzNovina();
-                nin2.ImeNovinara = "Vladislav Kopnenić";
-                nin2.IDIntervjua = reklama;
-                s.Save(nin2);
-                s.Close();
-                MessageBox.Show("Uspesno sacuvan");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            var forma = new NovoPojPKNovine();
+            forma.Show();
         }
 
         private void ReklPanoBtn_Click(object sender, EventArgs e)
         {
-            ISession s = DataLayer.GetSession();
-
-            try
-            {
-                s.Transaction.Begin();
-                var reklama = new PanoReklama()
-                {
-                    Grad = "Nis",
-                    DatumZakupa = DateTime.Now,
-                    Povrsina = 6.66, //kvadrata
-                    CenaZakupa = 1389,
-                    TrajanjeZakupa = 9, //dana
-                    Ulica = "Kraljevica Sarca",
-                    Vlasnik = "Vucko Aleksandrovic"
-                };
-                s.SaveOrUpdate(reklama);
-                s.Flush();
-
-                s.Transaction.Commit();
-                MessageBox.Show("Uspesno sacuvan");
-            }
-            catch (Exception ex)
-            {
-                s.Transaction.Rollback();
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                s.Close();
-            }
+            var forma = new NovaPanoReklama();
+            forma.Show();
         }
+
         private void ShowReklPanoBtn_Click(object sender, EventArgs e)
         {
             ISession s = DataLayer.GetSession();
