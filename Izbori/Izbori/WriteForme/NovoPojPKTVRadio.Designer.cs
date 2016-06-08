@@ -142,7 +142,6 @@
             this.Controls.Add(this.label1);
             this.Name = "NovoPojPKTVRadio";
             this.Text = "Dodaj Pojavljivanje Predsedničkog kandidata na TVu ili Radiju";
-            this.Load += new System.EventHandler(this.NovoPojPKTVRadio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -53,11 +53,13 @@ namespace Izbori.WriteForme
                     DatumZakupa = dateTimeZakupa.Value.Date,
                     Uboji = (cbUBoji.Enabled) ? 1 : 0
                 };
+
                 ses.SaveOrUpdate(reklama);
+
                 ses.Flush();
 
                 ses.Transaction.Commit();
-                MessageBox.Show("Uspesno Sačuvana Reklama u Novinama!");
+                MessageBox.Show("Uspesno sačuvana reklama u novinama!", "Uspeh!");
             }
             catch (Exception ex)
             {

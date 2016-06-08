@@ -48,13 +48,16 @@ namespace Izbori.WriteForme
                 ses.Save(poj);
                 foreach (string x in cbNovinari.Items)
                 {
-                    var novinar = new NovinariIzNovina();
-                    novinar.IDIntervjua = poj;
-                    novinar.ImeNovinara = x;
+                    var novinar = new NovinariIzNovina()
+                    {
+                        IDIntervjua = poj,
+                        ImeNovinara = x
+                    };
                     ses.Save(novinar);
                 }
 
                 ses.Transaction.Commit();
+
                 MessageBox.Show("Pojavljivanje predsedničkog kandidata u novinama je uspešno sačuvano!", "Uspeh!");
             }
             catch (Exception ex)
@@ -66,11 +69,6 @@ namespace Izbori.WriteForme
             {
                 ses.Close();
             }
-        }  
-
-        private void btnRemoveNovinar_Click(object sender, EventArgs e)
-        {
-            cbNovinari.Items.Remove(cbNovinari.SelectedItem);
         }
 
         private void btnAddNovinar_Click(object sender, EventArgs e)
@@ -82,6 +80,11 @@ namespace Izbori.WriteForme
             }
             else
                 SystemSounds.Beep.Play();
+        }
+
+        private void btnRemoveNovinar_Click(object sender, EventArgs e)
+        {
+            cbNovinari.Items.Remove(cbNovinari.SelectedItem);
         }
     }
 }

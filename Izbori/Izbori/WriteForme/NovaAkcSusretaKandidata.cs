@@ -12,18 +12,11 @@ using System.Windows.Forms;
 
 namespace Izbori.WriteForme
 {
-    public partial class NovoPojPKTVRadio : Form
+    public partial class NovaAkcSusretaKandidata : Form
     {
-        public NovoPojPKTVRadio()
+        public NovaAkcSusretaKandidata()
         {
             InitializeComponent();
-        }
-
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-                e.Handled = true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -39,26 +32,24 @@ namespace Izbori.WriteForme
             {
                 ses.Transaction.Begin();
 
-                var poj = new TVRadioGost
+                var akc = new SusretKandidata
                 {
-                    NazivStanice = tbNazivStanice.Text,
-                    NazivEmisije = tbNazivEmisije.Text,
-                    ImeVoditelja = tbImeVoditelja.Text,
-                    Gledanost = int.Parse(tbGledanost.Text)
+                    Grad = tbGrad.Text,
+                    Lokacija = tbLokacija.Text,
+                    NazivAkcije = tbNazivAkcije.Text,
+                    PlaniranoVreme = new DateTime(dateTimePlaniranoVreme.Value.Ticks)
                 };
 
-                ses.SaveOrUpdate(poj);
-
-                ses.Flush();
+                ses.SaveOrUpdate(akc);
 
                 ses.Transaction.Commit();
 
-                MessageBox.Show("Pojavljivanje predsedničkog kandidata na TV-u ili Radiju je uspešno sačuvano!", "Uspeh!");
+                MessageBox.Show("Akcija dodavanja susreta kandidata je sačuvana!","Uspeh!");
             }
-            catch (Exception ex)
+            catch (Exception ec)
             {
                 ses.Transaction.Rollback();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ec.Message);
             }
             finally
             {

@@ -46,21 +46,26 @@ namespace Izbori.WriteForme
                 ses.Save(akt);
                 foreach (string x in cbEmail.Items)
                 {
-                    var email = new EMailAktiviste();
-                    email.Akt = akt;
-                    email.eMail = x;
+                    var email = new EMailAktiviste()
+                    {
+                        eMail = x,
+                        Akt = akt
+                    };
                     ses.Save(email);
                 }
 
                 foreach (string x in cbTelefon.Items)
                 {
-                    var telefon = new BrTel();
-                    telefon.Aktivista = akt;
-                    telefon.BrojTel = x;
+                    var telefon = new BrTel()
+                    {
+                        Aktivista = akt,
+                        BrojTel = x
+                    };
                     ses.Save(telefon);
                 }
 
                 ses.Transaction.Commit();
+
                 MessageBox.Show("Aktivista uspešno sačuvan!", "Uspeh!");
             }
             catch (Exception ex)

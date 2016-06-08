@@ -63,6 +63,7 @@ namespace Izbori.WriteForme
                     DatumZakupa = dateTimeZakupa.Value.Date
                 };
                 ses.SaveOrUpdate(reklama);
+
                 ses.Flush();
 
                 ses.Transaction.Commit();

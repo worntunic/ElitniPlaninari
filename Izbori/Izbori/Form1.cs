@@ -19,6 +19,7 @@ namespace Izbori
         {
             InitializeComponent();
             //komentar
+            //^za sta je ovaj komentar?
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,51 +27,16 @@ namespace Izbori
 
         }
 
-        private void AkcDeljLetBtn_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-
-                DeljenjeLetaka dl = new DeljenjeLetaka();
-
-
-                dl.NazivAkcije = "Posejimo ulice";
-                dl.Grad = "Kruševac";
-                s.Save(dl);
-
-                LokacijaDeljenjaLetaka ldl1 = new LokacijaDeljenjaLetaka();
-                ldl1.DeljenjeLetaka = dl;
-                ldl1.Lokacija = "Pašnjačka";
-                s.Save(ldl1);
-
-                LokacijaDeljenjaLetaka ldl2 = new LokacijaDeljenjaLetaka();
-                ldl2.DeljenjeLetaka = dl;
-                ldl2.Lokacija = "Tamnog Vilajeta";
-                s.Save(ldl2);
-                s.Close();
-                MessageBox.Show("Uspešno sačuvan");
-            } catch (Exception ec) {
-                MessageBox.Show(ec.Message);
-            }
+        private void AkcDeljLetBtn_Click(object sender, EventArgs e)
+        {
+            var forma = new NovaAkcDeljenjaLetaka();
+            forma.Show();
         }
 
-        private void AkcSusKand_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-                
-                SusretKandidata sk = new SusretKandidata();
-                
-                sk.NazivAkcije = "U susret budućnosti";
-                sk.Grad = "Jagodina";
-                sk.Lokacija = "Boks Klub Jagodinski Tigrovi";
-                sk.PlaniranoVreme = new DateTime(2016, 5, 1, 18, 30, 0);
-
-                s.Save(sk);
-
-                s.Close();
-                MessageBox.Show("Uspešno sačuvan");
-            } catch (Exception ec) {
-                MessageBox.Show(ec.Message);
-            }
+        private void AkcSusKand_Click(object sender, EventArgs e)
+        {
+            var forma = new NovaAkcSusretaKandidata();
+            forma.Show();
         }
 
         private void AkcMitBtn_Click(object sender, EventArgs e) {
@@ -580,42 +546,8 @@ namespace Izbori
 
         private void PojPKTVDuelBtn_Click(object sender, EventArgs e)
         {
-
-
-            try
-            {
-                ISession s = DataLayer.GetSession();
-                var duel = new TVDuel();
-                duel.ImeVoditelja = "Andrija Andrejević";
-                duel.NazivStanice = "TV Bubamara";
-                duel.NazivEmisije = "Total Soccer";
-                s.Save(duel);
-                ProtivKandidatiTVDuel pktd1 = new ProtivKandidatiTVDuel();
-                pktd1.ImePK = "Sava Savanović";
-                pktd1.IDDuela = duel;
-                s.Save(pktd1);
-                ProtivKandidatiTVDuel pktd2 = new ProtivKandidatiTVDuel();
-                pktd2.ImePK = "Boris Borisavljević";
-                pktd2.IDDuela = duel;
-                s.Save(pktd2);
-                PitanjaTVDuel ptd1 = new PitanjaTVDuel();
-                ptd1.Tekst = "Koje je Vaše pravo ime?";
-                ptd1.IDDuela = duel;
-                s.Save(ptd1);
-                PitanjaTVDuel ptd2 = new PitanjaTVDuel();
-                ptd2.Tekst = "Koje je Vaše pravo prezime?";
-                ptd2.IDDuela = duel;
-                s.Save(ptd2);
-
-                s.Flush();
-                s.Close();
-                MessageBox.Show("Uspesno sacuvan");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            var forma = new NovoPojPKTVDuel();
+            forma.Show();
         }
 
         private void PojPKTVRadBtn_Click(object sender, EventArgs e)

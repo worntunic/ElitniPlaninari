@@ -74,6 +74,7 @@ namespace Izbori.WriteForme
                 ses.Flush();
 
                 ses.Transaction.Commit();
+
                 MessageBox.Show("TV/Radio reklama uspešno sačuvana!", "Uspeh!");
             }
             catch (Exception ex)
