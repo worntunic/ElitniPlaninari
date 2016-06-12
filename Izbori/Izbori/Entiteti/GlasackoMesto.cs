@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Izbori.Entiteti {
-    public class GlasackoMesto {
+namespace Izbori.Entiteti
+{
+    public class GlasackoMesto
+    {
         public virtual int ID { get; set; }
         public virtual string Naziv { get; set; }
         public virtual int BrojGM { get; set; }

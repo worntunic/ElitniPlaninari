@@ -160,6 +160,12 @@
     <Compile Include="WriteForme\NoviAktivista.Designer.cs">
       <DependentUpon>NoviAktivista.cs</DependentUpon>
     </Compile>
+    <Compile Include="WriteForme\NoviRezultatIzbora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NoviRezultatIzbora.Designer.cs">
+      <DependentUpon>NoviRezultatIzbora.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteForme\NovoGlasackoMesto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,12 @@
     </Compile>
     <Compile Include="WriteForme\PomocneForme\DodajGosta.Designer.cs">
       <DependentUpon>DodajGosta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\UnaprediUKoordinatora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\UnaprediUKoordinatora.Designer.cs">
+      <DependentUpon>UnaprediUKoordinatora.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -223,6 +235,9 @@
     <EmbeddedResource Include="WriteForme\NoviAktivista.resx">
       <DependentUpon>NoviAktivista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NoviRezultatIzbora.resx">
+      <DependentUpon>NoviRezultatIzbora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NovoGlasackoMesto.resx">
       <DependentUpon>NovoGlasackoMesto.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\PomocneForme\DodajGosta.resx">
       <DependentUpon>DodajGosta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\UnaprediUKoordinatora.resx">
+      <DependentUpon>UnaprediUKoordinatora.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

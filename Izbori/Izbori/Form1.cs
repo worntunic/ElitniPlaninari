@@ -39,38 +39,10 @@ namespace Izbori
             forma.Show();
         }
 
-        private void AkcMitBtn_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-
-                Miting mit = new Miting();
-
-                mit.NazivAkcije = "Karma policija";
-                mit.Grad = "Vavilon";
-                mit.Lokacija = "Baš kod kule";
-                s.Save(mit);
-
-                Gost gost1 = new Gost();
-                gost1.Ime = "Deus";
-                gost1.Prezime = "Ex Machina";
-                gost1.Titula = "Lord";
-                gost1.Funkcija = "Izvršitelj";
-                gost1.Miting = mit;
-                s.Save(gost1);
-
-                Gost gost2 = new Gost();
-                gost2.Ime = "Plameni";
-                gost2.Prezime = "Jezik";
-                gost2.Titula = "Grešnik";
-                gost2.Funkcija = "Ponizni";
-                gost2.Miting = mit;
-                s.Save(gost2);
-
-                s.Close();
-                MessageBox.Show("Uspešno sačuvan");
-            } catch (Exception ec) {
-                MessageBox.Show(ec.Message);
-            }
+        private void AkcMitBtn_Click(object sender, EventArgs e)
+        {
+            var forma = new NovaAkcMitinga();
+            forma.Show();
         }
 
         private void RezIzbBtn_Click(object sender, EventArgs e)
@@ -258,7 +230,8 @@ namespace Izbori
             }
         }
 
-        private void GostMitBtn_Click(object sender, EventArgs e) {
+        private void GostMitBtn_Click(object sender, EventArgs e)
+        {
             try {
                 ISession s = DataLayer.GetSession();
                 Miting mit = s.Load<Miting>(26);
@@ -379,26 +352,10 @@ namespace Izbori
             forma.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-
-                GlasackoMesto gm = s.Load<GlasackoMesto>(151);
-
-                RezultatiIzbora ri = new RezultatiIzbora();
-                ri.BrBiraca = 2200;
-                ri.BrKruga = 1;
-                ri.GlasackoMesto = gm;
-                ri.ProcenatZaKandidata = 12;
-                s.Save(ri);
-
-
-                s.Close();
-
-                MessageBox.Show("Uspesno sacuvan");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var forma = new NoviRezultatIzbora();
+            forma.Show();
         }
 
         private void AngAktnaGMBtn_Click(object sender, EventArgs e) {

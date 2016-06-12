@@ -15,29 +15,29 @@ namespace Izbori.WriteForme
 {
     public partial class NovaAkcMitinga : Form
     {
+        private List<Gost> listaGostiju;
+
         public NovaAkcMitinga()
         {
             InitializeComponent();
-            listaGostiju.Clear();
+            listaGostiju = new List<Gost>();
         }
 
-        private IList<Gost> listaGostiju;
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbJelZatvoren.Enabled)
-            {
-                label4.Visible = false;
-                label5.Visible = false;
-                tbCenaZakupa.Visible = false;
-                tbNazivIznajmljivaca.Visible = false;
-            }
-            else
+        {            
+            if (cbJelZatvoren.CheckState == CheckState.Checked)
             {
                 label4.Visible = true;
                 label5.Visible = true;
                 tbCenaZakupa.Visible = true;
                 tbNazivIznajmljivaca.Visible = true;
+            }
+            else
+            {
+                label4.Visible = false;
+                label5.Visible = false;
+                tbCenaZakupa.Visible = false;
+                tbNazivIznajmljivaca.Visible = false;
             }
         }
 
@@ -55,14 +55,19 @@ namespace Izbori.WriteForme
 
         private void btnAddLokacija_Click(object sender, EventArgs e)
         {
-            //TODO ovo
-            var forma = new DodajGosta(listaGostiju);
-            forma.Show();
+            var form = new DodajGosta();            
+            var result = form.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                listaGostiju.Add(form.RetValGost);
+                cbGosti.Items.Add(form.RetValGost.Ime + " " + form.RetValGost.Prezime);
+
+                MessageBox.Show("Gost uspešno dodat!", "Uspeh!");
+            }
         }
 
         private void btnRemoveLokacija_Click(object sender, EventArgs e)
-        {
-            //TODO ovo
+        {//najverovatnije moze mnogo lakse
             string x = cbGosti.SelectedItem.ToString();
             int counter = 0;
             foreach (Gost temp in listaGostiju)
@@ -71,7 +76,8 @@ namespace Izbori.WriteForme
                     listaGostiju.RemoveAt(counter);
                 ++counter;
             }
-            cbGosti.Items.Remove(cbGosti.SelectedItem);            
+            cbGosti.Items.Remove(cbGosti.SelectedItem);
+            cbGosti.Text = "";
         }
 
         private void btnOK_Click(object sender, EventArgs e)

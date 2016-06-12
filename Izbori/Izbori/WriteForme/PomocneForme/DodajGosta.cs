@@ -13,21 +13,21 @@ namespace Izbori.WriteForme.PomocneForme
 {
     public partial class DodajGosta : Form
     {
-        private IList<Gost> lista;
-        public DodajGosta(IList<Gost> temp)
+        public Gost RetValGost { get; set; }
+
+        public DodajGosta()
         {
             InitializeComponent();
-            lista = temp;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            var g = new Gost()
+            var gost = new Gost()
             {
                 Ime = tbIme.Text,
                 Prezime = tbPrezime.Text,
@@ -35,11 +35,11 @@ namespace Izbori.WriteForme.PomocneForme
                 Funkcija = tbFunkcija.Text
             };
 
-            lista.Add(g);
+            RetValGost = gost;
 
-            MessageBox.Show("Gost uspešno dodat!", "Uspeh!");
+            DialogResult = DialogResult.OK;            
 
-            this.Close();
+            Close();
         }
     }
 }

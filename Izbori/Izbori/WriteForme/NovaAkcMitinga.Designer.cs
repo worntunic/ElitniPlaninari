@@ -43,8 +43,8 @@
             this.tbCenaZakupa = new System.Windows.Forms.TextBox();
             this.tbNazivIznajmljivaca = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnRemoveLokacija = new System.Windows.Forms.Button();
-            this.btnAddLokacija = new System.Windows.Forms.Button();
+            this.btnRemoveGost = new System.Windows.Forms.Button();
+            this.btnAddGost = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbGrad
@@ -180,33 +180,33 @@
             this.label5.Text = "Naziv Iznajmljivača:";
             this.label5.Visible = false;
             // 
-            // btnRemoveLokacija
+            // btnRemoveGost
             // 
-            this.btnRemoveLokacija.Location = new System.Drawing.Point(289, 194);
-            this.btnRemoveLokacija.Name = "btnRemoveLokacija";
-            this.btnRemoveLokacija.Size = new System.Drawing.Size(24, 23);
-            this.btnRemoveLokacija.TabIndex = 40;
-            this.btnRemoveLokacija.Text = "-";
-            this.btnRemoveLokacija.UseVisualStyleBackColor = true;
-            this.btnRemoveLokacija.Click += new System.EventHandler(this.btnRemoveLokacija_Click);
+            this.btnRemoveGost.Location = new System.Drawing.Point(289, 194);
+            this.btnRemoveGost.Name = "btnRemoveGost";
+            this.btnRemoveGost.Size = new System.Drawing.Size(24, 23);
+            this.btnRemoveGost.TabIndex = 40;
+            this.btnRemoveGost.Text = "-";
+            this.btnRemoveGost.UseVisualStyleBackColor = true;
+            this.btnRemoveGost.Click += new System.EventHandler(this.btnRemoveLokacija_Click);
             // 
-            // btnAddLokacija
+            // btnAddGost
             // 
-            this.btnAddLokacija.Location = new System.Drawing.Point(265, 194);
-            this.btnAddLokacija.Name = "btnAddLokacija";
-            this.btnAddLokacija.Size = new System.Drawing.Size(24, 23);
-            this.btnAddLokacija.TabIndex = 39;
-            this.btnAddLokacija.Text = "+";
-            this.btnAddLokacija.UseVisualStyleBackColor = true;
-            this.btnAddLokacija.Click += new System.EventHandler(this.btnAddLokacija_Click);
+            this.btnAddGost.Location = new System.Drawing.Point(265, 194);
+            this.btnAddGost.Name = "btnAddGost";
+            this.btnAddGost.Size = new System.Drawing.Size(24, 23);
+            this.btnAddGost.TabIndex = 39;
+            this.btnAddGost.Text = "+";
+            this.btnAddGost.UseVisualStyleBackColor = true;
+            this.btnAddGost.Click += new System.EventHandler(this.btnAddLokacija_Click);
             // 
             // NovaAkcMitinga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 258);
-            this.Controls.Add(this.btnRemoveLokacija);
-            this.Controls.Add(this.btnAddLokacija);
+            this.Controls.Add(this.btnRemoveGost);
+            this.Controls.Add(this.btnAddGost);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbCenaZakupa);
             this.Controls.Add(this.tbNazivIznajmljivaca);
@@ -246,7 +246,7 @@
         private System.Windows.Forms.TextBox tbCenaZakupa;
         private System.Windows.Forms.TextBox tbNazivIznajmljivaca;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnRemoveLokacija;
-        private System.Windows.Forms.Button btnAddLokacija;
+        private System.Windows.Forms.Button btnRemoveGost;
+        private System.Windows.Forms.Button btnAddGost;
     }
 }

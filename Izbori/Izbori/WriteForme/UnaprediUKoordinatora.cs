@@ -12,21 +12,14 @@ using System.Windows.Forms;
 
 namespace Izbori.WriteForme
 {
-    public partial class NovaNovineReklama : Form
+    public partial class UnaprediUKoordinatora : Form
     {
-        public NovaNovineReklama()
+        public UnaprediUKoordinatora()
         {
             InitializeComponent();
         }
 
-        private void tbCenaZakupa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-                e.Handled = true;
-        }
-
-        private void tbTrajanjeZakupa_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
@@ -41,25 +34,14 @@ namespace Izbori.WriteForme
         private void btnOK_Click(object sender, EventArgs e)
         {
             ISession ses = DataLayer.GetSession();
-
             try
             {
                 ses.Transaction.Begin();
-                NovineReklama reklama = new NovineReklama()
+                var koord = new Koordinator()
                 {
-                    NazivLista = tbNazivLista.Text,
-                    CenaZakupa = int.Parse(tbCenaZakupa.Text),
-                    TrajanjeZakupa = int.Parse(tbTrajanjeZakupa.Text),
-                    DatumZakupa = dateTimeZakupa.Value.Date,
-                    Uboji = (cbUBoji.CheckState == CheckState.Checked) ? 1 : 0
-                };
-
-                ses.SaveOrUpdate(reklama);
-
-                ses.Flush();
-
+                }
+                ses.SaveOrUpdate();
                 ses.Transaction.Commit();
-                MessageBox.Show("Uspesno sačuvana reklama u novinama!", "Uspeh!");
             }
             catch (Exception ex)
             {
