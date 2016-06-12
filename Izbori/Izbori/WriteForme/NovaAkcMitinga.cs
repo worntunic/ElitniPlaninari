@@ -67,7 +67,8 @@ namespace Izbori.WriteForme
         }
 
         private void btnRemoveLokacija_Click(object sender, EventArgs e)
-        {//najverovatnije moze mnogo lakse
+        {
+            //najverovatnije moze mnogo lakse
             string x = cbGosti.SelectedItem.ToString();
             int counter = 0;
             foreach (Gost temp in listaGostiju)

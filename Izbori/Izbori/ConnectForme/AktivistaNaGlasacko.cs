@@ -7,26 +7,37 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Izbori.WriteForme
+namespace Izbori.ConnectForme
 {
-    public partial class NoviRezultatIzbora : Form
+    public partial class AktivistaNaGlasacko : Form
     {
         private IList<GlasackoMesto> listaGlasackihMesta;
+        private IList<Aktivista> listaAktivista; //slobodnih
 
-        public NoviRezultatIzbora()
+        public AktivistaNaGlasacko()
         {
             InitializeComponent();
             listaGlasackihMesta = new List<GlasackoMesto>();
+            listaAktivista = new List<Aktivista>();
+
             ISession ses = DataLayer.GetSession();
+
             try
             {
+                listaAktivista = ses.QueryOver<Aktivista>().Where(x => x.gm == null).List();//nisam 100% siguran
                 listaGlasackihMesta = ses.QueryOver<GlasackoMesto>().List();
                 foreach (GlasackoMesto x in listaGlasackihMesta)
                 {
-                    cbGlasackaMesta.Items.Add(x.Naziv);
+                    cbGlasackoMesto.Items.Add(x.Naziv);
+                }
+
+                foreach (Aktivista x in listaAktivista)
+                {
+                    cbAktivista.Items.Add(x.Ime + ' ' + x.ImeRod + ' ' + x.Prezime);
                 }
             }
             catch (Exception ex)
@@ -37,27 +48,6 @@ namespace Izbori.WriteForme
             {
                 ses.Close();
             }
-        }
-
-        private void tbProcenatZaKandidata_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-                e.Handled = true;
-        }
-
-        private void tbBrojKruga_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (ch != '1' && ch != '2' && ch != 8 && ch != 46)//ako je maximum dva kruga
-                e.Handled = true;
-        }
-
-        private void tbBrojBiraca_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char ch = e.KeyChar;
-            if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
-                e.Handled = true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -71,20 +61,16 @@ namespace Izbori.WriteForme
             try
             {
                 ses.Transaction.Begin();
+                var akt = new Aktivista();
+                akt = getAkt(cbAktivista.SelectedItem.ToString());
 
-                var ri = new RezultatiIzbora()
-                {
-                    ProcenatZaKandidata = int.Parse(tbProcenatZaKandidata.Text),
-                    BrBiraca = int.Parse(tbBrojBiraca.Text),
-                    BrKruga = int.Parse(tbBrojKruga.Text),
-                    GlasackoMesto = getGm(cbGlasackaMesta.SelectedItem.ToString())
-                };
+                akt.gm = getGm(cbGlasackoMesto.SelectedItem.ToString());
 
-                ses.SaveOrUpdate(ri);
+                ses.SaveOrUpdate(akt);
 
                 ses.Transaction.Commit();
 
-                MessageBox.Show("Rezulati izbora uspešno sačuvani!","Uspeh!");
+                MessageBox.Show("Aktivista je uspešno angažovan na ovo glasačko mesto!", "Uspeh!");
             }
             catch (Exception ex)
             {
@@ -98,7 +84,7 @@ namespace Izbori.WriteForme
         }
 
         private GlasackoMesto getGm(string gm)
-        {
+        {            
             var returner = new GlasackoMesto();
             IList<GlasackoMesto> temp = new List<GlasackoMesto>();
 
@@ -118,5 +104,33 @@ namespace Izbori.WriteForme
             }
             return returner;
         }
+
+        private Aktivista getAkt(string src)
+        {
+            string[] strArray = src.Split(' ');
+
+            string aktIme = strArray[0];
+            string aktImeRod = strArray[1];
+            string aktPrezime = strArray[2];
+
+            var returner = new Aktivista();
+            IList<Aktivista> temp = new List<Aktivista>();
+
+            ISession ses = DataLayer.GetSession();
+            try
+            {
+                temp = ses.QueryOver<Aktivista>().Where(x => x.Ime == aktIme && x.ImeRod == aktImeRod && x.Prezime == aktPrezime).List();
+                returner = temp[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                ses.Close();
+            }
+            return returner;
+        }        
     }
 }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Izbori.Entiteti;
 using Izbori.WriteForme;
+using Izbori.ConnectForme;
 
 namespace Izbori
 {
@@ -160,11 +161,12 @@ namespace Izbori
                 Aktivista akt = null;
                 do
                 {
-                    id++;
+                    ++id;
                     akt = s.Load<Aktivista>(id);
                     notHelper = akt.koord == null;
                     notKoord = s.QueryOver<Koordinator>().Where(x => x.ID == akt.ID).RowCount() == 0;
-                } while (!notHelper || !notKoord);
+                }
+                while (!notHelper || !notKoord);
 
                 if (notKoord && notHelper)
                 {
@@ -217,7 +219,7 @@ namespace Izbori
                     {
                         akt.koord = koord;
                         s.Save(akt);
-                        j++;
+                        ++j;
                     }
                 }
                 s.Flush();
@@ -232,29 +234,8 @@ namespace Izbori
 
         private void GostMitBtn_Click(object sender, EventArgs e)
         {
-            try {
-                ISession s = DataLayer.GetSession();
-                Miting mit = s.Load<Miting>(26);
-
-                string info = "";
-                info += "Miting je održan na lokaciji : \" " + mit.Grad + "\". \n";
-                if(mit.Gosti.Count > 0) {
-                    info += "\n Od gostiju prisustvovali su:\n";
-                }
-                else {
-                    info += "Nije zabelezen nijedan gost :(.\n";
-                }
-                for (int i = 0; i < mit.Gosti.Count; i++) {
-                    info += mit.Gosti[i].Funkcija + " " + mit.Gosti[i].Titula + " "
-                        + mit.Gosti[i].Ime + " " + mit.Gosti[i].Prezime + "\n";
-                }
-
-                MessageBox.Show(info, "Miting sa ID " + mit.ID.ToString());
-
-                s.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+            var forma = new NoviGostNaMitingu();
+            forma.Show();
         }
 
         private void button3_Click(object sender, EventArgs e) {
@@ -358,46 +339,16 @@ namespace Izbori
             forma.Show();
         }
 
-        private void AngAktnaGMBtn_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-
-                GlasackoMesto gm = s.Load<GlasackoMesto>(151);
-                Aktivista akt = s.Load<Aktivista>(62);
-                Primedbe pr = new Primedbe();
-                pr.Aktivista = akt;
-                pr.GlasackoMesto = gm;
-                pr.TekstPrim = " ";
-                s.Save(pr);
-
-
-                s.Close();
-
-                MessageBox.Show("Uspesno sacuvan");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+        private void AngAktnaGMBtn_Click(object sender, EventArgs e)
+        {
+            var forma = new AktivistaNaGlasacko();
+            forma.Show();
         }
 
-        private void AddNote_Click(object sender, EventArgs e) {
-            try {
-                ISession s = DataLayer.GetSession();
-
-                GlasackoMesto gm = s.Load<GlasackoMesto>(2);
-                Aktivista akt = s.Load<Aktivista>(20);
-                Primedbe pr = new Primedbe();
-                pr.Aktivista = akt;
-                pr.GlasackoMesto = gm;
-                pr.TekstPrim = "Posluženje je bilo skromno";
-                s.Save(pr);
-
-
-                s.Close();
-
-                MessageBox.Show("Uspesno sacuvan");
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
-            }
+        private void AddNote_Click(object sender, EventArgs e)
+        {
+            var forma = new NovaPrimedbaAktiviste();
+            forma.Show();
         }
 
         private void AkcijaAktivistiBtn_Click(object sender, EventArgs e) {

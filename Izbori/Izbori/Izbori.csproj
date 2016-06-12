@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectForme\AktivistaNaGlasacko.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectForme\AktivistaNaGlasacko.Designer.cs">
+      <DependentUpon>AktivistaNaGlasacko.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entiteti\Akcija.cs" />
     <Compile Include="DataLayer.cs" />
     <Compile Include="Entiteti\Aktivista.cs" />
@@ -148,6 +154,12 @@
     <Compile Include="WriteForme\NovaPanoReklama.Designer.cs">
       <DependentUpon>NovaPanoReklama.cs</DependentUpon>
     </Compile>
+    <Compile Include="WriteForme\NovaPrimedbaAktiviste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovaPrimedbaAktiviste.Designer.cs">
+      <DependentUpon>NovaPrimedbaAktiviste.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteForme\NovaTVRadioReklama.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </Compile>
     <Compile Include="WriteForme\NoviAktivista.Designer.cs">
       <DependentUpon>NoviAktivista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WriteForme\NoviGostNaMitingu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NoviGostNaMitingu.Designer.cs">
+      <DependentUpon>NoviGostNaMitingu.cs</DependentUpon>
     </Compile>
     <Compile Include="WriteForme\NoviRezultatIzbora.cs">
       <SubType>Form</SubType>
@@ -196,12 +214,21 @@
     <Compile Include="WriteForme\PomocneForme\DodajGosta.Designer.cs">
       <DependentUpon>DodajGosta.cs</DependentUpon>
     </Compile>
+    <Compile Include="WriteForme\PomocneForme\DodajTekstPrimedbe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\PomocneForme\DodajTekstPrimedbe.Designer.cs">
+      <DependentUpon>DodajTekstPrimedbe.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteForme\UnaprediUKoordinatora.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WriteForme\UnaprediUKoordinatora.Designer.cs">
       <DependentUpon>UnaprediUKoordinatora.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConnectForme\AktivistaNaGlasacko.resx">
+      <DependentUpon>AktivistaNaGlasacko.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,11 +256,17 @@
     <EmbeddedResource Include="WriteForme\NovaPanoReklama.resx">
       <DependentUpon>NovaPanoReklama.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovaPrimedbaAktiviste.resx">
+      <DependentUpon>NovaPrimedbaAktiviste.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NovaTVRadioReklama.resx">
       <DependentUpon>NovaTVRadioReklama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NoviAktivista.resx">
       <DependentUpon>NoviAktivista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NoviGostNaMitingu.resx">
+      <DependentUpon>NoviGostNaMitingu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NoviRezultatIzbora.resx">
       <DependentUpon>NoviRezultatIzbora.cs</DependentUpon>
@@ -252,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\PomocneForme\DodajGosta.resx">
       <DependentUpon>DodajGosta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\PomocneForme\DodajTekstPrimedbe.resx">
+      <DependentUpon>DodajTekstPrimedbe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\UnaprediUKoordinatora.resx">
       <DependentUpon>UnaprediUKoordinatora.cs</DependentUpon>

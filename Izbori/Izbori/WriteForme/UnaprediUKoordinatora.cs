@@ -39,8 +39,8 @@ namespace Izbori.WriteForme
                 ses.Transaction.Begin();
                 var koord = new Koordinator()
                 {
-                }
-                ses.SaveOrUpdate();
+                    /*stvarno ne umem....*/
+                };                
                 ses.Transaction.Commit();
             }
             catch (Exception ex)
