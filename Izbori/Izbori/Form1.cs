@@ -917,12 +917,13 @@ namespace Izbori
 
                         string q = "insert into Koordinator (idakt) values (:id)";
                         s.CreateSQLQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
-                        s.Close();
                         osveziPolja(odabrani.ID);
                 }
                 else
                 {
-                    obrisi(odabrani.ID, typeof(Koordinator).ToString());
+                    string q = "delete from Koordinator where idakt=:id";
+                    s.CreateSQLQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
+                    ///TODO Zasto ne radi sa obrisi(odabrani.ID)?
                     osveziPolja(odabrani.ID);
                 }
                 s.Close();
