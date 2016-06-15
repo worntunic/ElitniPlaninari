@@ -70,14 +70,34 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.aktKoord = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.listAkt = new System.Windows.Forms.ListBox();
-            this.akcije = new System.Windows.Forms.TabPage();
-            this.gmesto = new System.Windows.Forms.TabPage();
-            this.mediji = new System.Windows.Forms.TabPage();
-            this.propaganda = new System.Windows.Forms.TabPage();
-            this.sve = new System.Windows.Forms.TabPage();
+            this.lvAkt = new System.Windows.Forms.ListView();
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imeRod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prezime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button10 = new System.Windows.Forms.Button();
+            this.koordOpst = new System.Windows.Forms.TextBox();
+            this.labOps = new System.Windows.Forms.Label();
+            this.koordGrad = new System.Windows.Forms.TextBox();
+            this.labGradKanc = new System.Windows.Forms.Label();
+            this.labZaGM = new System.Windows.Forms.Label();
+            this.labAkcije = new System.Windows.Forms.Label();
+            this.labZaAkc = new System.Windows.Forms.Label();
+            this.jeKoord = new System.Windows.Forms.CheckBox();
+            this.koordObrisiP = new System.Windows.Forms.Button();
+            this.koordDodajP = new System.Windows.Forms.Button();
+            this.koordPomoc = new System.Windows.Forms.ComboBox();
+            this.labPomoc = new System.Windows.Forms.Label();
+            this.koordBr = new System.Windows.Forms.TextBox();
+            this.koordUl = new System.Windows.Forms.TextBox();
+            this.labBrKanc = new System.Windows.Forms.Label();
+            this.labUl = new System.Windows.Forms.Label();
             this.aktObrisi = new System.Windows.Forms.Button();
             this.aktAzuriraj = new System.Windows.Forms.Button();
             this.btnRemoveTelefon = new System.Windows.Forms.Button();
@@ -100,32 +120,17 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.koordObrisiP = new System.Windows.Forms.Button();
-            this.koordDodajP = new System.Windows.Forms.Button();
-            this.koordPomoc = new System.Windows.Forms.ComboBox();
-            this.labPomoc = new System.Windows.Forms.Label();
-            this.koordBr = new System.Windows.Forms.TextBox();
-            this.koordUl = new System.Windows.Forms.TextBox();
-            this.labBrKanc = new System.Windows.Forms.Label();
-            this.labUl = new System.Windows.Forms.Label();
-            this.jeKoord = new System.Windows.Forms.CheckBox();
-            this.labZaAkc = new System.Windows.Forms.Label();
-            this.labAkcije = new System.Windows.Forms.Label();
-            this.labZaGM = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.koordGrad = new System.Windows.Forms.TextBox();
-            this.labGradKanc = new System.Windows.Forms.Label();
-            this.koordOpst = new System.Windows.Forms.TextBox();
-            this.labOps = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.akcije = new System.Windows.Forms.TabPage();
+            this.gmesto = new System.Windows.Forms.TabPage();
+            this.mediji = new System.Windows.Forms.TabPage();
+            this.propaganda = new System.Windows.Forms.TabPage();
+            this.sve = new System.Windows.Forms.TabPage();
+            this.labKoord = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
             this.sve.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DodajAktivistuBtn
@@ -569,9 +574,66 @@
             this.tabControl1.TabIndex = 42;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPage1.Controls.Add(this.label24);
+            this.tabPage1.Controls.Add(this.label23);
+            this.tabPage1.Controls.Add(this.label22);
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.ForeColor = System.Drawing.Color.AliceBlue;
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(957, 609);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Početak";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(8, 151);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(204, 20);
+            this.label24.TabIndex = 3;
+            this.label24.Text = "Do pobede! Samo jako!";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 97);
+            this.label23.MaximumSize = new System.Drawing.Size(500, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(492, 39);
+            this.label23.TabIndex = 2;
+            this.label23.Text = resources.GetString("label23.Text");
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(8, 45);
+            this.label22.MaximumSize = new System.Drawing.Size(500, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(493, 39);
+            this.label22.TabIndex = 1;
+            this.label22.Text = resources.GetString("label22.Text");
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(8, 12);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(106, 20);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Dobrodošli!";
+            // 
             // aktKoord
             // 
             this.aktKoord.BackColor = System.Drawing.Color.SlateGray;
+            this.aktKoord.Controls.Add(this.labKoord);
+            this.aktKoord.Controls.Add(this.lvAkt);
             this.aktKoord.Controls.Add(this.button10);
             this.aktKoord.Controls.Add(this.koordOpst);
             this.aktKoord.Controls.Add(this.labOps);
@@ -612,7 +674,6 @@
             this.aktKoord.Controls.Add(this.label16);
             this.aktKoord.Controls.Add(this.label17);
             this.aktKoord.Controls.Add(this.label8);
-            this.aktKoord.Controls.Add(this.listAkt);
             this.aktKoord.ForeColor = System.Drawing.Color.Azure;
             this.aktKoord.Location = new System.Drawing.Point(4, 22);
             this.aktKoord.Name = "aktKoord";
@@ -621,112 +682,211 @@
             this.aktKoord.TabIndex = 1;
             this.aktKoord.Text = "Aktiviste i koordinatori";
             // 
-            // label8
+            // lvAkt
             // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label8.Location = new System.Drawing.Point(22, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Aktivisti stranke";
+            this.lvAkt.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ID,
+            this.ime,
+            this.imeRod,
+            this.prezime});
+            this.lvAkt.FullRowSelect = true;
+            this.lvAkt.HideSelection = false;
+            this.lvAkt.Location = new System.Drawing.Point(25, 64);
+            this.lvAkt.MultiSelect = false;
+            this.lvAkt.Name = "lvAkt";
+            this.lvAkt.Size = new System.Drawing.Size(349, 368);
+            this.lvAkt.TabIndex = 73;
+            this.lvAkt.UseCompatibleStateImageBehavior = false;
+            this.lvAkt.View = System.Windows.Forms.View.Details;
+            this.lvAkt.SelectedIndexChanged += new System.EventHandler(this.listAkt_SelectedIndexChanged);
             // 
-            // listAkt
+            // ID
             // 
-            this.listAkt.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listAkt.FormattingEnabled = true;
-            this.listAkt.Location = new System.Drawing.Point(25, 57);
-            this.listAkt.Name = "listAkt";
-            this.listAkt.Size = new System.Drawing.Size(324, 368);
-            this.listAkt.TabIndex = 0;
-            this.listAkt.SelectedIndexChanged += new System.EventHandler(this.listAkt_SelectedIndexChanged);
+            this.ID.Text = "ID";
+            this.ID.Width = 35;
             // 
-            // akcije
+            // ime
             // 
-            this.akcije.BackColor = System.Drawing.Color.SlateGray;
-            this.akcije.Location = new System.Drawing.Point(4, 22);
-            this.akcije.Name = "akcije";
-            this.akcije.Size = new System.Drawing.Size(862, 609);
-            this.akcije.TabIndex = 4;
-            this.akcije.Text = "Predizborne akcije";
+            this.ime.Text = "Ime";
+            this.ime.Width = 80;
             // 
-            // gmesto
+            // imeRod
             // 
-            this.gmesto.BackColor = System.Drawing.Color.SlateGray;
-            this.gmesto.Location = new System.Drawing.Point(4, 22);
-            this.gmesto.Name = "gmesto";
-            this.gmesto.Size = new System.Drawing.Size(862, 609);
-            this.gmesto.TabIndex = 5;
-            this.gmesto.Text = "Glasačka mesta";
+            this.imeRod.Text = "Ime roditelja";
+            this.imeRod.Width = 89;
             // 
-            // mediji
+            // prezime
             // 
-            this.mediji.BackColor = System.Drawing.Color.SlateGray;
-            this.mediji.Location = new System.Drawing.Point(4, 22);
-            this.mediji.Name = "mediji";
-            this.mediji.Size = new System.Drawing.Size(862, 609);
-            this.mediji.TabIndex = 2;
-            this.mediji.Text = "Kandidat u medijima";
+            this.prezime.Text = "Prezime";
+            this.prezime.Width = 115;
             // 
-            // propaganda
+            // button10
             // 
-            this.propaganda.BackColor = System.Drawing.Color.SlateGray;
-            this.propaganda.Location = new System.Drawing.Point(4, 22);
-            this.propaganda.Name = "propaganda";
-            this.propaganda.Size = new System.Drawing.Size(862, 609);
-            this.propaganda.TabIndex = 3;
-            this.propaganda.Text = "Propaganda";
+            this.button10.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button10.Location = new System.Drawing.Point(264, 438);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(110, 53);
+            this.button10.TabIndex = 72;
+            this.button10.Text = "Dodaj novog aktivistu";
+            this.button10.UseVisualStyleBackColor = true;
             // 
-            // sve
+            // koordOpst
             // 
-            this.sve.BackColor = System.Drawing.Color.SlateGray;
-            this.sve.Controls.Add(this.ShowReklPanoBtn);
-            this.sve.Controls.Add(this.button9);
-            this.sve.Controls.Add(this.DodajAktivistuBtn);
-            this.sve.Controls.Add(this.button8);
-            this.sve.Controls.Add(this.DodajKoordinatoraBtn);
-            this.sve.Controls.Add(this.button7);
-            this.sve.Controls.Add(this.label7);
-            this.sve.Controls.Add(this.DodeliPomocnikeBtn);
-            this.sve.Controls.Add(this.PojPKTVDuelBtn);
-            this.sve.Controls.Add(this.AkcDeljLetBtn);
-            this.sve.Controls.Add(this.PojPKTVRadBtn);
-            this.sve.Controls.Add(this.ShowReklNovineBtn);
-            this.sve.Controls.Add(this.PojPKNovineBtn);
-            this.sve.Controls.Add(this.AkcSusKand);
-            this.sve.Controls.Add(this.ShowReklTVRadioBtn);
-            this.sve.Controls.Add(this.AkcMitBtn);
-            this.sve.Controls.Add(this.button6);
-            this.sve.Controls.Add(this.GostMitBtn);
-            this.sve.Controls.Add(this.button5);
-            this.sve.Controls.Add(this.ReklPanoBtn);
-            this.sve.Controls.Add(this.button4);
-            this.sve.Controls.Add(this.ReklNovineBtn);
-            this.sve.Controls.Add(this.button3);
-            this.sve.Controls.Add(this.ReklTVRadioBtn);
-            this.sve.Controls.Add(this.button2);
-            this.sve.Controls.Add(this.AngAktnaGMBtn);
-            this.sve.Controls.Add(this.button1);
-            this.sve.Controls.Add(this.GlasackoMestoBtn);
-            this.sve.Controls.Add(this.AddNote);
-            this.sve.Controls.Add(this.RezIzbBtn);
-            this.sve.Controls.Add(this.ShowCoord);
-            this.sve.Controls.Add(this.AkcijaAktivistiBtn);
-            this.sve.Controls.Add(this.ShowActv);
-            this.sve.Controls.Add(this.label1);
-            this.sve.Controls.Add(this.label9);
-            this.sve.Controls.Add(this.label2);
-            this.sve.Controls.Add(this.label3);
-            this.sve.Controls.Add(this.label6);
-            this.sve.Controls.Add(this.label4);
-            this.sve.Controls.Add(this.label5);
-            this.sve.ForeColor = System.Drawing.Color.AliceBlue;
-            this.sve.Location = new System.Drawing.Point(4, 22);
-            this.sve.Name = "sve";
-            this.sve.Padding = new System.Windows.Forms.Padding(3);
-            this.sve.Size = new System.Drawing.Size(862, 609);
-            this.sve.TabIndex = 0;
-            this.sve.Text = "Sva dugmad";
+            this.koordOpst.Enabled = false;
+            this.koordOpst.Location = new System.Drawing.Point(486, 375);
+            this.koordOpst.Name = "koordOpst";
+            this.koordOpst.Size = new System.Drawing.Size(204, 20);
+            this.koordOpst.TabIndex = 71;
+            // 
+            // labOps
+            // 
+            this.labOps.AutoSize = true;
+            this.labOps.Enabled = false;
+            this.labOps.Location = new System.Drawing.Point(380, 378);
+            this.labOps.Name = "labOps";
+            this.labOps.Size = new System.Drawing.Size(100, 13);
+            this.labOps.TabIndex = 70;
+            this.labOps.Text = "Opština kancelarije:";
+            // 
+            // koordGrad
+            // 
+            this.koordGrad.Enabled = false;
+            this.koordGrad.Location = new System.Drawing.Point(486, 349);
+            this.koordGrad.Name = "koordGrad";
+            this.koordGrad.Size = new System.Drawing.Size(204, 20);
+            this.koordGrad.TabIndex = 69;
+            // 
+            // labGradKanc
+            // 
+            this.labGradKanc.AutoSize = true;
+            this.labGradKanc.Enabled = false;
+            this.labGradKanc.Location = new System.Drawing.Point(391, 352);
+            this.labGradKanc.Name = "labGradKanc";
+            this.labGradKanc.Size = new System.Drawing.Size(87, 13);
+            this.labGradKanc.TabIndex = 68;
+            this.labGradKanc.Text = "Grad kancelarije:";
+            // 
+            // labZaGM
+            // 
+            this.labZaGM.AutoSize = true;
+            this.labZaGM.Location = new System.Drawing.Point(715, 64);
+            this.labZaGM.MaximumSize = new System.Drawing.Size(205, 0);
+            this.labZaGM.Name = "labZaGM";
+            this.labZaGM.Size = new System.Drawing.Size(0, 13);
+            this.labZaGM.TabIndex = 67;
+            this.labZaGM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labAkcije
+            // 
+            this.labAkcije.AutoSize = true;
+            this.labAkcije.Location = new System.Drawing.Point(707, 346);
+            this.labAkcije.MaximumSize = new System.Drawing.Size(205, 0);
+            this.labAkcije.Name = "labAkcije";
+            this.labAkcije.Size = new System.Drawing.Size(0, 13);
+            this.labAkcije.TabIndex = 66;
+            // 
+            // labZaAkc
+            // 
+            this.labZaAkc.AutoSize = true;
+            this.labZaAkc.Location = new System.Drawing.Point(706, 297);
+            this.labZaAkc.MaximumSize = new System.Drawing.Size(205, 0);
+            this.labZaAkc.Name = "labZaAkc";
+            this.labZaAkc.Size = new System.Drawing.Size(0, 13);
+            this.labZaAkc.TabIndex = 65;
+            this.labZaAkc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // jeKoord
+            // 
+            this.jeKoord.AutoSize = true;
+            this.jeKoord.Enabled = false;
+            this.jeKoord.Location = new System.Drawing.Point(486, 274);
+            this.jeKoord.Name = "jeKoord";
+            this.jeKoord.Size = new System.Drawing.Size(133, 17);
+            this.jeKoord.TabIndex = 64;
+            this.jeKoord.Text = "Aktivista je koordinator";
+            this.jeKoord.UseVisualStyleBackColor = true;
+            this.jeKoord.CheckedChanged += new System.EventHandler(this.jeKoord_CheckedChanged);
+            // 
+            // koordObrisiP
+            // 
+            this.koordObrisiP.Enabled = false;
+            this.koordObrisiP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.koordObrisiP.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.koordObrisiP.Location = new System.Drawing.Point(668, 399);
+            this.koordObrisiP.Name = "koordObrisiP";
+            this.koordObrisiP.Size = new System.Drawing.Size(22, 23);
+            this.koordObrisiP.TabIndex = 63;
+            this.koordObrisiP.Text = "-";
+            this.koordObrisiP.UseVisualStyleBackColor = true;
+            this.koordObrisiP.Click += new System.EventHandler(this.koordObrisiP_Click);
+            // 
+            // koordDodajP
+            // 
+            this.koordDodajP.Enabled = false;
+            this.koordDodajP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.koordDodajP.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.koordDodajP.Location = new System.Drawing.Point(640, 399);
+            this.koordDodajP.Name = "koordDodajP";
+            this.koordDodajP.Size = new System.Drawing.Size(22, 23);
+            this.koordDodajP.TabIndex = 62;
+            this.koordDodajP.Text = "+";
+            this.koordDodajP.UseVisualStyleBackColor = true;
+            this.koordDodajP.Click += new System.EventHandler(this.koordDodajP_Click);
+            // 
+            // koordPomoc
+            // 
+            this.koordPomoc.Enabled = false;
+            this.koordPomoc.FormattingEnabled = true;
+            this.koordPomoc.Location = new System.Drawing.Point(486, 401);
+            this.koordPomoc.Name = "koordPomoc";
+            this.koordPomoc.Size = new System.Drawing.Size(146, 21);
+            this.koordPomoc.TabIndex = 61;
+            // 
+            // labPomoc
+            // 
+            this.labPomoc.AutoSize = true;
+            this.labPomoc.Enabled = false;
+            this.labPomoc.Location = new System.Drawing.Point(421, 404);
+            this.labPomoc.Name = "labPomoc";
+            this.labPomoc.Size = new System.Drawing.Size(59, 13);
+            this.labPomoc.TabIndex = 60;
+            this.labPomoc.Text = "Pomoćnici:";
+            // 
+            // koordBr
+            // 
+            this.koordBr.Enabled = false;
+            this.koordBr.Location = new System.Drawing.Point(486, 323);
+            this.koordBr.Name = "koordBr";
+            this.koordBr.Size = new System.Drawing.Size(204, 20);
+            this.koordBr.TabIndex = 57;
+            // 
+            // koordUl
+            // 
+            this.koordUl.Enabled = false;
+            this.koordUl.Location = new System.Drawing.Point(486, 297);
+            this.koordUl.Name = "koordUl";
+            this.koordUl.Size = new System.Drawing.Size(204, 20);
+            this.koordUl.TabIndex = 56;
+            // 
+            // labBrKanc
+            // 
+            this.labBrKanc.AutoSize = true;
+            this.labBrKanc.Enabled = false;
+            this.labBrKanc.Location = new System.Drawing.Point(397, 326);
+            this.labBrKanc.Name = "labBrKanc";
+            this.labBrKanc.Size = new System.Drawing.Size(82, 13);
+            this.labBrKanc.TabIndex = 55;
+            this.labBrKanc.Text = "Broj kancelarije:";
+            // 
+            // labUl
+            // 
+            this.labUl.AutoSize = true;
+            this.labUl.Enabled = false;
+            this.labUl.Location = new System.Drawing.Point(391, 300);
+            this.labUl.Name = "labUl";
+            this.labUl.Size = new System.Drawing.Size(88, 13);
+            this.labUl.TabIndex = 54;
+            this.labUl.Text = "Ulica kancelarije:";
             // 
             // aktObrisi
             // 
@@ -758,6 +918,7 @@
             this.btnRemoveTelefon.TabIndex = 49;
             this.btnRemoveTelefon.Text = "-";
             this.btnRemoveTelefon.UseVisualStyleBackColor = true;
+            this.btnRemoveTelefon.Click += new System.EventHandler(this.btnRemoveTelefon_Click);
             // 
             // btnAddTelefon
             // 
@@ -769,6 +930,7 @@
             this.btnAddTelefon.TabIndex = 48;
             this.btnAddTelefon.Text = "+";
             this.btnAddTelefon.UseVisualStyleBackColor = true;
+            this.btnAddTelefon.Click += new System.EventHandler(this.btnAddTelefon_Click);
             // 
             // aktTelefon
             // 
@@ -924,225 +1086,110 @@
             this.label17.TabIndex = 30;
             this.label17.Text = "Ime:";
             // 
-            // koordObrisiP
+            // label8
             // 
-            this.koordObrisiP.Enabled = false;
-            this.koordObrisiP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.koordObrisiP.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.koordObrisiP.Location = new System.Drawing.Point(668, 399);
-            this.koordObrisiP.Name = "koordObrisiP";
-            this.koordObrisiP.Size = new System.Drawing.Size(22, 23);
-            this.koordObrisiP.TabIndex = 63;
-            this.koordObrisiP.Text = "-";
-            this.koordObrisiP.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.AliceBlue;
+            this.label8.Location = new System.Drawing.Point(22, 38);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Aktivisti stranke";
             // 
-            // koordDodajP
+            // akcije
             // 
-            this.koordDodajP.Enabled = false;
-            this.koordDodajP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.koordDodajP.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.koordDodajP.Location = new System.Drawing.Point(640, 399);
-            this.koordDodajP.Name = "koordDodajP";
-            this.koordDodajP.Size = new System.Drawing.Size(22, 23);
-            this.koordDodajP.TabIndex = 62;
-            this.koordDodajP.Text = "+";
-            this.koordDodajP.UseVisualStyleBackColor = true;
+            this.akcije.BackColor = System.Drawing.Color.SlateGray;
+            this.akcije.Location = new System.Drawing.Point(4, 22);
+            this.akcije.Name = "akcije";
+            this.akcije.Size = new System.Drawing.Size(957, 609);
+            this.akcije.TabIndex = 4;
+            this.akcije.Text = "Predizborne akcije";
             // 
-            // koordPomoc
+            // gmesto
             // 
-            this.koordPomoc.Enabled = false;
-            this.koordPomoc.FormattingEnabled = true;
-            this.koordPomoc.Location = new System.Drawing.Point(486, 401);
-            this.koordPomoc.Name = "koordPomoc";
-            this.koordPomoc.Size = new System.Drawing.Size(146, 21);
-            this.koordPomoc.TabIndex = 61;
+            this.gmesto.BackColor = System.Drawing.Color.SlateGray;
+            this.gmesto.Location = new System.Drawing.Point(4, 22);
+            this.gmesto.Name = "gmesto";
+            this.gmesto.Size = new System.Drawing.Size(957, 609);
+            this.gmesto.TabIndex = 5;
+            this.gmesto.Text = "Glasačka mesta";
             // 
-            // labPomoc
+            // mediji
             // 
-            this.labPomoc.AutoSize = true;
-            this.labPomoc.Enabled = false;
-            this.labPomoc.Location = new System.Drawing.Point(421, 404);
-            this.labPomoc.Name = "labPomoc";
-            this.labPomoc.Size = new System.Drawing.Size(59, 13);
-            this.labPomoc.TabIndex = 60;
-            this.labPomoc.Text = "Pomoćnici:";
+            this.mediji.BackColor = System.Drawing.Color.SlateGray;
+            this.mediji.Location = new System.Drawing.Point(4, 22);
+            this.mediji.Name = "mediji";
+            this.mediji.Size = new System.Drawing.Size(957, 609);
+            this.mediji.TabIndex = 2;
+            this.mediji.Text = "Kandidat u medijima";
             // 
-            // koordBr
+            // propaganda
             // 
-            this.koordBr.Enabled = false;
-            this.koordBr.Location = new System.Drawing.Point(486, 323);
-            this.koordBr.Name = "koordBr";
-            this.koordBr.Size = new System.Drawing.Size(204, 20);
-            this.koordBr.TabIndex = 57;
+            this.propaganda.BackColor = System.Drawing.Color.SlateGray;
+            this.propaganda.Location = new System.Drawing.Point(4, 22);
+            this.propaganda.Name = "propaganda";
+            this.propaganda.Size = new System.Drawing.Size(957, 609);
+            this.propaganda.TabIndex = 3;
+            this.propaganda.Text = "Propaganda";
             // 
-            // koordUl
+            // sve
             // 
-            this.koordUl.Enabled = false;
-            this.koordUl.Location = new System.Drawing.Point(486, 297);
-            this.koordUl.Name = "koordUl";
-            this.koordUl.Size = new System.Drawing.Size(204, 20);
-            this.koordUl.TabIndex = 56;
+            this.sve.BackColor = System.Drawing.Color.SlateGray;
+            this.sve.Controls.Add(this.ShowReklPanoBtn);
+            this.sve.Controls.Add(this.button9);
+            this.sve.Controls.Add(this.DodajAktivistuBtn);
+            this.sve.Controls.Add(this.button8);
+            this.sve.Controls.Add(this.DodajKoordinatoraBtn);
+            this.sve.Controls.Add(this.button7);
+            this.sve.Controls.Add(this.label7);
+            this.sve.Controls.Add(this.DodeliPomocnikeBtn);
+            this.sve.Controls.Add(this.PojPKTVDuelBtn);
+            this.sve.Controls.Add(this.AkcDeljLetBtn);
+            this.sve.Controls.Add(this.PojPKTVRadBtn);
+            this.sve.Controls.Add(this.ShowReklNovineBtn);
+            this.sve.Controls.Add(this.PojPKNovineBtn);
+            this.sve.Controls.Add(this.AkcSusKand);
+            this.sve.Controls.Add(this.ShowReklTVRadioBtn);
+            this.sve.Controls.Add(this.AkcMitBtn);
+            this.sve.Controls.Add(this.button6);
+            this.sve.Controls.Add(this.GostMitBtn);
+            this.sve.Controls.Add(this.button5);
+            this.sve.Controls.Add(this.ReklPanoBtn);
+            this.sve.Controls.Add(this.button4);
+            this.sve.Controls.Add(this.ReklNovineBtn);
+            this.sve.Controls.Add(this.button3);
+            this.sve.Controls.Add(this.ReklTVRadioBtn);
+            this.sve.Controls.Add(this.button2);
+            this.sve.Controls.Add(this.AngAktnaGMBtn);
+            this.sve.Controls.Add(this.button1);
+            this.sve.Controls.Add(this.GlasackoMestoBtn);
+            this.sve.Controls.Add(this.AddNote);
+            this.sve.Controls.Add(this.RezIzbBtn);
+            this.sve.Controls.Add(this.ShowCoord);
+            this.sve.Controls.Add(this.AkcijaAktivistiBtn);
+            this.sve.Controls.Add(this.ShowActv);
+            this.sve.Controls.Add(this.label1);
+            this.sve.Controls.Add(this.label9);
+            this.sve.Controls.Add(this.label2);
+            this.sve.Controls.Add(this.label3);
+            this.sve.Controls.Add(this.label6);
+            this.sve.Controls.Add(this.label4);
+            this.sve.Controls.Add(this.label5);
+            this.sve.ForeColor = System.Drawing.Color.AliceBlue;
+            this.sve.Location = new System.Drawing.Point(4, 22);
+            this.sve.Name = "sve";
+            this.sve.Padding = new System.Windows.Forms.Padding(3);
+            this.sve.Size = new System.Drawing.Size(957, 609);
+            this.sve.TabIndex = 0;
+            this.sve.Text = "Sva dugmad";
             // 
-            // labBrKanc
+            // labKoord
             // 
-            this.labBrKanc.AutoSize = true;
-            this.labBrKanc.Enabled = false;
-            this.labBrKanc.Location = new System.Drawing.Point(397, 326);
-            this.labBrKanc.Name = "labBrKanc";
-            this.labBrKanc.Size = new System.Drawing.Size(82, 13);
-            this.labBrKanc.TabIndex = 55;
-            this.labBrKanc.Text = "Broj kancelarije:";
-            // 
-            // labUl
-            // 
-            this.labUl.AutoSize = true;
-            this.labUl.Enabled = false;
-            this.labUl.Location = new System.Drawing.Point(391, 300);
-            this.labUl.Name = "labUl";
-            this.labUl.Size = new System.Drawing.Size(88, 13);
-            this.labUl.TabIndex = 54;
-            this.labUl.Text = "Ulica kancelarije:";
-            // 
-            // jeKoord
-            // 
-            this.jeKoord.AutoSize = true;
-            this.jeKoord.Enabled = false;
-            this.jeKoord.Location = new System.Drawing.Point(486, 274);
-            this.jeKoord.Name = "jeKoord";
-            this.jeKoord.Size = new System.Drawing.Size(133, 17);
-            this.jeKoord.TabIndex = 64;
-            this.jeKoord.Text = "Aktivista je koordinator";
-            this.jeKoord.UseVisualStyleBackColor = true;
-            // 
-            // labZaAkc
-            // 
-            this.labZaAkc.AutoSize = true;
-            this.labZaAkc.Location = new System.Drawing.Point(714, 300);
-            this.labZaAkc.MaximumSize = new System.Drawing.Size(205, 0);
-            this.labZaAkc.Name = "labZaAkc";
-            this.labZaAkc.Size = new System.Drawing.Size(0, 13);
-            this.labZaAkc.TabIndex = 65;
-            this.labZaAkc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labAkcije
-            // 
-            this.labAkcije.AutoSize = true;
-            this.labAkcije.Location = new System.Drawing.Point(715, 349);
-            this.labAkcije.MaximumSize = new System.Drawing.Size(205, 0);
-            this.labAkcije.Name = "labAkcije";
-            this.labAkcije.Size = new System.Drawing.Size(0, 13);
-            this.labAkcije.TabIndex = 66;
-            // 
-            // labZaGM
-            // 
-            this.labZaGM.AutoSize = true;
-            this.labZaGM.Location = new System.Drawing.Point(715, 64);
-            this.labZaGM.MaximumSize = new System.Drawing.Size(205, 0);
-            this.labZaGM.Name = "labZaGM";
-            this.labZaGM.Size = new System.Drawing.Size(0, 13);
-            this.labZaGM.TabIndex = 67;
-            this.labZaGM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.SlateGray;
-            this.tabPage1.Controls.Add(this.label24);
-            this.tabPage1.Controls.Add(this.label23);
-            this.tabPage1.Controls.Add(this.label22);
-            this.tabPage1.Controls.Add(this.label21);
-            this.tabPage1.ForeColor = System.Drawing.Color.AliceBlue;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(862, 609);
-            this.tabPage1.TabIndex = 6;
-            this.tabPage1.Text = "Početak";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(8, 12);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(106, 20);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Dobrodošli!";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(8, 45);
-            this.label22.MaximumSize = new System.Drawing.Size(500, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(493, 39);
-            this.label22.TabIndex = 1;
-            this.label22.Text = resources.GetString("label22.Text");
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(8, 97);
-            this.label23.MaximumSize = new System.Drawing.Size(500, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(492, 39);
-            this.label23.TabIndex = 2;
-            this.label23.Text = resources.GetString("label23.Text");
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(8, 151);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(204, 20);
-            this.label24.TabIndex = 3;
-            this.label24.Text = "Do pobede! Samo jako!";
-            // 
-            // koordGrad
-            // 
-            this.koordGrad.Enabled = false;
-            this.koordGrad.Location = new System.Drawing.Point(486, 349);
-            this.koordGrad.Name = "koordGrad";
-            this.koordGrad.Size = new System.Drawing.Size(204, 20);
-            this.koordGrad.TabIndex = 69;
-            // 
-            // labGradKanc
-            // 
-            this.labGradKanc.AutoSize = true;
-            this.labGradKanc.Enabled = false;
-            this.labGradKanc.Location = new System.Drawing.Point(391, 352);
-            this.labGradKanc.Name = "labGradKanc";
-            this.labGradKanc.Size = new System.Drawing.Size(87, 13);
-            this.labGradKanc.TabIndex = 68;
-            this.labGradKanc.Text = "Grad kancelarije:";
-            // 
-            // koordOpst
-            // 
-            this.koordOpst.Enabled = false;
-            this.koordOpst.Location = new System.Drawing.Point(486, 375);
-            this.koordOpst.Name = "koordOpst";
-            this.koordOpst.Size = new System.Drawing.Size(204, 20);
-            this.koordOpst.TabIndex = 71;
-            // 
-            // labOps
-            // 
-            this.labOps.AutoSize = true;
-            this.labOps.Enabled = false;
-            this.labOps.Location = new System.Drawing.Point(380, 378);
-            this.labOps.Name = "labOps";
-            this.labOps.Size = new System.Drawing.Size(100, 13);
-            this.labOps.TabIndex = 70;
-            this.labOps.Text = "Opština kancelarije:";
-            // 
-            // button10
-            // 
-            this.button10.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button10.Location = new System.Drawing.Point(239, 438);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(110, 53);
-            this.button10.TabIndex = 72;
-            this.button10.Text = "Dodaj novog aktivistu";
-            this.button10.UseVisualStyleBackColor = true;
+            this.labKoord.AutoSize = true;
+            this.labKoord.Location = new System.Drawing.Point(706, 274);
+            this.labKoord.Name = "labKoord";
+            this.labKoord.Size = new System.Drawing.Size(0, 13);
+            this.labKoord.TabIndex = 74;
             // 
             // Form1
             // 
@@ -1154,12 +1201,12 @@
             this.Text = "Projekat iz sistema baza podataka, Izbori, domaći 2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.aktKoord.ResumeLayout(false);
             this.aktKoord.PerformLayout();
             this.sve.ResumeLayout(false);
             this.sve.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1214,7 +1261,6 @@
         private System.Windows.Forms.TabPage akcije;
         private System.Windows.Forms.TabPage gmesto;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listAkt;
         private System.Windows.Forms.Button aktObrisi;
         private System.Windows.Forms.Button aktAzuriraj;
         private System.Windows.Forms.Button btnRemoveTelefon;
@@ -1259,6 +1305,12 @@
         private System.Windows.Forms.TextBox koordGrad;
         private System.Windows.Forms.Label labGradKanc;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.ColumnHeader ime;
+        private System.Windows.Forms.ColumnHeader imeRod;
+        private System.Windows.Forms.ColumnHeader prezime;
+        private System.Windows.Forms.ListView lvAkt;
+        private System.Windows.Forms.Label labKoord;
     }
 }
 

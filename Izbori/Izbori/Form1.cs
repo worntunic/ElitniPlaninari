@@ -12,17 +12,19 @@ using Izbori.Entiteti;
 using Izbori.WriteForme;
 using Izbori.ConnectForme;
 using System.Collections;
-using System.Media;
 
 namespace Izbori
 {
     public partial class Form1 : Form
     {
-        Aktivista odabrani;
+        public Aktivista odabrani { get; set; } // konrektan odabrani aktivista
+        public IList<Aktivista> aktivisti { get; set; } //svi aktivisti
+
         public Form1()
         {
             InitializeComponent();
             odabrani = null;
+            aktivisti = null;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -589,173 +591,191 @@ namespace Izbori
             }
         }
 
-        private void ucitajAkt(ListBox lista)
+        public void ucitajAkt(ListView lista, IList<Aktivista> akt)
         {
-            try
+            foreach(var i in akt)
             {
-                ISession s = DataLayer.GetSession();
-
-                IList<object[]> imena = s.QueryOver<Aktivista>()
-                                            .SelectList(list => list
-                                                    .Select(p => p.ID)
-                                                    .Select(p => p.Ime)
-                                                    .Select(p => p.ImeRod)
-                                                    .Select(p => p.Prezime))
-                                                    .OrderBy(p => p.ID).Asc
-                                                    .List<object[]>();
-
-                
-                foreach(var i in imena)
-                {
-                    // prikazujemo samo imena, ID cuvamo za posle
-                    string id = i[0].ToString().PadLeft(4);
-                    string ime = i[1].ToString().PadRight(15);
-                    string prezime = i[3].ToString().PadRight(15);
-                    string roditelj = i[2].ToString().PadRight(15);
-                    lista.Items.Add(id + " " + ime + " " + roditelj + " " + prezime);
-                }
-                s.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                ListViewItem item = new ListViewItem(i.ID.ToString());
+                item.SubItems.Add(i.Ime);
+                item.SubItems.Add(i.ImeRod);
+                item.SubItems.Add(i.Prezime);
+                lista.Items.Add(item);
             }
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             var indeks = ((TabControl)sender).SelectedIndex;
+            ISession s = DataLayer.GetSession();
+            s.Flush();
+
+            //if (s.Transaction.IsActive)
+            //{
+            //    s.Transaction.Commit(); //pri promeni taba, ako postoji transakcija, komituj je i nastavi dalje
+            //}
 
             switch (indeks)
             {
                 case 1:
-                    ucitajAkt(listAkt);
+                    aktivisti = s.QueryOver<Aktivista>().OrderBy(p => p.ID).Asc.List();
+                    ucitajAkt(lvAkt, aktivisti);
                     break;
                 default:
                     MessageBox.Show("Da se uradi");
                     break;
             }
+            s.Close();
         }
 
-        private void osveziPolja(Aktivista akt, Boolean koord)
-        {
-            if (koord)
-            {
-                koordUl.Text = ((Koordinator)odabrani).UlicaKanc;
-                koordBr.Text = ((Koordinator)odabrani).BrojKanc.ToString();
-                koordGrad.Text = ((Koordinator)odabrani).GradKanc;
-                koordOpst.Text = ((Koordinator)odabrani).Opstina;
-
-                koordPomoc.Items.Clear();
-                foreach(var pomoc in ((Koordinator)odabrani).Saradnici)
-                {
-                    koordPomoc.Items.Add(pomoc.Ime + " " + pomoc.Prezime + " ");
-                }
-            }
-            else
-            {
-                koordUl.Text = "";
-                koordBr.Text = "";
-                koordGrad.Text = "";
-                koordOpst.Text = "";
-                jeKoord.Enabled = odabrani.koord == null;
-            }
-            jeKoord.Checked = koord;
-            jeKoord.Enabled = koord;
-            koordUl.Enabled = koord;
-            koordBr.Enabled = koord;
-            koordGrad.Enabled = koord;
-            koordOpst.Enabled = koord;
-            koordDodajP.Enabled = koord;
-            koordObrisiP.Enabled = koord;
-            koordPomoc.Enabled = koord;
-            labUl.Enabled = koord;
-            labGradKanc.Enabled = koord;
-            labOps.Enabled = koord;
-            labBrKanc.Enabled = koord;
-            labPomoc.Enabled = koord;
-
-            aktIme.Text = odabrani.Ime;
-            aktPrezime.Text = odabrani.Prezime;
-            aktRoditelj.Text = odabrani.ImeRod;
-            aktUlica.Text = odabrani.Ulica;
-            aktGrad.Text = odabrani.Grad;
-            aktBroj.Text = odabrani.Broj.ToString();
-
-            aktMail.Items.Clear();
-            foreach(var mail in odabrani.email)
-            {
-                aktMail.Items.Add(mail.eMail);
-            }
-
-            aktTelefon.Items.Clear();
-            foreach (var tel in odabrani.brTel)
-            {
-                aktTelefon.Items.Add(tel.BrojTel);
-            }
-
-            if(odabrani.Akcije.Count == 0)
-            {
-                labZaAkc.Text = "Odabrani aktivista nije angažovan ni na jednoj akciji.";
-            } else
-            {
-                labZaAkc.Text = "Broj akcija na kojima je kandidat učestvovao je " + odabrani.Akcije.Count
-                                + " i to:";
-                labAkcije.Text = "";
-                foreach (var akc in odabrani.Akcije)
-                {
-                    labAkcije.Text += akc.NazivAkcije + "\n";
-                }
-            }
-
-            if(odabrani.gm == null)
-            {
-                labZaGM.Text = "Aktivista nije zadužen ni za jedno glasačko mesto.";
-            } else if (odabrani.Primedbe.Count == 0)
-            {
-                labZaGM.Text = "Aktivista je zadužen za glasaško mesto broj " + odabrani.gm.BrojGM
-                                + " i nema primedbi.";
-            } else
-            {
-                labZaGM.Text = "Aktivista je zadužen za glasaško mesto broj " + odabrani.gm.BrojGM
-                                + " i ima žali se na sledeće stvari:\n";
-                foreach (var prim in odabrani.Primedbe)
-                {
-                    labZaGM.Text += prim.TekstPrim + "\n";
-                }
-            }
-        }
-
-        private void listAkt_SelectedIndexChanged(object sender, EventArgs e)
+        public void osveziPolja(int id)
         {
             try
             {
                 ISession s = DataLayer.GetSession();
 
-                string[] odabranLista = ((ListBox)sender).SelectedItem.ToString().Split(' ')
-                                        .Where(val => val != "").ToArray(); // parsiranje preko LINQa
-                int id = Int32.Parse(odabranLista[0]);
-                
-                if(s.QueryOver<Koordinator>().Where(p => p.ID == id).RowCount() == 1)
+                bool koord = s.QueryOver<Koordinator>().Where(p => p.ID == id).RowCount() == 1;
+
+                if (koord)
                 {
                     odabrani = s.Load<Koordinator>(id);
-                    osveziPolja(odabrani, true);
-                } else
+                    koordUl.Text = ((Koordinator)odabrani).UlicaKanc;
+                    koordBr.Text = ((Koordinator)odabrani).BrojKanc.ToString();
+                    koordGrad.Text = ((Koordinator)odabrani).GradKanc;
+                    koordOpst.Text = ((Koordinator)odabrani).Opstina;
+
+                    koordPomoc.Items.Clear();
+                    foreach (var pomoc in ((Koordinator)odabrani).Saradnici)
+                    {
+                        koordPomoc.Items.Add(pomoc.Ime + " " + pomoc.Prezime);
+                    }
+                    labKoord.Text = "";
+                }
+                else
                 {
                     odabrani = s.Load<Aktivista>(id);
-                    osveziPolja(odabrani, false);                    
+                    koordUl.Text = "";
+                    koordBr.Text = "";
+                    koordGrad.Text = "";
+                    koordOpst.Text = "";
+                    jeKoord.Enabled = odabrani.koord == null;
+
+                    if (odabrani.koord == null)
+                    {
+                        labKoord.Text = "Aktivista nije ničiji saradnik.";
+                    }
+                    else
+                    {
+                        labKoord.Text = String.Format("Aktivista sarađuje sa {0} {1}.",
+                                                      odabrani.koord.Ime,
+                                                      odabrani.koord.Prezime);
+                    }
                 }
 
-                s.Close();                
+                jeKoord.Checked = koord;
+                jeKoord.Enabled = koord;
+                koordUl.Enabled = koord;
+                koordBr.Enabled = koord;
+                koordGrad.Enabled = koord;
+                koordOpst.Enabled = koord;
+                koordDodajP.Enabled = koord;
+                koordObrisiP.Enabled = koord;
+                koordPomoc.Enabled = koord;
+                labUl.Enabled = koord;
+                labGradKanc.Enabled = koord;
+                labOps.Enabled = koord;
+                labBrKanc.Enabled = koord;
+                labPomoc.Enabled = koord;
+
+                aktIme.Text = odabrani.Ime;
+                aktPrezime.Text = odabrani.Prezime;
+                aktRoditelj.Text = odabrani.ImeRod;
+                aktUlica.Text = odabrani.Ulica;
+                aktGrad.Text = odabrani.Grad;
+                aktBroj.Text = odabrani.Broj.ToString();
+
+                aktMail.Items.Clear();
+                foreach (var mail in odabrani.email)
+                {
+                    aktMail.Items.Add(mail.eMail);
+                }
+
+                aktTelefon.Items.Clear();
+                foreach (var tel in odabrani.brTel)
+                {
+                    aktTelefon.Items.Add(tel.BrojTel);
+                }
+
+                if (odabrani.Akcije.Count == 0)
+                {
+                    labZaAkc.Text = "Odabrani aktivista nije angažovan ni na jednoj akciji.";
+                }
+                else
+                {
+                    labZaAkc.Text = "Broj akcija na kojima je kandidat učestvovao je " + odabrani.Akcije.Count
+                                    + " i to:";
+                    labAkcije.Text = "";
+                    foreach (var akc in odabrani.Akcije)
+                    {
+                        labAkcije.Text += akc.NazivAkcije + "\n";
+                    }
+                }
+
+                if (odabrani.gm == null)
+                {
+                    labZaGM.Text = "Aktivista nije zadužen ni za jedno glasačko mesto.";
+                }
+                else if (odabrani.Primedbe.Count == 0)
+                {
+                    labZaGM.Text = "Aktivista je zadužen za glasaško mesto broj " + odabrani.gm.BrojGM
+                                    + " i nema primedbi.";
+                }
+                else
+                {
+                    labZaGM.Text = "Aktivista je zadužen za glasaško mesto broj " + odabrani.gm.BrojGM
+                                    + " i ima žali se na sledeće stvari:\n";
+                    foreach (var prim in odabrani.Primedbe)
+                    {
+                        labZaGM.Text += prim.TekstPrim + "\n";
+                    }
+                }
+                s.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        // TODO: dodavanje ne radi dobro i znam zasto (uvek povuce novog iz baze)
+
+        public void listAkt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView.SelectedListViewItemCollection odabr = ((ListView)sender).SelectedItems;
+            //u petlji je iako samo jedan moze da se odabere
+            foreach(ListViewItem akt in odabr)
+            {
+                int id = Int32.Parse(akt.SubItems[0].Text);
+                osveziPolja(id);
+            }
+        }
+
+        private void obrisi(int id, string tip)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                var q = String.Format("delete {0} where id = :id", tip);
+                s.CreateQuery(q).SetParameter("id", id).ExecuteUpdate();
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnAddEmail_Click(object sender, EventArgs e)
         {
+            ISession s = DataLayer.GetSession();
+
             if (!aktMail.Text.Length.Equals(0))
             {
                 aktMail.Items.Add(aktMail.Text);
@@ -765,10 +785,13 @@ namespace Izbori
                 email.eMail = aktMail.Text;
 
                 aktMail.Text = "";
+
+                s.Save(email);
             }
-            else
-                SystemSounds.Beep.Play();
+
+            s.Close();
         }
+
 
         private void btnRemoveEmail_Click(object sender, EventArgs e)
         {
@@ -779,12 +802,125 @@ namespace Izbori
                 
                 if(poruka == DialogResult.Yes)
                 {
-                    odabrani.email = odabrani.email.Where(mail => mail.eMail != aktMail.Text).ToArray();
+                    EMailAktiviste mail = odabrani.email.Single(m => m.eMail == aktMail.Text);
+                    obrisi(mail.IDEmail, mail.GetType().ToString());
+
                     aktMail.Items.Remove(aktMail.Text);
                     aktMail.Text = "";
+                }
+            }
+        }
+
+        private void btnAddTelefon_Click(object sender, EventArgs e)
+        {
+            ISession s = DataLayer.GetSession();
+
+            if (!aktTelefon.Text.Length.Equals(0))
+            {
+                aktTelefon.Items.Add(aktTelefon.Text);
+
+                BrTel tel = new BrTel();
+                tel.Aktivista = odabrani;
+                tel.BrojTel = aktTelefon.Text;
+
+                aktTelefon.Text = "";
+
+                s.Save(tel);
+            }
+            s.Close();
+        }
+
+        private void btnRemoveTelefon_Click(object sender, EventArgs e)
+        {
+            if (!aktTelefon.Text.Length.Equals(0))
+            {
+                var poruka = MessageBox.Show("Da li ste sigurni da želite da obrišete telefon "
+                                 + aktTelefon.Text + "?", "Brisanje telefona", MessageBoxButtons.YesNo);
+
+                if (poruka == DialogResult.Yes)
+                {
+                    BrTel tel = odabrani.brTel.Single(t => t.BrojTel == aktTelefon.Text);
+                    obrisi(tel.IDBr, tel.GetType().ToString());
+
+                    aktTelefon.Items.Remove(aktTelefon.Text);
+                    aktTelefon.Text = "";
+                }
+            }
+        }
+
+        private void koordDodajP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                int brPomoc = s.QueryOver<Aktivista>().Where(k => k.koord == odabrani).RowCount();
+                if (brPomoc == 4)
+                {
+                    MessageBox.Show("Koordinator već ima 4 saradnika. Obrišite nekog kako biste dodali novog.", "Puno saradnika");
                 } else
                 {
-                    //nista
+                    DodajPomoc f = new DodajPomoc();
+                    f.ShowDialog(this);
+                }
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void koordObrisiP_Click(object sender, EventArgs e)
+        {
+            if (!koordPomoc.Text.Length.Equals(0))
+            {
+                Aktivista akt = ((Koordinator)odabrani).Saradnici
+                                .Single(p => (p.Ime + " " + p.Prezime) == koordPomoc.Text);
+                var poruka = MessageBox.Show(
+                            String.Format("Da li ste sigurni da Da li ste sigurni da želite da obrišete " +
+                            "{0} {1} iz liste saradnika?",
+                            akt.Ime, akt.Prezime), "Brisanje saradnika", MessageBoxButtons.YesNo);
+
+                if(poruka == DialogResult.Yes)
+                {
+                    try
+                    {
+                        ISession s = DataLayer.GetSession();
+
+                        akt.koord = null;
+                        s.SaveOrUpdate(akt);
+                        s.Flush();
+                        s.Close();
+
+                        koordPomoc.Items.Remove(koordPomoc.Text);
+                        koordPomoc.Text = "";
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void jeKoord_CheckedChanged(object sender, EventArgs e)
+        {
+            if (jeKoord.Checked)
+            {
+                try
+                {
+                    ISession s = DataLayer.GetSession();
+
+                    Koordinator koord = new Koordinator();
+
+                    string q = "insert into Koordinator (idakt) values (:id)";
+                    s.CreateQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
+                    s.Close();
+                    jeKoord.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

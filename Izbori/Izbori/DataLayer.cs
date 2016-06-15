@@ -72,7 +72,7 @@ namespace Izbori
                     .Mappings(m => m.FluentMappings.Add<PitanjaTVDuelMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<IntervjuNovineMapiranja>())
                     .Mappings(m => m.FluentMappings.Add<NovinariIzNovinaMapiranja>())
-                    .Diagnostics(d => d.Enable().OutputToConsole())
+                    //.Diagnostics(d => d.Enable().OutputToConsole())
                     .BuildSessionFactory();
             }
             catch (Exception ec)

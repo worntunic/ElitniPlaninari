@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label23.Text" xml:space="preserve">
-    <value>Kako biste otpočeli korišćenje ove jednostavne aplikacije koja Vam omogućava da vršite upravljanje nad predizbornim i postizbornim aktivnostima Vaše političke stranke, molimo Vas da odaberete neku od kartica iznad, a onda će Vam sve biti jasno kao dan.</value>
-  </data>
-  <data name="label22.Text" xml:space="preserve">
-    <value>Ovo je Windows Forms aplikacija tima Елитни планинари napravljena za potrebe projekta iz predmeta sistemi baza podataka. Tim čine Mladen Stojanović, Lazar Tonić i Mihajlo Ilijić (sva trojica su studenti treće godine Elektronskog fakulteta u Nišu i dobro im ide).</value>
-  </data>
 </root>
