@@ -649,6 +649,7 @@ namespace Izbori
                         koordPomoc.Items.Add(pomoc.Ime + " " + pomoc.Prezime);
                     }
                     labKoord.Text = "";
+                    jeKoord.Enabled = true;
                 }
                 else
                 {
@@ -662,17 +663,18 @@ namespace Izbori
                     if (odabrani.koord == null)
                     {
                         labKoord.Text = "Aktivista nije ničiji saradnik.";
+                        jeKoord.Enabled = true;
                     }
                     else
                     {
                         labKoord.Text = String.Format("Aktivista sarađuje sa {0} {1}.",
                                                       odabrani.koord.Ime,
                                                       odabrani.koord.Prezime);
+                        jeKoord.Enabled = false;
                     }
                 }
 
                 jeKoord.Checked = koord;
-                jeKoord.Enabled = koord;
                 koordUl.Enabled = koord;
                 koordBr.Enabled = koord;
                 koordGrad.Enabled = koord;
@@ -903,25 +905,31 @@ namespace Izbori
             }
         }
 
-        private void jeKoord_CheckedChanged(object sender, EventArgs e)
+        private void jeKoord_Click(object sender, EventArgs e)
         {
-            if (jeKoord.Checked)
+            try
             {
-                try
-                {
-                    ISession s = DataLayer.GetSession();
+                ISession s = DataLayer.GetSession();
 
-                    Koordinator koord = new Koordinator();
-
-                    string q = "insert into Koordinator (idakt) values (:id)";
-                    s.CreateQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
-                    s.Close();
-                    jeKoord.Enabled = true;
-                }
-                catch (Exception ex)
+                if (jeKoord.Checked)
                 {
-                    MessageBox.Show(ex.Message);
+                        Koordinator koord = new Koordinator();
+
+                        string q = "insert into Koordinator (idakt) values (:id)";
+                        s.CreateSQLQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
+                        s.Close();
+                        osveziPolja(odabrani.ID);
                 }
+                else
+                {
+                    obrisi(odabrani.ID, typeof(Koordinator).ToString());
+                    osveziPolja(odabrani.ID);
+                }
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

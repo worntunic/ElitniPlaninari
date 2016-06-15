@@ -76,6 +76,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.aktKoord = new System.Windows.Forms.TabPage();
+            this.labKoord = new System.Windows.Forms.Label();
             this.lvAkt = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -126,7 +127,6 @@
             this.mediji = new System.Windows.Forms.TabPage();
             this.propaganda = new System.Windows.Forms.TabPage();
             this.sve = new System.Windows.Forms.TabPage();
-            this.labKoord = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
@@ -682,6 +682,14 @@
             this.aktKoord.TabIndex = 1;
             this.aktKoord.Text = "Aktiviste i koordinatori";
             // 
+            // labKoord
+            // 
+            this.labKoord.AutoSize = true;
+            this.labKoord.Location = new System.Drawing.Point(706, 274);
+            this.labKoord.Name = "labKoord";
+            this.labKoord.Size = new System.Drawing.Size(0, 13);
+            this.labKoord.TabIndex = 74;
+            // 
             // lvAkt
             // 
             this.lvAkt.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -805,7 +813,7 @@
             this.jeKoord.TabIndex = 64;
             this.jeKoord.Text = "Aktivista je koordinator";
             this.jeKoord.UseVisualStyleBackColor = true;
-            this.jeKoord.CheckedChanged += new System.EventHandler(this.jeKoord_CheckedChanged);
+            this.jeKoord.Click += new System.EventHandler(this.jeKoord_Click);
             // 
             // koordObrisiP
             // 
@@ -1182,14 +1190,6 @@
             this.sve.Size = new System.Drawing.Size(957, 609);
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
-            // 
-            // labKoord
-            // 
-            this.labKoord.AutoSize = true;
-            this.labKoord.Location = new System.Drawing.Point(706, 274);
-            this.labKoord.Name = "labKoord";
-            this.labKoord.Size = new System.Drawing.Size(0, 13);
-            this.labKoord.TabIndex = 74;
             // 
             // Form1
             // 
