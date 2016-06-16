@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -193,6 +193,9 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sve = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
@@ -1576,16 +1579,16 @@
             // listaPojavljivanja
             // 
             this.listaPojavljivanja.FullRowSelect = true;
-            listViewGroup7.Header = "Novine";
-            listViewGroup7.Name = "propListViewGroupNovine";
-            listViewGroup8.Header = "Pano";
-            listViewGroup8.Name = "propListViewGroupPano";
-            listViewGroup9.Header = "TV/Radio";
-            listViewGroup9.Name = "propListViewGroupTVRadio";
+            listViewGroup16.Header = "Novine";
+            listViewGroup16.Name = "propListViewGroupNovine";
+            listViewGroup17.Header = "Pano";
+            listViewGroup17.Name = "propListViewGroupPano";
+            listViewGroup18.Header = "TV/Radio";
+            listViewGroup18.Name = "propListViewGroupTVRadio";
             this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9});
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18});
             this.listaPojavljivanja.HideSelection = false;
             this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
             this.listaPojavljivanja.MultiSelect = false;
@@ -1599,6 +1602,9 @@
             // propaganda
             // 
             this.propaganda.BackColor = System.Drawing.Color.SlateGray;
+            this.propaganda.Controls.Add(this.button11);
+            this.propaganda.Controls.Add(this.button12);
+            this.propaganda.Controls.Add(this.button13);
             this.propaganda.Controls.Add(this.propCBUBoji);
             this.propaganda.Controls.Add(this.propTxtCenaZakupa);
             this.propaganda.Controls.Add(this.propTxtTrajanjeZakupa);
@@ -1826,16 +1832,16 @@
             this.columnHeader4,
             this.columnHeader5});
             this.propagandaListView.FullRowSelect = true;
-            listViewGroup10.Header = "Novine";
-            listViewGroup10.Name = "propListViewGroupNovine";
-            listViewGroup11.Header = "Pano";
-            listViewGroup11.Name = "propListViewGroupPano";
-            listViewGroup12.Header = "TV/Radio";
-            listViewGroup12.Name = "propListViewGroupTVRadio";
+            listViewGroup13.Header = "Novine";
+            listViewGroup13.Name = "propListViewGroupNovine";
+            listViewGroup14.Header = "Pano";
+            listViewGroup14.Name = "propListViewGroupPano";
+            listViewGroup15.Header = "TV/Radio";
+            listViewGroup15.Name = "propListViewGroupTVRadio";
             this.propagandaListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15});
             this.propagandaListView.HideSelection = false;
             this.propagandaListView.Location = new System.Drawing.Point(25, 93);
             this.propagandaListView.MultiSelect = false;
@@ -1916,6 +1922,38 @@
             this.sve.Size = new System.Drawing.Size(957, 609);
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
+            // 
+            // button11
+            // 
+            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button11.Location = new System.Drawing.Point(297, 511);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(110, 53);
+            this.button11.TabIndex = 109;
+            this.button11.Text = "Dodaj novog aktivistu";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button12.Location = new System.Drawing.Point(510, 511);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(81, 53);
+            this.button12.TabIndex = 108;
+            this.button12.Text = "Obriši odabranu propagandu";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button13.Location = new System.Drawing.Point(616, 511);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(121, 53);
+            this.button13.TabIndex = 107;
+            this.button13.Text = "Ažuriraj odabranu propagandu";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // Form1
             // 
@@ -2101,6 +2139,9 @@
         private System.Windows.Forms.TextBox tbImeVoditelja;
         private System.Windows.Forms.TextBox tbNazivEmisije;
         private System.Windows.Forms.TextBox tbNazivStanice;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
 
