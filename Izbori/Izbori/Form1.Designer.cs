@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -128,9 +131,59 @@
             this.akcije = new System.Windows.Forms.TabPage();
             this.gmesto = new System.Windows.Forms.TabPage();
             this.mediji = new System.Windows.Forms.TabPage();
+            this.lNazivEmisije = new System.Windows.Forms.Label();
+            this.lNazivStanice = new System.Windows.Forms.Label();
+            this.lProcenjenaGledanost = new System.Windows.Forms.Label();
+            this.lImeVoditelja = new System.Windows.Forms.Label();
+            this.btnUkloniPitanje = new System.Windows.Forms.Button();
+            this.btnDodajPitanje = new System.Windows.Forms.Button();
+            this.cbPitanje = new System.Windows.Forms.ComboBox();
+            this.lPitanja = new System.Windows.Forms.Label();
+            this.btnUkloniProtivkandidata = new System.Windows.Forms.Button();
+            this.btnDodajProtivkandidata = new System.Windows.Forms.Button();
+            this.cbProtivkandidati = new System.Windows.Forms.ComboBox();
+            this.lImeProtivkand = new System.Windows.Forms.Label();
+            this.tbProcenjenaGledanost = new System.Windows.Forms.TextBox();
+            this.tbImeVoditelja = new System.Windows.Forms.TextBox();
+            this.tbNazivEmisije = new System.Windows.Forms.TextBox();
+            this.tbNazivStanice = new System.Windows.Forms.TextBox();
+            this.chBoxTVDuel = new System.Windows.Forms.CheckBox();
+            this.btnAddGostovanje = new System.Windows.Forms.Button();
+            this.btnRemoveGostovanje = new System.Windows.Forms.Button();
+            this.btnUpdateGostovanje = new System.Windows.Forms.Button();
+            this.btnUkloniNovinara = new System.Windows.Forms.Button();
+            this.btnDodajNovinara = new System.Windows.Forms.Button();
+            this.cbNovinari = new System.Windows.Forms.ComboBox();
+            this.lNovinari = new System.Windows.Forms.Label();
+            this.tbNazivLista = new System.Windows.Forms.TextBox();
+            this.lNazivLista = new System.Windows.Forms.Label();
+            this.lDatumObjavljivanja = new System.Windows.Forms.Label();
+            this.calObjavljivanja = new System.Windows.Forms.MonthCalendar();
+            this.lDatumIntervjua = new System.Windows.Forms.Label();
+            this.calIntervjua = new System.Windows.Forms.MonthCalendar();
+            this.rBtnTVRadio = new System.Windows.Forms.RadioButton();
+            this.rBtnNovine = new System.Windows.Forms.RadioButton();
+            this.Naslov = new System.Windows.Forms.Label();
+            this.listaPojavljivanja = new System.Windows.Forms.ListView();
             this.propaganda = new System.Windows.Forms.TabPage();
+            this.propCBUBoji = new System.Windows.Forms.CheckBox();
+            this.propTxtCenaZakupa = new System.Windows.Forms.TextBox();
+            this.propTxtTrajanjeZakupa = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.propTxtMod2 = new System.Windows.Forms.TextBox();
+            this.propClndDatumZakupa = new System.Windows.Forms.MonthCalendar();
+            this.propTxtMod3 = new System.Windows.Forms.TextBox();
+            this.propLblMod3 = new System.Windows.Forms.Label();
+            this.propRBTVRad = new System.Windows.Forms.RadioButton();
+            this.propRBPano = new System.Windows.Forms.RadioButton();
+            this.propRBNovine = new System.Windows.Forms.RadioButton();
             this.label19 = new System.Windows.Forms.Label();
             this.propTxtPanoVlasnik = new System.Windows.Forms.TextBox();
+            this.propTxtMod0 = new System.Windows.Forms.TextBox();
+            this.propTxtMod1 = new System.Windows.Forms.TextBox();
+            this.propLblMod2 = new System.Windows.Forms.Label();
             this.propLblMod0 = new System.Windows.Forms.Label();
             this.propLblmod1 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -140,25 +193,10 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sve = new System.Windows.Forms.TabPage();
-            this.propRBNovine = new System.Windows.Forms.RadioButton();
-            this.propRBPano = new System.Windows.Forms.RadioButton();
-            this.propRBTVRad = new System.Windows.Forms.RadioButton();
-            this.propClndDatumZakupa = new System.Windows.Forms.MonthCalendar();
-            this.propTxtCenaZakupa = new System.Windows.Forms.TextBox();
-            this.propTxtTrajanjeZakupa = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.propTxtMod3 = new System.Windows.Forms.TextBox();
-            this.propTxtMod2 = new System.Windows.Forms.TextBox();
-            this.propTxtMod1 = new System.Windows.Forms.TextBox();
-            this.propTxtMod0 = new System.Windows.Forms.TextBox();
-            this.propLblMod2 = new System.Windows.Forms.Label();
-            this.propLblMod3 = new System.Windows.Forms.Label();
-            this.propCBUBoji = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
+            this.mediji.SuspendLayout();
             this.propaganda.SuspendLayout();
             this.sve.SuspendLayout();
             this.SuspendLayout();
@@ -737,7 +775,6 @@
             this.lvAkt.UseCompatibleStateImageBehavior = false;
             this.lvAkt.View = System.Windows.Forms.View.Details;
             this.lvAkt.SelectedIndexChanged += new System.EventHandler(this.listAkt_SelectedIndexChanged);
-            this.propagandaListView.SelectedIndexChanged += new System.EventHandler(this.propagandaListView_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -1158,11 +1195,406 @@
             // mediji
             // 
             this.mediji.BackColor = System.Drawing.Color.SlateGray;
+            this.mediji.Controls.Add(this.lNazivEmisije);
+            this.mediji.Controls.Add(this.lNazivStanice);
+            this.mediji.Controls.Add(this.lProcenjenaGledanost);
+            this.mediji.Controls.Add(this.lImeVoditelja);
+            this.mediji.Controls.Add(this.btnUkloniPitanje);
+            this.mediji.Controls.Add(this.btnDodajPitanje);
+            this.mediji.Controls.Add(this.cbPitanje);
+            this.mediji.Controls.Add(this.lPitanja);
+            this.mediji.Controls.Add(this.btnUkloniProtivkandidata);
+            this.mediji.Controls.Add(this.btnDodajProtivkandidata);
+            this.mediji.Controls.Add(this.cbProtivkandidati);
+            this.mediji.Controls.Add(this.lImeProtivkand);
+            this.mediji.Controls.Add(this.tbProcenjenaGledanost);
+            this.mediji.Controls.Add(this.tbImeVoditelja);
+            this.mediji.Controls.Add(this.tbNazivEmisije);
+            this.mediji.Controls.Add(this.tbNazivStanice);
+            this.mediji.Controls.Add(this.chBoxTVDuel);
+            this.mediji.Controls.Add(this.btnAddGostovanje);
+            this.mediji.Controls.Add(this.btnRemoveGostovanje);
+            this.mediji.Controls.Add(this.btnUpdateGostovanje);
+            this.mediji.Controls.Add(this.btnUkloniNovinara);
+            this.mediji.Controls.Add(this.btnDodajNovinara);
+            this.mediji.Controls.Add(this.cbNovinari);
+            this.mediji.Controls.Add(this.lNovinari);
+            this.mediji.Controls.Add(this.tbNazivLista);
+            this.mediji.Controls.Add(this.lNazivLista);
+            this.mediji.Controls.Add(this.lDatumObjavljivanja);
+            this.mediji.Controls.Add(this.calObjavljivanja);
+            this.mediji.Controls.Add(this.lDatumIntervjua);
+            this.mediji.Controls.Add(this.calIntervjua);
+            this.mediji.Controls.Add(this.rBtnTVRadio);
+            this.mediji.Controls.Add(this.rBtnNovine);
+            this.mediji.Controls.Add(this.Naslov);
+            this.mediji.Controls.Add(this.listaPojavljivanja);
             this.mediji.Location = new System.Drawing.Point(4, 22);
             this.mediji.Name = "mediji";
             this.mediji.Size = new System.Drawing.Size(957, 609);
             this.mediji.TabIndex = 2;
             this.mediji.Text = "Kandidat u medijima";
+            // 
+            // lNazivEmisije
+            // 
+            this.lNazivEmisije.AutoSize = true;
+            this.lNazivEmisije.Location = new System.Drawing.Point(470, 77);
+            this.lNazivEmisije.Name = "lNazivEmisije";
+            this.lNazivEmisije.Size = new System.Drawing.Size(72, 13);
+            this.lNazivEmisije.TabIndex = 133;
+            this.lNazivEmisije.Text = "Naziv Emisije:";
+            this.lNazivEmisije.Visible = false;
+            // 
+            // lNazivStanice
+            // 
+            this.lNazivStanice.AutoSize = true;
+            this.lNazivStanice.Location = new System.Drawing.Point(466, 45);
+            this.lNazivStanice.Name = "lNazivStanice";
+            this.lNazivStanice.Size = new System.Drawing.Size(76, 13);
+            this.lNazivStanice.TabIndex = 132;
+            this.lNazivStanice.Text = "Naziv Stanice:";
+            this.lNazivStanice.Visible = false;
+            // 
+            // lProcenjenaGledanost
+            // 
+            this.lProcenjenaGledanost.AutoSize = true;
+            this.lProcenjenaGledanost.Location = new System.Drawing.Point(427, 129);
+            this.lProcenjenaGledanost.Name = "lProcenjenaGledanost";
+            this.lProcenjenaGledanost.Size = new System.Drawing.Size(115, 13);
+            this.lProcenjenaGledanost.TabIndex = 131;
+            this.lProcenjenaGledanost.Text = "Procenjena Gledanost:";
+            this.lProcenjenaGledanost.Visible = false;
+            // 
+            // lImeVoditelja
+            // 
+            this.lImeVoditelja.AutoSize = true;
+            this.lImeVoditelja.Location = new System.Drawing.Point(472, 103);
+            this.lImeVoditelja.Name = "lImeVoditelja";
+            this.lImeVoditelja.Size = new System.Drawing.Size(70, 13);
+            this.lImeVoditelja.TabIndex = 130;
+            this.lImeVoditelja.Text = "Ime Voditelja:";
+            this.lImeVoditelja.Visible = false;
+            // 
+            // btnUkloniPitanje
+            // 
+            this.btnUkloniPitanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUkloniPitanje.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUkloniPitanje.Location = new System.Drawing.Point(734, 179);
+            this.btnUkloniPitanje.Name = "btnUkloniPitanje";
+            this.btnUkloniPitanje.Size = new System.Drawing.Size(24, 23);
+            this.btnUkloniPitanje.TabIndex = 129;
+            this.btnUkloniPitanje.Text = "-";
+            this.btnUkloniPitanje.UseVisualStyleBackColor = true;
+            this.btnUkloniPitanje.Visible = false;
+            // 
+            // btnDodajPitanje
+            // 
+            this.btnDodajPitanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajPitanje.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDodajPitanje.Location = new System.Drawing.Point(706, 179);
+            this.btnDodajPitanje.Name = "btnDodajPitanje";
+            this.btnDodajPitanje.Size = new System.Drawing.Size(24, 23);
+            this.btnDodajPitanje.TabIndex = 128;
+            this.btnDodajPitanje.Text = "+";
+            this.btnDodajPitanje.UseVisualStyleBackColor = true;
+            this.btnDodajPitanje.Visible = false;
+            // 
+            // cbPitanje
+            // 
+            this.cbPitanje.FormattingEnabled = true;
+            this.cbPitanje.Location = new System.Drawing.Point(554, 179);
+            this.cbPitanje.Name = "cbPitanje";
+            this.cbPitanje.Size = new System.Drawing.Size(146, 21);
+            this.cbPitanje.TabIndex = 127;
+            this.cbPitanje.Visible = false;
+            // 
+            // lPitanja
+            // 
+            this.lPitanja.AutoSize = true;
+            this.lPitanja.Location = new System.Drawing.Point(500, 182);
+            this.lPitanja.Name = "lPitanja";
+            this.lPitanja.Size = new System.Drawing.Size(42, 13);
+            this.lPitanja.TabIndex = 126;
+            this.lPitanja.Text = "Pitanja:";
+            this.lPitanja.Visible = false;
+            // 
+            // btnUkloniProtivkandidata
+            // 
+            this.btnUkloniProtivkandidata.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUkloniProtivkandidata.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUkloniProtivkandidata.Location = new System.Drawing.Point(734, 152);
+            this.btnUkloniProtivkandidata.Name = "btnUkloniProtivkandidata";
+            this.btnUkloniProtivkandidata.Size = new System.Drawing.Size(24, 23);
+            this.btnUkloniProtivkandidata.TabIndex = 125;
+            this.btnUkloniProtivkandidata.Text = "-";
+            this.btnUkloniProtivkandidata.UseVisualStyleBackColor = true;
+            this.btnUkloniProtivkandidata.Visible = false;
+            // 
+            // btnDodajProtivkandidata
+            // 
+            this.btnDodajProtivkandidata.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajProtivkandidata.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDodajProtivkandidata.Location = new System.Drawing.Point(706, 152);
+            this.btnDodajProtivkandidata.Name = "btnDodajProtivkandidata";
+            this.btnDodajProtivkandidata.Size = new System.Drawing.Size(24, 23);
+            this.btnDodajProtivkandidata.TabIndex = 124;
+            this.btnDodajProtivkandidata.Text = "+";
+            this.btnDodajProtivkandidata.UseVisualStyleBackColor = true;
+            this.btnDodajProtivkandidata.Visible = false;
+            // 
+            // cbProtivkandidati
+            // 
+            this.cbProtivkandidati.FormattingEnabled = true;
+            this.cbProtivkandidati.Location = new System.Drawing.Point(554, 152);
+            this.cbProtivkandidati.Name = "cbProtivkandidati";
+            this.cbProtivkandidati.Size = new System.Drawing.Size(146, 21);
+            this.cbProtivkandidati.TabIndex = 123;
+            this.cbProtivkandidati.Visible = false;
+            // 
+            // lImeProtivkand
+            // 
+            this.lImeProtivkand.AutoSize = true;
+            this.lImeProtivkand.Location = new System.Drawing.Point(438, 155);
+            this.lImeProtivkand.Name = "lImeProtivkand";
+            this.lImeProtivkand.Size = new System.Drawing.Size(104, 13);
+            this.lImeProtivkand.TabIndex = 122;
+            this.lImeProtivkand.Text = "Ime Protivkandidata:";
+            this.lImeProtivkand.Visible = false;
+            // 
+            // tbProcenjenaGledanost
+            // 
+            this.tbProcenjenaGledanost.Location = new System.Drawing.Point(554, 126);
+            this.tbProcenjenaGledanost.Name = "tbProcenjenaGledanost";
+            this.tbProcenjenaGledanost.Size = new System.Drawing.Size(199, 20);
+            this.tbProcenjenaGledanost.TabIndex = 121;
+            this.tbProcenjenaGledanost.Visible = false;
+            // 
+            // tbImeVoditelja
+            // 
+            this.tbImeVoditelja.Location = new System.Drawing.Point(554, 100);
+            this.tbImeVoditelja.Name = "tbImeVoditelja";
+            this.tbImeVoditelja.Size = new System.Drawing.Size(199, 20);
+            this.tbImeVoditelja.TabIndex = 120;
+            this.tbImeVoditelja.Visible = false;
+            // 
+            // tbNazivEmisije
+            // 
+            this.tbNazivEmisije.Location = new System.Drawing.Point(554, 74);
+            this.tbNazivEmisije.Name = "tbNazivEmisije";
+            this.tbNazivEmisije.Size = new System.Drawing.Size(199, 20);
+            this.tbNazivEmisije.TabIndex = 119;
+            this.tbNazivEmisije.Visible = false;
+            // 
+            // tbNazivStanice
+            // 
+            this.tbNazivStanice.Location = new System.Drawing.Point(554, 42);
+            this.tbNazivStanice.Name = "tbNazivStanice";
+            this.tbNazivStanice.Size = new System.Drawing.Size(199, 20);
+            this.tbNazivStanice.TabIndex = 118;
+            this.tbNazivStanice.Visible = false;
+            // 
+            // chBoxTVDuel
+            // 
+            this.chBoxTVDuel.AutoSize = true;
+            this.chBoxTVDuel.Location = new System.Drawing.Point(43, 449);
+            this.chBoxTVDuel.Name = "chBoxTVDuel";
+            this.chBoxTVDuel.Size = new System.Drawing.Size(103, 17);
+            this.chBoxTVDuel.TabIndex = 117;
+            this.chBoxTVDuel.Text = "Filtriraj TV Duele";
+            this.chBoxTVDuel.UseVisualStyleBackColor = true;
+            this.chBoxTVDuel.Visible = false;
+            this.chBoxTVDuel.CheckedChanged += new System.EventHandler(this.cbTVDuel_CheckedChanged);
+            // 
+            // btnAddGostovanje
+            // 
+            this.btnAddGostovanje.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAddGostovanje.Location = new System.Drawing.Point(315, 470);
+            this.btnAddGostovanje.Name = "btnAddGostovanje";
+            this.btnAddGostovanje.Size = new System.Drawing.Size(110, 53);
+            this.btnAddGostovanje.TabIndex = 116;
+            this.btnAddGostovanje.Text = "Dodaj Novo Gostovanje";
+            this.btnAddGostovanje.UseVisualStyleBackColor = true;
+            this.btnAddGostovanje.Visible = false;
+            // 
+            // btnRemoveGostovanje
+            // 
+            this.btnRemoveGostovanje.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnRemoveGostovanje.Location = new System.Drawing.Point(554, 470);
+            this.btnRemoveGostovanje.Name = "btnRemoveGostovanje";
+            this.btnRemoveGostovanje.Size = new System.Drawing.Size(81, 53);
+            this.btnRemoveGostovanje.TabIndex = 115;
+            this.btnRemoveGostovanje.Text = "Obriši Odabrano Gostovanje";
+            this.btnRemoveGostovanje.UseVisualStyleBackColor = true;
+            this.btnRemoveGostovanje.Visible = false;
+            // 
+            // btnUpdateGostovanje
+            // 
+            this.btnUpdateGostovanje.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdateGostovanje.Location = new System.Drawing.Point(637, 470);
+            this.btnUpdateGostovanje.Name = "btnUpdateGostovanje";
+            this.btnUpdateGostovanje.Size = new System.Drawing.Size(121, 53);
+            this.btnUpdateGostovanje.TabIndex = 114;
+            this.btnUpdateGostovanje.Text = "Ažuriraj Odabrano Gostovanje";
+            this.btnUpdateGostovanje.UseVisualStyleBackColor = true;
+            this.btnUpdateGostovanje.Visible = false;
+            // 
+            // btnUkloniNovinara
+            // 
+            this.btnUkloniNovinara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUkloniNovinara.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUkloniNovinara.Location = new System.Drawing.Point(734, 428);
+            this.btnUkloniNovinara.Name = "btnUkloniNovinara";
+            this.btnUkloniNovinara.Size = new System.Drawing.Size(24, 23);
+            this.btnUkloniNovinara.TabIndex = 113;
+            this.btnUkloniNovinara.Text = "-";
+            this.btnUkloniNovinara.UseVisualStyleBackColor = true;
+            this.btnUkloniNovinara.Visible = false;
+            // 
+            // btnDodajNovinara
+            // 
+            this.btnDodajNovinara.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajNovinara.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDodajNovinara.Location = new System.Drawing.Point(706, 428);
+            this.btnDodajNovinara.Name = "btnDodajNovinara";
+            this.btnDodajNovinara.Size = new System.Drawing.Size(24, 23);
+            this.btnDodajNovinara.TabIndex = 112;
+            this.btnDodajNovinara.Text = "+";
+            this.btnDodajNovinara.UseVisualStyleBackColor = true;
+            this.btnDodajNovinara.Visible = false;
+            // 
+            // cbNovinari
+            // 
+            this.cbNovinari.FormattingEnabled = true;
+            this.cbNovinari.Location = new System.Drawing.Point(554, 428);
+            this.cbNovinari.Name = "cbNovinari";
+            this.cbNovinari.Size = new System.Drawing.Size(146, 21);
+            this.cbNovinari.TabIndex = 111;
+            this.cbNovinari.Visible = false;
+            // 
+            // lNovinari
+            // 
+            this.lNovinari.AutoSize = true;
+            this.lNovinari.Location = new System.Drawing.Point(493, 431);
+            this.lNovinari.Name = "lNovinari";
+            this.lNovinari.Size = new System.Drawing.Size(49, 13);
+            this.lNovinari.TabIndex = 110;
+            this.lNovinari.Text = "Novinari:";
+            this.lNovinari.Visible = false;
+            // 
+            // tbNazivLista
+            // 
+            this.tbNazivLista.Location = new System.Drawing.Point(554, 42);
+            this.tbNazivLista.Name = "tbNazivLista";
+            this.tbNazivLista.Size = new System.Drawing.Size(199, 20);
+            this.tbNazivLista.TabIndex = 109;
+            this.tbNazivLista.Visible = false;
+            // 
+            // lNazivLista
+            // 
+            this.lNazivLista.AutoSize = true;
+            this.lNazivLista.Location = new System.Drawing.Point(480, 45);
+            this.lNazivLista.Name = "lNazivLista";
+            this.lNazivLista.Size = new System.Drawing.Size(62, 13);
+            this.lNazivLista.TabIndex = 108;
+            this.lNazivLista.Text = "Naziv Lista:";
+            this.lNazivLista.Visible = false;
+            // 
+            // lDatumObjavljivanja
+            // 
+            this.lDatumObjavljivanja.AutoSize = true;
+            this.lDatumObjavljivanja.Location = new System.Drawing.Point(438, 254);
+            this.lDatumObjavljivanja.Name = "lDatumObjavljivanja";
+            this.lDatumObjavljivanja.Size = new System.Drawing.Size(104, 13);
+            this.lDatumObjavljivanja.TabIndex = 107;
+            this.lDatumObjavljivanja.Text = "Datum Objavljivanja:";
+            this.lDatumObjavljivanja.Visible = false;
+            // 
+            // calObjavljivanja
+            // 
+            this.calObjavljivanja.Location = new System.Drawing.Point(554, 254);
+            this.calObjavljivanja.MaxSelectionCount = 100;
+            this.calObjavljivanja.Name = "calObjavljivanja";
+            this.calObjavljivanja.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
+            this.calObjavljivanja.ShowToday = false;
+            this.calObjavljivanja.TabIndex = 106;
+            this.calObjavljivanja.Visible = false;
+            // 
+            // lDatumIntervjua
+            // 
+            this.lDatumIntervjua.AutoSize = true;
+            this.lDatumIntervjua.Location = new System.Drawing.Point(457, 74);
+            this.lDatumIntervjua.Name = "lDatumIntervjua";
+            this.lDatumIntervjua.Size = new System.Drawing.Size(85, 13);
+            this.lDatumIntervjua.TabIndex = 105;
+            this.lDatumIntervjua.Text = "Datum Intervjua:";
+            this.lDatumIntervjua.Visible = false;
+            // 
+            // calIntervjua
+            // 
+            this.calIntervjua.Location = new System.Drawing.Point(554, 74);
+            this.calIntervjua.MaxSelectionCount = 100;
+            this.calIntervjua.Name = "calIntervjua";
+            this.calIntervjua.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
+            this.calIntervjua.ShowToday = false;
+            this.calIntervjua.TabIndex = 104;
+            this.calIntervjua.Visible = false;
+            // 
+            // rBtnTVRadio
+            // 
+            this.rBtnTVRadio.AutoSize = true;
+            this.rBtnTVRadio.Location = new System.Drawing.Point(169, 51);
+            this.rBtnTVRadio.Name = "rBtnTVRadio";
+            this.rBtnTVRadio.Size = new System.Drawing.Size(129, 17);
+            this.rBtnTVRadio.TabIndex = 92;
+            this.rBtnTVRadio.TabStop = true;
+            this.rBtnTVRadio.Text = "TV/Radio Gostovanje";
+            this.rBtnTVRadio.UseVisualStyleBackColor = true;
+            this.rBtnTVRadio.CheckedChanged += new System.EventHandler(this.rBtnTVRadio_CheckedChanged);
+            // 
+            // rBtnNovine
+            // 
+            this.rBtnNovine.AutoSize = true;
+            this.rBtnNovine.Location = new System.Drawing.Point(43, 51);
+            this.rBtnNovine.Name = "rBtnNovine";
+            this.rBtnNovine.Size = new System.Drawing.Size(120, 17);
+            this.rBtnNovine.TabIndex = 91;
+            this.rBtnNovine.TabStop = true;
+            this.rBtnNovine.Text = "Intervju u Novinama";
+            this.rBtnNovine.UseVisualStyleBackColor = true;
+            this.rBtnNovine.CheckedChanged += new System.EventHandler(this.rBtnNovine_CheckedChanged);
+            // 
+            // Naslov
+            // 
+            this.Naslov.AutoSize = true;
+            this.Naslov.ForeColor = System.Drawing.Color.AliceBlue;
+            this.Naslov.Location = new System.Drawing.Point(40, 19);
+            this.Naslov.Name = "Naslov";
+            this.Naslov.Size = new System.Drawing.Size(244, 13);
+            this.Naslov.TabIndex = 90;
+            this.Naslov.Text = "Pojavljivanje Predsedničkog Kandidata u Medijima";
+            // 
+            // listaPojavljivanja
+            // 
+            this.listaPojavljivanja.FullRowSelect = true;
+            listViewGroup7.Header = "Novine";
+            listViewGroup7.Name = "propListViewGroupNovine";
+            listViewGroup8.Header = "Pano";
+            listViewGroup8.Name = "propListViewGroupPano";
+            listViewGroup9.Header = "TV/Radio";
+            listViewGroup9.Name = "propListViewGroupTVRadio";
+            this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9});
+            this.listaPojavljivanja.HideSelection = false;
+            this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
+            this.listaPojavljivanja.MultiSelect = false;
+            this.listaPojavljivanja.Name = "listaPojavljivanja";
+            this.listaPojavljivanja.Size = new System.Drawing.Size(382, 368);
+            this.listaPojavljivanja.TabIndex = 89;
+            this.listaPojavljivanja.UseCompatibleStateImageBehavior = false;
+            this.listaPojavljivanja.View = System.Windows.Forms.View.Details;
+            this.listaPojavljivanja.SelectedIndexChanged += new System.EventHandler(this.listaPojavljivanja_SelectedIndexChanged);
             // 
             // propaganda
             // 
@@ -1195,6 +1627,127 @@
             this.propaganda.TabIndex = 3;
             this.propaganda.Text = "Propaganda";
             // 
+            // propCBUBoji
+            // 
+            this.propCBUBoji.AutoSize = true;
+            this.propCBUBoji.Location = new System.Drawing.Point(511, 425);
+            this.propCBUBoji.Name = "propCBUBoji";
+            this.propCBUBoji.Size = new System.Drawing.Size(15, 14);
+            this.propCBUBoji.TabIndex = 106;
+            this.propCBUBoji.UseVisualStyleBackColor = true;
+            // 
+            // propTxtCenaZakupa
+            // 
+            this.propTxtCenaZakupa.Location = new System.Drawing.Point(508, 61);
+            this.propTxtCenaZakupa.Name = "propTxtCenaZakupa";
+            this.propTxtCenaZakupa.Size = new System.Drawing.Size(204, 20);
+            this.propTxtCenaZakupa.TabIndex = 105;
+            // 
+            // propTxtTrajanjeZakupa
+            // 
+            this.propTxtTrajanjeZakupa.Location = new System.Drawing.Point(510, 267);
+            this.propTxtTrajanjeZakupa.Name = "propTxtTrajanjeZakupa";
+            this.propTxtTrajanjeZakupa.Size = new System.Drawing.Size(204, 20);
+            this.propTxtTrajanjeZakupa.TabIndex = 104;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(423, 93);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 13);
+            this.label20.TabIndex = 103;
+            this.label20.Text = "Datum Zakupa:";
+            this.label20.Click += new System.EventHandler(this.label20_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(418, 270);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(88, 13);
+            this.label25.TabIndex = 102;
+            this.label25.Text = "Trajanje Zakupa:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(429, 64);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(75, 13);
+            this.label26.TabIndex = 101;
+            this.label26.Text = "Cena Zakupa:";
+            // 
+            // propTxtMod2
+            // 
+            this.propTxtMod2.Location = new System.Drawing.Point(510, 448);
+            this.propTxtMod2.Name = "propTxtMod2";
+            this.propTxtMod2.Size = new System.Drawing.Size(204, 20);
+            this.propTxtMod2.TabIndex = 100;
+            this.propTxtMod2.Visible = false;
+            // 
+            // propClndDatumZakupa
+            // 
+            this.propClndDatumZakupa.Location = new System.Drawing.Point(510, 93);
+            this.propClndDatumZakupa.MaxSelectionCount = 100;
+            this.propClndDatumZakupa.Name = "propClndDatumZakupa";
+            this.propClndDatumZakupa.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
+            this.propClndDatumZakupa.ShowToday = false;
+            this.propClndDatumZakupa.TabIndex = 94;
+            // 
+            // propTxtMod3
+            // 
+            this.propTxtMod3.Location = new System.Drawing.Point(510, 474);
+            this.propTxtMod3.Name = "propTxtMod3";
+            this.propTxtMod3.Size = new System.Drawing.Size(204, 20);
+            this.propTxtMod3.TabIndex = 93;
+            this.propTxtMod3.Visible = false;
+            // 
+            // propLblMod3
+            // 
+            this.propLblMod3.Location = new System.Drawing.Point(427, 477);
+            this.propLblMod3.Name = "propLblMod3";
+            this.propLblMod3.Size = new System.Drawing.Size(77, 13);
+            this.propLblMod3.TabIndex = 92;
+            this.propLblMod3.Text = "Površina:";
+            this.propLblMod3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // propRBTVRad
+            // 
+            this.propRBTVRad.AutoSize = true;
+            this.propRBTVRad.Location = new System.Drawing.Point(146, 70);
+            this.propRBTVRad.Name = "propRBTVRad";
+            this.propRBTVRad.Size = new System.Drawing.Size(72, 17);
+            this.propRBTVRad.TabIndex = 89;
+            this.propRBTVRad.TabStop = true;
+            this.propRBTVRad.Text = "TV/Radio";
+            this.propRBTVRad.UseVisualStyleBackColor = true;
+            this.propRBTVRad.CheckedChanged += new System.EventHandler(this.propRBTVRad_CheckedChanged);
+            // 
+            // propRBPano
+            // 
+            this.propRBPano.AutoSize = true;
+            this.propRBPano.Location = new System.Drawing.Point(90, 70);
+            this.propRBPano.Name = "propRBPano";
+            this.propRBPano.Size = new System.Drawing.Size(50, 17);
+            this.propRBPano.TabIndex = 88;
+            this.propRBPano.TabStop = true;
+            this.propRBPano.Text = "Pano";
+            this.propRBPano.UseVisualStyleBackColor = true;
+            this.propRBPano.CheckedChanged += new System.EventHandler(this.propRBPano_CheckedChanged);
+            // 
+            // propRBNovine
+            // 
+            this.propRBNovine.AutoSize = true;
+            this.propRBNovine.Location = new System.Drawing.Point(25, 70);
+            this.propRBNovine.Name = "propRBNovine";
+            this.propRBNovine.Size = new System.Drawing.Size(59, 17);
+            this.propRBNovine.TabIndex = 87;
+            this.propRBNovine.TabStop = true;
+            this.propRBNovine.Text = "Novine";
+            this.propRBNovine.UseVisualStyleBackColor = true;
+            this.propRBNovine.CheckedChanged += new System.EventHandler(this.propRBNovine_CheckedChanged);
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -1212,6 +1765,30 @@
             this.propTxtPanoVlasnik.Size = new System.Drawing.Size(204, 20);
             this.propTxtPanoVlasnik.TabIndex = 85;
             this.propTxtPanoVlasnik.Visible = false;
+            // 
+            // propTxtMod0
+            // 
+            this.propTxtMod0.Location = new System.Drawing.Point(510, 396);
+            this.propTxtMod0.Name = "propTxtMod0";
+            this.propTxtMod0.Size = new System.Drawing.Size(204, 20);
+            this.propTxtMod0.TabIndex = 83;
+            // 
+            // propTxtMod1
+            // 
+            this.propTxtMod1.Location = new System.Drawing.Point(510, 422);
+            this.propTxtMod1.Name = "propTxtMod1";
+            this.propTxtMod1.Size = new System.Drawing.Size(204, 20);
+            this.propTxtMod1.TabIndex = 82;
+            this.propTxtMod1.Visible = false;
+            // 
+            // propLblMod2
+            // 
+            this.propLblMod2.Location = new System.Drawing.Point(430, 451);
+            this.propLblMod2.Name = "propLblMod2";
+            this.propLblMod2.Size = new System.Drawing.Size(74, 13);
+            this.propLblMod2.TabIndex = 80;
+            this.propLblMod2.Text = "Vlasnik:";
+            this.propLblMod2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // propLblMod0
             // 
@@ -1249,16 +1826,16 @@
             this.columnHeader4,
             this.columnHeader5});
             this.propagandaListView.FullRowSelect = true;
-            listViewGroup1.Header = "Novine";
-            listViewGroup1.Name = "propListViewGroupNovine";
-            listViewGroup2.Header = "Pano";
-            listViewGroup2.Name = "propListViewGroupPano";
-            listViewGroup3.Header = "TV/Radio";
-            listViewGroup3.Name = "propListViewGroupTVRadio";
+            listViewGroup10.Header = "Novine";
+            listViewGroup10.Name = "propListViewGroupNovine";
+            listViewGroup11.Header = "Pano";
+            listViewGroup11.Name = "propListViewGroupPano";
+            listViewGroup12.Header = "TV/Radio";
+            listViewGroup12.Name = "propListViewGroupTVRadio";
             this.propagandaListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
             this.propagandaListView.HideSelection = false;
             this.propagandaListView.Location = new System.Drawing.Point(25, 93);
             this.propagandaListView.MultiSelect = false;
@@ -1267,6 +1844,7 @@
             this.propagandaListView.TabIndex = 74;
             this.propagandaListView.UseCompatibleStateImageBehavior = false;
             this.propagandaListView.View = System.Windows.Forms.View.Details;
+            this.propagandaListView.SelectedIndexChanged += new System.EventHandler(this.propagandaListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -1339,151 +1917,6 @@
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
             // 
-            // propRBNovine
-            // 
-            this.propRBNovine.AutoSize = true;
-            this.propRBNovine.Location = new System.Drawing.Point(25, 70);
-            this.propRBNovine.Name = "propRBNovine";
-            this.propRBNovine.Size = new System.Drawing.Size(59, 17);
-            this.propRBNovine.TabIndex = 87;
-            this.propRBNovine.TabStop = true;
-            this.propRBNovine.Text = "Novine";
-            this.propRBNovine.UseVisualStyleBackColor = true;
-            this.propRBNovine.CheckedChanged += new System.EventHandler(this.propRBNovine_CheckedChanged);
-            // 
-            // propRBPano
-            // 
-            this.propRBPano.AutoSize = true;
-            this.propRBPano.Location = new System.Drawing.Point(90, 70);
-            this.propRBPano.Name = "propRBPano";
-            this.propRBPano.Size = new System.Drawing.Size(50, 17);
-            this.propRBPano.TabIndex = 88;
-            this.propRBPano.TabStop = true;
-            this.propRBPano.Text = "Pano";
-            this.propRBPano.UseVisualStyleBackColor = true;
-            this.propRBPano.CheckedChanged += new System.EventHandler(this.propRBPano_CheckedChanged);
-            // 
-            // propRBTVRad
-            // 
-            this.propRBTVRad.AutoSize = true;
-            this.propRBTVRad.Location = new System.Drawing.Point(146, 70);
-            this.propRBTVRad.Name = "propRBTVRad";
-            this.propRBTVRad.Size = new System.Drawing.Size(72, 17);
-            this.propRBTVRad.TabIndex = 89;
-            this.propRBTVRad.TabStop = true;
-            this.propRBTVRad.Text = "TV/Radio";
-            this.propRBTVRad.UseVisualStyleBackColor = true;
-            this.propRBTVRad.CheckedChanged += new System.EventHandler(this.propRBTVRad_CheckedChanged);
-            // 
-            // propClndDatumZakupa
-            // 
-            this.propClndDatumZakupa.Location = new System.Drawing.Point(510, 93);
-            this.propClndDatumZakupa.MaxSelectionCount = 100;
-            this.propClndDatumZakupa.Name = "propClndDatumZakupa";
-            this.propClndDatumZakupa.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
-            this.propClndDatumZakupa.ShowToday = false;
-            this.propClndDatumZakupa.TabIndex = 94;
-            // 
-            // propTxtCenaZakupa
-            // 
-            this.propTxtCenaZakupa.Location = new System.Drawing.Point(508, 61);
-            this.propTxtCenaZakupa.Name = "propTxtCenaZakupa";
-            this.propTxtCenaZakupa.Size = new System.Drawing.Size(204, 20);
-            this.propTxtCenaZakupa.TabIndex = 105;
-            // 
-            // propTxtTrajanjeZakupa
-            // 
-            this.propTxtTrajanjeZakupa.Location = new System.Drawing.Point(510, 267);
-            this.propTxtTrajanjeZakupa.Name = "propTxtTrajanjeZakupa";
-            this.propTxtTrajanjeZakupa.Size = new System.Drawing.Size(204, 20);
-            this.propTxtTrajanjeZakupa.TabIndex = 104;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(423, 93);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 13);
-            this.label20.TabIndex = 103;
-            this.label20.Text = "Datum Zakupa:";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(418, 270);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(88, 13);
-            this.label25.TabIndex = 102;
-            this.label25.Text = "Trajanje Zakupa:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(429, 64);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(75, 13);
-            this.label26.TabIndex = 101;
-            this.label26.Text = "Cena Zakupa:";
-            // 
-            // propTxtMod3
-            // 
-            this.propTxtMod3.Location = new System.Drawing.Point(510, 474);
-            this.propTxtMod3.Name = "propTxtMod3";
-            this.propTxtMod3.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod3.TabIndex = 93;
-            this.propTxtMod3.Visible = false;
-            // 
-            // propTxtMod2
-            // 
-            this.propTxtMod2.Location = new System.Drawing.Point(510, 448);
-            this.propTxtMod2.Name = "propTxtMod2";
-            this.propTxtMod2.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod2.TabIndex = 100;
-            this.propTxtMod2.Visible = false;
-            // 
-            // propTxtMod1
-            // 
-            this.propTxtMod1.Location = new System.Drawing.Point(510, 422);
-            this.propTxtMod1.Name = "propTxtMod1";
-            this.propTxtMod1.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod1.TabIndex = 82;
-            this.propTxtMod1.Visible = false;
-            // 
-            // propTxtMod0
-            // 
-            this.propTxtMod0.Location = new System.Drawing.Point(510, 396);
-            this.propTxtMod0.Name = "propTxtMod0";
-            this.propTxtMod0.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod0.TabIndex = 83;
-            // 
-            // propLblMod2
-            // 
-            this.propLblMod2.Location = new System.Drawing.Point(430, 451);
-            this.propLblMod2.Name = "propLblMod2";
-            this.propLblMod2.Size = new System.Drawing.Size(74, 13);
-            this.propLblMod2.TabIndex = 80;
-            this.propLblMod2.Text = "Vlasnik:";
-            this.propLblMod2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // propLblMod3
-            // 
-            this.propLblMod3.Location = new System.Drawing.Point(427, 477);
-            this.propLblMod3.Name = "propLblMod3";
-            this.propLblMod3.Size = new System.Drawing.Size(77, 13);
-            this.propLblMod3.TabIndex = 92;
-            this.propLblMod3.Text = "Površina:";
-            this.propLblMod3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // propCBUBoji
-            // 
-            this.propCBUBoji.AutoSize = true;
-            this.propCBUBoji.Location = new System.Drawing.Point(511, 425);
-            this.propCBUBoji.Name = "propCBUBoji";
-            this.propCBUBoji.Size = new System.Drawing.Size(15, 14);
-            this.propCBUBoji.TabIndex = 106;
-            this.propCBUBoji.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1491,13 +1924,15 @@
             this.ClientSize = new System.Drawing.Size(965, 635);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Projekat iz sistema baza podataka, Izbori, domaći 2";
+            this.Text = "Election Patronum!";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.aktKoord.ResumeLayout(false);
             this.aktKoord.PerformLayout();
+            this.mediji.ResumeLayout(false);
+            this.mediji.PerformLayout();
             this.propaganda.ResumeLayout(false);
             this.propaganda.PerformLayout();
             this.sve.ResumeLayout(false);
@@ -1632,6 +2067,40 @@
         private System.Windows.Forms.TextBox propTxtMod1;
         private System.Windows.Forms.Label propLblMod2;
         private System.Windows.Forms.CheckBox propCBUBoji;
+        private System.Windows.Forms.CheckBox chBoxTVDuel;
+        private System.Windows.Forms.Button btnAddGostovanje;
+        private System.Windows.Forms.Button btnRemoveGostovanje;
+        private System.Windows.Forms.Button btnUpdateGostovanje;
+        private System.Windows.Forms.Button btnUkloniNovinara;
+        private System.Windows.Forms.Button btnDodajNovinara;
+        private System.Windows.Forms.ComboBox cbNovinari;
+        private System.Windows.Forms.Label lNovinari;
+        private System.Windows.Forms.TextBox tbNazivLista;
+        private System.Windows.Forms.Label lNazivLista;
+        private System.Windows.Forms.Label lDatumObjavljivanja;
+        private System.Windows.Forms.MonthCalendar calObjavljivanja;
+        private System.Windows.Forms.Label lDatumIntervjua;
+        private System.Windows.Forms.MonthCalendar calIntervjua;
+        private System.Windows.Forms.RadioButton rBtnTVRadio;
+        private System.Windows.Forms.RadioButton rBtnNovine;
+        private System.Windows.Forms.Label Naslov;
+        private System.Windows.Forms.ListView listaPojavljivanja;
+        private System.Windows.Forms.Label lNazivEmisije;
+        private System.Windows.Forms.Label lNazivStanice;
+        private System.Windows.Forms.Label lProcenjenaGledanost;
+        private System.Windows.Forms.Label lImeVoditelja;
+        private System.Windows.Forms.Button btnUkloniPitanje;
+        private System.Windows.Forms.Button btnDodajPitanje;
+        private System.Windows.Forms.ComboBox cbPitanje;
+        private System.Windows.Forms.Label lPitanja;
+        private System.Windows.Forms.Button btnUkloniProtivkandidata;
+        private System.Windows.Forms.Button btnDodajProtivkandidata;
+        private System.Windows.Forms.ComboBox cbProtivkandidati;
+        private System.Windows.Forms.Label lImeProtivkand;
+        private System.Windows.Forms.TextBox tbProcenjenaGledanost;
+        private System.Windows.Forms.TextBox tbImeVoditelja;
+        private System.Windows.Forms.TextBox tbNazivEmisije;
+        private System.Windows.Forms.TextBox tbNazivStanice;
     }
 }
 

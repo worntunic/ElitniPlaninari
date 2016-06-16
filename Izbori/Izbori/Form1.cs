@@ -20,11 +20,24 @@ namespace Izbori {
 
         public Reklama odabranaReklama { get; set; } //konkretna odabrana reklama
         public IList<Reklama> reklame { get; set; } //sve reklame/propaganda
+
+        public IntervjuNovine odabraniIntervjuUNovinama { get; set; } //konkretan odabrani intervju
+        public IList<IntervjuNovine> intervjui { get; set; } //Svi intervjui
+
+        public TVRadioGost odabranoGostovanje { get; set; } //konkretno odabrano gostovanje
+        public IList<TVRadioGost> gostovanja { get; set; } //sva gostovanja
+
+        public TVDuel odabraniDuel { get; set; } //konkretni odabrani duel
+        public IList<TVDuel> dueli { get; set; } //svi dueli
+
         public Form1() {
             InitializeComponent();
             odabrani = null;
             aktivisti = null;
             reklame = null;
+            intervjui = null;
+            gostovanja = null;
+            dueli = null;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -561,6 +574,7 @@ namespace Izbori {
                 //j++;
             }
         }
+        
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e) {
             var indeks = ((TabControl)sender).SelectedIndex;
             ISession s = DataLayer.GetSession();
@@ -575,6 +589,11 @@ namespace Izbori {
                 case 1:
                     aktivisti = (List<Aktivista>)s.QueryOver<Aktivista>().OrderBy(p => p.ID).Asc.List();
                     ucitajAkt(lvAkt, aktivisti);
+                    break;
+                case 4:
+                    intervjui = (List<IntervjuNovine>)s.QueryOver<IntervjuNovine>().OrderBy(p => p.ID).Asc.List();
+                    gostovanja = (List<TVRadioGost>)s.QueryOver<TVRadioGost>().OrderBy(p => p.ID).Asc.List();
+                    dueli = (List<TVDuel>)s.QueryOver<TVDuel>().OrderBy(p => p.ID).Asc.List();
                     break;
                 case 5:
                     reklame = s.QueryOver<Reklama>().OrderBy(p => p.ID).Asc.List();
@@ -1101,6 +1120,278 @@ namespace Izbori {
             }
             }
         }
-    }
 
+        private void rBtnNovine_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rBtnNovine.Checked)
+            {
+                LoadData("Intervju Novine");
+                hidePojControls();
+                rBtnTVRadio.Checked = false;
+                chBoxTVDuel.Checked = false;
+
+                lNazivLista.Visible = true;
+                tbNazivLista.Visible = true;
+
+                lDatumIntervjua.Visible = true;
+                calIntervjua.Visible = true;
+
+                lDatumObjavljivanja.Visible = true;
+                calObjavljivanja.Visible = true;
+
+                lNovinari.Visible = true;
+                cbNovinari.Visible = true;
+                btnDodajNovinara.Visible = true;
+                btnUkloniNovinara.Visible = true;
+                btnAddGostovanje.Visible = true;
+                btnRemoveGostovanje.Visible = true;
+                btnUpdateGostovanje.Visible = true;
+            }
+        }
+
+        private void rBtnTVRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rBtnTVRadio.Checked)
+            {
+                LoadData("TV/Radio Gostovanje");
+                hidePojControls();
+                lImeVoditelja.Visible = true;
+                tbImeVoditelja.Visible = true;
+
+                lProcenjenaGledanost.Visible = true;
+                tbProcenjenaGledanost.Visible = true;
+
+                lNazivEmisije.Visible = true;
+                tbNazivEmisije.Visible = true;
+
+                lNazivStanice.Visible = true;
+                tbNazivStanice.Visible = true;
+                chBoxTVDuel.Visible = true;
+
+                lPitanja.Visible = true;
+                cbPitanje.Visible = true;
+                btnDodajPitanje.Visible = true;
+                btnUkloniPitanje.Visible = true;
+
+                lImeProtivkand.Visible = true;
+                cbProtivkandidati.Visible = true;
+                btnDodajProtivkandidata.Visible = true;
+                btnUkloniProtivkandidata.Visible = true;
+
+                btnAddGostovanje.Visible = true;
+                btnRemoveGostovanje.Visible = true;
+                btnUpdateGostovanje.Visible = true;
+            }
+        }
+
+        private void cbTVDuel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBoxTVDuel.CheckState == CheckState.Checked)
+            {
+                LoadData("TV Duel");
+                lPitanja.Enabled = true;
+                cbPitanje.Enabled = true;
+                btnDodajPitanje.Enabled = true;
+                btnUkloniPitanje.Enabled = true;
+
+                lImeProtivkand.Enabled = true;
+                cbProtivkandidati.Enabled = true;
+                btnDodajProtivkandidata.Enabled = true;
+                btnUkloniProtivkandidata.Enabled = true;
+            }
+            else
+            {
+                LoadData("TV/Radio Gostovanje");
+                lPitanja.Enabled = false;
+                cbPitanje.Enabled = false;
+                btnDodajPitanje.Enabled = false;
+                btnUkloniPitanje.Enabled = false;
+
+                lImeProtivkand.Enabled = false;
+                cbProtivkandidati.Enabled = false;
+                btnDodajProtivkandidata.Enabled = false;
+                btnUkloniProtivkandidata.Enabled = false;
+            }
+        }
+
+        private void hidePojControls()
+        {
+            lNazivLista.Visible = false;
+            tbNazivLista.Visible = false;
+
+            lDatumIntervjua.Visible = false;
+            calIntervjua.Visible = false;
+
+            lDatumObjavljivanja.Visible = false;
+            calObjavljivanja.Visible = false;
+
+            lImeVoditelja.Visible = false;
+            tbImeVoditelja.Visible = false;
+
+            lProcenjenaGledanost.Visible = false;
+            tbProcenjenaGledanost.Visible = false;
+
+            lNazivEmisije.Visible = false;
+            tbNazivEmisije.Visible = false;
+
+            lNazivStanice.Visible = false;
+            tbNazivStanice.Visible = false;
+
+            lImeProtivkand.Visible = false;
+            cbProtivkandidati.Visible = false;
+            btnDodajProtivkandidata.Visible = false;
+            btnUkloniProtivkandidata.Visible = false;
+
+            lPitanja.Visible = false;
+            cbPitanje.Visible = false;
+            btnDodajPitanje.Visible = false;
+            btnUkloniPitanje.Visible = false;
+
+            lNovinari.Visible = false;
+            cbNovinari.Visible = false;
+            btnDodajNovinara.Visible = false;
+            btnUkloniNovinara.Visible = false;
+
+            btnAddGostovanje.Visible = false;
+            btnRemoveGostovanje.Visible = false;
+            btnUpdateGostovanje.Visible = false;
+            chBoxTVDuel.Visible = false;
+        }
+
+        private void LoadData(string x)
+        {
+            listaPojavljivanja.Items.Clear();
+            listaPojavljivanja.Columns.Clear();
+            listaPojavljivanja.Columns.Add("ID");
+            if (x == "Intervju Novine")
+            {
+                listaPojavljivanja.Columns.Add("Naziv Lista");
+                listaPojavljivanja.Columns.Add("Datum Objavljivanja");
+            }
+            else if (x == "TV/Radio Gostovanje")
+            {
+                listaPojavljivanja.Columns.Add("Naziv Stanice");
+                listaPojavljivanja.Columns.Add("Naziv Emisije");
+            }
+            else if (x == "TV Duel")
+            {
+                listaPojavljivanja.Columns.Add("Naziv Stanice");
+                listaPojavljivanja.Columns.Add("Naziv Emisije");
+            }
+            LoadValues(x);
+        }
+
+        private void LoadValues(string tabela)
+        {
+            listaPojavljivanja.BeginUpdate();
+
+            if (tabela == "Intervju Novine")
+            {
+                foreach (IntervjuNovine x in intervjui)
+                {
+                    string[] row = { x.ID.ToString(), x.NazivLista, String.Format("{0:d/M/yyyy}", x.DatumObjavljivanja), String.Format("{0:d/M/yyyy}", x.DatumIntervjua)};
+
+                    var item = new ListViewItem(row);
+
+                    listaPojavljivanja.Items.Add(item);
+                }
+            }
+            else if (tabela == "TV/Radio Gostovanje")
+            {
+                foreach (TVRadioGost x in gostovanja)
+                {
+                    string[] row = { x.ID.ToString(), x.NazivStanice, x.NazivEmisije, x.ImeVoditelja, x.Gledanost.ToString()};
+
+                    var item = new ListViewItem(row);
+
+                    listaPojavljivanja.Items.Add(item);
+                }
+            }
+            else if (tabela == "TV Duel")
+            {
+                foreach (TVDuel x in dueli)
+                {
+                    string[] row = { x.ID.ToString(), x.NazivStanice, x.NazivEmisije, x.ImeVoditelja, x.Gledanost.ToString() };
+
+                    var item = new ListViewItem(row);
+
+                    listaPojavljivanja.Items.Add(item);
+                }
+            }
+            
+            postaviSirinuSvihKolona(listaPojavljivanja);
+            listaPojavljivanja.EndUpdate();
+        }
+
+        private void listaPojavljivanja_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)
+            {
+                ListView.SelectedListViewItemCollection izabrani = ((ListView)sender).SelectedItems;
+                foreach (ListViewItem item in izabrani)
+                {
+                    tbNazivStanice.Text = item.SubItems[1].Text;
+                    tbNazivEmisije.Text = item.SubItems[2].Text;
+                    tbImeVoditelja.Text = item.SubItems[3].Text;
+                    tbProcenjenaGledanost.Text = item.SubItems[4].Text;
+                    ISession s = DataLayer.GetSession();
+                    try
+                    {
+                        odabraniDuel = s.Load<TVDuel>(int.Parse(item.SubItems[0].Text));
+                        cbProtivkandidati.Items.Clear();
+                        cbPitanje.Items.Clear();
+                        foreach (ProtivKandidatiTVDuel x in odabraniDuel.ProtivKandidati)
+                        {
+                            cbProtivkandidati.Items.Add(x.ImePK);
+                        }
+                        foreach (var x in odabraniDuel.Pitanja)
+                        {
+                            cbPitanje.Items.Add(x.Tekst);
+                        }
+                    }
+                    finally
+                    {
+                        s.Close();
+                    }
+                }
+            }
+            else if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Unchecked)
+            {
+                ListView.SelectedListViewItemCollection izabrani = ((ListView)sender).SelectedItems;
+                foreach (ListViewItem item in izabrani)
+                {
+                    tbNazivStanice.Text = item.SubItems[1].Text;
+                    tbNazivEmisije.Text = item.SubItems[2].Text;
+                    tbImeVoditelja.Text = item.SubItems[3].Text;
+                    tbProcenjenaGledanost.Text = item.SubItems[4].Text;                    
+                }
+            }
+            else if (rBtnNovine.Checked)
+            {
+                ListView.SelectedListViewItemCollection izabrani = ((ListView)sender).SelectedItems;
+                foreach (ListViewItem item in izabrani)
+                {
+                    tbNazivLista.Text = item.SubItems[1].Text;
+                    calObjavljivanja.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[2].Text), Convert.ToDateTime(item.SubItems[2].Text));
+                    calIntervjua.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[3].Text), Convert.ToDateTime(item.SubItems[3].Text));
+
+                    ISession s = DataLayer.GetSession();
+                    try
+                    {
+                        odabraniIntervjuUNovinama = s.Load<IntervjuNovine>(int.Parse(item.SubItems[0].Text));
+                        cbNovinari.Items.Clear();
+                        
+                        foreach (NovinariIzNovina x in odabraniIntervjuUNovinama.NovinariIzNovina)
+                        {
+                            cbProtivkandidati.Items.Add(x.ImeNovinara);
+                        }
+                    }
+                    finally
+                    {
+                        s.Close();
+                    }
+                }
+            }
+        }
+    }
 }
