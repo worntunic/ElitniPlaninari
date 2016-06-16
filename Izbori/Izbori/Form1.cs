@@ -18,7 +18,7 @@ namespace Izbori
     public partial class Form1 : Form
     {
         public Aktivista odabrani { get; set; } // konrektan odabrani aktivista
-        public IList<Aktivista> aktivisti { get; set; } //svi aktivisti
+        public List<Aktivista> aktivisti { get; set; } //svi aktivisti
 
         public Form1()
         {
@@ -593,6 +593,10 @@ namespace Izbori
 
         public void ucitajAkt(ListView lista, IList<Aktivista> akt)
         {
+            if(lista.Items.Count != 0)
+            {
+                lista.Items.Clear();
+            }
             foreach(var i in akt)
             {
                 ListViewItem item = new ListViewItem(i.ID.ToString());
@@ -617,7 +621,7 @@ namespace Izbori
             switch (indeks)
             {
                 case 1:
-                    aktivisti = s.QueryOver<Aktivista>().OrderBy(p => p.ID).Asc.List();
+                    aktivisti = (List<Aktivista>)s.QueryOver<Aktivista>().OrderBy(p => p.ID).Asc.List();
                     ucitajAkt(lvAkt, aktivisti);
                     break;
                 default:
@@ -638,10 +642,10 @@ namespace Izbori
                 if (koord)
                 {
                     odabrani = s.Load<Koordinator>(id);
-                    koordUl.Text = ((Koordinator)odabrani).UlicaKanc;
-                    koordBr.Text = ((Koordinator)odabrani).BrojKanc.ToString();
-                    koordGrad.Text = ((Koordinator)odabrani).GradKanc;
-                    koordOpst.Text = ((Koordinator)odabrani).Opstina;
+                    koorUlicaKanc.Text = ((Koordinator)odabrani).UlicaKanc;
+                    koorBrojKanc.Text = ((Koordinator)odabrani).BrojKanc.ToString();
+                    koorGradKanc.Text = ((Koordinator)odabrani).GradKanc;
+                    koorOpstina.Text = ((Koordinator)odabrani).Opstina;
 
                     koordPomoc.Items.Clear();
                     foreach (var pomoc in ((Koordinator)odabrani).Saradnici)
@@ -654,10 +658,10 @@ namespace Izbori
                 else
                 {
                     odabrani = s.Load<Aktivista>(id);
-                    koordUl.Text = "";
-                    koordBr.Text = "";
-                    koordGrad.Text = "";
-                    koordOpst.Text = "";
+                    koorUlicaKanc.Text = "";
+                    koorBrojKanc.Text = "";
+                    koorGradKanc.Text = "";
+                    koorOpstina.Text = "";
                     jeKoord.Enabled = odabrani.koord == null;
 
                     if (odabrani.koord == null)
@@ -675,10 +679,10 @@ namespace Izbori
                 }
 
                 jeKoord.Checked = koord;
-                koordUl.Enabled = koord;
-                koordBr.Enabled = koord;
-                koordGrad.Enabled = koord;
-                koordOpst.Enabled = koord;
+                koorUlicaKanc.Enabled = koord;
+                koorBrojKanc.Enabled = koord;
+                koorGradKanc.Enabled = koord;
+                koorOpstina.Enabled = koord;
                 koordDodajP.Enabled = koord;
                 koordObrisiP.Enabled = koord;
                 koordPomoc.Enabled = koord;
@@ -690,7 +694,7 @@ namespace Izbori
 
                 aktIme.Text = odabrani.Ime;
                 aktPrezime.Text = odabrani.Prezime;
-                aktRoditelj.Text = odabrani.ImeRod;
+                aktImeRod.Text = odabrani.ImeRod;
                 aktUlica.Text = odabrani.Ulica;
                 aktGrad.Text = odabrani.Grad;
                 aktBroj.Text = odabrani.Broj.ToString();
@@ -856,15 +860,15 @@ namespace Izbori
             {
                 ISession s = DataLayer.GetSession();
                 int brPomoc = s.QueryOver<Aktivista>().Where(k => k.koord == odabrani).RowCount();
+                s.Close();
                 if (brPomoc == 4)
                 {
                     MessageBox.Show("Koordinator već ima 4 saradnika. Obrišite nekog kako biste dodali novog.", "Puno saradnika");
                 } else
                 {
                     DodajPomoc f = new DodajPomoc();
-                    f.ShowDialog(this);
+                    f.ShowDialog(this);                
                 }
-                s.Close();
             }
             catch(Exception ex)
             {
@@ -937,6 +941,124 @@ namespace Izbori
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void aktAzuriraj_Click(object sender, EventArgs e)
+        {
+            var tekstBs = GetAll(this, typeof(TextBox));
+            foreach(var t in tekstBs)
+            {
+                string tIme = t.Name;
+                string propIme;
+                if (tIme.Contains("akt"))
+                {
+                    propIme = t.Name.Substring(3);
+                } else if (tIme.Contains("koor") && jeKoord.Checked)
+                {
+                    propIme = t.Name.Substring(4);
+                } else
+                {
+                    continue;
+                }
+                try {
+                    odabrani.GetType().GetProperty(propIme).SetValue(odabrani, t.Text);
+                } catch (ArgumentException ex)
+                {
+                    odabrani.GetType().GetProperty(propIme).SetValue(odabrani, Int32.Parse(t.Text));
+                }
+            }
+            ISession s = DataLayer.GetSession();
+            s.SaveOrUpdate(odabrani);
+            s.Flush();
+            s.Close();
+
+            aktivisti.Single(a => a.ID == odabrani.ID).Ime = odabrani.Ime;
+            aktivisti.Single(a => a.ID == odabrani.ID).Prezime = odabrani.Prezime;
+            aktivisti.Single(a => a.ID == odabrani.ID).ImeRod = odabrani.ImeRod;
+
+            azurElListe(lvAkt, aktivisti, odabrani.ID);
+        }
+        ///TODO Kako napisati genericki metod? Interfejs mozda?
+        //private void azurElListe<T>(ListView lista, List<T> inL, int id)
+        private void azurElListe(ListView lista, List<Aktivista> inL, int id)
+            //funkcija za azuriranje jednog aktiviste
+        {
+            lista.Select();
+            int indOdab = inL.FindIndex(ak => ak.ID == id);
+            lista.Items[indOdab].Selected = true;
+            lista.Items[indOdab].SubItems[1].Text = inL[indOdab].Ime;
+            lista.Items[indOdab].SubItems[2].Text = inL[indOdab].Prezime;
+            lista.Items[indOdab].SubItems[3].Text = inL[indOdab].ImeRod;
+        }
+
+        public IEnumerable<Control> GetAll(Control control, Type type)
+        //http://stackoverflow.com/questions/3419159/how-to-get-all-child-controls-of-a-windows-forms-form-of-a-specific-type-button
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            return controls.SelectMany(ctrl => GetAll(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type);
+        }
+
+        private void setEnable(IEnumerable<Control> cList, bool flag)
+        {
+            foreach(var c in cList)
+            {
+                c.Enabled = flag;
+            }
+        }
+
+        private void clearCtrl(IEnumerable<Control> cList)
+        {
+            foreach(var c in cList)
+            {
+                c.Text = "";
+                if(c.GetType() == typeof(ComboBox))
+                {
+                    ((ComboBox)c).Items.Clear();
+                }
+            }
+        }
+
+        ///TODO On delete cascade...
+        private void aktObrisi_Click(object sender, EventArgs e)
+        {
+            if(odabrani != null)
+            {
+                try
+                {
+                    ISession s = DataLayer.GetSession();
+                    string q = "delete from AKTIVISTASTRANKE where id=:id";
+                    s.CreateSQLQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
+                    s.Close();
+                    odabrani = null;
+
+                    var tBoks = GetAll(this, typeof(TextBox));
+                    var cBoks = GetAll(this, typeof(ComboBox));
+                    var chBoks = GetAll(this, typeof(CheckBox));
+                    var btns = GetAll(this, typeof(Button));
+                    var labs = GetAll(this, typeof(Label));
+
+                    setEnable(tBoks, true);
+                    setEnable(cBoks, true);
+                    setEnable(chBoks, true);
+                    setEnable(btns, true);
+                    setEnable(labs, true);
+
+                    clearCtrl(tBoks);
+                    clearCtrl(cBoks);
+
+                    labZaGM.Text = "";
+                    labZaAkc.Text = "";
+                    labKoord.Text = "";
+                    labAkcije.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

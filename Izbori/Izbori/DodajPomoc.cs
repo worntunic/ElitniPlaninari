@@ -77,6 +77,7 @@ namespace Izbori
                 }
                 else {
                     MessageBox.Show("Morate odabrati barem jednog aktivistu!", "Greška");
+                    s.Close();
                 }
             }
             catch(Exception ex)

@@ -83,9 +83,9 @@
             this.imeRod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.prezime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button10 = new System.Windows.Forms.Button();
-            this.koordOpst = new System.Windows.Forms.TextBox();
+            this.koorOpstina = new System.Windows.Forms.TextBox();
             this.labOps = new System.Windows.Forms.Label();
-            this.koordGrad = new System.Windows.Forms.TextBox();
+            this.koorGradKanc = new System.Windows.Forms.TextBox();
             this.labGradKanc = new System.Windows.Forms.Label();
             this.labZaGM = new System.Windows.Forms.Label();
             this.labAkcije = new System.Windows.Forms.Label();
@@ -95,8 +95,8 @@
             this.koordDodajP = new System.Windows.Forms.Button();
             this.koordPomoc = new System.Windows.Forms.ComboBox();
             this.labPomoc = new System.Windows.Forms.Label();
-            this.koordBr = new System.Windows.Forms.TextBox();
-            this.koordUl = new System.Windows.Forms.TextBox();
+            this.koorBrojKanc = new System.Windows.Forms.TextBox();
+            this.koorUlicaKanc = new System.Windows.Forms.TextBox();
             this.labBrKanc = new System.Windows.Forms.Label();
             this.labUl = new System.Windows.Forms.Label();
             this.aktObrisi = new System.Windows.Forms.Button();
@@ -113,7 +113,7 @@
             this.aktBroj = new System.Windows.Forms.TextBox();
             this.aktUlica = new System.Windows.Forms.TextBox();
             this.aktPrezime = new System.Windows.Forms.TextBox();
-            this.aktRoditelj = new System.Windows.Forms.TextBox();
+            this.aktImeRod = new System.Windows.Forms.TextBox();
             this.aktIme = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -635,9 +635,9 @@
             this.aktKoord.Controls.Add(this.labKoord);
             this.aktKoord.Controls.Add(this.lvAkt);
             this.aktKoord.Controls.Add(this.button10);
-            this.aktKoord.Controls.Add(this.koordOpst);
+            this.aktKoord.Controls.Add(this.koorOpstina);
             this.aktKoord.Controls.Add(this.labOps);
-            this.aktKoord.Controls.Add(this.koordGrad);
+            this.aktKoord.Controls.Add(this.koorGradKanc);
             this.aktKoord.Controls.Add(this.labGradKanc);
             this.aktKoord.Controls.Add(this.labZaGM);
             this.aktKoord.Controls.Add(this.labAkcije);
@@ -647,8 +647,8 @@
             this.aktKoord.Controls.Add(this.koordDodajP);
             this.aktKoord.Controls.Add(this.koordPomoc);
             this.aktKoord.Controls.Add(this.labPomoc);
-            this.aktKoord.Controls.Add(this.koordBr);
-            this.aktKoord.Controls.Add(this.koordUl);
+            this.aktKoord.Controls.Add(this.koorBrojKanc);
+            this.aktKoord.Controls.Add(this.koorUlicaKanc);
             this.aktKoord.Controls.Add(this.labBrKanc);
             this.aktKoord.Controls.Add(this.labUl);
             this.aktKoord.Controls.Add(this.aktObrisi);
@@ -665,7 +665,7 @@
             this.aktKoord.Controls.Add(this.aktBroj);
             this.aktKoord.Controls.Add(this.aktUlica);
             this.aktKoord.Controls.Add(this.aktPrezime);
-            this.aktKoord.Controls.Add(this.aktRoditelj);
+            this.aktKoord.Controls.Add(this.aktImeRod);
             this.aktKoord.Controls.Add(this.aktIme);
             this.aktKoord.Controls.Add(this.label12);
             this.aktKoord.Controls.Add(this.label13);
@@ -738,13 +738,13 @@
             this.button10.Text = "Dodaj novog aktivistu";
             this.button10.UseVisualStyleBackColor = true;
             // 
-            // koordOpst
+            // koorOpstina
             // 
-            this.koordOpst.Enabled = false;
-            this.koordOpst.Location = new System.Drawing.Point(486, 375);
-            this.koordOpst.Name = "koordOpst";
-            this.koordOpst.Size = new System.Drawing.Size(204, 20);
-            this.koordOpst.TabIndex = 71;
+            this.koorOpstina.Enabled = false;
+            this.koorOpstina.Location = new System.Drawing.Point(486, 375);
+            this.koorOpstina.Name = "koorOpstina";
+            this.koorOpstina.Size = new System.Drawing.Size(204, 20);
+            this.koorOpstina.TabIndex = 71;
             // 
             // labOps
             // 
@@ -756,13 +756,13 @@
             this.labOps.TabIndex = 70;
             this.labOps.Text = "Opština kancelarije:";
             // 
-            // koordGrad
+            // koorGradKanc
             // 
-            this.koordGrad.Enabled = false;
-            this.koordGrad.Location = new System.Drawing.Point(486, 349);
-            this.koordGrad.Name = "koordGrad";
-            this.koordGrad.Size = new System.Drawing.Size(204, 20);
-            this.koordGrad.TabIndex = 69;
+            this.koorGradKanc.Enabled = false;
+            this.koorGradKanc.Location = new System.Drawing.Point(486, 349);
+            this.koorGradKanc.Name = "koorGradKanc";
+            this.koorGradKanc.Size = new System.Drawing.Size(204, 20);
+            this.koorGradKanc.TabIndex = 69;
             // 
             // labGradKanc
             // 
@@ -860,21 +860,21 @@
             this.labPomoc.TabIndex = 60;
             this.labPomoc.Text = "Pomoćnici:";
             // 
-            // koordBr
+            // koorBrojKanc
             // 
-            this.koordBr.Enabled = false;
-            this.koordBr.Location = new System.Drawing.Point(486, 323);
-            this.koordBr.Name = "koordBr";
-            this.koordBr.Size = new System.Drawing.Size(204, 20);
-            this.koordBr.TabIndex = 57;
+            this.koorBrojKanc.Enabled = false;
+            this.koorBrojKanc.Location = new System.Drawing.Point(486, 323);
+            this.koorBrojKanc.Name = "koorBrojKanc";
+            this.koorBrojKanc.Size = new System.Drawing.Size(204, 20);
+            this.koorBrojKanc.TabIndex = 57;
             // 
-            // koordUl
+            // koorUlicaKanc
             // 
-            this.koordUl.Enabled = false;
-            this.koordUl.Location = new System.Drawing.Point(486, 297);
-            this.koordUl.Name = "koordUl";
-            this.koordUl.Size = new System.Drawing.Size(204, 20);
-            this.koordUl.TabIndex = 56;
+            this.koorUlicaKanc.Enabled = false;
+            this.koorUlicaKanc.Location = new System.Drawing.Point(486, 297);
+            this.koorUlicaKanc.Name = "koorUlicaKanc";
+            this.koorUlicaKanc.Size = new System.Drawing.Size(204, 20);
+            this.koorUlicaKanc.TabIndex = 56;
             // 
             // labBrKanc
             // 
@@ -905,6 +905,7 @@
             this.aktObrisi.TabIndex = 51;
             this.aktObrisi.Text = "Obriši odabranog aktivistu";
             this.aktObrisi.UseVisualStyleBackColor = true;
+            this.aktObrisi.Click += new System.EventHandler(this.aktObrisi_Click);
             // 
             // aktAzuriraj
             // 
@@ -915,6 +916,7 @@
             this.aktAzuriraj.TabIndex = 50;
             this.aktAzuriraj.Text = "Ažuriraj odabranog aktivistu";
             this.aktAzuriraj.UseVisualStyleBackColor = true;
+            this.aktAzuriraj.Click += new System.EventHandler(this.aktAzuriraj_Click);
             // 
             // btnRemoveTelefon
             // 
@@ -1026,12 +1028,12 @@
             this.aktPrezime.Size = new System.Drawing.Size(204, 20);
             this.aktPrezime.TabIndex = 38;
             // 
-            // aktRoditelj
+            // aktImeRod
             // 
-            this.aktRoditelj.Location = new System.Drawing.Point(486, 90);
-            this.aktRoditelj.Name = "aktRoditelj";
-            this.aktRoditelj.Size = new System.Drawing.Size(204, 20);
-            this.aktRoditelj.TabIndex = 37;
+            this.aktImeRod.Location = new System.Drawing.Point(486, 90);
+            this.aktImeRod.Name = "aktImeRod";
+            this.aktImeRod.Size = new System.Drawing.Size(204, 20);
+            this.aktImeRod.TabIndex = 37;
             // 
             // aktIme
             // 
@@ -1275,7 +1277,7 @@
         private System.Windows.Forms.TextBox aktBroj;
         private System.Windows.Forms.TextBox aktUlica;
         private System.Windows.Forms.TextBox aktPrezime;
-        private System.Windows.Forms.TextBox aktRoditelj;
+        private System.Windows.Forms.TextBox aktImeRod;
         private System.Windows.Forms.TextBox aktIme;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
@@ -1291,8 +1293,8 @@
         private System.Windows.Forms.Button koordDodajP;
         private System.Windows.Forms.ComboBox koordPomoc;
         private System.Windows.Forms.Label labPomoc;
-        private System.Windows.Forms.TextBox koordBr;
-        private System.Windows.Forms.TextBox koordUl;
+        private System.Windows.Forms.TextBox koorBrojKanc;
+        private System.Windows.Forms.TextBox koorUlicaKanc;
         private System.Windows.Forms.Label labBrKanc;
         private System.Windows.Forms.Label labUl;
         private System.Windows.Forms.TabPage tabPage1;
@@ -1300,9 +1302,9 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox koordOpst;
+        private System.Windows.Forms.TextBox koorOpstina;
         private System.Windows.Forms.Label labOps;
-        private System.Windows.Forms.TextBox koordGrad;
+        private System.Windows.Forms.TextBox koorGradKanc;
         private System.Windows.Forms.Label labGradKanc;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.ColumnHeader ID;
