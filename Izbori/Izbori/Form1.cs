@@ -925,21 +925,18 @@ namespace Izbori {
         }
 
         ///TODO On delete cascade...
-        private void aktObrisi_Click(object sender, EventArgs e)
-        {
-            if(odabrani != null)
-            {
-                try
-                {
+        private void aktObrisi_Click(object sender, EventArgs e) {
+            if (odabrani != null) {
+                try {
                     ISession s = DataLayer.GetSession();
                     string q = "delete from AKTIVISTASTRANKE where id=:id";
                     s.CreateSQLQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
-                s.Close();
-            } catch (Exception ex) {
-                MessageBox.Show(ex.Message);
+                    s.Close();
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
-
         private void label20_Click(object sender, EventArgs e) {
 
         }
@@ -1106,5 +1103,4 @@ namespace Izbori {
         }
     }
 
-}
 }
