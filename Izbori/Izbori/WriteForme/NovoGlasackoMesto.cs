@@ -27,49 +27,54 @@ namespace Izbori.WriteForme
                 e.Handled = true;
         }
 
-        private void btnRandom_Click(object sender, EventArgs e)
-        {
-            var r = new Random();
-            tbBrojGM.Text = r.Next(22222, 1222222).ToString();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             ISession ses = DataLayer.GetSession();
 
-            try
+            if(tbNaziv.Text == "")
             {
-                ses.Transaction.Begin();
-
-                var glm = new GlasackoMesto
+                MessageBox.Show("Morate uneti barem naziv glasačkog mesta!", "Greška");
+            } else
+            {
+                try
                 {
-                    Naziv = tbNaziv.Text,
-                    BrojRegBir = int.Parse(tbBrojRegBir.Text),
-                    BrojGM = int.Parse(tbBrojGM.Text)
-                };
+                    var glm = new GlasackoMesto();
+                    glm.Naziv = tbNaziv.Text;
+                    if (tbBrojRegBir.Text != "")
+                    {
+                        glm.BrojRegBir = int.Parse(tbBrojRegBir.Text);
+                    }
+                    else
+                    {
+                        glm.BrojRegBir = 0;
+                    }
+                    if (tbBrojGM.Text != "")
+                    {
+                        glm.BrojGM = int.Parse(tbBrojGM.Text);
+                    }
+                    else
+                    {
+                        glm.BrojGM = 0;
+                    }
 
-                ses.SaveOrUpdate(glm);
+                    ses.SaveOrUpdate(glm);
+                    ses.Flush();
 
-                ses.Flush();
+                    ((Form1)Owner).oGM = glm;
+                    ((Form1)Owner).gmesta.Add(glm);                                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    ses.Close();
+                    this.Close();
+                }
 
-                ses.Transaction.Commit();
-
-                MessageBox.Show("Glasačko mesto uspešno sačuvano!", "Uspeh!");
             }
-            catch (Exception ex)
-            {
-                ses.Transaction.Rollback();
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                ses.Close();
-            }
+
         }
 
         private void tbBrojRegBir_KeyPress(object sender, KeyPressEventArgs e)

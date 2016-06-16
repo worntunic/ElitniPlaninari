@@ -14,29 +14,9 @@ namespace Izbori.WriteForme
 {
     public partial class NoviRezultatIzbora : Form
     {
-        private IList<GlasackoMesto> listaGlasackihMesta;
-
         public NoviRezultatIzbora()
         {
-            InitializeComponent();
-            listaGlasackihMesta = new List<GlasackoMesto>();
-            ISession ses = DataLayer.GetSession();
-            try
-            {
-                listaGlasackihMesta = ses.QueryOver<GlasackoMesto>().List();
-                foreach (GlasackoMesto x in listaGlasackihMesta)
-                {
-                    cbGlasackaMesta.Items.Add(x.Naziv);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                ses.Close();
-            }
+            InitializeComponent();            
         }
 
         private void tbProcenatZaKandidata_KeyPress(object sender, KeyPressEventArgs e)
@@ -67,56 +47,36 @@ namespace Izbori.WriteForme
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            ISession ses = DataLayer.GetSession();
-            try
+            if(tbBrojBiraca.Text != "" 
+                && tbBrojKruga.Text != "" 
+                && tbProcenatZaKandidata.Text != "")
             {
-                ses.Transaction.Begin();
-
-                var ri = new RezultatiIzbora()
+                ISession ses = DataLayer.GetSession();
+                try
                 {
-                    ProcenatZaKandidata = int.Parse(tbProcenatZaKandidata.Text),
-                    BrBiraca = int.Parse(tbBrojBiraca.Text),
-                    BrKruga = int.Parse(tbBrojKruga.Text),
-                    GlasackoMesto = getGm(cbGlasackaMesta.SelectedItem.ToString())
-                };
-
-                ses.SaveOrUpdate(ri);
-
-                ses.Transaction.Commit();
-
-                MessageBox.Show("Rezulati izbora uspešno sačuvani!","Uspeh!");
+                    var ri = new RezultatiIzbora()
+                    {
+                        ProcenatZaKandidata = int.Parse(tbProcenatZaKandidata.Text),
+                        BrBiraca = int.Parse(tbBrojBiraca.Text),
+                        BrKruga = int.Parse(tbBrojKruga.Text),
+                        GlasackoMesto = ((Form1)Owner).oGM
+                    };
+                    ses.SaveOrUpdate(ri);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    ses.Close();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                ses.Transaction.Rollback();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Morate uneti sve potrebne informacije za rezultate izbora.", "Greška!");
             }
-            finally
-            {
-                ses.Close();
-            }
-        }
-
-        private GlasackoMesto getGm(string gm)
-        {
-            var returner = new GlasackoMesto();
-            IList<GlasackoMesto> temp = new List<GlasackoMesto>();
-
-            ISession ses = DataLayer.GetSession();
-            try
-            {
-                temp = ses.QueryOver<GlasackoMesto>().Where(x => x.Naziv == gm).List();
-                returner = temp[0];
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                ses.Close();
-            }
-            return returner;
         }
     }
 }
