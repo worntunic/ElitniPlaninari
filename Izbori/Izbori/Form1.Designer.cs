@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -127,11 +127,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.akcije = new System.Windows.Forms.TabPage();
             this.gmesto = new System.Windows.Forms.TabPage();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnPrimedbe = new System.Windows.Forms.Button();
+            this.btnDodajAktGM = new System.Windows.Forms.Button();
+            this.btnObrGM = new System.Windows.Forms.Button();
+            this.btnRezIzb = new System.Windows.Forms.Button();
+            this.btnAzurGM = new System.Windows.Forms.Button();
             this.labDK = new System.Windows.Forms.Label();
             this.labPK = new System.Windows.Forms.Label();
             this.labAktGM = new System.Windows.Forms.Label();
@@ -141,7 +141,7 @@
             this.gmBrojRegBir = new System.Windows.Forms.TextBox();
             this.gmBrojGM = new System.Windows.Forms.TextBox();
             this.gmNaziv = new System.Windows.Forms.TextBox();
-            this.button11 = new System.Windows.Forms.Button();
+            this.novoGM = new System.Windows.Forms.Button();
             this.lvGM = new System.Windows.Forms.ListView();
             this.gmIme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.brGM = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -1170,11 +1170,11 @@
             // gmesto
             // 
             this.gmesto.BackColor = System.Drawing.Color.SlateGray;
-            this.gmesto.Controls.Add(this.button16);
-            this.gmesto.Controls.Add(this.button15);
-            this.gmesto.Controls.Add(this.button14);
-            this.gmesto.Controls.Add(this.button13);
-            this.gmesto.Controls.Add(this.button12);
+            this.gmesto.Controls.Add(this.btnPrimedbe);
+            this.gmesto.Controls.Add(this.btnDodajAktGM);
+            this.gmesto.Controls.Add(this.btnObrGM);
+            this.gmesto.Controls.Add(this.btnRezIzb);
+            this.gmesto.Controls.Add(this.btnAzurGM);
             this.gmesto.Controls.Add(this.labDK);
             this.gmesto.Controls.Add(this.labPK);
             this.gmesto.Controls.Add(this.labAktGM);
@@ -1184,7 +1184,7 @@
             this.gmesto.Controls.Add(this.gmBrojRegBir);
             this.gmesto.Controls.Add(this.gmBrojGM);
             this.gmesto.Controls.Add(this.gmNaziv);
-            this.gmesto.Controls.Add(this.button11);
+            this.gmesto.Controls.Add(this.novoGM);
             this.gmesto.Controls.Add(this.lvGM);
             this.gmesto.Controls.Add(this.label27);
             this.gmesto.ForeColor = System.Drawing.Color.AliceBlue;
@@ -1194,58 +1194,58 @@
             this.gmesto.TabIndex = 5;
             this.gmesto.Text = "Glasačka mesta";
             // 
-            // button16
+            // btnPrimedbe
             // 
-            this.button16.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button16.Location = new System.Drawing.Point(570, 497);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(58, 49);
-            this.button16.TabIndex = 94;
-            this.button16.Text = "Pogledaj primedbe";
-            this.button16.UseVisualStyleBackColor = true;
+            this.btnPrimedbe.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnPrimedbe.Location = new System.Drawing.Point(570, 497);
+            this.btnPrimedbe.Name = "btnPrimedbe";
+            this.btnPrimedbe.Size = new System.Drawing.Size(58, 49);
+            this.btnPrimedbe.TabIndex = 94;
+            this.btnPrimedbe.Text = "Pogledaj primedbe";
+            this.btnPrimedbe.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnDodajAktGM
             // 
-            this.button15.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button15.Location = new System.Drawing.Point(469, 497);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(95, 49);
-            this.button15.TabIndex = 93;
-            this.button15.Text = "Dodaj aktivistu na glasačko mesto";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.btnDodajAktGM.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDodajAktGM.Location = new System.Drawing.Point(469, 497);
+            this.btnDodajAktGM.Name = "btnDodajAktGM";
+            this.btnDodajAktGM.Size = new System.Drawing.Size(95, 49);
+            this.btnDodajAktGM.TabIndex = 93;
+            this.btnDodajAktGM.Text = "Dodaj aktivistu na glasačko mesto";
+            this.btnDodajAktGM.UseVisualStyleBackColor = true;
+            this.btnDodajAktGM.Click += new System.EventHandler(this.dodajAktGM_Click);
             // 
-            // button14
+            // btnObrGM
             // 
-            this.button14.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button14.Location = new System.Drawing.Point(726, 497);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(82, 49);
-            this.button14.TabIndex = 92;
-            this.button14.Text = "Obriši glasčko mesto";
-            this.button14.UseVisualStyleBackColor = true;
+            this.btnObrGM.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnObrGM.Location = new System.Drawing.Point(726, 497);
+            this.btnObrGM.Name = "btnObrGM";
+            this.btnObrGM.Size = new System.Drawing.Size(82, 49);
+            this.btnObrGM.TabIndex = 92;
+            this.btnObrGM.Text = "Obriši glasčko mesto";
+            this.btnObrGM.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btnRezIzb
             // 
-            this.button13.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button13.Location = new System.Drawing.Point(391, 497);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(72, 49);
-            this.button13.TabIndex = 91;
-            this.button13.Text = "Dodaj rezultate izbora";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.btnRezIzb.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnRezIzb.Location = new System.Drawing.Point(391, 497);
+            this.btnRezIzb.Name = "btnRezIzb";
+            this.btnRezIzb.Size = new System.Drawing.Size(72, 49);
+            this.btnRezIzb.TabIndex = 91;
+            this.btnRezIzb.Text = "Dodaj rezultate izbora";
+            this.btnRezIzb.UseVisualStyleBackColor = true;
+            this.btnRezIzb.Click += new System.EventHandler(this.rezIzb_Click);
             // 
-            // button12
+            // btnAzurGM
             // 
-            this.button12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button12.Location = new System.Drawing.Point(634, 497);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(86, 49);
-            this.button12.TabIndex = 90;
-            this.button12.Text = "Ažuriraj glasčko mesto";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnAzurGM.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAzurGM.Location = new System.Drawing.Point(634, 497);
+            this.btnAzurGM.Name = "btnAzurGM";
+            this.btnAzurGM.Size = new System.Drawing.Size(86, 49);
+            this.btnAzurGM.TabIndex = 90;
+            this.btnAzurGM.Text = "Ažuriraj glasčko mesto";
+            this.btnAzurGM.UseVisualStyleBackColor = true;
+            this.btnAzurGM.Click += new System.EventHandler(this.button12_Click);
             // 
             // labDK
             // 
@@ -1322,16 +1322,16 @@
             this.gmNaziv.Size = new System.Drawing.Size(297, 20);
             this.gmNaziv.TabIndex = 76;
             // 
-            // button11
+            // novoGM
             // 
-            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button11.Location = new System.Drawing.Point(248, 497);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(100, 49);
-            this.button11.TabIndex = 75;
-            this.button11.Text = "Dodaj novo glasčko mesto";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.novoGM.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.novoGM.Location = new System.Drawing.Point(248, 497);
+            this.novoGM.Name = "novoGM";
+            this.novoGM.Size = new System.Drawing.Size(100, 49);
+            this.novoGM.TabIndex = 75;
+            this.novoGM.Text = "Dodaj novo glasčko mesto";
+            this.novoGM.UseVisualStyleBackColor = true;
+            this.novoGM.Click += new System.EventHandler(this.novoGM_Click);
             // 
             // lvGM
             // 
@@ -1615,16 +1615,16 @@
             this.columnHeader4,
             this.columnHeader5});
             this.propagandaListView.FullRowSelect = true;
-            listViewGroup10.Header = "Novine";
-            listViewGroup10.Name = "propListViewGroupNovine";
-            listViewGroup11.Header = "Pano";
-            listViewGroup11.Name = "propListViewGroupPano";
-            listViewGroup12.Header = "TV/Radio";
-            listViewGroup12.Name = "propListViewGroupTVRadio";
+            listViewGroup4.Header = "Novine";
+            listViewGroup4.Name = "propListViewGroupNovine";
+            listViewGroup5.Header = "Pano";
+            listViewGroup5.Name = "propListViewGroupPano";
+            listViewGroup6.Header = "TV/Radio";
+            listViewGroup6.Name = "propListViewGroupTVRadio";
             this.propagandaListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup10,
-            listViewGroup11,
-            listViewGroup12});
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.propagandaListView.HideSelection = false;
             this.propagandaListView.Location = new System.Drawing.Point(25, 93);
             this.propagandaListView.MultiSelect = false;
@@ -1870,12 +1870,12 @@
         private System.Windows.Forms.TextBox gmBrojRegBir;
         private System.Windows.Forms.TextBox gmBrojGM;
         private System.Windows.Forms.TextBox gmNaziv;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button novoGM;
+        private System.Windows.Forms.Button btnPrimedbe;
+        private System.Windows.Forms.Button btnDodajAktGM;
+        private System.Windows.Forms.Button btnObrGM;
+        private System.Windows.Forms.Button btnRezIzb;
+        private System.Windows.Forms.Button btnAzurGM;
     }
 }
 

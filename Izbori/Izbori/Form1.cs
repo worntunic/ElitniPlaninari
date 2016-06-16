@@ -1301,7 +1301,7 @@ namespace Izbori {
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void novoGM_Click(object sender, EventArgs e)
         {
             NovoGlasackoMesto f = new NovoGlasackoMesto();
             f.ShowDialog(this);
@@ -1344,14 +1344,14 @@ namespace Izbori {
             }
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void rezIzb_Click(object sender, EventArgs e)
         {
             NoviRezultatIzbora f = new NoviRezultatIzbora();
             f.ShowDialog(this);
             osveziGM(oGM.ID);
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        private void dodajAktGM_Click(object sender, EventArgs e)
         {
             DodajPomoc f = new DodajPomoc(typeof(GlasackoMesto));
             f.ShowDialog();
