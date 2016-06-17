@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup22 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup23 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup24 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -163,15 +163,15 @@
             this.Naslov = new System.Windows.Forms.Label();
             this.listaPojavljivanja = new System.Windows.Forms.ListView();
             this.propaganda = new System.Windows.Forms.TabPage();
-            this.button11 = new System.Windows.Forms.Button();
+            this.propBtnDodaj = new System.Windows.Forms.Button();
             this.propBtnObrisi = new System.Windows.Forms.Button();
             this.propBtnAzur = new System.Windows.Forms.Button();
             this.propCBUBoji = new System.Windows.Forms.CheckBox();
             this.propTxtCenaZakupa = new System.Windows.Forms.TextBox();
             this.propTxtTrajanjeZakupa = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.propLblDatum = new System.Windows.Forms.Label();
+            this.propLblTrajanje = new System.Windows.Forms.Label();
+            this.propLblcena = new System.Windows.Forms.Label();
             this.propTxtMod2 = new System.Windows.Forms.TextBox();
             this.propClndDatumZakupa = new System.Windows.Forms.MonthCalendar();
             this.propTxtMod3 = new System.Windows.Forms.TextBox();
@@ -186,7 +186,7 @@
             this.propLblMod2 = new System.Windows.Forms.Label();
             this.propLblMod0 = new System.Windows.Forms.Label();
             this.propLblmod1 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.propLblpropaganda = new System.Windows.Forms.Label();
             this.propagandaListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -1576,16 +1576,16 @@
             // listaPojavljivanja
             // 
             this.listaPojavljivanja.FullRowSelect = true;
-            listViewGroup22.Header = "Novine";
-            listViewGroup22.Name = "propListViewGroupNovine";
-            listViewGroup23.Header = "Pano";
-            listViewGroup23.Name = "propListViewGroupPano";
-            listViewGroup24.Header = "TV/Radio";
-            listViewGroup24.Name = "propListViewGroupTVRadio";
+            listViewGroup1.Header = "Novine";
+            listViewGroup1.Name = "propListViewGroupNovine";
+            listViewGroup2.Header = "Pano";
+            listViewGroup2.Name = "propListViewGroupPano";
+            listViewGroup3.Header = "TV/Radio";
+            listViewGroup3.Name = "propListViewGroupTVRadio";
             this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup22,
-            listViewGroup23,
-            listViewGroup24});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
             this.listaPojavljivanja.HideSelection = false;
             this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
             this.listaPojavljivanja.MultiSelect = false;
@@ -1599,15 +1599,15 @@
             // propaganda
             // 
             this.propaganda.BackColor = System.Drawing.Color.SlateGray;
-            this.propaganda.Controls.Add(this.button11);
+            this.propaganda.Controls.Add(this.propBtnDodaj);
             this.propaganda.Controls.Add(this.propBtnObrisi);
             this.propaganda.Controls.Add(this.propBtnAzur);
             this.propaganda.Controls.Add(this.propCBUBoji);
             this.propaganda.Controls.Add(this.propTxtCenaZakupa);
             this.propaganda.Controls.Add(this.propTxtTrajanjeZakupa);
-            this.propaganda.Controls.Add(this.label20);
-            this.propaganda.Controls.Add(this.label25);
-            this.propaganda.Controls.Add(this.label26);
+            this.propaganda.Controls.Add(this.propLblDatum);
+            this.propaganda.Controls.Add(this.propLblTrajanje);
+            this.propaganda.Controls.Add(this.propLblcena);
             this.propaganda.Controls.Add(this.propTxtMod2);
             this.propaganda.Controls.Add(this.propClndDatumZakupa);
             this.propaganda.Controls.Add(this.propTxtMod3);
@@ -1622,7 +1622,7 @@
             this.propaganda.Controls.Add(this.propLblMod2);
             this.propaganda.Controls.Add(this.propLblMod0);
             this.propaganda.Controls.Add(this.propLblmod1);
-            this.propaganda.Controls.Add(this.label18);
+            this.propaganda.Controls.Add(this.propLblpropaganda);
             this.propaganda.Controls.Add(this.propagandaListView);
             this.propaganda.Location = new System.Drawing.Point(4, 22);
             this.propaganda.Name = "propaganda";
@@ -1630,16 +1630,16 @@
             this.propaganda.TabIndex = 3;
             this.propaganda.Text = "Propaganda";
             // 
-            // button11
+            // propBtnDodaj
             // 
-            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button11.Location = new System.Drawing.Point(486, 517);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(110, 53);
-            this.button11.TabIndex = 11;
-            this.button11.Text = "Dodaj novu propagandu";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.propBtnDodaj.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.propBtnDodaj.Location = new System.Drawing.Point(486, 517);
+            this.propBtnDodaj.Name = "propBtnDodaj";
+            this.propBtnDodaj.Size = new System.Drawing.Size(110, 53);
+            this.propBtnDodaj.TabIndex = 11;
+            this.propBtnDodaj.Text = "Dodaj novu propagandu";
+            this.propBtnDodaj.UseVisualStyleBackColor = true;
+            this.propBtnDodaj.Click += new System.EventHandler(this.button11_Click);
             // 
             // propBtnObrisi
             // 
@@ -1687,33 +1687,33 @@
             this.propTxtTrajanjeZakupa.TabIndex = 6;
             this.propTxtTrajanjeZakupa.TextChanged += new System.EventHandler(this.propTxtTrajanjeZakupa_TextChanged);
             // 
-            // label20
+            // propLblDatum
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(607, 99);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 13);
-            this.label20.TabIndex = 103;
-            this.label20.Text = "Datum Zakupa:";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
+            this.propLblDatum.AutoSize = true;
+            this.propLblDatum.Location = new System.Drawing.Point(607, 99);
+            this.propLblDatum.Name = "propLblDatum";
+            this.propLblDatum.Size = new System.Drawing.Size(81, 13);
+            this.propLblDatum.TabIndex = 103;
+            this.propLblDatum.Text = "Datum Zakupa:";
+            this.propLblDatum.Click += new System.EventHandler(this.label20_Click);
             // 
-            // label25
+            // propLblTrajanje
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(602, 276);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(88, 13);
-            this.label25.TabIndex = 102;
-            this.label25.Text = "Trajanje Zakupa:";
+            this.propLblTrajanje.AutoSize = true;
+            this.propLblTrajanje.Location = new System.Drawing.Point(602, 276);
+            this.propLblTrajanje.Name = "propLblTrajanje";
+            this.propLblTrajanje.Size = new System.Drawing.Size(88, 13);
+            this.propLblTrajanje.TabIndex = 102;
+            this.propLblTrajanje.Text = "Trajanje Zakupa:";
             // 
-            // label26
+            // propLblcena
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(613, 70);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(75, 13);
-            this.label26.TabIndex = 101;
-            this.label26.Text = "Cena Zakupa:";
+            this.propLblcena.AutoSize = true;
+            this.propLblcena.Location = new System.Drawing.Point(613, 70);
+            this.propLblcena.Name = "propLblcena";
+            this.propLblcena.Size = new System.Drawing.Size(75, 13);
+            this.propLblcena.TabIndex = 101;
+            this.propLblcena.Text = "Cena Zakupa:";
             // 
             // propTxtMod2
             // 
@@ -1846,15 +1846,15 @@
             this.propLblmod1.Text = "Reklama je u boji:";
             this.propLblmod1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label18
+            // propLblpropaganda
             // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label18.Location = new System.Drawing.Point(22, 38);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(65, 13);
-            this.label18.TabIndex = 75;
-            this.label18.Text = "Propaganda";
+            this.propLblpropaganda.AutoSize = true;
+            this.propLblpropaganda.ForeColor = System.Drawing.Color.AliceBlue;
+            this.propLblpropaganda.Location = new System.Drawing.Point(22, 38);
+            this.propLblpropaganda.Name = "propLblpropaganda";
+            this.propLblpropaganda.Size = new System.Drawing.Size(65, 13);
+            this.propLblpropaganda.TabIndex = 75;
+            this.propLblpropaganda.Text = "Propaganda";
             // 
             // propagandaListView
             // 
@@ -2069,7 +2069,7 @@
         private System.Windows.Forms.ColumnHeader prezime;
         private System.Windows.Forms.ListView lvAkt;
         private System.Windows.Forms.Label labKoord;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label propLblpropaganda;
         private System.Windows.Forms.ListView propagandaListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -2085,9 +2085,9 @@
         private System.Windows.Forms.MonthCalendar propClndDatumZakupa;
         private System.Windows.Forms.TextBox propTxtCenaZakupa;
         private System.Windows.Forms.TextBox propTxtTrajanjeZakupa;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label propLblDatum;
+        private System.Windows.Forms.Label propLblTrajanje;
+        private System.Windows.Forms.Label propLblcena;
         private System.Windows.Forms.TextBox propTxtMod2;
         private System.Windows.Forms.TextBox propTxtMod3;
         private System.Windows.Forms.Label propLblMod3;
@@ -2129,7 +2129,7 @@
         private System.Windows.Forms.TextBox tbImeVoditelja;
         private System.Windows.Forms.TextBox tbNazivEmisije;
         private System.Windows.Forms.TextBox tbNazivStanice;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button propBtnDodaj;
         private System.Windows.Forms.Button propBtnObrisi;
         private System.Windows.Forms.Button propBtnAzur;
     }
