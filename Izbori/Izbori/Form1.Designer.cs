@@ -31,12 +31,15 @@ namespace Izbori
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -163,7 +166,7 @@ namespace Izbori
             this.lPitanja = new System.Windows.Forms.Label();
             this.btnUkloniProtivkandidata = new System.Windows.Forms.Button();
             this.btnDodajProtivkandidata = new System.Windows.Forms.Button();
-            this.cbProtivkandidati = new System.Windows.Forms.ComboBox();
+            this.cbProtivKandidati = new System.Windows.Forms.ComboBox();
             this.lImeProtivkand = new System.Windows.Forms.Label();
             this.tbProcenjenaGledanost = new System.Windows.Forms.TextBox();
             this.tbImeVoditelja = new System.Windows.Forms.TextBox();
@@ -218,9 +221,28 @@ namespace Izbori
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sve = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.label31 = new System.Windows.Forms.Label();
+            this.akcNaziv = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.akcGrad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.btnAddAkc = new System.Windows.Forms.Button();
+            this.btnDelAkc = new System.Windows.Forms.Button();
+            this.btnUpdAkc = new System.Windows.Forms.Button();
+            this.btnAddGuest = new System.Windows.Forms.Button();
+            this.btnAngazuj = new System.Windows.Forms.Button();
+            this.btnDelGuest = new System.Windows.Forms.Button();
+            this.btnUpdGuest = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
+            this.akcije.SuspendLayout();
             this.gmesto.SuspendLayout();
             this.mediji.SuspendLayout();
             this.propaganda.SuspendLayout();
@@ -1204,6 +1226,22 @@ namespace Izbori
             // akcije
             // 
             this.akcije.BackColor = System.Drawing.Color.SlateGray;
+            this.akcije.Controls.Add(this.btnUpdGuest);
+            this.akcije.Controls.Add(this.btnDelGuest);
+            this.akcije.Controls.Add(this.btnAngazuj);
+            this.akcije.Controls.Add(this.btnAddGuest);
+            this.akcije.Controls.Add(this.btnUpdAkc);
+            this.akcije.Controls.Add(this.btnDelAkc);
+            this.akcije.Controls.Add(this.btnAddAkc);
+            this.akcije.Controls.Add(this.textBox4);
+            this.akcije.Controls.Add(this.comboBox2);
+            this.akcije.Controls.Add(this.textBox3);
+            this.akcije.Controls.Add(this.textBox2);
+            this.akcije.Controls.Add(this.button10);
+            this.akcije.Controls.Add(this.comboBox1);
+            this.akcije.Controls.Add(this.textBox1);
+            this.akcije.Controls.Add(this.label31);
+            this.akcije.Controls.Add(this.listView1);
             this.akcije.Location = new System.Drawing.Point(4, 22);
             this.akcije.Name = "akcije";
             this.akcije.Size = new System.Drawing.Size(957, 609);
@@ -1433,7 +1471,7 @@ namespace Izbori
             this.mediji.Controls.Add(this.lPitanja);
             this.mediji.Controls.Add(this.btnUkloniProtivkandidata);
             this.mediji.Controls.Add(this.btnDodajProtivkandidata);
-            this.mediji.Controls.Add(this.cbProtivkandidati);
+            this.mediji.Controls.Add(this.cbProtivKandidati);
             this.mediji.Controls.Add(this.lImeProtivkand);
             this.mediji.Controls.Add(this.tbProcenjenaGledanost);
             this.mediji.Controls.Add(this.tbImeVoditelja);
@@ -1486,7 +1524,7 @@ namespace Izbori
             // lProcenjenaGledanost
             // 
             this.lProcenjenaGledanost.AutoSize = true;
-            this.lProcenjenaGledanost.Location = new System.Drawing.Point(427, 129);
+            this.lProcenjenaGledanost.Location = new System.Drawing.Point(427, 130);
             this.lProcenjenaGledanost.Name = "lProcenjenaGledanost";
             this.lProcenjenaGledanost.Size = new System.Drawing.Size(115, 13);
             this.lProcenjenaGledanost.TabIndex = 131;
@@ -1496,7 +1534,7 @@ namespace Izbori
             // lImeVoditelja
             // 
             this.lImeVoditelja.AutoSize = true;
-            this.lImeVoditelja.Location = new System.Drawing.Point(472, 103);
+            this.lImeVoditelja.Location = new System.Drawing.Point(472, 104);
             this.lImeVoditelja.Name = "lImeVoditelja";
             this.lImeVoditelja.Size = new System.Drawing.Size(70, 13);
             this.lImeVoditelja.TabIndex = 130;
@@ -1505,32 +1543,37 @@ namespace Izbori
             // 
             // btnUkloniPitanje
             // 
+            this.btnUkloniPitanje.Enabled = false;
             this.btnUkloniPitanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUkloniPitanje.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnUkloniPitanje.Location = new System.Drawing.Point(734, 179);
+            this.btnUkloniPitanje.Location = new System.Drawing.Point(734, 177);
             this.btnUkloniPitanje.Name = "btnUkloniPitanje";
             this.btnUkloniPitanje.Size = new System.Drawing.Size(24, 23);
             this.btnUkloniPitanje.TabIndex = 129;
             this.btnUkloniPitanje.Text = "-";
             this.btnUkloniPitanje.UseVisualStyleBackColor = true;
             this.btnUkloniPitanje.Visible = false;
+            this.btnUkloniPitanje.Click += new System.EventHandler(this.btnUkloniPitanje_Click);
             // 
             // btnDodajPitanje
             // 
+            this.btnDodajPitanje.Enabled = false;
             this.btnDodajPitanje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajPitanje.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDodajPitanje.Location = new System.Drawing.Point(706, 179);
+            this.btnDodajPitanje.Location = new System.Drawing.Point(706, 177);
             this.btnDodajPitanje.Name = "btnDodajPitanje";
             this.btnDodajPitanje.Size = new System.Drawing.Size(24, 23);
             this.btnDodajPitanje.TabIndex = 128;
             this.btnDodajPitanje.Text = "+";
             this.btnDodajPitanje.UseVisualStyleBackColor = true;
             this.btnDodajPitanje.Visible = false;
+            this.btnDodajPitanje.Click += new System.EventHandler(this.btnDodajPitanje_Click);
             // 
             // cbPitanje
             // 
+            this.cbPitanje.Enabled = false;
             this.cbPitanje.FormattingEnabled = true;
-            this.cbPitanje.Location = new System.Drawing.Point(554, 179);
+            this.cbPitanje.Location = new System.Drawing.Point(554, 178);
             this.cbPitanje.Name = "cbPitanje";
             this.cbPitanje.Size = new System.Drawing.Size(146, 21);
             this.cbPitanje.TabIndex = 127;
@@ -1548,36 +1591,41 @@ namespace Izbori
             // 
             // btnUkloniProtivkandidata
             // 
+            this.btnUkloniProtivkandidata.Enabled = false;
             this.btnUkloniProtivkandidata.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUkloniProtivkandidata.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnUkloniProtivkandidata.Location = new System.Drawing.Point(734, 152);
+            this.btnUkloniProtivkandidata.Location = new System.Drawing.Point(734, 150);
             this.btnUkloniProtivkandidata.Name = "btnUkloniProtivkandidata";
             this.btnUkloniProtivkandidata.Size = new System.Drawing.Size(24, 23);
             this.btnUkloniProtivkandidata.TabIndex = 125;
             this.btnUkloniProtivkandidata.Text = "-";
             this.btnUkloniProtivkandidata.UseVisualStyleBackColor = true;
             this.btnUkloniProtivkandidata.Visible = false;
+            this.btnUkloniProtivkandidata.Click += new System.EventHandler(this.btnUkloniProtivkandidata_Click);
             // 
             // btnDodajProtivkandidata
             // 
+            this.btnDodajProtivkandidata.Enabled = false;
             this.btnDodajProtivkandidata.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajProtivkandidata.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDodajProtivkandidata.Location = new System.Drawing.Point(706, 152);
+            this.btnDodajProtivkandidata.Location = new System.Drawing.Point(706, 150);
             this.btnDodajProtivkandidata.Name = "btnDodajProtivkandidata";
             this.btnDodajProtivkandidata.Size = new System.Drawing.Size(24, 23);
             this.btnDodajProtivkandidata.TabIndex = 124;
             this.btnDodajProtivkandidata.Text = "+";
             this.btnDodajProtivkandidata.UseVisualStyleBackColor = true;
             this.btnDodajProtivkandidata.Visible = false;
+            this.btnDodajProtivkandidata.Click += new System.EventHandler(this.btnDodajProtivkandidata_Click);
             // 
-            // cbProtivkandidati
+            // cbProtivKandidati
             // 
-            this.cbProtivkandidati.FormattingEnabled = true;
-            this.cbProtivkandidati.Location = new System.Drawing.Point(554, 152);
-            this.cbProtivkandidati.Name = "cbProtivkandidati";
-            this.cbProtivkandidati.Size = new System.Drawing.Size(146, 21);
-            this.cbProtivkandidati.TabIndex = 123;
-            this.cbProtivkandidati.Visible = false;
+            this.cbProtivKandidati.Enabled = false;
+            this.cbProtivKandidati.FormattingEnabled = true;
+            this.cbProtivKandidati.Location = new System.Drawing.Point(554, 151);
+            this.cbProtivKandidati.Name = "cbProtivKandidati";
+            this.cbProtivKandidati.Size = new System.Drawing.Size(146, 21);
+            this.cbProtivKandidati.TabIndex = 123;
+            this.cbProtivKandidati.Visible = false;
             // 
             // lImeProtivkand
             // 
@@ -1596,6 +1644,7 @@ namespace Izbori
             this.tbProcenjenaGledanost.Size = new System.Drawing.Size(199, 20);
             this.tbProcenjenaGledanost.TabIndex = 121;
             this.tbProcenjenaGledanost.Visible = false;
+            this.tbProcenjenaGledanost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbProcenjenaGledanost_KeyPress);
             // 
             // tbImeVoditelja
             // 
@@ -1640,9 +1689,10 @@ namespace Izbori
             this.btnAddGostovanje.Name = "btnAddGostovanje";
             this.btnAddGostovanje.Size = new System.Drawing.Size(110, 53);
             this.btnAddGostovanje.TabIndex = 116;
-            this.btnAddGostovanje.Text = "Dodaj Novo Gostovanje";
+            this.btnAddGostovanje.Text = "Dodaj Novo Pojavljivanje";
             this.btnAddGostovanje.UseVisualStyleBackColor = true;
             this.btnAddGostovanje.Visible = false;
+            this.btnAddGostovanje.Click += new System.EventHandler(this.btnAddGostovanje_Click);
             // 
             // btnRemoveGostovanje
             // 
@@ -1651,9 +1701,10 @@ namespace Izbori
             this.btnRemoveGostovanje.Name = "btnRemoveGostovanje";
             this.btnRemoveGostovanje.Size = new System.Drawing.Size(81, 53);
             this.btnRemoveGostovanje.TabIndex = 115;
-            this.btnRemoveGostovanje.Text = "Obriši Odabrano Gostovanje";
+            this.btnRemoveGostovanje.Text = "Obriši Odabrano Pojavljivanje";
             this.btnRemoveGostovanje.UseVisualStyleBackColor = true;
             this.btnRemoveGostovanje.Visible = false;
+            this.btnRemoveGostovanje.Click += new System.EventHandler(this.btnRemoveGostovanje_Click);
             // 
             // btnUpdateGostovanje
             // 
@@ -1662,9 +1713,10 @@ namespace Izbori
             this.btnUpdateGostovanje.Name = "btnUpdateGostovanje";
             this.btnUpdateGostovanje.Size = new System.Drawing.Size(121, 53);
             this.btnUpdateGostovanje.TabIndex = 114;
-            this.btnUpdateGostovanje.Text = "Ažuriraj Odabrano Gostovanje";
+            this.btnUpdateGostovanje.Text = "Ažuriraj Odabrano Pojavljivanje";
             this.btnUpdateGostovanje.UseVisualStyleBackColor = true;
             this.btnUpdateGostovanje.Visible = false;
+            this.btnUpdateGostovanje.Click += new System.EventHandler(this.btnUpdateGostovanje_Click);
             // 
             // btnUkloniNovinara
             // 
@@ -1677,6 +1729,7 @@ namespace Izbori
             this.btnUkloniNovinara.Text = "-";
             this.btnUkloniNovinara.UseVisualStyleBackColor = true;
             this.btnUkloniNovinara.Visible = false;
+            this.btnUkloniNovinara.Click += new System.EventHandler(this.btnUkloniNovinara_Click);
             // 
             // btnDodajNovinara
             // 
@@ -1689,6 +1742,7 @@ namespace Izbori
             this.btnDodajNovinara.Text = "+";
             this.btnDodajNovinara.UseVisualStyleBackColor = true;
             this.btnDodajNovinara.Visible = false;
+            this.btnDodajNovinara.Click += new System.EventHandler(this.btnDodajNovinara_Click);
             // 
             // cbNovinari
             // 
@@ -1740,9 +1794,8 @@ namespace Izbori
             // calObjavljivanja
             // 
             this.calObjavljivanja.Location = new System.Drawing.Point(554, 254);
-            this.calObjavljivanja.MaxSelectionCount = 100;
+            this.calObjavljivanja.MaxSelectionCount = 1;
             this.calObjavljivanja.Name = "calObjavljivanja";
-            this.calObjavljivanja.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
             this.calObjavljivanja.ShowToday = false;
             this.calObjavljivanja.TabIndex = 106;
             this.calObjavljivanja.Visible = false;
@@ -1760,9 +1813,8 @@ namespace Izbori
             // calIntervjua
             // 
             this.calIntervjua.Location = new System.Drawing.Point(554, 74);
-            this.calIntervjua.MaxSelectionCount = 100;
+            this.calIntervjua.MaxSelectionCount = 1;
             this.calIntervjua.Name = "calIntervjua";
-            this.calIntervjua.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
             this.calIntervjua.ShowToday = false;
             this.calIntervjua.TabIndex = 104;
             this.calIntervjua.Visible = false;
@@ -1804,16 +1856,16 @@ namespace Izbori
             // listaPojavljivanja
             // 
             this.listaPojavljivanja.FullRowSelect = true;
-            listViewGroup1.Header = "Novine";
-            listViewGroup1.Name = "propListViewGroupNovine";
-            listViewGroup2.Header = "Pano";
-            listViewGroup2.Name = "propListViewGroupPano";
-            listViewGroup3.Header = "TV/Radio";
-            listViewGroup3.Name = "propListViewGroupTVRadio";
+            listViewGroup13.Header = "Novine";
+            listViewGroup13.Name = "propListViewGroupNovine";
+            listViewGroup14.Header = "Pano";
+            listViewGroup14.Name = "propListViewGroupPano";
+            listViewGroup15.Header = "TV/Radio";
+            listViewGroup15.Name = "propListViewGroupTVRadio";
             this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15});
             this.listaPojavljivanja.HideSelection = false;
             this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
             this.listaPojavljivanja.MultiSelect = false;
@@ -2088,16 +2140,16 @@ namespace Izbori
             this.columnHeader4,
             this.columnHeader5});
             this.propagandaListView.FullRowSelect = true;
-            listViewGroup4.Header = "Novine";
-            listViewGroup4.Name = "propListViewGroupNovine";
-            listViewGroup5.Header = "Pano";
-            listViewGroup5.Name = "propListViewGroupPano";
-            listViewGroup6.Header = "TV/Radio";
-            listViewGroup6.Name = "propListViewGroupTVRadio";
+            listViewGroup16.Header = "Novine";
+            listViewGroup16.Name = "propListViewGroupNovine";
+            listViewGroup17.Header = "Pano";
+            listViewGroup17.Name = "propListViewGroupPano";
+            listViewGroup18.Header = "TV/Radio";
+            listViewGroup18.Name = "propListViewGroupTVRadio";
             this.propagandaListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6});
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18});
             this.propagandaListView.HideSelection = false;
             this.propagandaListView.Location = new System.Drawing.Point(25, 93);
             this.propagandaListView.MultiSelect = false;
@@ -2179,6 +2231,160 @@ namespace Izbori
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.akcNaziv,
+            this.akcGrad});
+            listViewGroup10.Header = "Miting";
+            listViewGroup10.Name = "akcMiting";
+            listViewGroup11.Header = "Deljenje letaka";
+            listViewGroup11.Name = "akcDeljLet";
+            listViewGroup12.Header = "Susret kandidata";
+            listViewGroup12.Name = "akcSuskand";
+            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup10,
+            listViewGroup11,
+            listViewGroup12});
+            this.listView1.Location = new System.Drawing.Point(45, 56);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(342, 359);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(42, 29);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(94, 13);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "Predizborne akcije";
+            // 
+            // akcNaziv
+            // 
+            this.akcNaziv.Text = "Naziv Akcije";
+            // 
+            // akcGrad
+            // 
+            this.akcGrad.Text = "Grad";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(849, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(828, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(562, 83);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 5;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(562, 109);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(541, 135);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 7;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(562, 189);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 8;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(874, 56);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(75, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // btnAddAkc
+            // 
+            this.btnAddAkc.Location = new System.Drawing.Point(45, 421);
+            this.btnAddAkc.Name = "btnAddAkc";
+            this.btnAddAkc.Size = new System.Drawing.Size(75, 45);
+            this.btnAddAkc.TabIndex = 9;
+            this.btnAddAkc.Text = "Dodavanje akcije";
+            this.btnAddAkc.UseVisualStyleBackColor = true;
+            // 
+            // btnDelAkc
+            // 
+            this.btnDelAkc.Location = new System.Drawing.Point(45, 472);
+            this.btnDelAkc.Name = "btnDelAkc";
+            this.btnDelAkc.Size = new System.Drawing.Size(75, 58);
+            this.btnDelAkc.TabIndex = 10;
+            this.btnDelAkc.Text = "Brisanje selektovane akcije";
+            this.btnDelAkc.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdAkc
+            // 
+            this.btnUpdAkc.Location = new System.Drawing.Point(45, 536);
+            this.btnUpdAkc.Name = "btnUpdAkc";
+            this.btnUpdAkc.Size = new System.Drawing.Size(75, 51);
+            this.btnUpdAkc.TabIndex = 11;
+            this.btnUpdAkc.Text = "Ažuriranje selektovane akcije";
+            this.btnUpdAkc.UseVisualStyleBackColor = true;
+            // 
+            // btnAddGuest
+            // 
+            this.btnAddGuest.Location = new System.Drawing.Point(126, 421);
+            this.btnAddGuest.Name = "btnAddGuest";
+            this.btnAddGuest.Size = new System.Drawing.Size(75, 45);
+            this.btnAddGuest.TabIndex = 12;
+            this.btnAddGuest.Text = "Dodavanje gosta";
+            this.btnAddGuest.UseVisualStyleBackColor = true;
+            // 
+            // btnAngazuj
+            // 
+            this.btnAngazuj.Location = new System.Drawing.Point(207, 421);
+            this.btnAngazuj.Name = "btnAngazuj";
+            this.btnAngazuj.Size = new System.Drawing.Size(75, 45);
+            this.btnAngazuj.TabIndex = 13;
+            this.btnAngazuj.Text = "Angažuj aktiviste";
+            this.btnAngazuj.UseVisualStyleBackColor = true;
+            // 
+            // btnDelGuest
+            // 
+            this.btnDelGuest.Location = new System.Drawing.Point(126, 472);
+            this.btnDelGuest.Name = "btnDelGuest";
+            this.btnDelGuest.Size = new System.Drawing.Size(75, 45);
+            this.btnDelGuest.TabIndex = 14;
+            this.btnDelGuest.Text = "Brisanje gosta";
+            this.btnDelGuest.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdGuest
+            // 
+            this.btnUpdGuest.Location = new System.Drawing.Point(126, 523);
+            this.btnUpdGuest.Name = "btnUpdGuest";
+            this.btnUpdGuest.Size = new System.Drawing.Size(75, 45);
+            this.btnUpdGuest.TabIndex = 15;
+            this.btnUpdGuest.Text = "Ažuriranje gosta";
+            this.btnUpdGuest.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2186,13 +2392,15 @@ namespace Izbori
             this.ClientSize = new System.Drawing.Size(965, 635);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Election Patronum!";
+            this.Text = "(S)elect*";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.aktKoord.ResumeLayout(false);
             this.aktKoord.PerformLayout();
+            this.akcije.ResumeLayout(false);
+            this.akcije.PerformLayout();
             this.gmesto.ResumeLayout(false);
             this.gmesto.PerformLayout();
             this.mediji.ResumeLayout(false);
@@ -2375,7 +2583,7 @@ namespace Izbori
         private System.Windows.Forms.Label lPitanja;
         private System.Windows.Forms.Button btnUkloniProtivkandidata;
         private System.Windows.Forms.Button btnDodajProtivkandidata;
-        private System.Windows.Forms.ComboBox cbProtivkandidati;
+        private System.Windows.Forms.ComboBox cbProtivKandidati;
         private System.Windows.Forms.Label lImeProtivkand;
         private System.Windows.Forms.TextBox tbProcenjenaGledanost;
         private System.Windows.Forms.TextBox tbImeVoditelja;
@@ -2388,6 +2596,24 @@ namespace Izbori
         private ColumnHeader brGM;
         private ColumnHeader gmBB;
         private Label label27;
+        private TextBox textBox4;
+        private ComboBox comboBox2;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private ComboBox comboBox1;
+        private TextBox textBox1;
+        private Label label31;
+        private ListView listView1;
+        private ColumnHeader akcNaziv;
+        private ColumnHeader akcGrad;
+        private Button button10;
+        private Button btnUpdGuest;
+        private Button btnDelGuest;
+        private Button btnAngazuj;
+        private Button btnAddGuest;
+        private Button btnUpdAkc;
+        private Button btnDelAkc;
+        private Button btnAddAkc;
     }
 }
 
