@@ -29,12 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup22 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup23 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup24 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -166,6 +163,9 @@
             this.Naslov = new System.Windows.Forms.Label();
             this.listaPojavljivanja = new System.Windows.Forms.ListView();
             this.propaganda = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.propBtnObrisi = new System.Windows.Forms.Button();
+            this.propBtnAzur = new System.Windows.Forms.Button();
             this.propCBUBoji = new System.Windows.Forms.CheckBox();
             this.propTxtCenaZakupa = new System.Windows.Forms.TextBox();
             this.propTxtTrajanjeZakupa = new System.Windows.Forms.TextBox();
@@ -193,9 +193,6 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sve = new System.Windows.Forms.TabPage();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
@@ -1579,16 +1576,16 @@
             // listaPojavljivanja
             // 
             this.listaPojavljivanja.FullRowSelect = true;
-            listViewGroup16.Header = "Novine";
-            listViewGroup16.Name = "propListViewGroupNovine";
-            listViewGroup17.Header = "Pano";
-            listViewGroup17.Name = "propListViewGroupPano";
-            listViewGroup18.Header = "TV/Radio";
-            listViewGroup18.Name = "propListViewGroupTVRadio";
+            listViewGroup22.Header = "Novine";
+            listViewGroup22.Name = "propListViewGroupNovine";
+            listViewGroup23.Header = "Pano";
+            listViewGroup23.Name = "propListViewGroupPano";
+            listViewGroup24.Header = "TV/Radio";
+            listViewGroup24.Name = "propListViewGroupTVRadio";
             this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup16,
-            listViewGroup17,
-            listViewGroup18});
+            listViewGroup22,
+            listViewGroup23,
+            listViewGroup24});
             this.listaPojavljivanja.HideSelection = false;
             this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
             this.listaPojavljivanja.MultiSelect = false;
@@ -1603,8 +1600,8 @@
             // 
             this.propaganda.BackColor = System.Drawing.Color.SlateGray;
             this.propaganda.Controls.Add(this.button11);
-            this.propaganda.Controls.Add(this.button12);
-            this.propaganda.Controls.Add(this.button13);
+            this.propaganda.Controls.Add(this.propBtnObrisi);
+            this.propaganda.Controls.Add(this.propBtnAzur);
             this.propaganda.Controls.Add(this.propCBUBoji);
             this.propaganda.Controls.Add(this.propTxtCenaZakupa);
             this.propaganda.Controls.Add(this.propTxtTrajanjeZakupa);
@@ -1633,33 +1630,67 @@
             this.propaganda.TabIndex = 3;
             this.propaganda.Text = "Propaganda";
             // 
+            // button11
+            // 
+            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button11.Location = new System.Drawing.Point(486, 517);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(110, 53);
+            this.button11.TabIndex = 11;
+            this.button11.Text = "Dodaj novu propagandu";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // propBtnObrisi
+            // 
+            this.propBtnObrisi.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.propBtnObrisi.Location = new System.Drawing.Point(694, 517);
+            this.propBtnObrisi.Name = "propBtnObrisi";
+            this.propBtnObrisi.Size = new System.Drawing.Size(81, 53);
+            this.propBtnObrisi.TabIndex = 16;
+            this.propBtnObrisi.Text = "Obriši odabranu propagandu";
+            this.propBtnObrisi.UseVisualStyleBackColor = true;
+            this.propBtnObrisi.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // propBtnAzur
+            // 
+            this.propBtnAzur.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.propBtnAzur.Location = new System.Drawing.Point(800, 517);
+            this.propBtnAzur.Name = "propBtnAzur";
+            this.propBtnAzur.Size = new System.Drawing.Size(121, 53);
+            this.propBtnAzur.TabIndex = 15;
+            this.propBtnAzur.Text = "Ažuriraj odabranu propagandu";
+            this.propBtnAzur.UseVisualStyleBackColor = true;
+            this.propBtnAzur.Click += new System.EventHandler(this.button13_Click);
+            // 
             // propCBUBoji
             // 
             this.propCBUBoji.AutoSize = true;
-            this.propCBUBoji.Location = new System.Drawing.Point(511, 425);
+            this.propCBUBoji.Location = new System.Drawing.Point(695, 431);
             this.propCBUBoji.Name = "propCBUBoji";
             this.propCBUBoji.Size = new System.Drawing.Size(15, 14);
-            this.propCBUBoji.TabIndex = 106;
+            this.propCBUBoji.TabIndex = 8;
             this.propCBUBoji.UseVisualStyleBackColor = true;
             // 
             // propTxtCenaZakupa
             // 
-            this.propTxtCenaZakupa.Location = new System.Drawing.Point(508, 61);
+            this.propTxtCenaZakupa.Location = new System.Drawing.Point(692, 67);
             this.propTxtCenaZakupa.Name = "propTxtCenaZakupa";
             this.propTxtCenaZakupa.Size = new System.Drawing.Size(204, 20);
-            this.propTxtCenaZakupa.TabIndex = 105;
+            this.propTxtCenaZakupa.TabIndex = 4;
             // 
             // propTxtTrajanjeZakupa
             // 
-            this.propTxtTrajanjeZakupa.Location = new System.Drawing.Point(510, 267);
+            this.propTxtTrajanjeZakupa.Location = new System.Drawing.Point(694, 273);
             this.propTxtTrajanjeZakupa.Name = "propTxtTrajanjeZakupa";
             this.propTxtTrajanjeZakupa.Size = new System.Drawing.Size(204, 20);
-            this.propTxtTrajanjeZakupa.TabIndex = 104;
+            this.propTxtTrajanjeZakupa.TabIndex = 6;
+            this.propTxtTrajanjeZakupa.TextChanged += new System.EventHandler(this.propTxtTrajanjeZakupa_TextChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(423, 93);
+            this.label20.Location = new System.Drawing.Point(607, 99);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(81, 13);
             this.label20.TabIndex = 103;
@@ -1669,7 +1700,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(418, 270);
+            this.label25.Location = new System.Drawing.Point(602, 276);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(88, 13);
             this.label25.TabIndex = 102;
@@ -1678,7 +1709,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(429, 64);
+            this.label26.Location = new System.Drawing.Point(613, 70);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(75, 13);
             this.label26.TabIndex = 101;
@@ -1686,32 +1717,33 @@
             // 
             // propTxtMod2
             // 
-            this.propTxtMod2.Location = new System.Drawing.Point(510, 448);
+            this.propTxtMod2.Location = new System.Drawing.Point(694, 454);
             this.propTxtMod2.Name = "propTxtMod2";
             this.propTxtMod2.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod2.TabIndex = 100;
+            this.propTxtMod2.TabIndex = 9;
             this.propTxtMod2.Visible = false;
             // 
             // propClndDatumZakupa
             // 
-            this.propClndDatumZakupa.Location = new System.Drawing.Point(510, 93);
+            this.propClndDatumZakupa.Location = new System.Drawing.Point(694, 99);
             this.propClndDatumZakupa.MaxSelectionCount = 100;
             this.propClndDatumZakupa.Name = "propClndDatumZakupa";
             this.propClndDatumZakupa.SelectionRange = new System.Windows.Forms.SelectionRange(new System.DateTime(2016, 6, 18, 0, 0, 0, 0), new System.DateTime(2016, 6, 20, 0, 0, 0, 0));
             this.propClndDatumZakupa.ShowToday = false;
-            this.propClndDatumZakupa.TabIndex = 94;
+            this.propClndDatumZakupa.TabIndex = 5;
+            this.propClndDatumZakupa.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.propClndDatumZakupa_DateChanged);
             // 
             // propTxtMod3
             // 
-            this.propTxtMod3.Location = new System.Drawing.Point(510, 474);
+            this.propTxtMod3.Location = new System.Drawing.Point(694, 480);
             this.propTxtMod3.Name = "propTxtMod3";
             this.propTxtMod3.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod3.TabIndex = 93;
+            this.propTxtMod3.TabIndex = 10;
             this.propTxtMod3.Visible = false;
             // 
             // propLblMod3
             // 
-            this.propLblMod3.Location = new System.Drawing.Point(427, 477);
+            this.propLblMod3.Location = new System.Drawing.Point(611, 483);
             this.propLblMod3.Name = "propLblMod3";
             this.propLblMod3.Size = new System.Drawing.Size(77, 13);
             this.propLblMod3.TabIndex = 92;
@@ -1724,7 +1756,7 @@
             this.propRBTVRad.Location = new System.Drawing.Point(146, 70);
             this.propRBTVRad.Name = "propRBTVRad";
             this.propRBTVRad.Size = new System.Drawing.Size(72, 17);
-            this.propRBTVRad.TabIndex = 89;
+            this.propRBTVRad.TabIndex = 2;
             this.propRBTVRad.TabStop = true;
             this.propRBTVRad.Text = "TV/Radio";
             this.propRBTVRad.UseVisualStyleBackColor = true;
@@ -1736,7 +1768,7 @@
             this.propRBPano.Location = new System.Drawing.Point(90, 70);
             this.propRBPano.Name = "propRBPano";
             this.propRBPano.Size = new System.Drawing.Size(50, 17);
-            this.propRBPano.TabIndex = 88;
+            this.propRBPano.TabIndex = 1;
             this.propRBPano.TabStop = true;
             this.propRBPano.Text = "Pano";
             this.propRBPano.UseVisualStyleBackColor = true;
@@ -1748,7 +1780,7 @@
             this.propRBNovine.Location = new System.Drawing.Point(25, 70);
             this.propRBNovine.Name = "propRBNovine";
             this.propRBNovine.Size = new System.Drawing.Size(59, 17);
-            this.propRBNovine.TabIndex = 87;
+            this.propRBNovine.TabIndex = 0;
             this.propRBNovine.TabStop = true;
             this.propRBNovine.Text = "Novine";
             this.propRBNovine.UseVisualStyleBackColor = true;
@@ -1757,7 +1789,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(739, 422);
+            this.label19.Location = new System.Drawing.Point(923, 428);
             this.label19.MaximumSize = new System.Drawing.Size(205, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(0, 13);
@@ -1766,7 +1798,7 @@
             // 
             // propTxtPanoVlasnik
             // 
-            this.propTxtPanoVlasnik.Location = new System.Drawing.Point(510, 448);
+            this.propTxtPanoVlasnik.Location = new System.Drawing.Point(694, 454);
             this.propTxtPanoVlasnik.Name = "propTxtPanoVlasnik";
             this.propTxtPanoVlasnik.Size = new System.Drawing.Size(204, 20);
             this.propTxtPanoVlasnik.TabIndex = 85;
@@ -1774,14 +1806,14 @@
             // 
             // propTxtMod0
             // 
-            this.propTxtMod0.Location = new System.Drawing.Point(510, 396);
+            this.propTxtMod0.Location = new System.Drawing.Point(694, 402);
             this.propTxtMod0.Name = "propTxtMod0";
             this.propTxtMod0.Size = new System.Drawing.Size(204, 20);
-            this.propTxtMod0.TabIndex = 83;
+            this.propTxtMod0.TabIndex = 7;
             // 
             // propTxtMod1
             // 
-            this.propTxtMod1.Location = new System.Drawing.Point(510, 422);
+            this.propTxtMod1.Location = new System.Drawing.Point(694, 428);
             this.propTxtMod1.Name = "propTxtMod1";
             this.propTxtMod1.Size = new System.Drawing.Size(204, 20);
             this.propTxtMod1.TabIndex = 82;
@@ -1789,7 +1821,7 @@
             // 
             // propLblMod2
             // 
-            this.propLblMod2.Location = new System.Drawing.Point(430, 451);
+            this.propLblMod2.Location = new System.Drawing.Point(614, 457);
             this.propLblMod2.Name = "propLblMod2";
             this.propLblMod2.Size = new System.Drawing.Size(74, 13);
             this.propLblMod2.TabIndex = 80;
@@ -1798,7 +1830,7 @@
             // 
             // propLblMod0
             // 
-            this.propLblMod0.Location = new System.Drawing.Point(427, 399);
+            this.propLblMod0.Location = new System.Drawing.Point(611, 405);
             this.propLblMod0.Name = "propLblMod0";
             this.propLblMod0.Size = new System.Drawing.Size(77, 13);
             this.propLblMod0.TabIndex = 77;
@@ -1807,7 +1839,7 @@
             // 
             // propLblmod1
             // 
-            this.propLblmod1.Location = new System.Drawing.Point(424, 425);
+            this.propLblmod1.Location = new System.Drawing.Point(608, 431);
             this.propLblmod1.Name = "propLblmod1";
             this.propLblmod1.Size = new System.Drawing.Size(80, 13);
             this.propLblmod1.TabIndex = 76;
@@ -1832,22 +1864,12 @@
             this.columnHeader4,
             this.columnHeader5});
             this.propagandaListView.FullRowSelect = true;
-            listViewGroup13.Header = "Novine";
-            listViewGroup13.Name = "propListViewGroupNovine";
-            listViewGroup14.Header = "Pano";
-            listViewGroup14.Name = "propListViewGroupPano";
-            listViewGroup15.Header = "TV/Radio";
-            listViewGroup15.Name = "propListViewGroupTVRadio";
-            this.propagandaListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15});
             this.propagandaListView.HideSelection = false;
             this.propagandaListView.Location = new System.Drawing.Point(25, 93);
             this.propagandaListView.MultiSelect = false;
             this.propagandaListView.Name = "propagandaListView";
-            this.propagandaListView.Size = new System.Drawing.Size(382, 368);
-            this.propagandaListView.TabIndex = 74;
+            this.propagandaListView.Size = new System.Drawing.Size(571, 418);
+            this.propagandaListView.TabIndex = 3;
             this.propagandaListView.UseCompatibleStateImageBehavior = false;
             this.propagandaListView.View = System.Windows.Forms.View.Details;
             this.propagandaListView.SelectedIndexChanged += new System.EventHandler(this.propagandaListView_SelectedIndexChanged);
@@ -1922,38 +1944,6 @@
             this.sve.Size = new System.Drawing.Size(957, 609);
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
-            // 
-            // button11
-            // 
-            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button11.Location = new System.Drawing.Point(297, 511);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(110, 53);
-            this.button11.TabIndex = 109;
-            this.button11.Text = "Dodaj novog aktivistu";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button12.Location = new System.Drawing.Point(510, 511);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(81, 53);
-            this.button12.TabIndex = 108;
-            this.button12.Text = "Obriši odabranu propagandu";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button13
-            // 
-            this.button13.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button13.Location = new System.Drawing.Point(616, 511);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(121, 53);
-            this.button13.TabIndex = 107;
-            this.button13.Text = "Ažuriraj odabranu propagandu";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // Form1
             // 
@@ -2140,8 +2130,8 @@
         private System.Windows.Forms.TextBox tbNazivEmisije;
         private System.Windows.Forms.TextBox tbNazivStanice;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button propBtnObrisi;
+        private System.Windows.Forms.Button propBtnAzur;
     }
 }
 
