@@ -25,13 +25,13 @@ namespace Izbori {
         public List<Reklama> reklame { get; set; } //sve reklame/propaganda
 
         public IntervjuNovine odabraniIntervju { get; set; } //konkretan odabrani intervju
-        public IList<IntervjuNovine> intervjui { get; set; } //Svi intervjui
+        public List<IntervjuNovine> intervjui { get; set; } //Svi intervjui
 
         public TVRadioGost odabranoGostovanje { get; set; } //konkretno odabrano gostovanje
-        public IList<TVRadioGost> gostovanja { get; set; } //sva gostovanja
+        public List<TVRadioGost> gostovanja { get; set; } //sva gostovanja
 
         public TVDuel odabraniDuel { get; set; } //konkretni odabrani duel
-        public IList<TVDuel> dueli { get; set; } //svi dueli
+        public List<TVDuel> dueli { get; set; } //svi dueli
 
         public Form1() {
             InitializeComponent();
@@ -1315,7 +1315,6 @@ namespace Izbori {
                 btnUpdateGostovanje.Visible = true;
             }
         }
-
         private void rBtnTVRadio_CheckedChanged(object sender, EventArgs e)
         {
             if (rBtnTVRadio.Checked)
@@ -1350,7 +1349,6 @@ namespace Izbori {
                 btnUpdateGostovanje.Visible = true;
             }
         }
-
         private void cbTVDuel_CheckedChanged(object sender, EventArgs e)
         {
             if (chBoxTVDuel.CheckState == CheckState.Checked)
@@ -1380,7 +1378,6 @@ namespace Izbori {
                 btnUkloniProtivkandidata.Enabled = false;
             }
         }
-
         private void hidePojControls()
         {
             lNazivLista.Visible = false;
@@ -1424,7 +1421,6 @@ namespace Izbori {
             btnUpdateGostovanje.Visible = false;
             chBoxTVDuel.Visible = false;
         }
-
         private void LoadData(string x)
         {
             listaPojavljivanja.Items.Clear();
@@ -1447,7 +1443,6 @@ namespace Izbori {
             }
             LoadValues(x);
         }
-
         private void LoadValues(string tabela)
         {
             listaPojavljivanja.BeginUpdate();
@@ -1489,7 +1484,6 @@ namespace Izbori {
             postaviSirinuSvihKolona(listaPojavljivanja);
             listaPojavljivanja.EndUpdate();
         }
-
         private void listaPojavljivanja_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)
@@ -1736,7 +1730,6 @@ namespace Izbori {
                 osveziPolja(odabrani.ID);
             }
         }
-
         private void novoGM_Click(object sender, EventArgs e)
         {
             NovoGlasackoMesto f = new NovoGlasackoMesto();
@@ -1744,7 +1737,6 @@ namespace Izbori {
             osveziGM(oGM.ID);
             azurElListe(lvGM, gmesta, oGM.ID);
         }
-
         private void btnAzurGM_Click(object sender, EventArgs e)
         {
             if (proveriAzurGM(this))
@@ -1780,14 +1772,12 @@ namespace Izbori {
                 }
             }
         }
-
         private void rezIzb_Click(object sender, EventArgs e)
         {
             NoviRezultatIzbora f = new NoviRezultatIzbora();
             f.ShowDialog(this);
             osveziGM(oGM.ID);
         }
-
         private void dodajAktGM_Click(object sender, EventArgs e)
         {
             DodajPomoc f = new DodajPomoc(typeof(GlasackoMesto));
@@ -1798,34 +1788,83 @@ namespace Izbori {
         {
             if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)//za TVDuel
             {
-                AddPojTVDuel();
+                var form = new NovoPojPKTVDuel();
+                
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshMladensTables();
+                    var item = listaPojavljivanja.FindItemWithText(form.RetValPoj.ID.ToString());
+                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Focused = true;
+                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Selected = true;
+                }
             }
             else if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Unchecked)//za TVRadioGost
             {
-                AddPojTVRadio();
+                var form = new NovoPojPKTVRadio();
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshMladensTables();
+                    var item = listaPojavljivanja.FindItemWithText(form.RetValPoj.ID.ToString());
+                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Focused = true;
+                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Selected = true;
+                }
             }
             else if (rBtnNovine.Checked) //za IntervjuNovine
             {
-                AddPojNovine();
+                var form = new NovoPojPKNovine();
+
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshMladensTables();
+                    var item = listaPojavljivanja.FindItemWithText(form.RetValPoj.ID.ToString());
+                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Focused = true;
+                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Selected = true;
+                }
             }
         }
-
         private void btnDodajNovinara_Click(object sender, EventArgs e)
         {
             if (!cbNovinari.Text.Length.Equals(0))
             {
                 cbNovinari.Items.Add(cbNovinari.Text);
-                cbNovinari.Text = "";
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    var novinar = new NovinariIzNovina
+                    {
+                        IDIntervjua = odabraniIntervju,
+                        ImeNovinara = cbNovinari.Text
+                    };
+                    s.SaveOrUpdate(novinar);
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    cbNovinari.Text = "";
+                }
             }
             else
                 System.Media.SystemSounds.Beep.Play();
         }
-
         private void btnUkloniNovinara_Click(object sender, EventArgs e)
         {
-            cbNovinari.Items.Remove(cbNovinari.SelectedItem);
-        }
+            if (!cbPitanje.Text.Length.Equals(0))
+            {
+                if (MessageBox.Show("Da li ste sigurni da želite da obrišete novinara: \"" + cbNovinari.Text + "\"?",
+                                "Brisanje novinara", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    NovinariIzNovina novinar = odabraniIntervju.NovinariIzNovina.Single(t => t.ImeNovinara == cbNovinari.Text);
+                    obrisi<NovinariIzNovina>(novinar.IDNovinara);
 
+                    cbNovinari.Items.Remove(cbNovinari.Text);
+                    cbNovinari.Text = "";
+                }
+            }
+            else
+                System.Media.SystemSounds.Beep.Play();
+        }
         private void AddPojNovine()
         {
             if (calIntervjua.SelectionRange.Start > calObjavljivanja.SelectionRange.Start)
@@ -1874,30 +1913,54 @@ namespace Izbori {
                 RefreshMladensTables();
             }
         }
-
         private void btnDodajProtivkandidata_Click(object sender, EventArgs e)
         {
             if (!cbProtivKandidati.Text.Length.Equals(0))
             {
                 cbProtivKandidati.Items.Add(cbProtivKandidati.Text);
-                cbProtivKandidati.Text = "";
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    var pk = new ProtivKandidatiTVDuel
+                    {
+                        IDDuela = odabraniDuel,
+                        ImePK = cbProtivKandidati.Text
+                    };
+                    s.SaveOrUpdate(pk);
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    cbProtivKandidati.Text = "";
+                }
             }
             else
                 System.Media.SystemSounds.Beep.Play();
         }
-
         private void tbProcenjenaGledanost_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
             if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
                 e.Handled = true;
         }
-
         private void btnUkloniProtivkandidata_Click(object sender, EventArgs e)
         {
-            cbProtivKandidati.Items.Remove(cbProtivKandidati.SelectedItem);
-        }
+            if (!cbProtivKandidati.Text.Length.Equals(0))
+            {
+                if (MessageBox.Show("Da li ste sigurni da želite da obrišete protivkandidata: \"" + cbProtivKandidati.Text + "\"?",
+                                 "Brisanje protivkandidata", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ProtivKandidatiTVDuel pk = odabraniDuel.ProtivKandidati.Single(t => t.ImePK == cbProtivKandidati.Text);
+                    obrisi<ProtivKandidatiTVDuel>(pk.ID);
 
+                    cbProtivKandidati.Items.Remove(cbProtivKandidati.Text);
+                    cbProtivKandidati.Text = "";                    
+                }
+            }
+            else
+                System.Media.SystemSounds.Beep.Play();
+        }
         private void AddPojTVDuel()
         {
             ISession s = DataLayer.GetSession();
@@ -1953,23 +2016,48 @@ namespace Izbori {
                 RefreshMladensTables();
             }
         }
-
         private void btnUkloniPitanje_Click(object sender, EventArgs e)
         {
-            cbPitanje.Items.Remove(cbPitanje.SelectedItem);
-        }
+            if (!cbPitanje.Text.Length.Equals(0))
+            {
+                if (MessageBox.Show("Da li ste sigurni da želite da obrišete izabrano pitanje?",
+                                 "Brisanje pitanja", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    PitanjaTVDuel pitanje = odabraniDuel.Pitanja.Single(t => t.Tekst == cbPitanje.Text);
+                    obrisi<PitanjaTVDuel>(pitanje.ID);
 
+                    cbPitanje.Items.Remove(cbPitanje.Text);
+                    cbPitanje.Text = "";
+                }
+            }
+            else
+                System.Media.SystemSounds.Beep.Play();
+        }
         private void btnDodajPitanje_Click(object sender, EventArgs e)
         {
             if (!cbPitanje.Text.Length.Equals(0))
             {
                 cbPitanje.Items.Add(cbPitanje.Text);
-                cbPitanje.Text = "";
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    var pitanje = new PitanjaTVDuel
+                    {
+                        IDDuela = odabraniDuel,
+                        Tekst = cbPitanje.Text
+                    };
+                    s.SaveOrUpdate(pitanje);
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    cbPitanje.Text = "";
+                }
             }
             else
                 System.Media.SystemSounds.Beep.Play();
         }
-
         private void AddPojTVRadio()
         {
             ISession s = DataLayer.GetSession();
@@ -2005,7 +2093,6 @@ namespace Izbori {
                 RefreshMladensTables();
             }
         }
-
         private void btnUpdateGostovanje_Click(object sender, EventArgs e)
         {
             if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)//za TVDuel
@@ -2021,39 +2108,81 @@ namespace Izbori {
                 UpdatePojNovine();
             }
         }
-
         private void UpdatePojTVDuel()
         {
             if (MessageBox.Show("Da li ste sigurni da želite da izmenite izabrani TV Duel?",
                 "Ažuriranje TV Duela", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                odabraniDuel.Gledanost = int.Parse(tbProcenjenaGledanost.Text);
-                odabraniDuel.ImeVoditelja = tbImeVoditelja.Text;
-                odabraniDuel.NazivEmisije = tbNazivEmisije.Text;
-                odabraniDuel.NazivStanice = tbNazivStanice.Text;
+            {                
                 ISession s = DataLayer.GetSession();
                 try
                 {
+                    odabraniDuel.Gledanost = int.Parse(tbProcenjenaGledanost.Text);
+                    odabraniDuel.ImeVoditelja = tbImeVoditelja.Text;
+                    odabraniDuel.NazivEmisije = tbNazivEmisije.Text;
+                    odabraniDuel.NazivStanice = tbNazivStanice.Text;
+
                     s.SaveOrUpdate(odabraniDuel);
                     s.Flush();
                 }
                 finally
                 {
+                    s.Close();                    
+                    RefreshMladensTables();
+                }
+            }
+        }
+        private void UpdatePojTVRadio()
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da izmenite izabrano gostovanje?",
+                "Ažuriranje gostovanja", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    odabranoGostovanje.Gledanost = int.Parse(tbProcenjenaGledanost.Text);
+                    odabranoGostovanje.ImeVoditelja = tbImeVoditelja.Text;
+                    odabranoGostovanje.NazivEmisije = tbNazivEmisije.Text;
+                    odabranoGostovanje.NazivStanice = tbNazivStanice.Text;
+
+                    s.SaveOrUpdate(odabranoGostovanje);
+
+                    s.Flush();
+                }
+                finally
+                {
                     s.Close();
-                    odabraniDuel = null;
                     RefreshMladensTables();///TODOR
                 }
             }
         }
-
-        private void UpdatePojTVRadio()
-        {
-        }
-
         private void UpdatePojNovine()
         {
-        }
+            if (MessageBox.Show("Da li ste sigurni da želite da izmenite izabrani TV Duel?",
+                "Ažuriranje TV Duela", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (calIntervjua.SelectionRange.Start > calObjavljivanja.SelectionRange.Start)
+                {
+                    MessageBox.Show("Datum intervjua ne sme biti posle datuma objavljivanja!", "Greška!");
+                    return;
+                }
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    odabraniIntervju.NazivLista = tbNazivLista.Text;
+                    odabraniIntervju.DatumIntervjua = calIntervjua.SelectionRange.Start.Date;
+                    odabraniIntervju.DatumObjavljivanja = calObjavljivanja.SelectionRange.Start.Date;
+                    
+                    s.SaveOrUpdate(odabraniIntervju);
 
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    RefreshMladensTables();
+                }
+            }
+        }
         private void btnRemoveGostovanje_Click(object sender, EventArgs e)
         {
             if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)//za TVDuel
@@ -2069,43 +2198,48 @@ namespace Izbori {
                 RemovePojNovine();
             }
         }
-
         private void RemovePojTVDuel()
         {
             if (MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani TV Duel?",
                 "Brisanje TV Duela", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                dueli.Remove(odabraniDuel);
                 obrisi<TVDuel>(odabraniDuel.ID);
-                odabraniDuel = null;
+
+                listaPojavljivanja.Items.RemoveAt(dueli.FindIndex(x => x.ID == odabraniDuel.ID));
+                dueli.Remove(dueli.Find(x => x.ID == odabraniDuel.ID));
+
                 RefreshMladensTables();
+                odabraniDuel = null;
             }
         }
-
         private void RemovePojNovine()
         {
             if (MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani intervju u novinama?",
                 "Brisanje intervjua", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                intervjui.Remove(odabraniIntervju);
                 obrisi<IntervjuNovine>(odabraniIntervju.ID);
-                odabraniIntervju = null;
+
+                listaPojavljivanja.Items.RemoveAt(intervjui.FindIndex(x => x.ID == odabraniIntervju.ID));
+                intervjui.Remove(intervjui.Find(x => x.ID == odabraniIntervju.ID));
+
                 RefreshMladensTables();
+                odabraniIntervju = null;
             }
         }
-
         private void RemovePojTVRadio()
         {
             if (MessageBox.Show("Da li ste sigurni da želite da obrišete izabrano gostovanje?",
                 "Brisanje Gostovanja", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                gostovanja.Remove(odabranoGostovanje);
                 obrisi<TVRadioGost>(odabranoGostovanje.ID);
-                odabranoGostovanje = null;
+
+                listaPojavljivanja.Items.RemoveAt(gostovanja.FindIndex(x => x.ID == odabranoGostovanje.ID));
+                gostovanja.Remove(gostovanja.Find(x => x.ID == odabranoGostovanje.ID));
+
                 RefreshMladensTables();
+                odabranoGostovanje = null;
             }
         }
-
         private void RefreshMladensTables()
         {
             if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)//za TVDuel

@@ -34,12 +34,8 @@
             this.dateObjavljivanja = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateIntervjua = new System.Windows.Forms.DateTimePicker();
-            this.cbNovinari = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.btnRemoveNovinar = new System.Windows.Forms.Button();
-            this.btnAddNovinar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbNazivLista
@@ -90,26 +86,9 @@
             this.dateIntervjua.Size = new System.Drawing.Size(200, 20);
             this.dateIntervjua.TabIndex = 20;
             // 
-            // cbNovinari
-            // 
-            this.cbNovinari.FormattingEnabled = true;
-            this.cbNovinari.Location = new System.Drawing.Point(126, 90);
-            this.cbNovinari.Name = "cbNovinari";
-            this.cbNovinari.Size = new System.Drawing.Size(146, 21);
-            this.cbNovinari.TabIndex = 25;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(67, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 24;
-            this.label7.Text = "Novinari:";
-            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(227, 117);
+            this.btnCancel.Location = new System.Drawing.Point(227, 99);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(99, 23);
             this.btnCancel.TabIndex = 29;
@@ -119,7 +98,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(126, 117);
+            this.btnOK.Location = new System.Drawing.Point(126, 99);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(95, 23);
             this.btnOK.TabIndex = 28;
@@ -127,37 +106,13 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // btnRemoveNovinar
-            // 
-            this.btnRemoveNovinar.Location = new System.Drawing.Point(302, 88);
-            this.btnRemoveNovinar.Name = "btnRemoveNovinar";
-            this.btnRemoveNovinar.Size = new System.Drawing.Size(24, 23);
-            this.btnRemoveNovinar.TabIndex = 31;
-            this.btnRemoveNovinar.Text = "-";
-            this.btnRemoveNovinar.UseVisualStyleBackColor = true;
-            this.btnRemoveNovinar.Click += new System.EventHandler(this.btnRemoveNovinar_Click);
-            // 
-            // btnAddNovinar
-            // 
-            this.btnAddNovinar.Location = new System.Drawing.Point(278, 88);
-            this.btnAddNovinar.Name = "btnAddNovinar";
-            this.btnAddNovinar.Size = new System.Drawing.Size(24, 23);
-            this.btnAddNovinar.TabIndex = 30;
-            this.btnAddNovinar.Text = "+";
-            this.btnAddNovinar.UseVisualStyleBackColor = true;
-            this.btnAddNovinar.Click += new System.EventHandler(this.btnAddNovinar_Click);
-            // 
             // NovoPojPKNovine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 156);
-            this.Controls.Add(this.btnRemoveNovinar);
-            this.Controls.Add(this.btnAddNovinar);
+            this.ClientSize = new System.Drawing.Size(347, 131);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.cbNovinari);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateIntervjua);
             this.Controls.Add(this.label4);
@@ -179,11 +134,7 @@
         private System.Windows.Forms.DateTimePicker dateObjavljivanja;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateIntervjua;
-        private System.Windows.Forms.ComboBox cbNovinari;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnRemoveNovinar;
-        private System.Windows.Forms.Button btnAddNovinar;
     }
 }

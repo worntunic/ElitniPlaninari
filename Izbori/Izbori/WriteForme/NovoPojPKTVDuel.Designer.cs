@@ -38,14 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRemoveProtivKandidat = new System.Windows.Forms.Button();
-            this.btnAddProtivKandidat = new System.Windows.Forms.Button();
-            this.cbProtivKandidati = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnRemovePitanje = new System.Windows.Forms.Button();
-            this.btnAddPitanje = new System.Windows.Forms.Button();
-            this.cbPitanja = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbGledanost
@@ -79,7 +71,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(200, 174);
+            this.btnCancel.Location = new System.Drawing.Point(200, 126);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(99, 23);
             this.btnCancel.TabIndex = 51;
@@ -89,7 +81,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(99, 174);
+            this.btnOK.Location = new System.Drawing.Point(99, 126);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(95, 23);
             this.btnOK.TabIndex = 50;
@@ -133,93 +125,11 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Gledanost:";
             // 
-            // btnRemoveProtivKandidat
-            // 
-            this.btnRemoveProtivKandidat.Location = new System.Drawing.Point(275, 114);
-            this.btnRemoveProtivKandidat.Name = "btnRemoveProtivKandidat";
-            this.btnRemoveProtivKandidat.Size = new System.Drawing.Size(24, 23);
-            this.btnRemoveProtivKandidat.TabIndex = 59;
-            this.btnRemoveProtivKandidat.Text = "-";
-            this.btnRemoveProtivKandidat.UseVisualStyleBackColor = true;
-            this.btnRemoveProtivKandidat.Click += new System.EventHandler(this.btnRemoveProtivKandidat_Click);
-            // 
-            // btnAddProtivKandidat
-            // 
-            this.btnAddProtivKandidat.Location = new System.Drawing.Point(251, 114);
-            this.btnAddProtivKandidat.Name = "btnAddProtivKandidat";
-            this.btnAddProtivKandidat.Size = new System.Drawing.Size(24, 23);
-            this.btnAddProtivKandidat.TabIndex = 58;
-            this.btnAddProtivKandidat.Text = "+";
-            this.btnAddProtivKandidat.UseVisualStyleBackColor = true;
-            this.btnAddProtivKandidat.Click += new System.EventHandler(this.btnAddProtivKandidat_Click);
-            // 
-            // cbProtivKandidati
-            // 
-            this.cbProtivKandidati.FormattingEnabled = true;
-            this.cbProtivKandidati.Location = new System.Drawing.Point(99, 116);
-            this.cbProtivKandidati.Name = "cbProtivKandidati";
-            this.cbProtivKandidati.Size = new System.Drawing.Size(146, 21);
-            this.cbProtivKandidati.TabIndex = 57;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 119);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Protiv Kandidati:";
-            // 
-            // btnRemovePitanje
-            // 
-            this.btnRemovePitanje.Location = new System.Drawing.Point(275, 140);
-            this.btnRemovePitanje.Name = "btnRemovePitanje";
-            this.btnRemovePitanje.Size = new System.Drawing.Size(24, 23);
-            this.btnRemovePitanje.TabIndex = 63;
-            this.btnRemovePitanje.Text = "-";
-            this.btnRemovePitanje.UseVisualStyleBackColor = true;
-            this.btnRemovePitanje.Click += new System.EventHandler(this.btnRemovePitanje_Click);
-            // 
-            // btnAddPitanje
-            // 
-            this.btnAddPitanje.Location = new System.Drawing.Point(251, 140);
-            this.btnAddPitanje.Name = "btnAddPitanje";
-            this.btnAddPitanje.Size = new System.Drawing.Size(24, 23);
-            this.btnAddPitanje.TabIndex = 62;
-            this.btnAddPitanje.Text = "+";
-            this.btnAddPitanje.UseVisualStyleBackColor = true;
-            this.btnAddPitanje.Click += new System.EventHandler(this.btnAddPitanje_Click);
-            // 
-            // cbPitanja
-            // 
-            this.cbPitanja.FormattingEnabled = true;
-            this.cbPitanja.Location = new System.Drawing.Point(99, 142);
-            this.cbPitanja.Name = "cbPitanja";
-            this.cbPitanja.Size = new System.Drawing.Size(146, 21);
-            this.cbPitanja.TabIndex = 61;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 60;
-            this.label5.Text = "Pitanja:";
-            // 
-            // NovoPojTVDuel
+            // NovoPojPKTVDuel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(315, 210);
-            this.Controls.Add(this.btnRemovePitanje);
-            this.Controls.Add(this.btnAddPitanje);
-            this.Controls.Add(this.cbPitanja);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnRemoveProtivKandidat);
-            this.Controls.Add(this.btnAddProtivKandidat);
-            this.Controls.Add(this.cbProtivKandidati);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(315, 160);
             this.Controls.Add(this.tbGledanost);
             this.Controls.Add(this.tbImeVoditelja);
             this.Controls.Add(this.tbNazivEmisije);
@@ -230,7 +140,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Name = "NovoPojTVDuel";
+            this.Name = "NovoPojPKTVDuel";
             this.Text = "Dodaj Pojavljivanje Predsedničkog Kandidata na TV Duel-u";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -249,13 +159,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnRemoveProtivKandidat;
-        private System.Windows.Forms.Button btnAddProtivKandidat;
-        private System.Windows.Forms.ComboBox cbProtivKandidati;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnRemovePitanje;
-        private System.Windows.Forms.Button btnAddPitanje;
-        private System.Windows.Forms.ComboBox cbPitanja;
-        private System.Windows.Forms.Label label5;
     }
 }
