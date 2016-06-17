@@ -22,7 +22,17 @@ namespace Izbori {
         public List<GlasackoMesto> gmesta { get; set; } //sva glasacka mesta
 
         public Reklama odabranaReklama { get; set; } //konkretna odabrana reklama
-        public IList<Reklama> reklame { get; set; } //sve reklame/propaganda
+        public List<Reklama> reklame { get; set; } //sve reklame/propaganda
+
+        public IntervjuNovine odabraniIntervjuUNovinama { get; set; } //konkretan odabrani intervju
+        public IList<IntervjuNovine> intervjui { get; set; } //Svi intervjui
+
+        public TVRadioGost odabranoGostovanje { get; set; } //konkretno odabrano gostovanje
+        public IList<TVRadioGost> gostovanja { get; set; } //sva gostovanja
+
+        public TVDuel odabraniDuel { get; set; } //konkretni odabrani duel
+        public IList<TVDuel> dueli { get; set; } //svi dueli
+
         public Form1() {
             InitializeComponent();
             odabrani = null;
@@ -30,6 +40,9 @@ namespace Izbori {
             reklame = new List<Reklama>();
             oGM = null;
             gmesta = new List<GlasackoMesto>();
+            intervjui = null;
+            gostovanja = null;
+            dueli = null;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -555,15 +568,7 @@ namespace Izbori {
                 item.SubItems.Add(i.CenaZakupa.ToString());
                 item.SubItems.Add(String.Format("{0:d/M/yyyy}", i.DatumZakupa));
                 item.SubItems.Add(i.TrajanjeZakupa.ToString());
-                if (i is NovineReklama) {
-                    item.Group = lista.Groups[0];
-                } else if (i is PanoReklama) {
-                    item.Group = lista.Groups[1];
-                } else if (i is TVRadioReklama) {
-                    item.Group = lista.Groups[2];
-                }
                 lista.Items.Add(item);
-                //j++;
             }
         }
         private void ucitajGM(ListView lista, List<GlasackoMesto> lg)
@@ -596,8 +601,13 @@ namespace Izbori {
                     gmesta = (List<GlasackoMesto>)s.QueryOver<GlasackoMesto>().OrderBy(p => p.BrojGM).Asc.List();
                     ucitajGM(lvGM, gmesta);
                     break;
+                case 4:
+                    intervjui = (List<IntervjuNovine>)s.QueryOver<IntervjuNovine>().OrderBy(p => p.ID).Asc.List();
+                    gostovanja = (List<TVRadioGost>)s.QueryOver<TVRadioGost>().OrderBy(p => p.ID).Asc.List();
+                    dueli = (List<TVDuel>)s.QueryOver<TVDuel>().OrderBy(p => p.ID).Asc.List();
+                    break;
                 case 5:
-                    reklame = s.QueryOver<Reklama>().OrderBy(p => p.ID).Asc.List();
+                    reklame = (List<Reklama>)s.QueryOver<Reklama>().OrderBy(p => p.ID).Asc.List();
                     ucitajRek(propagandaListView, reklame);
                     break;
                 default:
@@ -1203,11 +1213,20 @@ namespace Izbori {
             if (propRBNovine.Checked) {
                 ListView.SelectedListViewItemCollection odabr = ((ListView)sender).SelectedItems;
                 foreach (ListViewItem item in odabr) {
+
                     propTxtMod0.Text = item.SubItems[1].Text;
-                    propCBUBoji.Checked = (item.SubItems[2].Text == "da");
-                    propTxtCenaZakupa.Text = item.SubItems[3].Text;
+                    propCBUBoji.Checked = (item.SubItems[2].Text == "da");                   
+                    propTxtCenaZakupa.Text = item.SubItems[3].Text;               
                     propClndDatumZakupa.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[4].Text), Convert.ToDateTime(item.SubItems[4].Text).AddDays(Convert.ToDouble(item.SubItems[5].Text)));
                     propTxtTrajanjeZakupa.Text = item.SubItems[5].Text;
+
+                    odabranaReklama = new NovineReklama();
+                    odabranaReklama.ID = Convert.ToInt32(item.SubItems[0].Text);
+                    ((NovineReklama)odabranaReklama).NazivLista = propTxtMod0.Text;
+                    ((NovineReklama)odabranaReklama).Uboji = propCBUBoji.Checked ? 1 : 0;
+                    odabranaReklama.CenaZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                    odabranaReklama.DatumZakupa = propClndDatumZakupa.SelectionStart;
+                    odabranaReklama.TrajanjeZakupa = Convert.ToInt32(propTxtTrajanjeZakupa.Text);
                 }
             }
             if (propRBPano.Checked) {
@@ -1220,6 +1239,16 @@ namespace Izbori {
                     propTxtCenaZakupa.Text = item.SubItems[5].Text;
                     propClndDatumZakupa.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[6].Text), Convert.ToDateTime(item.SubItems[6].Text).AddDays(Convert.ToDouble(item.SubItems[7].Text)));
                     propTxtTrajanjeZakupa.Text = item.SubItems[7].Text;
+
+                    odabranaReklama = new PanoReklama();
+                    odabranaReklama.ID = Convert.ToInt32(item.SubItems[0].Text);
+                    ((PanoReklama)odabranaReklama).Grad = propTxtMod0.Text;
+                    ((PanoReklama)odabranaReklama).Ulica = propTxtMod1.Text;
+                    ((PanoReklama)odabranaReklama).Vlasnik = propTxtMod2.Text;
+                    ((PanoReklama)odabranaReklama).Povrsina = Convert.ToDouble(propTxtMod1.Text);
+                    odabranaReklama.CenaZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                    odabranaReklama.DatumZakupa = propClndDatumZakupa.SelectionStart;
+                    odabranaReklama.TrajanjeZakupa = Convert.ToInt32(propTxtTrajanjeZakupa.Text);
                 }
             }
             if (propRBTVRad.Checked) {
@@ -1231,8 +1260,385 @@ namespace Izbori {
                     propTxtCenaZakupa.Text = item.SubItems[4].Text;
                     propClndDatumZakupa.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[5].Text), Convert.ToDateTime(item.SubItems[5].Text).AddDays(Convert.ToDouble(item.SubItems[6].Text)));
                     propTxtTrajanjeZakupa.Text = item.SubItems[6].Text;
+
+                    odabranaReklama = new TVRadioReklama();
+                    odabranaReklama.ID = Convert.ToInt32(item.SubItems[0].Text);
+                    ((TVRadioReklama)odabranaReklama).NazivStanice = propTxtMod0.Text;
+                    ((TVRadioReklama)odabranaReklama).BrojPonavljanja = Convert.ToInt32(propTxtMod1.Text);
+                    ((TVRadioReklama)odabranaReklama).Trajanje = Convert.ToInt32(propTxtMod2.Text);
+                    odabranaReklama.CenaZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                    odabranaReklama.DatumZakupa = propClndDatumZakupa.SelectionStart;
+                    odabranaReklama.TrajanjeZakupa = Convert.ToInt32(propTxtTrajanjeZakupa.Text);
+                }
             }
+        }
+
+        private void rBtnNovine_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rBtnNovine.Checked)
+            {
+                LoadData("Intervju Novine");
+                hidePojControls();
+                rBtnTVRadio.Checked = false;
+                chBoxTVDuel.Checked = false;
+
+                lNazivLista.Visible = true;
+                tbNazivLista.Visible = true;
+
+                lDatumIntervjua.Visible = true;
+                calIntervjua.Visible = true;
+
+                lDatumObjavljivanja.Visible = true;
+                calObjavljivanja.Visible = true;
+
+                lNovinari.Visible = true;
+                cbNovinari.Visible = true;
+                btnDodajNovinara.Visible = true;
+                btnUkloniNovinara.Visible = true;
+                btnAddGostovanje.Visible = true;
+                btnRemoveGostovanje.Visible = true;
+                btnUpdateGostovanje.Visible = true;
             }
+        }
+
+        private void rBtnTVRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rBtnTVRadio.Checked)
+            {
+                LoadData("TV/Radio Gostovanje");
+                hidePojControls();
+                lImeVoditelja.Visible = true;
+                tbImeVoditelja.Visible = true;
+
+                lProcenjenaGledanost.Visible = true;
+                tbProcenjenaGledanost.Visible = true;
+
+                lNazivEmisije.Visible = true;
+                tbNazivEmisije.Visible = true;
+
+                lNazivStanice.Visible = true;
+                tbNazivStanice.Visible = true;
+                chBoxTVDuel.Visible = true;
+
+                lPitanja.Visible = true;
+                cbPitanje.Visible = true;
+                btnDodajPitanje.Visible = true;
+                btnUkloniPitanje.Visible = true;
+
+                lImeProtivkand.Visible = true;
+                cbProtivkandidati.Visible = true;
+                btnDodajProtivkandidata.Visible = true;
+                btnUkloniProtivkandidata.Visible = true;
+
+                btnAddGostovanje.Visible = true;
+                btnRemoveGostovanje.Visible = true;
+                btnUpdateGostovanje.Visible = true;
+            }
+        }
+
+        private void cbTVDuel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBoxTVDuel.CheckState == CheckState.Checked)
+            {
+                LoadData("TV Duel");
+                lPitanja.Enabled = true;
+                cbPitanje.Enabled = true;
+                btnDodajPitanje.Enabled = true;
+                btnUkloniPitanje.Enabled = true;
+
+                lImeProtivkand.Enabled = true;
+                cbProtivkandidati.Enabled = true;
+                btnDodajProtivkandidata.Enabled = true;
+                btnUkloniProtivkandidata.Enabled = true;
+            }
+            else
+            {
+                LoadData("TV/Radio Gostovanje");
+                lPitanja.Enabled = false;
+                cbPitanje.Enabled = false;
+                btnDodajPitanje.Enabled = false;
+                btnUkloniPitanje.Enabled = false;
+
+                lImeProtivkand.Enabled = false;
+                cbProtivkandidati.Enabled = false;
+                btnDodajProtivkandidata.Enabled = false;
+                btnUkloniProtivkandidata.Enabled = false;
+            }
+        }
+
+        private void hidePojControls()
+        {
+            lNazivLista.Visible = false;
+            tbNazivLista.Visible = false;
+
+            lDatumIntervjua.Visible = false;
+            calIntervjua.Visible = false;
+
+            lDatumObjavljivanja.Visible = false;
+            calObjavljivanja.Visible = false;
+
+            lImeVoditelja.Visible = false;
+            tbImeVoditelja.Visible = false;
+
+            lProcenjenaGledanost.Visible = false;
+            tbProcenjenaGledanost.Visible = false;
+
+            lNazivEmisije.Visible = false;
+            tbNazivEmisije.Visible = false;
+
+            lNazivStanice.Visible = false;
+            tbNazivStanice.Visible = false;
+
+            lImeProtivkand.Visible = false;
+            cbProtivkandidati.Visible = false;
+            btnDodajProtivkandidata.Visible = false;
+            btnUkloniProtivkandidata.Visible = false;
+
+            lPitanja.Visible = false;
+            cbPitanje.Visible = false;
+            btnDodajPitanje.Visible = false;
+            btnUkloniPitanje.Visible = false;
+
+            lNovinari.Visible = false;
+            cbNovinari.Visible = false;
+            btnDodajNovinara.Visible = false;
+            btnUkloniNovinara.Visible = false;
+
+            btnAddGostovanje.Visible = false;
+            btnRemoveGostovanje.Visible = false;
+            btnUpdateGostovanje.Visible = false;
+            chBoxTVDuel.Visible = false;
+        }
+
+        private void LoadData(string x)
+        {
+            listaPojavljivanja.Items.Clear();
+            listaPojavljivanja.Columns.Clear();
+            listaPojavljivanja.Columns.Add("ID");
+            if (x == "Intervju Novine")
+            {
+                listaPojavljivanja.Columns.Add("Naziv Lista");
+                listaPojavljivanja.Columns.Add("Datum Objavljivanja");
+            }
+            else if (x == "TV/Radio Gostovanje")
+            {
+                listaPojavljivanja.Columns.Add("Naziv Stanice");
+                listaPojavljivanja.Columns.Add("Naziv Emisije");
+            }
+            else if (x == "TV Duel")
+            {
+                listaPojavljivanja.Columns.Add("Naziv Stanice");
+                listaPojavljivanja.Columns.Add("Naziv Emisije");
+            }
+            LoadValues(x);
+        }
+
+        private void LoadValues(string tabela)
+        {
+            listaPojavljivanja.BeginUpdate();
+
+            if (tabela == "Intervju Novine")
+            {
+                foreach (IntervjuNovine x in intervjui)
+                {
+                    string[] row = { x.ID.ToString(), x.NazivLista, String.Format("{0:d/M/yyyy}", x.DatumObjavljivanja), String.Format("{0:d/M/yyyy}", x.DatumIntervjua)};
+
+                    var item = new ListViewItem(row);
+
+                    listaPojavljivanja.Items.Add(item);
+                }
+            }
+            else if (tabela == "TV/Radio Gostovanje")
+            {
+                foreach (TVRadioGost x in gostovanja)
+                {
+                    string[] row = { x.ID.ToString(), x.NazivStanice, x.NazivEmisije, x.ImeVoditelja, x.Gledanost.ToString()};
+
+                    var item = new ListViewItem(row);
+
+                    listaPojavljivanja.Items.Add(item);
+                }
+            }
+            else if (tabela == "TV Duel")
+            {
+                foreach (TVDuel x in dueli)
+                {
+                    string[] row = { x.ID.ToString(), x.NazivStanice, x.NazivEmisije, x.ImeVoditelja, x.Gledanost.ToString() };
+
+                    var item = new ListViewItem(row);
+
+                    listaPojavljivanja.Items.Add(item);
+                }
+            }
+            
+            postaviSirinuSvihKolona(listaPojavljivanja);
+            listaPojavljivanja.EndUpdate();
+        }
+
+        private void listaPojavljivanja_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Checked)
+            {
+                ListView.SelectedListViewItemCollection izabrani = ((ListView)sender).SelectedItems;
+                foreach (ListViewItem item in izabrani)
+                {
+                    tbNazivStanice.Text = item.SubItems[1].Text;
+                    tbNazivEmisije.Text = item.SubItems[2].Text;
+                    tbImeVoditelja.Text = item.SubItems[3].Text;
+                    tbProcenjenaGledanost.Text = item.SubItems[4].Text;
+                    ISession s = DataLayer.GetSession();
+                    try
+                    {
+                        odabraniDuel = s.Load<TVDuel>(int.Parse(item.SubItems[0].Text));
+                        cbProtivkandidati.Items.Clear();
+                        cbPitanje.Items.Clear();
+                        foreach (ProtivKandidatiTVDuel x in odabraniDuel.ProtivKandidati)
+                        {
+                            cbProtivkandidati.Items.Add(x.ImePK);
+                        }
+                        foreach (var x in odabraniDuel.Pitanja)
+                        {
+                            cbPitanje.Items.Add(x.Tekst);
+                        }
+                    }
+                    finally
+                    {
+                        s.Close();
+                    }
+                }
+            }
+            else if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Unchecked)
+            {
+                ListView.SelectedListViewItemCollection izabrani = ((ListView)sender).SelectedItems;
+                foreach (ListViewItem item in izabrani)
+                {
+                    tbNazivStanice.Text = item.SubItems[1].Text;
+                    tbNazivEmisije.Text = item.SubItems[2].Text;
+                    tbImeVoditelja.Text = item.SubItems[3].Text;
+                    tbProcenjenaGledanost.Text = item.SubItems[4].Text;                    
+                }
+            }
+            else if (rBtnNovine.Checked)
+            {
+                ListView.SelectedListViewItemCollection izabrani = ((ListView)sender).SelectedItems;
+                foreach (ListViewItem item in izabrani)
+                {
+                    tbNazivLista.Text = item.SubItems[1].Text;
+                    calObjavljivanja.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[2].Text), Convert.ToDateTime(item.SubItems[2].Text));
+                    calIntervjua.SelectionRange = new SelectionRange(Convert.ToDateTime(item.SubItems[3].Text), Convert.ToDateTime(item.SubItems[3].Text));
+
+                    ISession s = DataLayer.GetSession();
+                    try
+                    {
+                        odabraniIntervjuUNovinama = s.Load<IntervjuNovine>(int.Parse(item.SubItems[0].Text));
+                        cbNovinari.Items.Clear();
+                        
+                        foreach (NovinariIzNovina x in odabraniIntervjuUNovinama.NovinariIzNovina)
+                        {
+                            cbProtivkandidati.Items.Add(x.ImeNovinara);
+                        }
+                    }
+                    finally
+                    {
+                        s.Close();
+                    }
+                }
+            }
+        }
+
+        private void button12_Click(object sender, EventArgs e) {
+            if (odabranaReklama != null) {
+                try {
+                    ISession s = DataLayer.GetSession();
+                    string q = "delete from Reklama where id=:id";
+                    s.CreateSQLQuery(q).SetParameter("id", odabranaReklama.ID).ExecuteUpdate();
+                    s.Close();
+                    propagandaListView.Items.RemoveAt(reklame.FindIndex(rek => rek.ID == odabranaReklama.ID));
+                    reklame.Remove(reklame.Find(rek => rek.ID == odabranaReklama.ID));
+
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+        public int findRekIndexWithID(int id) {
+            int index = 0;
+            for (int i = 0; i < propagandaListView.Items.Count; i++) {
+                if((Convert.ToInt32(propagandaListView.Items[i].SubItems[0])) == id) {
+                    index = propagandaListView.Items[i].Index;
+                }
+                
+            }
+            return index;
+        }
+        public void azurElPropListe() {
+            propagandaListView.Select();
+            int indOdab = 0;
+            //propagandaListView.Items[indOdab].Selected = true;
+            if (propRBNovine.Checked) {
+                propagandaListView.Items[indOdab].SubItems[1].Text = ((NovineReklama)odabranaReklama).NazivLista;
+                propagandaListView.Items[indOdab].SubItems[2].Text = (((NovineReklama)odabranaReklama).Uboji == 1) ? "da" : "ne";
+                propagandaListView.Items[indOdab].SubItems[3].Text = odabranaReklama.CenaZakupa.ToString();
+                propagandaListView.Items[indOdab].SubItems[4].Text = String.Format("{0:d/M/yyyy}", odabranaReklama.DatumZakupa);
+                propagandaListView.Items[indOdab].SubItems[5].Text = odabranaReklama.TrajanjeZakupa.ToString();
+            }
+            if (propRBPano.Checked) {
+                ((PanoReklama)odabranaReklama).Grad = propTxtMod0.Text;
+                ((PanoReklama)odabranaReklama).Ulica = propTxtMod1.Text;
+                ((PanoReklama)odabranaReklama).Vlasnik = propTxtMod2.Text;
+                ((PanoReklama)odabranaReklama).Povrsina = Convert.ToDouble(propTxtMod1.Text);
+                propagandaListView.Items[indOdab].SubItems[1].Text = ((PanoReklama)odabranaReklama).Grad;
+                propagandaListView.Items[indOdab].SubItems[2].Text = ((PanoReklama)odabranaReklama).Ulica;
+                propagandaListView.Items[indOdab].SubItems[3].Text = ((PanoReklama)odabranaReklama).Vlasnik;
+                propagandaListView.Items[indOdab].SubItems[4].Text = ((PanoReklama)odabranaReklama).Povrsina.ToString();
+                propagandaListView.Items[indOdab].SubItems[5].Text = odabranaReklama.CenaZakupa.ToString();
+                propagandaListView.Items[indOdab].SubItems[6].Text = String.Format("{0:d/M/yyyy}", odabranaReklama.DatumZakupa);
+                propagandaListView.Items[indOdab].SubItems[7].Text = odabranaReklama.TrajanjeZakupa.ToString();
+            }
+            if (propRBTVRad.Checked) {
+                ((TVRadioReklama)odabranaReklama).NazivStanice = propTxtMod0.Text;
+                ((TVRadioReklama)odabranaReklama).BrojPonavljanja = Convert.ToInt32(propTxtMod1.Text);
+                ((TVRadioReklama)odabranaReklama).Trajanje = Convert.ToInt32(propTxtMod2.Text);
+                propagandaListView.Items[indOdab].SubItems[1].Text = ((TVRadioReklama)odabranaReklama).NazivStanice;
+                propagandaListView.Items[indOdab].SubItems[2].Text = ((TVRadioReklama)odabranaReklama).Trajanje.ToString();
+                propagandaListView.Items[indOdab].SubItems[3].Text = ((TVRadioReklama)odabranaReklama).BrojPonavljanja.ToString();
+                propagandaListView.Items[indOdab].SubItems[4].Text = odabranaReklama.CenaZakupa.ToString();
+                propagandaListView.Items[indOdab].SubItems[5].Text = String.Format("{0:d/M/yyyy}", odabranaReklama.DatumZakupa);
+                propagandaListView.Items[indOdab].SubItems[6].Text = odabranaReklama.TrajanjeZakupa.ToString();
+            }
+        }
+        private void button13_Click(object sender, EventArgs e) {
+            if(propagandaListView.SelectedItems != null) { 
+            if (propRBNovine.Checked) {
+                ((NovineReklama)odabranaReklama).NazivLista = propTxtMod0.Text;
+                ((NovineReklama)odabranaReklama).Uboji = propCBUBoji.Checked ? 1 : 0;
+                odabranaReklama.CenaZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                odabranaReklama.DatumZakupa = propClndDatumZakupa.SelectionStart;
+                odabranaReklama.TrajanjeZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+            }
+            if (propRBPano.Checked) {
+                ((PanoReklama)odabranaReklama).Grad = propTxtMod0.Text;
+                ((PanoReklama)odabranaReklama).Ulica = propTxtMod1.Text;
+                ((PanoReklama)odabranaReklama).Vlasnik = propTxtMod2.Text;
+                ((PanoReklama)odabranaReklama).Povrsina = Convert.ToDouble(propTxtMod1.Text);
+                odabranaReklama.CenaZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                odabranaReklama.DatumZakupa = propClndDatumZakupa.SelectionStart;
+                odabranaReklama.TrajanjeZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+            }
+            if (propRBTVRad.Checked) {
+                ((TVRadioReklama)odabranaReklama).NazivStanice = propTxtMod0.Text;
+                ((TVRadioReklama)odabranaReklama).Trajanje = Convert.ToInt32(propTxtMod1.Text);
+                ((TVRadioReklama)odabranaReklama).BrojPonavljanja = Convert.ToInt32(propTxtMod2.Text);
+                odabranaReklama.CenaZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                odabranaReklama.DatumZakupa = propClndDatumZakupa.SelectionStart;
+                odabranaReklama.TrajanjeZakupa = Convert.ToInt32(propTxtCenaZakupa.Text);
+                }
+            ISession s = DataLayer.GetSession();
+            s.SaveOrUpdate(odabranaReklama);
+            s.Flush();
+            s.Close();
+            azurElPropListe();
+        }
         }
         private bool proveriAzur(Control c)
         {
@@ -1246,10 +1652,12 @@ namespace Izbori {
                 if (name.Contains("koor") && jeKoord.Checked)
                 {
                     prop = name.Substring(4);
-                } else if (name.Contains("akt"))
+                }
+                else if (name.Contains("akt"))
                 {
                     prop = name.Substring(3);
-                } else
+                }
+                else
                 {
                     continue;
                 }
@@ -1337,7 +1745,8 @@ namespace Izbori {
                     gmesta.Single(g => g.ID == oGM.ID).BrojGM = oGM.BrojGM;
                     gmesta.Single(g => g.ID == oGM.ID).BrojRegBir = oGM.BrojRegBir;
                     azurElListe(lvGM, gmesta, oGM.ID);
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
