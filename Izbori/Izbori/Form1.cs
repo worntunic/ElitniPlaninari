@@ -24,7 +24,7 @@ namespace Izbori {
         public Reklama odabranaReklama { get; set; } //konkretna odabrana reklama
         public List<Reklama> reklame { get; set; } //sve reklame/propaganda
 
-        public IntervjuNovine OdabraniIntervju { get; set; } //konkretan odabrani intervju
+        public IntervjuNovine odabraniIntervju { get; set; } //konkretan odabrani intervju
         public IList<IntervjuNovine> intervjui { get; set; } //Svi intervjui
 
         public TVRadioGost odabranoGostovanje { get; set; } //konkretno odabrano gostovanje
@@ -1558,10 +1558,10 @@ namespace Izbori {
                     ISession s = DataLayer.GetSession();
                     try
                     {
-                        OdabraniIntervju = s.Load<IntervjuNovine>(int.Parse(item.SubItems[0].Text));
+                        odabraniIntervju = s.Load<IntervjuNovine>(int.Parse(item.SubItems[0].Text));
                         cbNovinari.Items.Clear();
                         
-                        foreach (NovinariIzNovina x in OdabraniIntervju.NovinariIzNovina)
+                        foreach (NovinariIzNovina x in odabraniIntervju.NovinariIzNovina)
                         {
                             cbNovinari.Items.Add(x.ImeNovinara);
                         }
@@ -2025,13 +2025,24 @@ namespace Izbori {
         private void UpdatePojTVDuel()
         {
             if (MessageBox.Show("Da li ste sigurni da želite da izmenite izabrani TV Duel?",
-                "ažuriranje TV Duela", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                "Ažuriranje TV Duela", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                dueli.Remove(odabraniDuel);
                 odabraniDuel.Gledanost = int.Parse(tbProcenjenaGledanost.Text);
-                obrisi<TVDuel>(odabraniDuel.ID);
-                RefreshMladensTables();///TODOR
-                
+                odabraniDuel.ImeVoditelja = tbImeVoditelja.Text;
+                odabraniDuel.NazivEmisije = tbNazivEmisije.Text;
+                odabraniDuel.NazivStanice = tbNazivStanice.Text;
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    s.SaveOrUpdate(odabraniDuel);
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    odabraniDuel = null;
+                    RefreshMladensTables();///TODOR
+                }
             }
         }
 
@@ -2066,6 +2077,7 @@ namespace Izbori {
             {
                 dueli.Remove(odabraniDuel);
                 obrisi<TVDuel>(odabraniDuel.ID);
+                odabraniDuel = null;
                 RefreshMladensTables();
             }
         }
@@ -2075,8 +2087,9 @@ namespace Izbori {
             if (MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani intervju u novinama?",
                 "Brisanje intervjua", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                intervjui.Remove(OdabraniIntervju);
-                obrisi<IntervjuNovine>(OdabraniIntervju.ID);
+                intervjui.Remove(odabraniIntervju);
+                obrisi<IntervjuNovine>(odabraniIntervju.ID);
+                odabraniIntervju = null;
                 RefreshMladensTables();
             }
         }
@@ -2088,6 +2101,7 @@ namespace Izbori {
             {
                 gostovanja.Remove(odabranoGostovanje);
                 obrisi<TVRadioGost>(odabranoGostovanje.ID);
+                odabranoGostovanje = null;
                 RefreshMladensTables();
             }
         }
