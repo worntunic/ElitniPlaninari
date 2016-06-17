@@ -31,15 +31,9 @@ namespace Izbori
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup31 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup32 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup33 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup34 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup35 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup36 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -1326,6 +1320,7 @@ namespace Izbori
             this.mitZatvoreniP.Text = "Miting je u zatvorenom prostoru";
             this.mitZatvoreniP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mitZatvoreniP.UseVisualStyleBackColor = true;
+            this.mitZatvoreniP.CheckedChanged += new System.EventHandler(this.mitZatvoreniP_CheckedChanged);
             // 
             // label36
             // 
@@ -1435,6 +1430,7 @@ namespace Izbori
             this.mitCena.Name = "mitCena";
             this.mitCena.Size = new System.Drawing.Size(132, 20);
             this.mitCena.TabIndex = 24;
+            this.mitCena.Visible = false;
             // 
             // susPlaniranoVreme
             // 
@@ -1462,6 +1458,7 @@ namespace Izbori
             this.labCena.Size = new System.Drawing.Size(133, 13);
             this.labCena.TabIndex = 21;
             this.labCena.Text = "Cena iznajmljenog prostora";
+            this.labCena.Visible = false;
             // 
             // labIznajm
             // 
@@ -1471,6 +1468,7 @@ namespace Izbori
             this.labIznajm.Size = new System.Drawing.Size(137, 13);
             this.labIznajm.TabIndex = 20;
             this.labIznajm.Text = "Naziv iznajmljivača prostora";
+            this.labIznajm.Visible = false;
             // 
             // labVreme
             // 
@@ -1613,6 +1611,7 @@ namespace Izbori
             this.mitIznajmljivac.Name = "mitIznajmljivac";
             this.mitIznajmljivac.Size = new System.Drawing.Size(191, 20);
             this.mitIznajmljivac.TabIndex = 2;
+            this.mitIznajmljivac.Visible = false;
             // 
             // label31
             // 
@@ -1628,21 +1627,22 @@ namespace Izbori
             this.lvAkcije.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.akcNaziv,
             this.akcGrad});
-            listViewGroup31.Header = "Miting";
-            listViewGroup31.Name = "akcMiting";
-            listViewGroup32.Header = "Deljenje letaka";
-            listViewGroup32.Name = "akcDeljLet";
-            listViewGroup33.Header = "Susret kandidata";
-            listViewGroup33.Name = "akcSuskand";
+            listViewGroup1.Header = "Miting";
+            listViewGroup1.Name = "akcMiting";
+            listViewGroup2.Header = "Deljenje letaka";
+            listViewGroup2.Name = "akcDeljLet";
+            listViewGroup3.Header = "Susret kandidata";
+            listViewGroup3.Name = "akcSuskand";
             this.lvAkcije.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup31,
-            listViewGroup32,
-            listViewGroup33});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
             this.lvAkcije.Location = new System.Drawing.Point(30, 56);
             this.lvAkcije.Name = "lvAkcije";
             this.lvAkcije.Size = new System.Drawing.Size(357, 359);
             this.lvAkcije.TabIndex = 0;
             this.lvAkcije.UseCompatibleStateImageBehavior = false;
+            this.lvAkcije.View = System.Windows.Forms.View.Details;
             // 
             // akcNaziv
             // 
@@ -2260,16 +2260,6 @@ namespace Izbori
             // listaPojavljivanja
             // 
             this.listaPojavljivanja.FullRowSelect = true;
-            listViewGroup34.Header = "Novine";
-            listViewGroup34.Name = "propListViewGroupNovine";
-            listViewGroup35.Header = "Pano";
-            listViewGroup35.Name = "propListViewGroupPano";
-            listViewGroup36.Header = "TV/Radio";
-            listViewGroup36.Name = "propListViewGroupTVRadio";
-            this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup34,
-            listViewGroup35,
-            listViewGroup36});
             this.listaPojavljivanja.HideSelection = false;
             this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
             this.listaPojavljivanja.MultiSelect = false;

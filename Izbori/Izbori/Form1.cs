@@ -33,6 +33,9 @@ namespace Izbori {
         public TVDuel odabraniDuel { get; set; } //konkretni odabrani duel
         public List<TVDuel> dueli { get; set; } //svi dueli
 
+        public Akcija odabranaAkcija { get; set; } //konkretna odabrana akcija
+        public List<Akcija> sveAkcije { get; set; } //sve akcije
+
         public Form1() {
             InitializeComponent();
             odabrani = null;
@@ -43,27 +46,24 @@ namespace Izbori {
             intervjui = new List<IntervjuNovine>();
             gostovanja = new List<TVRadioGost>();
             dueli = new List<TVDuel>();
+            sveAkcije = new List<Akcija>();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
 
         }
-
         private void AkcDeljLetBtn_Click(object sender, EventArgs e) {
             var forma = new NovaAkcDeljenjaLetaka();
             forma.Show();
         }
-
         private void AkcSusKand_Click(object sender, EventArgs e) {
             var forma = new NovaAkcSusretaKandidata();
             forma.Show();
         }
-
         private void AkcMitBtn_Click(object sender, EventArgs e) {
             var forma = new NovaAkcMitinga();
             forma.Show();
         }
-
         private void RezIzbBtn_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -79,7 +79,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void ShowActv_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -122,7 +121,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void ShowCoord_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -144,12 +142,10 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void DodajAktivistuBtn_Click(object sender, EventArgs e) {
             var forma = new NoviAktivista();
             forma.Show();            
         }
-
         private void DodajKoordinatoraBtn_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -188,7 +184,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void DodeliPomocnikeBtn_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -215,12 +210,10 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void GostMitBtn_Click(object sender, EventArgs e) {
             var forma = new NoviGostNaMitingu();
             forma.Show();
         }
-
         private void button3_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -246,7 +239,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button4_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -268,7 +260,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button5_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -281,7 +272,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button6_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -295,7 +285,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button1_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -309,27 +298,22 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void GlasackoMestoBtn_Click(object sender, EventArgs e) {
             var forma = new NovoGlasackoMesto();
             forma.Show();
         }
-
         private void button2_Click(object sender, EventArgs e) {
             var forma = new NoviRezultatIzbora();
             forma.Show();
         }
-
         private void AngAktnaGMBtn_Click(object sender, EventArgs e) {
             var forma = new AktivistaNaGlasacko();
             forma.Show();
         }
-
         private void AddNote_Click(object sender, EventArgs e) {
             var forma = new NovaPrimedbaAktiviste();
             forma.Show();
         }
-
         private void AkcijaAktivistiBtn_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -362,12 +346,10 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void ReklTVRadioBtn_Click(object sender, EventArgs e) {
             var forma = new NovaTVRadioReklama();
             forma.Show();
         }
-
         private void ShowReklTVRadioBtn_Click(object sender, EventArgs e) {
             ISession s = DataLayer.GetSession();
             try {
@@ -388,12 +370,10 @@ namespace Izbori {
                 s.Close();
             }
         }
-
         private void ReklNovineBtn_Click(object sender, EventArgs e) {
             var forma = new NovaNovineReklama();
             forma.Show();
         }
-
         private void ShowReklNovineBtn_Click(object sender, EventArgs e) {
             ISession s = DataLayer.GetSession();
             try {
@@ -416,12 +396,10 @@ namespace Izbori {
                 s.Close();
             }
         }
-
         private void PojPKTVDuelBtn_Click(object sender, EventArgs e) {
             var forma = new NovoPojPKTVDuel();
             forma.Show();
         }
-
         private void PojPKTVRadBtn_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -438,17 +416,14 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void PojPKNovineBtn_Click(object sender, EventArgs e) {
             var forma = new NovoPojPKNovine();
             forma.Show();
         }
-
         private void ReklPanoBtn_Click(object sender, EventArgs e) {
             var forma = new NovaPanoReklama();
             forma.Show();
         }
-
         private void ShowReklPanoBtn_Click(object sender, EventArgs e) {
             ISession s = DataLayer.GetSession();
             try {
@@ -470,7 +445,6 @@ namespace Izbori {
                 s.Close();
             }
         }
-
         private void button7_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -498,7 +472,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button8_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -514,7 +487,6 @@ namespace Izbori {
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void button9_Click(object sender, EventArgs e) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -577,6 +549,20 @@ namespace Izbori {
                 lista.Items.Add(item);
             }
         }
+        public void ucitajAkc(ListView lista, IList<Akcija> akc)
+        {
+            if (lista.Items.Count != 0)
+            {
+                lista.Items.Clear();
+            }
+            foreach (var x in akc)
+            {
+                ListViewItem item = new ListViewItem(x.NazivAkcije);                
+                item.SubItems.Add(x.Grad);
+                lista.Items.Add(item);
+            }
+        }
+
         private void ucitajGM(ListView lista, List<GlasackoMesto> lg)
         {
             lista.Items.Clear();
@@ -602,6 +588,10 @@ namespace Izbori {
                 case 1:
                     aktivisti = (List<Aktivista>)s.QueryOver<Aktivista>().OrderBy(p => p.ID).Asc.List();
                     ucitajAkt(lvAkt, aktivisti);
+                    break;
+                case 2:
+                    sveAkcije = (List<Akcija>)s.QueryOver<Akcija>().OrderBy(p => p.ID).Asc.List();
+                    ucitajAkc(lvAkcije, sveAkcije);
                     break;
                 case 3:
                     gmesta = (List<GlasackoMesto>)s.QueryOver<GlasackoMesto>().OrderBy(p => p.BrojGM).Asc.List();
@@ -1831,10 +1821,18 @@ namespace Izbori {
                 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
+                    dueli.Add(form.RetValPoj);
                     RefreshMladensTables();
-                    var item = listaPojavljivanja.FindItemWithText(form.RetValPoj.ID.ToString());
-                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Focused = true;
-                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Selected = true;
+                    int indeks = 0;
+                    foreach (ListViewItem item in listaPojavljivanja.Items)
+                    {
+                        if (item.SubItems[0].Text == form.RetValPoj.ID.ToString())
+                            listaPojavljivanja.Items[indeks].Selected = true;
+                        else
+                            ++indeks;
+                    }
+
+                    listaPojavljivanja.Select();
                 }
             }
             else if (rBtnTVRadio.Checked && chBoxTVDuel.CheckState == CheckState.Unchecked)//za TVRadioGost
@@ -1843,10 +1841,18 @@ namespace Izbori {
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
+                    gostovanja.Add(form.RetValPoj);
                     RefreshMladensTables();
-                    var item = listaPojavljivanja.FindItemWithText(form.RetValPoj.ID.ToString());
-                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Focused = true;
-                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Selected = true;
+                    int indeks = 0;
+                    foreach (ListViewItem item in listaPojavljivanja.Items)
+                    {
+                        if (item.SubItems[0].Text == form.RetValPoj.ID.ToString())
+                            listaPojavljivanja.Items[indeks].Selected = true;
+                        else
+                            ++indeks;
+                    }
+
+                    listaPojavljivanja.Select();
                 }
             }
             else if (rBtnNovine.Checked) //za IntervjuNovine
@@ -1855,10 +1861,18 @@ namespace Izbori {
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
+                    intervjui.Add(form.RetValPoj);
                     RefreshMladensTables();
-                    var item = listaPojavljivanja.FindItemWithText(form.RetValPoj.ID.ToString());
-                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Focused = true;
-                    listaPojavljivanja.Items[listaPojavljivanja.Items.IndexOf(item)].Selected = true;
+                    int indeks = 0;
+                    foreach (ListViewItem item in listaPojavljivanja.Items)
+                    {
+                        if (item.SubItems[0].Text == form.RetValPoj.ID.ToString())
+                            listaPojavljivanja.Items[indeks].Selected = true;
+                        else
+                            ++indeks;
+                    }
+
+                    listaPojavljivanja.Select();
                 }
             }
         }
@@ -2347,6 +2361,24 @@ namespace Izbori {
                 propagandaListView.Items[findRekIndexWithID(rek.ID)].Selected = true;
                 propagandaListView.Select();
                 ses.Close();
+            }
+        }
+
+        private void mitZatvoreniP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (mitZatvoreniP.CheckState == CheckState.Checked)
+            {
+                labCena.Visible = true;
+                labIznajm.Visible = true;
+                mitIznajmljivac.Visible = true;
+                mitCena.Visible = true;
+            }
+            else if (mitZatvoreniP.CheckState == CheckState.Unchecked)
+            {
+                labCena.Visible = false;
+                labIznajm.Visible = false;
+                mitIznajmljivac.Visible = false;
+                mitCena.Visible = false;
             }
         }
     }
