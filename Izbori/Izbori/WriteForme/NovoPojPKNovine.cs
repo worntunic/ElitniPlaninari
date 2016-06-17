@@ -65,21 +65,5 @@ namespace Izbori.WriteForme
                 ses.Close();
             }
         }
-
-        private void btnAddNovinar_Click(object sender, EventArgs e)
-        {
-            if (!cbNovinari.Text.Length.Equals(0))
-            {
-                cbNovinari.Items.Add(cbNovinari.Text);
-                cbNovinari.Text = "";
-            }
-            else
-                SystemSounds.Beep.Play();
-        }
-
-        private void btnRemoveNovinar_Click(object sender, EventArgs e)
-        {
-            cbNovinari.Items.Remove(cbNovinari.SelectedItem);
-        }
     }
 }
