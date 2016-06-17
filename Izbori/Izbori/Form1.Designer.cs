@@ -1,4 +1,6 @@
-﻿namespace Izbori
+﻿using System.Windows.Forms;
+
+namespace Izbori
 {
     partial class Form1
     {
@@ -29,12 +31,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Novine", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Pano", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("TV/Radio", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -186,6 +188,9 @@
             this.Naslov = new System.Windows.Forms.Label();
             this.listaPojavljivanja = new System.Windows.Forms.ListView();
             this.propaganda = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.propCBUBoji = new System.Windows.Forms.CheckBox();
             this.propTxtCenaZakupa = new System.Windows.Forms.TextBox();
             this.propTxtTrajanjeZakupa = new System.Windows.Forms.TextBox();
@@ -213,14 +218,11 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sve = new System.Windows.Forms.TabPage();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
-            this.mediji.SuspendLayout();
             this.gmesto.SuspendLayout();
+            this.mediji.SuspendLayout();
             this.propaganda.SuspendLayout();
             this.sve.SuspendLayout();
             this.SuspendLayout();
@@ -1286,7 +1288,7 @@
             this.btnAzurGM.TabIndex = 90;
             this.btnAzurGM.Text = "Ažuriraj glasčko mesto";
             this.btnAzurGM.UseVisualStyleBackColor = true;
-            this.btnAzurGM.Click += new System.EventHandler(this.button12_Click);
+            this.btnAzurGM.Click += new System.EventHandler(this.btnAzurGM_Click);
             // 
             // labDK
             // 
@@ -1802,16 +1804,16 @@
             // listaPojavljivanja
             // 
             this.listaPojavljivanja.FullRowSelect = true;
-            listViewGroup16.Header = "Novine";
-            listViewGroup16.Name = "propListViewGroupNovine";
-            listViewGroup17.Header = "Pano";
-            listViewGroup17.Name = "propListViewGroupPano";
-            listViewGroup18.Header = "TV/Radio";
-            listViewGroup18.Name = "propListViewGroupTVRadio";
+            listViewGroup1.Header = "Novine";
+            listViewGroup1.Name = "propListViewGroupNovine";
+            listViewGroup2.Header = "Pano";
+            listViewGroup2.Name = "propListViewGroupPano";
+            listViewGroup3.Header = "TV/Radio";
+            listViewGroup3.Name = "propListViewGroupTVRadio";
             this.listaPojavljivanja.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup16,
-            listViewGroup17,
-            listViewGroup18});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
             this.listaPojavljivanja.HideSelection = false;
             this.listaPojavljivanja.Location = new System.Drawing.Point(43, 74);
             this.listaPojavljivanja.MultiSelect = false;
@@ -1856,6 +1858,38 @@
             this.propaganda.TabIndex = 3;
             this.propaganda.Text = "Propaganda";
             // 
+            // button11
+            // 
+            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button11.Location = new System.Drawing.Point(297, 511);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(110, 53);
+            this.button11.TabIndex = 109;
+            this.button11.Text = "Dodaj novog aktivistu";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button12.Location = new System.Drawing.Point(510, 511);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(81, 53);
+            this.button12.TabIndex = 108;
+            this.button12.Text = "Obriši odabranu propagandu";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // button13
+            // 
+            this.button13.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.button13.Location = new System.Drawing.Point(616, 511);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(121, 53);
+            this.button13.TabIndex = 107;
+            this.button13.Text = "Ažuriraj odabranu propagandu";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // propCBUBoji
             // 
             this.propCBUBoji.AutoSize = true;
@@ -1887,7 +1921,6 @@
             this.label20.Size = new System.Drawing.Size(81, 13);
             this.label20.TabIndex = 103;
             this.label20.Text = "Datum Zakupa:";
-            this.label20.Click += new System.EventHandler(this.label20_Click);
             // 
             // label25
             // 
@@ -2055,16 +2088,16 @@
             this.columnHeader4,
             this.columnHeader5});
             this.propagandaListView.FullRowSelect = true;
-            listViewGroup13.Header = "Novine";
-            listViewGroup13.Name = "propListViewGroupNovine";
-            listViewGroup14.Header = "Pano";
-            listViewGroup14.Name = "propListViewGroupPano";
-            listViewGroup15.Header = "TV/Radio";
-            listViewGroup15.Name = "propListViewGroupTVRadio";
+            listViewGroup4.Header = "Novine";
+            listViewGroup4.Name = "propListViewGroupNovine";
+            listViewGroup5.Header = "Pano";
+            listViewGroup5.Name = "propListViewGroupPano";
+            listViewGroup6.Header = "TV/Radio";
+            listViewGroup6.Name = "propListViewGroupTVRadio";
             this.propagandaListView.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15});
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.propagandaListView.HideSelection = false;
             this.propagandaListView.Location = new System.Drawing.Point(25, 93);
             this.propagandaListView.MultiSelect = false;
@@ -2146,38 +2179,6 @@
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
             // 
-            // button11
-            // 
-            this.button11.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button11.Location = new System.Drawing.Point(297, 511);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(110, 53);
-            this.button11.TabIndex = 109;
-            this.button11.Text = "Dodaj novog aktivistu";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button12.Location = new System.Drawing.Point(510, 511);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(81, 53);
-            this.button12.TabIndex = 108;
-            this.button12.Text = "Obriši odabranu propagandu";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button13
-            // 
-            this.button13.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button13.Location = new System.Drawing.Point(616, 511);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(121, 53);
-            this.button13.TabIndex = 107;
-            this.button13.Text = "Ažuriraj odabranu propagandu";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2192,6 +2193,8 @@
             this.tabPage1.PerformLayout();
             this.aktKoord.ResumeLayout(false);
             this.aktKoord.PerformLayout();
+            this.gmesto.ResumeLayout(false);
+            this.gmesto.PerformLayout();
             this.mediji.ResumeLayout(false);
             this.mediji.PerformLayout();
             this.propaganda.ResumeLayout(false);
@@ -2301,6 +2304,22 @@
         private System.Windows.Forms.ColumnHeader imeRod;
         private System.Windows.Forms.ColumnHeader prezime;
         private System.Windows.Forms.ListView lvAkt;
+        private System.Windows.Forms.ListView lvGM;
+        private System.Windows.Forms.TextBox gmNaziv;
+        private System.Windows.Forms.TextBox gmBrojGM;
+        private System.Windows.Forms.TextBox gmBrojRegBir;
+        private System.Windows.Forms.Label labAktGM;
+        private System.Windows.Forms.Label labPK;
+        private System.Windows.Forms.Label labDK;
+        private System.Windows.Forms.Button btnPrimedbe;
+        private System.Windows.Forms.Button btnDodajAktGM;
+        private System.Windows.Forms.Button btnObrGM;
+        private System.Windows.Forms.Button btnRezIzb;
+        private System.Windows.Forms.Button btnAzurGM;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button novoGM;
         private System.Windows.Forms.Label labKoord;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ListView propagandaListView;
@@ -2365,6 +2384,10 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
+        private ColumnHeader gmIme;
+        private ColumnHeader brGM;
+        private ColumnHeader gmBB;
+        private Label label27;
     }
 }
 

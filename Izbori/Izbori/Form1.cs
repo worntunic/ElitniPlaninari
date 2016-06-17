@@ -1717,7 +1717,7 @@ namespace Izbori {
             azurElListe(lvGM, gmesta, oGM.ID);
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        private void btnAzurGM_Click(object sender, EventArgs e)
         {
             if (proveriAzurGM(this))
             {
