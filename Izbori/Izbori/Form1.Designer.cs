@@ -31,9 +31,9 @@ namespace Izbori
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -1627,16 +1627,16 @@ namespace Izbori
             this.lvAkcije.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.akcNaziv,
             this.akcGrad});
-            listViewGroup1.Header = "Miting";
-            listViewGroup1.Name = "akcMiting";
-            listViewGroup2.Header = "Deljenje letaka";
-            listViewGroup2.Name = "akcDeljLet";
-            listViewGroup3.Header = "Susret kandidata";
-            listViewGroup3.Name = "akcSuskand";
+            listViewGroup4.Header = "Miting";
+            listViewGroup4.Name = "akcMiting";
+            listViewGroup5.Header = "Deljenje letaka";
+            listViewGroup5.Name = "akcDeljLet";
+            listViewGroup6.Header = "Susret kandidata";
+            listViewGroup6.Name = "akcSuskand";
             this.lvAkcije.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3});
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6});
             this.lvAkcije.Location = new System.Drawing.Point(30, 56);
             this.lvAkcije.Name = "lvAkcije";
             this.lvAkcije.Size = new System.Drawing.Size(357, 359);
@@ -1688,6 +1688,7 @@ namespace Izbori
             this.btnPrimedbe.TabIndex = 94;
             this.btnPrimedbe.Text = "Pogledaj primedbe";
             this.btnPrimedbe.UseVisualStyleBackColor = true;
+            this.btnPrimedbe.Click += new System.EventHandler(this.btnPrimedbe_Click);
             // 
             // btnDodajAktGM
             // 
@@ -1709,6 +1710,7 @@ namespace Izbori
             this.btnObrGM.TabIndex = 92;
             this.btnObrGM.Text = "Obriši glasčko mesto";
             this.btnObrGM.UseVisualStyleBackColor = true;
+            this.btnObrGM.Click += new System.EventHandler(this.btnObrGM_Click);
             // 
             // btnRezIzb
             // 

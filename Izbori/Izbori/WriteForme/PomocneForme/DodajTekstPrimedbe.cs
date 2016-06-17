@@ -18,17 +18,20 @@ namespace Izbori.WriteForme.PomocneForme
         public DodajTekstPrimedbe()
         {
             InitializeComponent();
+            RetValString = "";
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        public DodajTekstPrimedbe(string rvl)
         {
-            Close();
+            InitializeComponent();
+            RetValString = rvl;
+            textBox1.Text = RetValString;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (textBox1.TextLength == 0 || textBox1.TextLength > 180)
-                SystemSounds.Beep.Play();
+            if (textBox1.TextLength == 0)
+                MessageBox.Show("Morate uneti tekst primedbe.", "Greška");
             else
             {
                 RetValString = textBox1.Text;

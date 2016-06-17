@@ -46,7 +46,7 @@
             this.prezime});
             this.lvPomoc.FullRowSelect = true;
             this.lvPomoc.HideSelection = false;
-            this.lvPomoc.Location = new System.Drawing.Point(17, 41);
+            this.lvPomoc.Location = new System.Drawing.Point(14, 47);
             this.lvPomoc.MultiSelect = false;
             this.lvPomoc.Name = "lvPomoc";
             this.lvPomoc.Size = new System.Drawing.Size(349, 368);
@@ -79,15 +79,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 13);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 75;
-            this.label1.Text = "Aktivisti koji mogu da budu pomoćnici";
+            this.label1.Text = "Aktivisti";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(291, 424);
+            this.button1.Location = new System.Drawing.Point(14, 424);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 34);
+            this.button1.Size = new System.Drawing.Size(349, 34);
             this.button1.TabIndex = 76;
             this.button1.Text = "Dodeli aktivistu";
             this.button1.UseVisualStyleBackColor = true;

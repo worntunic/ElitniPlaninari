@@ -50,7 +50,15 @@ namespace Izbori {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-
+            //blanko ucitavanje sesije, kako bi glatko tekao prolazak kroz tabove
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                s.Close();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void AkcDeljLetBtn_Click(object sender, EventArgs e) {
             var forma = new NovaAkcDeljenjaLetaka();
@@ -685,12 +693,13 @@ namespace Izbori {
 
                 if (odabrani.Akcije.Count == 0) {
                     labZaAkc.Text = "Odabrani aktivista nije angažovan ni na jednoj akciji.";
+                    labAkcije.Text = "";
                 } else {
                     labZaAkc.Text = "Broj akcija na kojima je kandidat učestvovao je " + odabrani.Akcije.Count
                                     + " i to:";
                     labAkcije.Text = "";
                     foreach (var akc in odabrani.Akcije) {
-                        labAkcije.Text += akc.NazivAkcije + "\n";
+                        labAkcije.Text += "- " + akc.NazivAkcije + "\n";
                     }
                 }
 
@@ -701,9 +710,9 @@ namespace Izbori {
                                     + " i nema primedbi.";
                 } else {
                     labZaGM.Text = "Aktivista je zadužen za glasaško mesto broj " + odabrani.gm.BrojGM
-                                    + " i ima žali se na sledeće stvari:\n";
+                                    + " i žali se na sledeće stvari:\n";
                     foreach (var prim in odabrani.Primedbe) {
-                        labZaGM.Text += prim.TekstPrim + "\n";
+                        labZaGM.Text += "\n- " + prim.TekstPrim + "\n";
                     }
                 }
                 s.Close();
@@ -789,7 +798,7 @@ namespace Izbori {
                 osveziGM(id);
             }
         }
-        private void obrisi<T>(int id)
+        public void obrisi<T>(int id)
         {
                 ISession s = DataLayer.GetSession();
             try
@@ -1075,22 +1084,30 @@ namespace Izbori {
                                             odabrani.Ime, odabrani.Prezime), "Brisanje aktiviste", MessageBoxButtons.YesNo);
                 if (odg == DialogResult.Yes)
                 {
-                try {
-                    ISession s = DataLayer.GetSession();
-                        ///TODO da li moze upit ili sa s.Delete();
-                        ///TODO probati sto nije htelo s.Delete();
-                    string q = "delete from AKTIVISTASTRANKE where id=:id";
-                    s.CreateSQLQuery(q).SetParameter("id", odabrani.ID).ExecuteUpdate();
-                    s.Close();
+                    try {
+                        ISession s = DataLayer.GetSession();
+                        if (jeKoord.Checked)
+                        {
+                            foreach (var a in aktivisti.Where(a => a.koord == odabrani))
+                            {
+                                a.koord = null;
+                                s.SaveOrUpdate(a);
+                            }
+                            s.Flush();
+                        }
+                        obrisi<Aktivista>(odabrani.ID);
+                        s.Flush();
+                        s.Close();
                         resetujPolja(this);
                         obrisiElListe(lvAkt, aktivisti, odabrani.ID);
                         aktivisti = aktivisti.Where(a => a.ID != odabrani.ID).ToList();
                         odabrani = null;
-                } catch (Exception ex) {
+                        }
+                    catch (Exception ex) {
                     MessageBox.Show(ex.Message);
-                }
+                    }
+                }   
             }
-        }
         }
         public void postaviKolonePropListe(Type tip) {
             propagandaListView.Columns.Clear();
@@ -1768,7 +1785,7 @@ namespace Izbori {
         }
         private void btnAzurGM_Click(object sender, EventArgs e)
         {
-            if (proveriAzurGM(this))
+            if (oGM != null && proveriAzurGM(this))
             {
                 var tBs = GetAll(this.tabControl1.SelectedTab, typeof(TextBox));
                 foreach (var t in tBs)
@@ -1799,18 +1816,33 @@ namespace Izbori {
                 {
                     MessageBox.Show(ex.Message);
                 }
+            } else if (oGM == null)
+            {
+                MessageBox.Show("Morade odabrati barem jedno glasačko mesto.", "Greška");
             }
         }
         private void rezIzb_Click(object sender, EventArgs e)
         {
-            NoviRezultatIzbora f = new NoviRezultatIzbora();
-            f.ShowDialog(this);
-            osveziGM(oGM.ID);
+            if (oGM != null)
+            {
+                NoviRezultatIzbora f = new NoviRezultatIzbora();
+                f.ShowDialog(this);
+                osveziGM(oGM.ID); 
+            } else
+            {
+                MessageBox.Show("Morate odabrati barem jedno glasačko mesto.", "Greška");
+            }
         }
         private void dodajAktGM_Click(object sender, EventArgs e)
         {
-            DodajPomoc f = new DodajPomoc(typeof(GlasackoMesto));
-            f.ShowDialog();
+            if (oGM != null)
+            {
+                DodajPomoc f = new DodajPomoc(typeof(GlasackoMesto));
+                f.ShowDialog(this);
+            } else
+            {
+                MessageBox.Show("Morate odabrati barem jedno glasačko mesto.", "Greška");
+            }
         }
 
         private void btnAddGostovanje_Click(object sender, EventArgs e)
@@ -2379,6 +2411,56 @@ namespace Izbori {
                 labIznajm.Visible = false;
                 mitIznajmljivac.Visible = false;
                 mitCena.Visible = false;
+            }
+        }
+
+        private void btnObrGM_Click(object sender, EventArgs e)
+        {
+            if (oGM != null)
+            {
+                if(DialogResult.Yes == MessageBox.Show("Da li ste sigurni da želite da obrišete glasačko mesto?",
+                                                        "Brisanje glasačko mesta", MessageBoxButtons.YesNo))
+                {
+                    try
+                    {
+                        ISession s = DataLayer.GetSession();
+                        foreach (var a in s.QueryOver<Aktivista>().Where(a => a.gm == oGM).List())
+                        {
+                            a.gm = null;
+                            s.Flush();
+                        }
+                        s.Flush();
+                        s.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    obrisi<GlasackoMesto>(oGM.ID);
+                    gmesta.Remove(oGM);
+                    oGM = null;
+                    clearCtrl(GetAll(this.tabControl1.SelectedTab, typeof(TextBox)));
+                    clearCtrl(GetAll(this.tabControl1.SelectedTab, typeof(ComboBox)));
+                    labAktGM.Text = "";
+                    labPK.Text = "";
+                    labDK.Text = "";
+                    ucitajGM(lvGM, gmesta);
+                }
+            } else
+            {
+                MessageBox.Show("Morate odabrati barem jedno glasačko mesto.", "Greška");
+            }
+        }
+
+        private void btnPrimedbe_Click(object sender, EventArgs e)
+        {
+            if(oGM != null)
+            {
+                PrimedbeGM f = new PrimedbeGM();
+                f.ShowDialog(this);
+            } else
+            {
+                MessageBox.Show("Morate odabrati barem jedno glasačko mesto.", "Greška");
             }
         }
     }

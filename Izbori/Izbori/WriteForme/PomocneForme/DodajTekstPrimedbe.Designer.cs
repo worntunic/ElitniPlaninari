@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -51,19 +50,9 @@
             this.textBox1.Size = new System.Drawing.Size(259, 174);
             this.textBox1.TabIndex = 1;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(164, 227);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 23);
-            this.btnCancel.TabIndex = 31;
-            this.btnCancel.Text = "Zatvori";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(68, 227);
+            this.btnOK.Location = new System.Drawing.Point(182, 210);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(90, 23);
             this.btnOK.TabIndex = 30;
@@ -75,8 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(284, 244);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -91,7 +79,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
     }
 }
