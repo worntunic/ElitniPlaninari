@@ -134,6 +134,32 @@ namespace Izbori
             this.label17 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.akcije = new System.Windows.Forms.TabPage();
+            this.delObr = new System.Windows.Forms.Button();
+            this.delDodaj = new System.Windows.Forms.Button();
+            this.mitZatvoreniP = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lvGosti = new System.Windows.Forms.ListView();
+            this.gosTitula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gosIme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gosPrezime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gosFunkcija = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mitCena = new System.Windows.Forms.TextBox();
+            this.susPlaniranoVreme = new System.Windows.Forms.DateTimePicker();
+            this.labGosti = new System.Windows.Forms.Label();
+            this.labCena = new System.Windows.Forms.Label();
+            this.labIznajm = new System.Windows.Forms.Label();
+            this.labVreme = new System.Windows.Forms.Label();
+            this.labLok = new System.Windows.Forms.Label();
+            this.labGrad = new System.Windows.Forms.Label();
+            this.labNaziv = new System.Windows.Forms.Label();
             this.btnUpdGuest = new System.Windows.Forms.Button();
             this.btnDelGuest = new System.Windows.Forms.Button();
             this.btnAngazuj = new System.Windows.Forms.Button();
@@ -237,32 +263,6 @@ namespace Izbori
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sve = new System.Windows.Forms.TabPage();
-            this.labNaziv = new System.Windows.Forms.Label();
-            this.labGrad = new System.Windows.Forms.Label();
-            this.labLok = new System.Windows.Forms.Label();
-            this.labVreme = new System.Windows.Forms.Label();
-            this.labIznajm = new System.Windows.Forms.Label();
-            this.labCena = new System.Windows.Forms.Label();
-            this.labGosti = new System.Windows.Forms.Label();
-            this.susPlaniranoVreme = new System.Windows.Forms.DateTimePicker();
-            this.mitCena = new System.Windows.Forms.TextBox();
-            this.lvGosti = new System.Windows.Forms.ListView();
-            this.gosTitula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.gosIme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.gosPrezime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.gosFunkcija = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.mitZatvoreniP = new System.Windows.Forms.CheckBox();
-            this.delObr = new System.Windows.Forms.Button();
-            this.delDodaj = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
@@ -725,7 +725,7 @@ namespace Izbori
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(957, 609);
+            this.tabPage1.Size = new System.Drawing.Size(998, 609);
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "Početak";
             // 
@@ -1293,6 +1293,221 @@ namespace Izbori
             this.akcije.TabIndex = 4;
             this.akcije.Text = "Predizborne akcije";
             // 
+            // delObr
+            // 
+            this.delObr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delObr.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.delObr.Location = new System.Drawing.Point(704, 107);
+            this.delObr.Name = "delObr";
+            this.delObr.Size = new System.Drawing.Size(24, 23);
+            this.delObr.TabIndex = 48;
+            this.delObr.Text = "-";
+            this.delObr.UseVisualStyleBackColor = true;
+            // 
+            // delDodaj
+            // 
+            this.delDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delDodaj.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.delDodaj.Location = new System.Drawing.Point(676, 107);
+            this.delDodaj.Name = "delDodaj";
+            this.delDodaj.Size = new System.Drawing.Size(24, 23);
+            this.delDodaj.TabIndex = 47;
+            this.delDodaj.Text = "+";
+            this.delDodaj.UseVisualStyleBackColor = true;
+            // 
+            // mitZatvoreniP
+            // 
+            this.mitZatvoreniP.AutoSize = true;
+            this.mitZatvoreniP.Location = new System.Drawing.Point(496, 159);
+            this.mitZatvoreniP.Name = "mitZatvoreniP";
+            this.mitZatvoreniP.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.mitZatvoreniP.Size = new System.Drawing.Size(173, 17);
+            this.mitZatvoreniP.TabIndex = 36;
+            this.mitZatvoreniP.Text = "Miting je u zatvorenom prostoru";
+            this.mitZatvoreniP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mitZatvoreniP.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(534, 241);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(73, 13);
+            this.label36.TabIndex = 34;
+            this.label36.Text = "Odabrani gost";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(481, 347);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(47, 13);
+            this.label35.TabIndex = 33;
+            this.label35.Text = "Funkcija";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(484, 321);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(44, 13);
+            this.label34.TabIndex = 32;
+            this.label34.Text = "Prezime";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(507, 295);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(24, 13);
+            this.label33.TabIndex = 31;
+            this.label33.Text = "Ime";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(495, 269);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(33, 13);
+            this.label32.TabIndex = 30;
+            this.label32.Text = "Titula";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(537, 344);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(191, 20);
+            this.textBox4.TabIndex = 29;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(537, 318);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(191, 20);
+            this.textBox3.TabIndex = 28;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(537, 292);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(191, 20);
+            this.textBox2.TabIndex = 27;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(537, 266);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(191, 20);
+            this.textBox1.TabIndex = 26;
+            // 
+            // lvGosti
+            // 
+            this.lvGosti.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.gosTitula,
+            this.gosIme,
+            this.gosPrezime,
+            this.gosFunkcija});
+            this.lvGosti.Location = new System.Drawing.Point(751, 56);
+            this.lvGosti.Name = "lvGosti";
+            this.lvGosti.Size = new System.Drawing.Size(239, 308);
+            this.lvGosti.TabIndex = 25;
+            this.lvGosti.UseCompatibleStateImageBehavior = false;
+            // 
+            // gosTitula
+            // 
+            this.gosTitula.Text = "Titula";
+            // 
+            // gosIme
+            // 
+            this.gosIme.Text = "Ime";
+            // 
+            // gosPrezime
+            // 
+            this.gosPrezime.Text = "Prezime";
+            // 
+            // gosFunkcija
+            // 
+            this.gosFunkcija.Text = "Funkcija";
+            // 
+            // mitCena
+            // 
+            this.mitCena.Location = new System.Drawing.Point(537, 206);
+            this.mitCena.Name = "mitCena";
+            this.mitCena.Size = new System.Drawing.Size(132, 20);
+            this.mitCena.TabIndex = 24;
+            // 
+            // susPlaniranoVreme
+            // 
+            this.susPlaniranoVreme.CustomFormat = "dd.MM.yyyy.  HH:mm";
+            this.susPlaniranoVreme.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.susPlaniranoVreme.Location = new System.Drawing.Point(537, 133);
+            this.susPlaniranoVreme.Name = "susPlaniranoVreme";
+            this.susPlaniranoVreme.Size = new System.Drawing.Size(132, 20);
+            this.susPlaniranoVreme.TabIndex = 23;
+            // 
+            // labGosti
+            // 
+            this.labGosti.AutoSize = true;
+            this.labGosti.Location = new System.Drawing.Point(748, 29);
+            this.labGosti.Name = "labGosti";
+            this.labGosti.Size = new System.Drawing.Size(82, 13);
+            this.labGosti.TabIndex = 22;
+            this.labGosti.Text = "Gosti na mitingu";
+            // 
+            // labCena
+            // 
+            this.labCena.AutoSize = true;
+            this.labCena.Location = new System.Drawing.Point(395, 209);
+            this.labCena.Name = "labCena";
+            this.labCena.Size = new System.Drawing.Size(133, 13);
+            this.labCena.TabIndex = 21;
+            this.labCena.Text = "Cena iznajmljenog prostora";
+            // 
+            // labIznajm
+            // 
+            this.labIznajm.AutoSize = true;
+            this.labIznajm.Location = new System.Drawing.Point(391, 183);
+            this.labIznajm.Name = "labIznajm";
+            this.labIznajm.Size = new System.Drawing.Size(137, 13);
+            this.labIznajm.TabIndex = 20;
+            this.labIznajm.Text = "Naziv iznajmljivača prostora";
+            // 
+            // labVreme
+            // 
+            this.labVreme.AutoSize = true;
+            this.labVreme.Location = new System.Drawing.Point(400, 133);
+            this.labVreme.Name = "labVreme";
+            this.labVreme.Size = new System.Drawing.Size(128, 13);
+            this.labVreme.TabIndex = 19;
+            this.labVreme.Text = "Termin planiranog susreta";
+            // 
+            // labLok
+            // 
+            this.labLok.AutoSize = true;
+            this.labLok.Location = new System.Drawing.Point(450, 110);
+            this.labLok.Name = "labLok";
+            this.labLok.Size = new System.Drawing.Size(78, 13);
+            this.labLok.TabIndex = 18;
+            this.labLok.Text = "Lokacija akcije";
+            // 
+            // labGrad
+            // 
+            this.labGrad.AutoSize = true;
+            this.labGrad.Location = new System.Drawing.Point(467, 83);
+            this.labGrad.Name = "labGrad";
+            this.labGrad.Size = new System.Drawing.Size(61, 13);
+            this.labGrad.TabIndex = 17;
+            this.labGrad.Text = "Grad akcije";
+            // 
+            // labNaziv
+            // 
+            this.labNaziv.AutoSize = true;
+            this.labNaziv.Location = new System.Drawing.Point(463, 59);
+            this.labNaziv.Name = "labNaziv";
+            this.labNaziv.Size = new System.Drawing.Size(65, 13);
+            this.labNaziv.TabIndex = 16;
+            this.labNaziv.Text = "Naziv akcije";
+            // 
             // btnUpdGuest
             // 
             this.btnUpdGuest.ForeColor = System.Drawing.Color.LightSlateGray;
@@ -1460,7 +1675,7 @@ namespace Izbori
             this.gmesto.ForeColor = System.Drawing.Color.AliceBlue;
             this.gmesto.Location = new System.Drawing.Point(4, 22);
             this.gmesto.Name = "gmesto";
-            this.gmesto.Size = new System.Drawing.Size(957, 609);
+            this.gmesto.Size = new System.Drawing.Size(998, 609);
             this.gmesto.TabIndex = 5;
             this.gmesto.Text = "Glasačka mesta";
             // 
@@ -1686,7 +1901,7 @@ namespace Izbori
             this.mediji.Controls.Add(this.listaPojavljivanja);
             this.mediji.Location = new System.Drawing.Point(4, 22);
             this.mediji.Name = "mediji";
-            this.mediji.Size = new System.Drawing.Size(957, 609);
+            this.mediji.Size = new System.Drawing.Size(998, 609);
             this.mediji.TabIndex = 2;
             this.mediji.Text = "Kandidat u medijima";
             // 
@@ -2095,7 +2310,7 @@ namespace Izbori
             this.propaganda.Controls.Add(this.propagandaListView);
             this.propaganda.Location = new System.Drawing.Point(4, 22);
             this.propaganda.Name = "propaganda";
-            this.propaganda.Size = new System.Drawing.Size(957, 609);
+            this.propaganda.Size = new System.Drawing.Size(998, 609);
             this.propaganda.TabIndex = 3;
             this.propaganda.Text = "Propaganda";
             // 
@@ -2416,224 +2631,9 @@ namespace Izbori
             this.sve.Location = new System.Drawing.Point(4, 22);
             this.sve.Name = "sve";
             this.sve.Padding = new System.Windows.Forms.Padding(3);
-            this.sve.Size = new System.Drawing.Size(957, 609);
+            this.sve.Size = new System.Drawing.Size(998, 609);
             this.sve.TabIndex = 0;
             this.sve.Text = "Sva dugmad";
-            // 
-            // labNaziv
-            // 
-            this.labNaziv.AutoSize = true;
-            this.labNaziv.Location = new System.Drawing.Point(463, 59);
-            this.labNaziv.Name = "labNaziv";
-            this.labNaziv.Size = new System.Drawing.Size(65, 13);
-            this.labNaziv.TabIndex = 16;
-            this.labNaziv.Text = "Naziv akcije";
-            // 
-            // labGrad
-            // 
-            this.labGrad.AutoSize = true;
-            this.labGrad.Location = new System.Drawing.Point(467, 83);
-            this.labGrad.Name = "labGrad";
-            this.labGrad.Size = new System.Drawing.Size(61, 13);
-            this.labGrad.TabIndex = 17;
-            this.labGrad.Text = "Grad akcije";
-            // 
-            // labLok
-            // 
-            this.labLok.AutoSize = true;
-            this.labLok.Location = new System.Drawing.Point(450, 110);
-            this.labLok.Name = "labLok";
-            this.labLok.Size = new System.Drawing.Size(78, 13);
-            this.labLok.TabIndex = 18;
-            this.labLok.Text = "Lokacija akcije";
-            // 
-            // labVreme
-            // 
-            this.labVreme.AutoSize = true;
-            this.labVreme.Location = new System.Drawing.Point(400, 133);
-            this.labVreme.Name = "labVreme";
-            this.labVreme.Size = new System.Drawing.Size(128, 13);
-            this.labVreme.TabIndex = 19;
-            this.labVreme.Text = "Termin planiranog susreta";
-            // 
-            // labIznajm
-            // 
-            this.labIznajm.AutoSize = true;
-            this.labIznajm.Location = new System.Drawing.Point(391, 183);
-            this.labIznajm.Name = "labIznajm";
-            this.labIznajm.Size = new System.Drawing.Size(137, 13);
-            this.labIznajm.TabIndex = 20;
-            this.labIznajm.Text = "Naziv iznajmljivača prostora";
-            // 
-            // labCena
-            // 
-            this.labCena.AutoSize = true;
-            this.labCena.Location = new System.Drawing.Point(395, 209);
-            this.labCena.Name = "labCena";
-            this.labCena.Size = new System.Drawing.Size(133, 13);
-            this.labCena.TabIndex = 21;
-            this.labCena.Text = "Cena iznajmljenog prostora";
-            // 
-            // labGosti
-            // 
-            this.labGosti.AutoSize = true;
-            this.labGosti.Location = new System.Drawing.Point(748, 29);
-            this.labGosti.Name = "labGosti";
-            this.labGosti.Size = new System.Drawing.Size(82, 13);
-            this.labGosti.TabIndex = 22;
-            this.labGosti.Text = "Gosti na mitingu";
-            // 
-            // susPlaniranoVreme
-            // 
-            this.susPlaniranoVreme.CustomFormat = "dd.MM.yyyy.  HH:mm";
-            this.susPlaniranoVreme.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.susPlaniranoVreme.Location = new System.Drawing.Point(537, 133);
-            this.susPlaniranoVreme.Name = "susPlaniranoVreme";
-            this.susPlaniranoVreme.Size = new System.Drawing.Size(132, 20);
-            this.susPlaniranoVreme.TabIndex = 23;
-            // 
-            // mitCena
-            // 
-            this.mitCena.Location = new System.Drawing.Point(537, 206);
-            this.mitCena.Name = "mitCena";
-            this.mitCena.Size = new System.Drawing.Size(132, 20);
-            this.mitCena.TabIndex = 24;
-            // 
-            // lvGosti
-            // 
-            this.lvGosti.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.gosTitula,
-            this.gosIme,
-            this.gosPrezime,
-            this.gosFunkcija});
-            this.lvGosti.Location = new System.Drawing.Point(751, 56);
-            this.lvGosti.Name = "lvGosti";
-            this.lvGosti.Size = new System.Drawing.Size(239, 308);
-            this.lvGosti.TabIndex = 25;
-            this.lvGosti.UseCompatibleStateImageBehavior = false;
-            // 
-            // gosTitula
-            // 
-            this.gosTitula.Text = "Titula";
-            // 
-            // gosIme
-            // 
-            this.gosIme.Text = "Ime";
-            // 
-            // gosPrezime
-            // 
-            this.gosPrezime.Text = "Prezime";
-            // 
-            // gosFunkcija
-            // 
-            this.gosFunkcija.Text = "Funkcija";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(537, 266);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 26;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(537, 292);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 20);
-            this.textBox2.TabIndex = 27;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(537, 318);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 28;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(537, 344);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 20);
-            this.textBox4.TabIndex = 29;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(495, 269);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(33, 13);
-            this.label32.TabIndex = 30;
-            this.label32.Text = "Titula";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(507, 295);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(24, 13);
-            this.label33.TabIndex = 31;
-            this.label33.Text = "Ime";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(484, 321);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(44, 13);
-            this.label34.TabIndex = 32;
-            this.label34.Text = "Prezime";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(481, 347);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(47, 13);
-            this.label35.TabIndex = 33;
-            this.label35.Text = "Funkcija";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(534, 241);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(73, 13);
-            this.label36.TabIndex = 34;
-            this.label36.Text = "Odabrani gost";
-            // 
-            // mitZatvoreniP
-            // 
-            this.mitZatvoreniP.AutoSize = true;
-            this.mitZatvoreniP.Location = new System.Drawing.Point(496, 159);
-            this.mitZatvoreniP.Name = "mitZatvoreniP";
-            this.mitZatvoreniP.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.mitZatvoreniP.Size = new System.Drawing.Size(173, 17);
-            this.mitZatvoreniP.TabIndex = 36;
-            this.mitZatvoreniP.Text = "Miting je u zatvorenom prostoru";
-            this.mitZatvoreniP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mitZatvoreniP.UseVisualStyleBackColor = true;
-            // 
-            // delObr
-            // 
-            this.delObr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delObr.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.delObr.Location = new System.Drawing.Point(704, 107);
-            this.delObr.Name = "delObr";
-            this.delObr.Size = new System.Drawing.Size(24, 23);
-            this.delObr.TabIndex = 48;
-            this.delObr.Text = "-";
-            this.delObr.UseVisualStyleBackColor = true;
-            // 
-            // delDodaj
-            // 
-            this.delDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delDodaj.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.delDodaj.Location = new System.Drawing.Point(676, 107);
-            this.delDodaj.Name = "delDodaj";
-            this.delDodaj.Size = new System.Drawing.Size(24, 23);
-            this.delDodaj.TabIndex = 47;
-            this.delDodaj.Text = "+";
-            this.delDodaj.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
