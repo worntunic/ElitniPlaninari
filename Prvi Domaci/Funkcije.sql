@@ -108,6 +108,26 @@ drop table "S14665"."SUSRETKANDIDATA" cascade constraints;
 drop table "S14665"."TVDUEL" cascade constraints;
 drop table "S14665"."TVRADIOGOST" cascade constraints;
 drop table "S14665"."TVRADIOREKLAMA" cascade constraints;
+drop table "S14665"."POJAVLJIVANJAPK" cascade constraints;
+drop table "S14665"."REKLAMA" cascade constraints;
+drop sequence "S14665"."AKCIJA_TG";
+drop sequence "S14665"."AKTIVISTA_TG";
+drop sequence "S14665"."AKTIVNOSTIAKTIVISTA_TG";
+drop sequence "S14665"."BRTEL_TG";
+drop sequence "S14665"."EMAIL_TG";
+drop sequence "S14665"."GOST_TG";
+drop sequence "S14665"."LOKACIJADELJENJALETAKA_TG";
+drop sequence "S14665"."LOKACIJADL_TG";
+drop sequence "S14665"."MESTO_TG";
+drop sequence "S14665"."NOVINARIIZNOVINA_TG";
+drop sequence "S14665"."NOVINE_TG";
+drop sequence "S14665"."PITANJATVDUEL_TG";
+drop sequence "S14665"."POJAVLJIVANJAPK_TG";
+drop sequence "S14665"."PRIMEDBE_TG";
+drop sequence "S14665"."PROTIVKANDIDATITVDUEL_TG";
+drop sequence "S14665"."REKLAMA_TG";
+drop sequence "S14665"."REZULTATIIZBORA_TG";
+drop sequence "S14665"."TVRADIO_TG";
 
 
 -- unos koordinatora
