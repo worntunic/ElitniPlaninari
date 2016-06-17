@@ -14,6 +14,8 @@ namespace Izbori.WriteForme
 {
     public partial class NovoPojPKTVRadio : Form
     {
+        public TVRadioGost RetValPoj { get; set; }
+
         public NovoPojPKTVRadio()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace Izbori.WriteForme
             {
                 ses.Transaction.Begin();
 
-                var poj = new TVRadioGost
+                RetValPoj = new TVRadioGost
                 {
                     NazivStanice = tbNazivStanice.Text,
                     NazivEmisije = tbNazivEmisije.Text,
@@ -47,11 +49,11 @@ namespace Izbori.WriteForme
                     Gledanost = int.Parse(tbGledanost.Text)
                 };
 
-                ses.SaveOrUpdate(poj);
-
-                ses.Flush();
+                ses.SaveOrUpdate(RetValPoj);
 
                 ses.Transaction.Commit();
+
+                DialogResult = DialogResult.OK;
 
                 MessageBox.Show("Pojavljivanje predsedničkog kandidata na TV-u ili Radiju je uspešno sačuvano!", "Uspeh!");
             }

@@ -15,6 +15,8 @@ namespace Izbori.WriteForme
 {
     public partial class NovoPojPKNovine : Form
     {
+        public IntervjuNovine RetValPoj { get; set; }
+
         public NovoPojPKNovine()
         {
             InitializeComponent();
@@ -38,25 +40,18 @@ namespace Izbori.WriteForme
             {
                 ses.Transaction.Begin();
 
-                var poj = new IntervjuNovine
+                RetValPoj= new IntervjuNovine
                 {
                     NazivLista = tbNazivLista.Text,
                     DatumIntervjua = dateIntervjua.Value.Date,
                     DatumObjavljivanja= dateObjavljivanja.Value.Date
                 };
 
-                ses.Save(poj);
-                foreach (string x in cbNovinari.Items)
-                {
-                    var novinar = new NovinariIzNovina()
-                    {
-                        IDIntervjua = poj,
-                        ImeNovinara = x
-                    };
-                    ses.Save(novinar);
-                }
+                ses.SaveOrUpdate(RetValPoj);
 
                 ses.Transaction.Commit();
+
+                DialogResult = DialogResult.OK;
 
                 MessageBox.Show("Pojavljivanje predsedničkog kandidata u novinama je uspešno sačuvano!", "Uspeh!");
             }
@@ -69,22 +64,6 @@ namespace Izbori.WriteForme
             {
                 ses.Close();
             }
-        }
-
-        private void btnAddNovinar_Click(object sender, EventArgs e)
-        {
-            if (!cbNovinari.Text.Length.Equals(0))
-            {
-                cbNovinari.Items.Add(cbNovinari.Text);
-                cbNovinari.Text = "";
-            }
-            else
-                SystemSounds.Beep.Play();
-        }
-
-        private void btnRemoveNovinar_Click(object sender, EventArgs e)
-        {
-            cbNovinari.Items.Remove(cbNovinari.SelectedItem);
         }
     }
 }

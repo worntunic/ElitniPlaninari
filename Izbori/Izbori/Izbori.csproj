@@ -172,6 +172,12 @@
     <Compile Include="WriteForme\NovaPrimedbaAktiviste.Designer.cs">
       <DependentUpon>NovaPrimedbaAktiviste.cs</DependentUpon>
     </Compile>
+    <Compile Include="WriteForme\NovaPropaganda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WriteForme\NovaPropaganda.Designer.cs">
+      <DependentUpon>NovaPropaganda.cs</DependentUpon>
+    </Compile>
     <Compile Include="WriteForme\NovaTVRadioReklama.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NovaPrimedbaAktiviste.resx">
       <DependentUpon>NovaPrimedbaAktiviste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WriteForme\NovaPropaganda.resx">
+      <DependentUpon>NovaPropaganda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NovaTVRadioReklama.resx">
       <DependentUpon>NovaTVRadioReklama.cs</DependentUpon>

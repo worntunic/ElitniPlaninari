@@ -15,6 +15,8 @@ namespace Izbori.WriteForme
 {
     public partial class NovoPojPKTVDuel : Form
     {
+        public TVDuel RetValPoj { get; set; }
+
         public NovoPojPKTVDuel()
         {
             InitializeComponent();
@@ -25,39 +27,7 @@ namespace Izbori.WriteForme
             char ch = e.KeyChar;
             if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
                 e.Handled = true;
-        }
-
-        private void btnAddProtivKandidat_Click(object sender, EventArgs e)
-        {
-            if (!cbProtivKandidati.Text.Length.Equals(0))
-            {
-                cbProtivKandidati.Items.Add(cbProtivKandidati.Text);
-                cbProtivKandidati.Text = "";
-            }
-            else
-                SystemSounds.Beep.Play();
-        }
-
-        private void btnRemoveProtivKandidat_Click(object sender, EventArgs e)
-        {
-            cbProtivKandidati.Items.Remove(cbProtivKandidati.SelectedItem);
-        }
-
-        private void btnAddPitanje_Click(object sender, EventArgs e)
-        {
-            if (!cbPitanja.Text.Length.Equals(0))
-            {
-                cbPitanja.Items.Add(cbPitanja.Text);
-                cbPitanja.Text = "";
-            }
-            else
-                SystemSounds.Beep.Play();
-        }
-
-        private void btnRemovePitanje_Click(object sender, EventArgs e)
-        {
-            cbPitanja.Items.Remove(cbPitanja.SelectedItem);
-        }
+        }        
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -66,13 +36,13 @@ namespace Izbori.WriteForme
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            ISession ses = DataLayer.GetSession();
+            ISession s = DataLayer.GetSession();
 
             try
             {
-                ses.Transaction.Begin();
+                s.Transaction.Begin();
 
-                var poj = new TVDuel
+                RetValPoj = new TVDuel
                 {
                     NazivStanice = tbNazivStanice.Text,
                     NazivEmisije = tbNazivEmisije.Text,
@@ -80,42 +50,22 @@ namespace Izbori.WriteForme
                     Gledanost = int.Parse(tbGledanost.Text)
                 };
 
-                ses.Save(poj);
+                s.SaveOrUpdate(RetValPoj);
 
-                foreach (string x in cbPitanja.Items)
-                {
-                    var pitanje = new PitanjaTVDuel()
-                    {
-                        IDDuela = poj,
-                        Tekst = x
-                    };
-                    ses.Save(pitanje);
-                }
+                s.Transaction.Commit();
 
-                foreach (string x in cbProtivKandidati.Items)
-                {
-                    var protivKandidat = new ProtivKandidatiTVDuel()
-                    {
-                        ImePK = x,
-                        IDDuela = poj
-                    };
-                    ses.Save(protivKandidat);
-                }
-
-                ses.Flush();//Nisam siguran mozda i ne treba flush!
-
-                ses.Transaction.Commit();
+                DialogResult = DialogResult.OK;
 
                 MessageBox.Show("Pojavljivanje predsedničkog kandidata na TV-duelu je uspešno sačuvano!", "Uspeh!");
             }
             catch (Exception ex)
             {
-                ses.Transaction.Rollback();
+                s.Transaction.Rollback();
                 MessageBox.Show(ex.Message);
             }
             finally
             {
-                ses.Close();
+                s.Close();
             }
         }
     }
