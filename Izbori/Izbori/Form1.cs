@@ -2670,9 +2670,10 @@ namespace Izbori {
             if (odabranaAkcija.GetType() == typeof(DeljenjeLetaka))
             {
                 ISession s = DataLayer.GetSession();///TODOR ovo ne umem!
-                DeljenjeLetaka x = s.Load<DeljenjeLetaka>((findAkcWith(akc.NazivAkcije, akc.Grad)).ID);
-
-                foreach (LokacijaDeljenjaLetaka lok in x.LokacijaDeljenjaLetaka)
+                cbLokacija.Items.Clear();
+                DeljenjeLetaka akcDL = s.Load<DeljenjeLetaka>(findAkcWith(akc.NazivAkcije, akc.Grad).ID);
+                List<LokacijaDeljenjaLetaka> listLDL = (List<LokacijaDeljenjaLetaka>)s.QueryOver<LokacijaDeljenjaLetaka>().Where(p => p.DeljenjeLetaka == akcDL).List();
+                foreach (LokacijaDeljenjaLetaka lok in listLDL)
                 {
                     cbLokacija.Items.Add(lok.Lokacija);
                 }
