@@ -31,9 +31,9 @@ namespace Izbori
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -128,18 +128,18 @@ namespace Izbori
             this.label17 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.akcije = new System.Windows.Forms.TabPage();
-            this.delObr = new System.Windows.Forms.Button();
-            this.delDodaj = new System.Windows.Forms.Button();
+            this.btnObrisiLok = new System.Windows.Forms.Button();
+            this.btnDodajLok = new System.Windows.Forms.Button();
             this.mitZatvoreniP = new System.Windows.Forms.CheckBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.labOdabGost = new System.Windows.Forms.Label();
+            this.labFunkcija = new System.Windows.Forms.Label();
+            this.labPrezime = new System.Windows.Forms.Label();
+            this.labIme = new System.Windows.Forms.Label();
+            this.labTitula = new System.Windows.Forms.Label();
+            this.tbFunkcija = new System.Windows.Forms.TextBox();
+            this.tbPrezime = new System.Windows.Forms.TextBox();
+            this.tbIme = new System.Windows.Forms.TextBox();
+            this.tbTitula = new System.Windows.Forms.TextBox();
             this.lvGosti = new System.Windows.Forms.ListView();
             this.gosTitula = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gosIme = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -162,7 +162,7 @@ namespace Izbori
             this.btnDelAkc = new System.Windows.Forms.Button();
             this.btnAddAkc = new System.Windows.Forms.Button();
             this.tbaLokacija = new System.Windows.Forms.TextBox();
-            this.delLokacija = new System.Windows.Forms.ComboBox();
+            this.cbLokacija = new System.Windows.Forms.ComboBox();
             this.tbaGrad = new System.Windows.Forms.TextBox();
             this.tbaNaziv = new System.Windows.Forms.TextBox();
             this.mitIznajmljivac = new System.Windows.Forms.TextBox();
@@ -1244,18 +1244,18 @@ namespace Izbori
             // akcije
             // 
             this.akcije.BackColor = System.Drawing.Color.SlateGray;
-            this.akcije.Controls.Add(this.delObr);
-            this.akcije.Controls.Add(this.delDodaj);
+            this.akcije.Controls.Add(this.btnObrisiLok);
+            this.akcije.Controls.Add(this.btnDodajLok);
             this.akcije.Controls.Add(this.mitZatvoreniP);
-            this.akcije.Controls.Add(this.label36);
-            this.akcije.Controls.Add(this.label35);
-            this.akcije.Controls.Add(this.label34);
-            this.akcije.Controls.Add(this.label33);
-            this.akcije.Controls.Add(this.label32);
-            this.akcije.Controls.Add(this.textBox4);
-            this.akcije.Controls.Add(this.textBox3);
-            this.akcije.Controls.Add(this.textBox2);
-            this.akcije.Controls.Add(this.textBox1);
+            this.akcije.Controls.Add(this.labOdabGost);
+            this.akcije.Controls.Add(this.labFunkcija);
+            this.akcije.Controls.Add(this.labPrezime);
+            this.akcije.Controls.Add(this.labIme);
+            this.akcije.Controls.Add(this.labTitula);
+            this.akcije.Controls.Add(this.tbFunkcija);
+            this.akcije.Controls.Add(this.tbPrezime);
+            this.akcije.Controls.Add(this.tbIme);
+            this.akcije.Controls.Add(this.tbTitula);
             this.akcije.Controls.Add(this.lvGosti);
             this.akcije.Controls.Add(this.mitCena);
             this.akcije.Controls.Add(this.susPlaniranoVreme);
@@ -1274,7 +1274,7 @@ namespace Izbori
             this.akcije.Controls.Add(this.btnDelAkc);
             this.akcije.Controls.Add(this.btnAddAkc);
             this.akcije.Controls.Add(this.tbaLokacija);
-            this.akcije.Controls.Add(this.delLokacija);
+            this.akcije.Controls.Add(this.cbLokacija);
             this.akcije.Controls.Add(this.tbaGrad);
             this.akcije.Controls.Add(this.tbaNaziv);
             this.akcije.Controls.Add(this.mitIznajmljivac);
@@ -1287,27 +1287,29 @@ namespace Izbori
             this.akcije.TabIndex = 4;
             this.akcije.Text = "Predizborne akcije";
             // 
-            // delObr
+            // btnObrisiLok
             // 
-            this.delObr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delObr.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.delObr.Location = new System.Drawing.Point(704, 107);
-            this.delObr.Name = "delObr";
-            this.delObr.Size = new System.Drawing.Size(24, 23);
-            this.delObr.TabIndex = 48;
-            this.delObr.Text = "-";
-            this.delObr.UseVisualStyleBackColor = true;
+            this.btnObrisiLok.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisiLok.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnObrisiLok.Location = new System.Drawing.Point(704, 107);
+            this.btnObrisiLok.Name = "btnObrisiLok";
+            this.btnObrisiLok.Size = new System.Drawing.Size(24, 23);
+            this.btnObrisiLok.TabIndex = 48;
+            this.btnObrisiLok.Text = "-";
+            this.btnObrisiLok.UseVisualStyleBackColor = true;
+            this.btnObrisiLok.Click += new System.EventHandler(this.btnObrisiLok_Click);
             // 
-            // delDodaj
+            // btnDodajLok
             // 
-            this.delDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delDodaj.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.delDodaj.Location = new System.Drawing.Point(676, 107);
-            this.delDodaj.Name = "delDodaj";
-            this.delDodaj.Size = new System.Drawing.Size(24, 23);
-            this.delDodaj.TabIndex = 47;
-            this.delDodaj.Text = "+";
-            this.delDodaj.UseVisualStyleBackColor = true;
+            this.btnDodajLok.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDodajLok.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDodajLok.Location = new System.Drawing.Point(676, 107);
+            this.btnDodajLok.Name = "btnDodajLok";
+            this.btnDodajLok.Size = new System.Drawing.Size(24, 23);
+            this.btnDodajLok.TabIndex = 47;
+            this.btnDodajLok.Text = "+";
+            this.btnDodajLok.UseVisualStyleBackColor = true;
+            this.btnDodajLok.Click += new System.EventHandler(this.btnDodajLok_Click);
             // 
             // mitZatvoreniP
             // 
@@ -1322,78 +1324,78 @@ namespace Izbori
             this.mitZatvoreniP.UseVisualStyleBackColor = true;
             this.mitZatvoreniP.CheckedChanged += new System.EventHandler(this.mitZatvoreniP_CheckedChanged);
             // 
-            // label36
+            // labOdabGost
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(534, 241);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(73, 13);
-            this.label36.TabIndex = 34;
-            this.label36.Text = "Odabrani gost";
+            this.labOdabGost.AutoSize = true;
+            this.labOdabGost.Location = new System.Drawing.Point(534, 241);
+            this.labOdabGost.Name = "labOdabGost";
+            this.labOdabGost.Size = new System.Drawing.Size(73, 13);
+            this.labOdabGost.TabIndex = 34;
+            this.labOdabGost.Text = "Odabrani gost";
             // 
-            // label35
+            // labFunkcija
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(481, 347);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(47, 13);
-            this.label35.TabIndex = 33;
-            this.label35.Text = "Funkcija";
+            this.labFunkcija.AutoSize = true;
+            this.labFunkcija.Location = new System.Drawing.Point(481, 347);
+            this.labFunkcija.Name = "labFunkcija";
+            this.labFunkcija.Size = new System.Drawing.Size(47, 13);
+            this.labFunkcija.TabIndex = 33;
+            this.labFunkcija.Text = "Funkcija";
             // 
-            // label34
+            // labPrezime
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(484, 321);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(44, 13);
-            this.label34.TabIndex = 32;
-            this.label34.Text = "Prezime";
+            this.labPrezime.AutoSize = true;
+            this.labPrezime.Location = new System.Drawing.Point(484, 321);
+            this.labPrezime.Name = "labPrezime";
+            this.labPrezime.Size = new System.Drawing.Size(44, 13);
+            this.labPrezime.TabIndex = 32;
+            this.labPrezime.Text = "Prezime";
             // 
-            // label33
+            // labIme
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(507, 295);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(24, 13);
-            this.label33.TabIndex = 31;
-            this.label33.Text = "Ime";
+            this.labIme.AutoSize = true;
+            this.labIme.Location = new System.Drawing.Point(507, 295);
+            this.labIme.Name = "labIme";
+            this.labIme.Size = new System.Drawing.Size(24, 13);
+            this.labIme.TabIndex = 31;
+            this.labIme.Text = "Ime";
             // 
-            // label32
+            // labTitula
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(495, 269);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(33, 13);
-            this.label32.TabIndex = 30;
-            this.label32.Text = "Titula";
+            this.labTitula.AutoSize = true;
+            this.labTitula.Location = new System.Drawing.Point(495, 269);
+            this.labTitula.Name = "labTitula";
+            this.labTitula.Size = new System.Drawing.Size(33, 13);
+            this.labTitula.TabIndex = 30;
+            this.labTitula.Text = "Titula";
             // 
-            // textBox4
+            // tbFunkcija
             // 
-            this.textBox4.Location = new System.Drawing.Point(537, 344);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 20);
-            this.textBox4.TabIndex = 29;
+            this.tbFunkcija.Location = new System.Drawing.Point(537, 344);
+            this.tbFunkcija.Name = "tbFunkcija";
+            this.tbFunkcija.Size = new System.Drawing.Size(191, 20);
+            this.tbFunkcija.TabIndex = 29;
             // 
-            // textBox3
+            // tbPrezime
             // 
-            this.textBox3.Location = new System.Drawing.Point(537, 318);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 28;
+            this.tbPrezime.Location = new System.Drawing.Point(537, 318);
+            this.tbPrezime.Name = "tbPrezime";
+            this.tbPrezime.Size = new System.Drawing.Size(191, 20);
+            this.tbPrezime.TabIndex = 28;
             // 
-            // textBox2
+            // tbIme
             // 
-            this.textBox2.Location = new System.Drawing.Point(537, 292);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 20);
-            this.textBox2.TabIndex = 27;
+            this.tbIme.Location = new System.Drawing.Point(537, 292);
+            this.tbIme.Name = "tbIme";
+            this.tbIme.Size = new System.Drawing.Size(191, 20);
+            this.tbIme.TabIndex = 27;
             // 
-            // textBox1
+            // tbTitula
             // 
-            this.textBox1.Location = new System.Drawing.Point(537, 266);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 26;
+            this.tbTitula.Location = new System.Drawing.Point(537, 266);
+            this.tbTitula.Name = "tbTitula";
+            this.tbTitula.Size = new System.Drawing.Size(191, 20);
+            this.tbTitula.TabIndex = 26;
             // 
             // lvGosti
             // 
@@ -1407,6 +1409,8 @@ namespace Izbori
             this.lvGosti.Size = new System.Drawing.Size(239, 308);
             this.lvGosti.TabIndex = 25;
             this.lvGosti.UseCompatibleStateImageBehavior = false;
+            this.lvGosti.View = System.Windows.Forms.View.Details;
+            this.lvGosti.SelectedIndexChanged += new System.EventHandler(this.lvGosti_SelectedIndexChanged);
             // 
             // gosTitula
             // 
@@ -1555,6 +1559,7 @@ namespace Izbori
             this.btnUpdAkc.TabIndex = 11;
             this.btnUpdAkc.Text = "Ažuriranje akcije";
             this.btnUpdAkc.UseVisualStyleBackColor = true;
+            this.btnUpdAkc.Click += new System.EventHandler(this.btnUpdAkc_Click);
             // 
             // btnDelAkc
             // 
@@ -1565,6 +1570,7 @@ namespace Izbori
             this.btnDelAkc.TabIndex = 10;
             this.btnDelAkc.Text = "Brisanje akcije";
             this.btnDelAkc.UseVisualStyleBackColor = true;
+            this.btnDelAkc.Click += new System.EventHandler(this.btnDelAkc_Click);
             // 
             // btnAddAkc
             // 
@@ -1579,18 +1585,18 @@ namespace Izbori
             // 
             // tbaLokacija
             // 
-            this.tbaLokacija.Location = new System.Drawing.Point(537, 107);
+            this.tbaLokacija.Location = new System.Drawing.Point(537, 106);
             this.tbaLokacija.Name = "tbaLokacija";
             this.tbaLokacija.Size = new System.Drawing.Size(132, 20);
             this.tbaLokacija.TabIndex = 8;
             // 
-            // delLokacija
+            // cbLokacija
             // 
-            this.delLokacija.FormattingEnabled = true;
-            this.delLokacija.Location = new System.Drawing.Point(537, 106);
-            this.delLokacija.Name = "delLokacija";
-            this.delLokacija.Size = new System.Drawing.Size(132, 21);
-            this.delLokacija.TabIndex = 7;
+            this.cbLokacija.FormattingEnabled = true;
+            this.cbLokacija.Location = new System.Drawing.Point(537, 106);
+            this.cbLokacija.Name = "cbLokacija";
+            this.cbLokacija.Size = new System.Drawing.Size(132, 21);
+            this.cbLokacija.TabIndex = 7;
             // 
             // tbaGrad
             // 
@@ -1628,16 +1634,16 @@ namespace Izbori
             this.lvAkcije.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.akcNaziv,
             this.akcGrad});
-            listViewGroup4.Header = "Miting";
-            listViewGroup4.Name = "akcMiting";
-            listViewGroup5.Header = "Deljenje letaka";
-            listViewGroup5.Name = "akcDeljLet";
-            listViewGroup6.Header = "Susret kandidata";
-            listViewGroup6.Name = "akcSusKand";
+            listViewGroup16.Header = "Miting";
+            listViewGroup16.Name = "akcMiting";
+            listViewGroup17.Header = "Deljenje letaka";
+            listViewGroup17.Name = "akcDeljLet";
+            listViewGroup18.Header = "Susret kandidata";
+            listViewGroup18.Name = "akcSusKand";
             this.lvAkcije.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6});
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18});
             this.lvAkcije.Location = new System.Drawing.Point(30, 56);
             this.lvAkcije.Name = "lvAkcije";
             this.lvAkcije.Size = new System.Drawing.Size(357, 359);
@@ -2835,7 +2841,7 @@ namespace Izbori
         private ColumnHeader gmBB;
         private Label label27;
         private TextBox tbaLokacija;
-        private ComboBox delLokacija;
+        private ComboBox cbLokacija;
         private TextBox tbaGrad;
         private TextBox tbaNaziv;
         private TextBox mitIznajmljivac;
@@ -2861,21 +2867,21 @@ namespace Izbori
         private TextBox mitCena;
         private ListView lvGosti;
         private CheckBox mitZatvoreniP;
-        private Label label36;
-        private Label label35;
-        private Label label34;
-        private Label label33;
-        private Label label32;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Label labOdabGost;
+        private Label labFunkcija;
+        private Label labPrezime;
+        private Label labIme;
+        private Label labTitula;
+        private TextBox tbFunkcija;
+        private TextBox tbPrezime;
+        private TextBox tbIme;
+        private TextBox tbTitula;
         private ColumnHeader gosTitula;
         private ColumnHeader gosIme;
         private ColumnHeader gosPrezime;
         private ColumnHeader gosFunkcija;
-        private Button delObr;
-        private Button delDodaj;
+        private Button btnObrisiLok;
+        private Button btnDodajLok;
         private System.Windows.Forms.Button propBtnDodaj;
         private System.Windows.Forms.Button propBtnObrisi;
         private System.Windows.Forms.Button propBtnAzur;

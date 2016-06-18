@@ -581,9 +581,22 @@ namespace Izbori {
             }
             postaviSirinuSvihKolona(lista);
         }
-        public void ucitajGoste(ListView lista, IList<Gost> akc)
+        public void ucitajGoste(ListView lista, IList<Gost> gost)
         {
-            
+            if (lista.Items.Count != 0)
+            {
+                lista.Items.Clear();
+            }
+            foreach (var g in gost)
+            {
+                ListViewItem item = new ListViewItem(g.Titula);
+
+                item.SubItems.Add(g.Ime);
+                item.SubItems.Add(g.Prezime);
+                item.SubItems.Add(g.Funkcija);
+
+                lista.Items.Add(item);
+            }
         }
         private void ucitajGM(ListView lista, List<GlasackoMesto> lg)
         {
@@ -2501,52 +2514,300 @@ namespace Izbori {
             if (odabranaAkcija.GetType() == typeof(DeljenjeLetaka))
             {
                 showAkcControls("DeljenjeLetaka");
-
+                loadAkcijaData(odabranaAkcija);
             }
             else if (odabranaAkcija.GetType() == typeof(SusretKandidata))
             {
                 showAkcControls("SusretKandidata");
+                loadAkcijaData(odabranaAkcija);
             }
             else if (odabranaAkcija.GetType() == typeof(Miting))
             {
                 showAkcControls("Miting");
+                loadAkcijaData(odabranaAkcija);
+
                 ISession s = DataLayer.GetSession();
                 try
                 {
                     gosti = (List<Gost>)s.QueryOver<Gost>().Where(x => x.Miting == odabranaAkcija).OrderBy(p => p.ID_GOST).Asc.List();
+                    ucitajGoste(lvGosti, gosti);
                 }
                 finally
                 {
-                    ucitajGoste(lvGosti, gosti);
                     s.Close();
                 }                
             }
             else if (odabranaAkcija.GetType() == typeof(MitingZatvoreniP))
             {
                 showAkcControls("MitingZatvoreniP");
+                loadAkcijaData(odabranaAkcija);
+
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    gosti = (List<Gost>)s.QueryOver<Gost>().Where(x => x.Miting == odabranaAkcija).OrderBy(p => p.ID_GOST).Asc.List();
+                    ucitajGoste(lvGosti, gosti);
+                }
+                finally
+                {
+                    s.Close();
+                }
             }
         }
         public void showAkcControls(string tip)
         {
+            labNaziv.Visible = true;
+            tbaNaziv.Visible = true;
+            labGrad.Visible = true;
+            tbaGrad.Visible = true;
+
+            labLok.Visible = true;
+
+            labVreme.Visible = false;
+            susPlaniranoVreme.Visible = false;
+
+            labIznajm.Visible = false;
+            mitIznajmljivac.Visible = false;
+            mitIznajmljivac.Text = "";
+
+            labCena.Visible = false;///JOOOOOOOOOOOOOOOOOOHN CEEEEEEEEENAAAAAAAAAA
+            mitCena.Visible = false;
+            mitCena.Text = "";
+            
+
+            labOdabGost.Visible = false;
+            labTitula.Visible = false;
+            labIme.Visible = false;
+            labPrezime.Visible = false;
+            labFunkcija.Visible = false;
+            tbTitula.Visible = false;
+            tbIme.Visible = false;
+            tbPrezime.Visible = false;
+            tbFunkcija.Visible = false;
+
+            lvGosti.Enabled = false;
+            btnAddGuest.Enabled = false;
+            btnUpdGuest.Enabled = false;
+            btnDelGuest.Enabled = false;
+
             if (tip == "DeljenjeLetaka")
             {
-                tbaLokacija.Visible = false;
-                delLokacija.Visible = true;
-                delDodaj.Visible = true;
-                delObr.Visible = true;
-                lvGosti.Visible = false;
+                cbLokacija.Visible = true;
+                btnDodajLok.Visible = true;
+                btnObrisiLok.Visible = true;
+                tbaLokacija.Visible = false;                
+                mitZatvoreniP.Visible = false;
             }
             else if (tip == "SusretKandidata")
             {
+                cbLokacija.Visible = false;
+                btnDodajLok.Visible = false;
+                btnObrisiLok.Visible = false;
+                tbaLokacija.Visible = true;
+                labVreme.Visible = true;
+                susPlaniranoVreme.Visible = true;
+                mitZatvoreniP.Visible = false;
             }
             else if (tip == "Miting")
             {
-                
+                cbLokacija.Visible = false;
+                btnDodajLok.Visible = false;
+                btnObrisiLok.Visible = false;
+                tbaLokacija.Visible = true;                
+                mitZatvoreniP.Visible = true;
+                mitZatvoreniP.CheckState = CheckState.Unchecked;
+
+                labOdabGost.Visible = true;
+                labTitula.Visible = true;
+                labIme.Visible = true;
+                labPrezime.Visible = true;
+                labFunkcija.Visible = true;
+                tbTitula.Visible = true;
+                tbIme.Visible = true;
+                tbPrezime.Visible = true;
+                tbFunkcija.Visible = true;
+
+                lvGosti.Enabled = true;
+                btnAddGuest.Enabled = true;
+                btnUpdGuest.Enabled = true;
+                btnDelGuest.Enabled = true;
             }
             else if (tip == "MitingZatvoreniP")
             {
+                cbLokacija.Visible = false;
+                btnDodajLok.Visible = false;
+                btnObrisiLok.Visible = false;
+                tbaLokacija.Visible = true;
+                mitZatvoreniP.Visible = true;
+                mitZatvoreniP.CheckState = CheckState.Checked;
+
+                labIznajm.Visible = true;
+                mitIznajmljivac.Visible = true;
+                labCena.Visible = true;
+                mitCena.Visible = true;
+
+                labOdabGost.Visible = true;
+                labTitula.Visible = true;
+                labIme.Visible = true;
+                labPrezime.Visible = true;
+                labFunkcija.Visible = true;
+                tbTitula.Visible = true;
+                tbIme.Visible = true;
+                tbPrezime.Visible = true;
+                tbFunkcija.Visible = true;
+
+                lvGosti.Enabled = true;
+                btnAddGuest.Enabled = true;
+                btnUpdGuest.Enabled = true;
+                btnDelGuest.Enabled = true;
             }
         }
+        public void loadAkcijaData(Akcija akc)
+        {
+            tbaNaziv.Text = akc.NazivAkcije;
+            tbaGrad.Text = akc.Grad;
 
+            if (odabranaAkcija.GetType() == typeof(DeljenjeLetaka))
+            {
+                ISession s = DataLayer.GetSession();///TODOR ovo ne umem!
+                DeljenjeLetaka x = s.Load<DeljenjeLetaka>((findAkcWith(akc.NazivAkcije, akc.Grad)).ID);
+
+                foreach (LokacijaDeljenjaLetaka lok in x.LokacijaDeljenjaLetaka)
+                {
+                    cbLokacija.Items.Add(lok.Lokacija);
+                }
+                s.Close();
+            }
+            else if (odabranaAkcija.GetType() == typeof(SusretKandidata))
+            {
+                tbaLokacija.Text = ((SusretKandidata)akc).Lokacija;
+                susPlaniranoVreme.Value = ((SusretKandidata)akc).PlaniranoVreme;
+            }
+            else if (odabranaAkcija.GetType() == typeof(Miting))
+            {
+                tbaLokacija.Text = ((Miting)akc).Lokacija;
+            }
+            else if (odabranaAkcija.GetType() == typeof(MitingZatvoreniP))
+            {
+                tbaLokacija.Text = ((MitingZatvoreniP)akc).Lokacija;
+                mitIznajmljivac.Text = ((MitingZatvoreniP)akc).NazivIznajmljivaca;
+                mitCena.Text = ((MitingZatvoreniP)akc).Cena.ToString();
+            }
+
+        }
+        private void lvGosti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in ((ListView)sender).SelectedItems)
+            {
+                odabraniGost = findGostWith(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text);
+            }
+
+            tbTitula.Text = odabraniGost.Titula;
+            tbIme.Text = odabraniGost.Ime;
+            tbPrezime.Text = odabraniGost.Prezime;
+            tbFunkcija.Text = odabraniGost.Funkcija;
+        }
+
+        private Gost findGostWith(string x1, string x2, string x3, string x4)
+        {
+            foreach (Gost g in gosti)
+            {
+                if (g.Titula == x1 && g.Ime == x2 && g.Prezime == x3 && g.Funkcija == x4)
+                    return g;
+            }
+            return null;
+        }
+        private void btnDelAkc_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da obrišete izabranu akciju?",
+                "Brisanje akcije", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                obrisi<Akcija>(odabranaAkcija.ID);
+
+                lvAkcije.Items.RemoveAt(sveAkcije.FindIndex(x => x.ID == odabranaAkcija.ID));
+                sveAkcije.Remove(sveAkcije.Find(x => x.ID == odabranaAkcija.ID));
+
+                ucitajAkc(lvAkcije, sveAkcije);
+                odabranaAkcija = null;
+            }
+        }
+        private void btnUpdAkc_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da izmenite izabranu akciju?",
+                "Ažuriranje akcije", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    odabranaAkcija.NazivAkcije = tbaNaziv.Text;
+                    odabranaAkcija.Grad = tbaGrad.Text;                    
+                    if (odabranaAkcija.GetType() == typeof(SusretKandidata))
+                    {
+                        ((SusretKandidata)odabranaAkcija).Lokacija = tbaLokacija.Text;
+                        ((SusretKandidata)odabranaAkcija).PlaniranoVreme = susPlaniranoVreme.Value;
+                    }
+                    else if (odabranaAkcija.GetType() == typeof(Miting))
+                    {
+                        ((Miting)odabranaAkcija).Lokacija = tbaLokacija.Text;
+                    }
+                    else if (odabranaAkcija.GetType() == typeof(MitingZatvoreniP))
+                    {
+                        ((MitingZatvoreniP)odabranaAkcija).Lokacija = tbaLokacija.Text;
+                        ((MitingZatvoreniP)odabranaAkcija).NazivIznajmljivaca = mitIznajmljivac.Text;
+                        ((MitingZatvoreniP)odabranaAkcija).Cena = int.Parse(mitCena.Text);
+                    }
+                    s.SaveOrUpdate(odabranaAkcija);
+
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    ucitajAkc(lvAkcije, sveAkcije);
+                }
+            }
+        }
+        private void btnDodajLok_Click(object sender, EventArgs e)
+        {
+            if (!cbLokacija.Text.Length.Equals(0))
+            {
+                cbLokacija.Items.Add(cbLokacija.Text);
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    var lok = new LokacijaDeljenjaLetaka
+                    {
+                        DeljenjeLetaka = (DeljenjeLetaka)odabranaAkcija,
+                        Lokacija = cbLokacija.Text
+                    };
+                    s.SaveOrUpdate(lok);
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    cbLokacija.Text = "";
+                }
+            }
+            else
+                System.Media.SystemSounds.Beep.Play();
+        }
+        private void btnObrisiLok_Click(object sender, EventArgs e)
+        {
+            if (!cbLokacija.Text.Length.Equals(0))
+            {
+                if (MessageBox.Show("Da li ste sigurni da želite da obrišete sledecu lokaciju: \"" + cbLokacija.Text + "\"?",
+                                 "Brisanje lokacije", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    LokacijaDeljenjaLetaka pk = ((DeljenjeLetaka)odabranaAkcija).LokacijaDeljenjaLetaka.Single(t => t.Lokacija == cbLokacija.Text);
+                    obrisi<LokacijaDeljenjaLetaka>(pk.ID);
+
+                    cbLokacija.Items.Remove(cbLokacija.Text);
+                    cbLokacija.Text = "";
+                }
+            }
+            else
+                System.Media.SystemSounds.Beep.Play();
+        }
     }
 }
