@@ -519,11 +519,9 @@ namespace Izbori {
             }
         }
 
-
         /////////////////////////////////
         /* Odavde krecu nove stvarcice */
         /////////////////////////////////
-
 
         public void ucitajAkt(ListView lista, IList<Aktivista> akt)
         {
@@ -567,8 +565,17 @@ namespace Izbori {
             {
                 ListViewItem item = new ListViewItem(x.NazivAkcije);                
                 item.SubItems.Add(x.Grad);
+
+                if (x.GetType() == typeof(Miting) || x.GetType() == typeof(MitingZatvoreniP))
+                    item.Group = lista.Groups["akcMiting"];
+                else if (x.GetType() == typeof(DeljenjeLetaka))
+                    item.Group = lista.Groups["akcDeljLet"];
+                else if (x.GetType() == typeof(SusretKandidata))
+                    item.Group = lista.Groups["akcSusKand"];
+                
                 lista.Items.Add(item);
             }
+            postaviSirinuSvihKolona(lista);
         }
 
         private void ucitajGM(ListView lista, List<GlasackoMesto> lg)
@@ -621,7 +628,6 @@ namespace Izbori {
             }
             s.Close();
         }
-
         public void osveziPolja(int id) {
             try {
                 ISession s = DataLayer.GetSession();
@@ -1578,7 +1584,7 @@ namespace Izbori {
                     try
                     {
                         odabranoGostovanje = s.Load<TVRadioGost>(int.Parse(item.SubItems[0].Text));
-                }
+                    }
                     finally
                     {
                         s.Close();
@@ -2352,11 +2358,9 @@ namespace Izbori {
                                                         propClndDatumZakupa.SelectionStart.AddDays(broj));
             }
         }
-
         private void propClndDatumZakupa_DateChanged(object sender, DateRangeEventArgs e) {
             propTxtTrajanjeZakupa.Text = (propClndDatumZakupa.SelectionEnd - propClndDatumZakupa.SelectionStart).Days.ToString();
         }
-
         private void button11_Click(object sender, EventArgs e) {
             NovaPropaganda nvprop = new NovaPropaganda();
             nvprop.ShowDialog(this);
@@ -2395,7 +2399,6 @@ namespace Izbori {
                 ses.Close();
             }
         }
-
         private void mitZatvoreniP_CheckedChanged(object sender, EventArgs e)
         {
             if (mitZatvoreniP.CheckState == CheckState.Checked)
@@ -2413,7 +2416,6 @@ namespace Izbori {
                 mitCena.Visible = false;
             }
         }
-
         private void btnObrGM_Click(object sender, EventArgs e)
         {
             if (oGM != null)
@@ -2451,7 +2453,6 @@ namespace Izbori {
                 MessageBox.Show("Morate odabrati barem jedno glasačko mesto.", "Greška");
             }
         }
-
         private void btnPrimedbe_Click(object sender, EventArgs e)
         {
             if(oGM != null)
@@ -2461,6 +2462,52 @@ namespace Izbori {
             } else
             {
                 MessageBox.Show("Morate odabrati barem jedno glasačko mesto.", "Greška");
+            }
+        }
+        private void btnAddAkc_Click(object sender, EventArgs e)
+        {
+            var form = new DodajAkciju();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                sveAkcije.Add(form.RetValAkc);
+                lvAkcije.Items.Clear();
+                ucitajAkc(lvAkcije, sveAkcije);
+            }
+        }
+
+        public Akcija findAkcWith(string naziv, string grad)
+        {            
+            foreach (Akcija x in sveAkcije)
+            {
+                if (x.NazivAkcije == naziv && x.Grad == grad)
+                    return x;
+            }
+            return null;
+        }
+        private void lvAkcije_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in ((ListView)sender).SelectedItems)
+            {
+                odabranaAkcija = findAkcWith(item.SubItems[0].Text, item.SubItems[1].Text);
+            }
+
+            if (odabranaAkcija.GetType() == typeof(DeljenjeLetaka))
+            {
+                tbaLokacija.Visible = false;
+                
+
+            }
+            if (odabranaAkcija.GetType() == typeof(SusretKandidata))
+            {
+
+            }
+            if (odabranaAkcija.GetType() == typeof(Miting))
+            {
+
+            }
+            if (odabranaAkcija.GetType() == typeof(MitingZatvoreniP))
+            {
+
             }
         }
     }

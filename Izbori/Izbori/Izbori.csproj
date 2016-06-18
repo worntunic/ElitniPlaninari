@@ -68,6 +68,12 @@
     <Compile Include="ConnectForme\AktivistaNaGlasacko.Designer.cs">
       <DependentUpon>AktivistaNaGlasacko.cs</DependentUpon>
     </Compile>
+    <Compile Include="DodajAkciju.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajAkciju.Designer.cs">
+      <DependentUpon>DodajAkciju.cs</DependentUpon>
+    </Compile>
     <Compile Include="DodajPomoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </Compile>
     <EmbeddedResource Include="ConnectForme\AktivistaNaGlasacko.resx">
       <DependentUpon>AktivistaNaGlasacko.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajAkciju.resx">
+      <DependentUpon>DodajAkciju.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DodajPomoc.resx">
       <DependentUpon>DodajPomoc.cs</DependentUpon>

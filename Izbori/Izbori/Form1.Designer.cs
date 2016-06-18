@@ -1575,6 +1575,7 @@ namespace Izbori
             this.btnAddAkc.TabIndex = 9;
             this.btnAddAkc.Text = "Dodavanje akcije";
             this.btnAddAkc.UseVisualStyleBackColor = true;
+            this.btnAddAkc.Click += new System.EventHandler(this.btnAddAkc_Click);
             // 
             // tbaLokacija
             // 
@@ -1632,7 +1633,7 @@ namespace Izbori
             listViewGroup5.Header = "Deljenje letaka";
             listViewGroup5.Name = "akcDeljLet";
             listViewGroup6.Header = "Susret kandidata";
-            listViewGroup6.Name = "akcSuskand";
+            listViewGroup6.Name = "akcSusKand";
             this.lvAkcije.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup4,
             listViewGroup5,
@@ -1643,10 +1644,12 @@ namespace Izbori
             this.lvAkcije.TabIndex = 0;
             this.lvAkcije.UseCompatibleStateImageBehavior = false;
             this.lvAkcije.View = System.Windows.Forms.View.Details;
+            this.lvAkcije.SelectedIndexChanged += new System.EventHandler(this.lvAkcije_SelectedIndexChanged);
             // 
             // akcNaziv
             // 
             this.akcNaziv.Text = "Naziv Akcije";
+            this.akcNaziv.Width = 94;
             // 
             // akcGrad
             // 
