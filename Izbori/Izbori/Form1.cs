@@ -36,6 +36,9 @@ namespace Izbori {
         public Akcija odabranaAkcija { get; set; } //konkretna odabrana akcija
         public List<Akcija> sveAkcije { get; set; } //sve akcije
 
+        public Gost odabraniGost { get; set; } //konkretni odabrani gost
+        public List<Gost> gosti { get; set; } //svi gosti
+
         public Form1() {
             InitializeComponent();
             odabrani = null;
@@ -47,6 +50,7 @@ namespace Izbori {
             gostovanja = new List<TVRadioGost>();
             dueli = new List<TVDuel>();
             sveAkcije = new List<Akcija>();
+            gosti = new List<Gost>();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -577,7 +581,10 @@ namespace Izbori {
             }
             postaviSirinuSvihKolona(lista);
         }
-
+        public void ucitajGoste(ListView lista, IList<Gost> akc)
+        {
+            
+        }
         private void ucitajGM(ListView lista, List<GlasackoMesto> lg)
         {
             lista.Items.Clear();
@@ -2493,22 +2500,53 @@ namespace Izbori {
 
             if (odabranaAkcija.GetType() == typeof(DeljenjeLetaka))
             {
-                tbaLokacija.Visible = false;
-                
+                showAkcControls("DeljenjeLetaka");
 
             }
-            if (odabranaAkcija.GetType() == typeof(SusretKandidata))
+            else if (odabranaAkcija.GetType() == typeof(SusretKandidata))
             {
-
+                showAkcControls("SusretKandidata");
             }
-            if (odabranaAkcija.GetType() == typeof(Miting))
+            else if (odabranaAkcija.GetType() == typeof(Miting))
             {
-
+                showAkcControls("Miting");
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    gosti = (List<Gost>)s.QueryOver<Gost>().Where(x => x.Miting == odabranaAkcija).OrderBy(p => p.ID_GOST).Asc.List();
+                }
+                finally
+                {
+                    ucitajGoste(lvGosti, gosti);
+                    s.Close();
+                }                
             }
-            if (odabranaAkcija.GetType() == typeof(MitingZatvoreniP))
+            else if (odabranaAkcija.GetType() == typeof(MitingZatvoreniP))
             {
-
+                showAkcControls("MitingZatvoreniP");
             }
         }
+        public void showAkcControls(string tip)
+        {
+            if (tip == "DeljenjeLetaka")
+            {
+                tbaLokacija.Visible = false;
+                delLokacija.Visible = true;
+                delDodaj.Visible = true;
+                delObr.Visible = true;
+                lvGosti.Visible = false;
+            }
+            else if (tip == "SusretKandidata")
+            {
+            }
+            else if (tip == "Miting")
+            {
+                
+            }
+            else if (tip == "MitingZatvoreniP")
+            {
+            }
+        }
+
     }
 }
