@@ -31,9 +31,9 @@ namespace Izbori
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup25 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -1519,6 +1519,7 @@ namespace Izbori
             this.btnUpdGuest.TabIndex = 15;
             this.btnUpdGuest.Text = "Ažuriranje gosta";
             this.btnUpdGuest.UseVisualStyleBackColor = true;
+            this.btnUpdGuest.Click += new System.EventHandler(this.btnUpdGuest_Click);
             // 
             // btnDelGuest
             // 
@@ -1529,6 +1530,7 @@ namespace Izbori
             this.btnDelGuest.TabIndex = 14;
             this.btnDelGuest.Text = "Brisanje gosta";
             this.btnDelGuest.UseVisualStyleBackColor = true;
+            this.btnDelGuest.Click += new System.EventHandler(this.btnDelGuest_Click);
             // 
             // btnAngazuj
             // 
@@ -1549,6 +1551,7 @@ namespace Izbori
             this.btnAddGuest.TabIndex = 12;
             this.btnAddGuest.Text = "Dodavanje gosta";
             this.btnAddGuest.UseVisualStyleBackColor = true;
+            this.btnAddGuest.Click += new System.EventHandler(this.btnAddGuest_Click);
             // 
             // btnUpdAkc
             // 
@@ -1634,16 +1637,16 @@ namespace Izbori
             this.lvAkcije.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.akcNaziv,
             this.akcGrad});
-            listViewGroup16.Header = "Miting";
-            listViewGroup16.Name = "akcMiting";
-            listViewGroup17.Header = "Deljenje letaka";
-            listViewGroup17.Name = "akcDeljLet";
-            listViewGroup18.Header = "Susret kandidata";
-            listViewGroup18.Name = "akcSusKand";
+            listViewGroup25.Header = "Miting";
+            listViewGroup25.Name = "akcMiting";
+            listViewGroup26.Header = "Deljenje letaka";
+            listViewGroup26.Name = "akcDeljLet";
+            listViewGroup27.Header = "Susret kandidata";
+            listViewGroup27.Name = "akcSusKand";
             this.lvAkcije.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup16,
-            listViewGroup17,
-            listViewGroup18});
+            listViewGroup25,
+            listViewGroup26,
+            listViewGroup27});
             this.lvAkcije.Location = new System.Drawing.Point(30, 56);
             this.lvAkcije.Name = "lvAkcije";
             this.lvAkcije.Size = new System.Drawing.Size(357, 359);

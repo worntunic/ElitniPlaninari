@@ -1,4 +1,5 @@
 ﻿using Izbori.Entiteti;
+using NHibernate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,19 +28,26 @@ namespace Izbori.WriteForme.PomocneForme
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            var gost = new Gost()
+            ISession s = DataLayer.GetSession();
+            try
             {
-                Ime = tbIme.Text,
-                Prezime = tbPrezime.Text,
-                Titula = tbTitula.Text,
-                Funkcija = tbFunkcija.Text
-            };
+                RetValGost = new Gost()
+                {
+                    Ime = tbIme.Text,
+                    Prezime = tbPrezime.Text,
+                    Titula = tbTitula.Text,
+                    Funkcija = tbFunkcija.Text
+                };
+                s.SaveOrUpdate(RetValGost);
 
-            RetValGost = gost;
+                s.Flush();
 
-            DialogResult = DialogResult.OK;            
-
-            Close();
+                DialogResult = DialogResult.OK;
+            }
+            finally
+            {
+                Close();
+            }
         }
     }
 }

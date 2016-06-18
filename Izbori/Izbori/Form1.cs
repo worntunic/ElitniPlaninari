@@ -2809,5 +2809,56 @@ namespace Izbori {
             else
                 System.Media.SystemSounds.Beep.Play();
         }
+        private void btnDelGuest_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da obrišete gosta: \"" + odabraniGost.Ime + " " + odabraniGost.Prezime + "\" sa ovog mitinga?",
+               "Brisanje gosta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                obrisi<Gost>(odabraniGost.ID_GOST);
+
+                lvGosti.Items.RemoveAt(gosti.FindIndex(x => x.ID_GOST == odabraniGost.ID_GOST));
+                gosti.Remove(gosti.Find(x => x.ID_GOST == odabraniGost.ID_GOST));
+
+                ucitajGoste(lvGosti, gosti);
+                odabraniGost = null;
+            }
+        }
+
+        private void btnUpdGuest_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Da li ste sigurni da želite da ažurirate gosta: \"" + odabraniGost.Ime + " " + odabraniGost.Prezime + "\" sa ovog mitinga?",
+               "Brisanje gosta", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                ISession s = DataLayer.GetSession();
+                try
+                {
+                    odabraniGost.Titula = tbTitula.Text;
+                    odabraniGost.Ime = tbIme.Text;
+                    odabraniGost.Prezime = tbPrezime.Text;
+                    odabraniGost.Funkcija = tbFunkcija.Text;
+
+                    s.SaveOrUpdate(odabraniGost);
+
+                    s.Flush();
+                }
+                finally
+                {
+                    s.Close();
+                    ucitajGoste(lvGosti, gosti);
+                }
+            }
+        }
+
+        private void btnAddGuest_Click(object sender, EventArgs e)
+        {
+            var form = new WriteForme.PomocneForme.DodajGosta();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                form.RetValGost.Miting = (Miting)odabranaAkcija;
+                gosti.Add(form.RetValGost);
+                ucitajGoste(lvGosti, gosti);
+                MessageBox.Show("Gost uspešno dodat!", "Uspeh!");
+            }
+        }
     }
 }
