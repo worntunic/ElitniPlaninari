@@ -2701,18 +2701,21 @@ namespace Izbori {
             {
                 odabraniGost = findGostWith(item.SubItems[0].Text, item.SubItems[1].Text, item.SubItems[2].Text, item.SubItems[3].Text);
             }
-
-            tbTitula.Text = odabraniGost.Titula;
-            tbIme.Text = odabraniGost.Ime;
-            tbPrezime.Text = odabraniGost.Prezime;
-            tbFunkcija.Text = odabraniGost.Funkcija;
+            if (odabraniGost != null) {
+                tbTitula.Text = odabraniGost.Titula;
+                tbIme.Text = odabraniGost.Ime;
+                tbPrezime.Text = odabraniGost.Prezime;
+                tbFunkcija.Text = odabraniGost.Funkcija;
+            }
         }
 
         private Gost findGostWith(string x1, string x2, string x3, string x4)
         {
             foreach (Gost g in gosti)
             {
-                if (g.Titula == x1 && g.Ime == x2 && g.Prezime == x3 && g.Funkcija == x4)
+                if ((g.Titula == x1 || (x1 == "" && g.Titula == null)) &&
+                    g.Ime == x2 && g.Prezime == x3 &&
+                    (g.Funkcija == x4 || (x4 == "" && g.Funkcija == null)))
                     return g;
             }
             return null;

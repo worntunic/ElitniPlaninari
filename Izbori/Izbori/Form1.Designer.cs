@@ -31,9 +31,9 @@ namespace Izbori
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.ListViewGroup listViewGroup25 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
             this.DodajAktivistuBtn = new System.Windows.Forms.Button();
             this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
             this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
@@ -1404,6 +1404,7 @@ namespace Izbori
             this.gosIme,
             this.gosPrezime,
             this.gosFunkcija});
+            this.lvGosti.FullRowSelect = true;
             this.lvGosti.Location = new System.Drawing.Point(751, 56);
             this.lvGosti.Name = "lvGosti";
             this.lvGosti.Size = new System.Drawing.Size(239, 308);
@@ -1637,16 +1638,17 @@ namespace Izbori
             this.lvAkcije.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.akcNaziv,
             this.akcGrad});
-            listViewGroup25.Header = "Miting";
-            listViewGroup25.Name = "akcMiting";
-            listViewGroup26.Header = "Deljenje letaka";
-            listViewGroup26.Name = "akcDeljLet";
-            listViewGroup27.Header = "Susret kandidata";
-            listViewGroup27.Name = "akcSusKand";
+            this.lvAkcije.FullRowSelect = true;
+            listViewGroup1.Header = "Miting";
+            listViewGroup1.Name = "akcMiting";
+            listViewGroup2.Header = "Deljenje letaka";
+            listViewGroup2.Name = "akcDeljLet";
+            listViewGroup3.Header = "Susret kandidata";
+            listViewGroup3.Name = "akcSusKand";
             this.lvAkcije.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup25,
-            listViewGroup26,
-            listViewGroup27});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3});
             this.lvAkcije.Location = new System.Drawing.Point(30, 56);
             this.lvAkcije.Name = "lvAkcije";
             this.lvAkcije.Size = new System.Drawing.Size(357, 359);
