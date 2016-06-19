@@ -2300,9 +2300,6 @@ namespace Izbori
         private System.Windows.Forms.TextBox tbImeVoditelja;
         private System.Windows.Forms.TextBox tbNazivEmisije;
         private System.Windows.Forms.TextBox tbNazivStanice;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
         private ColumnHeader gmIme;
         private ColumnHeader brGM;
         private ColumnHeader gmBB;

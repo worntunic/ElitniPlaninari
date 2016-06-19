@@ -148,65 +148,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WriteForme\NovaAkcDeljenjaLetaka.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaAkcDeljenjaLetaka.Designer.cs">
-      <DependentUpon>NovaAkcDeljenjaLetaka.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NovaAkcMitinga.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaAkcMitinga.Designer.cs">
-      <DependentUpon>NovaAkcMitinga.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NovaAkcSusretaKandidata.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaAkcSusretaKandidata.Designer.cs">
-      <DependentUpon>NovaAkcSusretaKandidata.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NovaNovineReklama.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaNovineReklama.Designer.cs">
-      <DependentUpon>NovaNovineReklama.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NovaPanoReklama.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaPanoReklama.Designer.cs">
-      <DependentUpon>NovaPanoReklama.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NovaPrimedbaAktiviste.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaPrimedbaAktiviste.Designer.cs">
-      <DependentUpon>NovaPrimedbaAktiviste.cs</DependentUpon>
-    </Compile>
     <Compile Include="WriteForme\NovaPropaganda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WriteForme\NovaPropaganda.Designer.cs">
       <DependentUpon>NovaPropaganda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NovaTVRadioReklama.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NovaTVRadioReklama.Designer.cs">
-      <DependentUpon>NovaTVRadioReklama.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NoviAktivista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NoviAktivista.Designer.cs">
-      <DependentUpon>NoviAktivista.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteForme\NoviGostNaMitingu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\NoviGostNaMitingu.Designer.cs">
-      <DependentUpon>NoviGostNaMitingu.cs</DependentUpon>
     </Compile>
     <Compile Include="WriteForme\NoviRezultatIzbora.cs">
       <SubType>Form</SubType>
@@ -250,12 +196,6 @@
     <Compile Include="WriteForme\PomocneForme\DodajTekstPrimedbe.Designer.cs">
       <DependentUpon>DodajTekstPrimedbe.cs</DependentUpon>
     </Compile>
-    <Compile Include="WriteForme\UnaprediUKoordinatora.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteForme\UnaprediUKoordinatora.Designer.cs">
-      <DependentUpon>UnaprediUKoordinatora.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ConnectForme\AktivistaNaGlasacko.resx">
       <DependentUpon>AktivistaNaGlasacko.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,35 +223,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WriteForme\NovaAkcDeljenjaLetaka.resx">
-      <DependentUpon>NovaAkcDeljenjaLetaka.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NovaAkcMitinga.resx">
-      <DependentUpon>NovaAkcMitinga.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NovaAkcSusretaKandidata.resx">
-      <DependentUpon>NovaAkcSusretaKandidata.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NovaNovineReklama.resx">
-      <DependentUpon>NovaNovineReklama.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NovaPanoReklama.resx">
-      <DependentUpon>NovaPanoReklama.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NovaPrimedbaAktiviste.resx">
-      <DependentUpon>NovaPrimedbaAktiviste.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NovaPropaganda.resx">
       <DependentUpon>NovaPropaganda.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NovaTVRadioReklama.resx">
-      <DependentUpon>NovaTVRadioReklama.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NoviAktivista.resx">
-      <DependentUpon>NoviAktivista.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\NoviGostNaMitingu.resx">
-      <DependentUpon>NoviGostNaMitingu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\NoviRezultatIzbora.resx">
       <DependentUpon>NoviRezultatIzbora.cs</DependentUpon>
@@ -333,9 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WriteForme\PomocneForme\DodajTekstPrimedbe.resx">
       <DependentUpon>DodajTekstPrimedbe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteForme\UnaprediUKoordinatora.resx">
-      <DependentUpon>UnaprediUKoordinatora.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

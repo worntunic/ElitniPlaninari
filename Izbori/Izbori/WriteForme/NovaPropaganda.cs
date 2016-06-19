@@ -86,7 +86,7 @@ namespace Izbori.WriteForme {
             }
         }
         public void allowCreationOfPropaganda() {
-            int tmp, tmp2;
+            int tmp;
             button1.Enabled = ((propRBNovine.Checked || propRBPano.Checked || propRBTVRad.Checked)
                 && int.TryParse(propTxtCenaZakupa.Text, out tmp) && int.TryParse(propTxtTrajanjeZakupa.Text, out tmp)
                 && propClndDatumZakupa.SelectionStart != null);
