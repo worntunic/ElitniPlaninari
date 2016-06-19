@@ -97,6 +97,22 @@ namespace Izbori
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
+            var enabledTB = ((Form1)Owner).GetAll(this, typeof(TextBox));
+            enabledTB = enabledTB.Where(tb => tb.Visible == true);
+            bool nesve = false;
+            foreach(var etb in enabledTB)
+            {
+                if(etb.Text == "")
+                {
+                    nesve = true;
+                    break;
+                }
+            }
+            if (nesve)
+            {
+                MessageBox.Show("Morate popuniti sva polja!", "Greška");
+                return;
+            }
             ISession s = DataLayer.GetSession();
             try
             {
@@ -125,18 +141,6 @@ namespace Izbori
                 }
                 else if (rBtnMiting.Checked == true && cbZatProst.CheckState == CheckState.Checked)
                 {
-                    RetValAkc = new Miting
-                    {
-                        NazivAkcije = tbNazivAkcije.Text,
-                        Grad = tbGrad.Text,
-                        Lokacija = tbLokacija.Text
-                    };
-                    s.SaveOrUpdate(RetValAkc);
-                    DialogResult = DialogResult.OK;
-                    MessageBox.Show("Akcija mitinga je uspesno dodata!", "Uspeh!");
-                }
-                else if (rBtnMiting.Checked == true && cbZatProst.CheckState == CheckState.Unchecked)
-                {
                     RetValAkc = new MitingZatvoreniP
                     {
                         NazivAkcije = tbNazivAkcije.Text,
@@ -149,10 +153,26 @@ namespace Izbori
                     DialogResult = DialogResult.OK;
                     MessageBox.Show("Akcija mitinga u zatvorenom prostoru je uspesno dodata!", "Uspeh!");
                 }
+                else if (rBtnMiting.Checked == true && cbZatProst.CheckState == CheckState.Unchecked)
+                {
+                    RetValAkc = new Miting
+                    {
+                        NazivAkcije = tbNazivAkcije.Text,
+                        Grad = tbGrad.Text,
+                        Lokacija = tbLokacija.Text
+                    };
+                    s.SaveOrUpdate(RetValAkc);
+                    DialogResult = DialogResult.OK;
+                    MessageBox.Show("Akcija mitinga je uspesno dodata!", "Uspeh!");
+                }
                 else
                 {
                     MessageBox.Show("Izaberite jednu od vrsta akcija iznad!","Greska");
                 }                    
+            }
+            catch(System.FormatException ex)
+            {
+                MessageBox.Show("Morate popuniti sva polja!", "Greška");
             }
             catch (Exception ex)
             {

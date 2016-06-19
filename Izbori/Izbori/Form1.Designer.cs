@@ -34,46 +34,6 @@ namespace Izbori
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Miting", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Deljenje letaka", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Susret kandidata", System.Windows.Forms.HorizontalAlignment.Left);
-            this.DodajAktivistuBtn = new System.Windows.Forms.Button();
-            this.DodajKoordinatoraBtn = new System.Windows.Forms.Button();
-            this.DodeliPomocnikeBtn = new System.Windows.Forms.Button();
-            this.AkcDeljLetBtn = new System.Windows.Forms.Button();
-            this.AkcSusKand = new System.Windows.Forms.Button();
-            this.AkcMitBtn = new System.Windows.Forms.Button();
-            this.GostMitBtn = new System.Windows.Forms.Button();
-            this.ReklPanoBtn = new System.Windows.Forms.Button();
-            this.ReklNovineBtn = new System.Windows.Forms.Button();
-            this.ReklTVRadioBtn = new System.Windows.Forms.Button();
-            this.PojPKNovineBtn = new System.Windows.Forms.Button();
-            this.PojPKTVRadBtn = new System.Windows.Forms.Button();
-            this.PojPKTVDuelBtn = new System.Windows.Forms.Button();
-            this.AngAktnaGMBtn = new System.Windows.Forms.Button();
-            this.GlasackoMestoBtn = new System.Windows.Forms.Button();
-            this.RezIzbBtn = new System.Windows.Forms.Button();
-            this.AkcijaAktivistiBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ShowActv = new System.Windows.Forms.Button();
-            this.ShowCoord = new System.Windows.Forms.Button();
-            this.AddNote = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.ShowReklTVRadioBtn = new System.Windows.Forms.Button();
-            this.ShowReklNovineBtn = new System.Windows.Forms.Button();
-            this.ShowReklPanoBtn = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label24 = new System.Windows.Forms.Label();
@@ -256,7 +216,6 @@ namespace Izbori
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sve = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.aktKoord.SuspendLayout();
@@ -264,432 +223,7 @@ namespace Izbori
             this.gmesto.SuspendLayout();
             this.mediji.SuspendLayout();
             this.propaganda.SuspendLayout();
-            this.sve.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // DodajAktivistuBtn
-            // 
-            this.DodajAktivistuBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.DodajAktivistuBtn.Location = new System.Drawing.Point(34, 51);
-            this.DodajAktivistuBtn.Name = "DodajAktivistuBtn";
-            this.DodajAktivistuBtn.Size = new System.Drawing.Size(182, 23);
-            this.DodajAktivistuBtn.TabIndex = 0;
-            this.DodajAktivistuBtn.Text = "Dodaj aktivistu";
-            this.DodajAktivistuBtn.UseVisualStyleBackColor = true;
-            this.DodajAktivistuBtn.Click += new System.EventHandler(this.DodajAktivistuBtn_Click);
-            // 
-            // DodajKoordinatoraBtn
-            // 
-            this.DodajKoordinatoraBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.DodajKoordinatoraBtn.Location = new System.Drawing.Point(34, 157);
-            this.DodajKoordinatoraBtn.Name = "DodajKoordinatoraBtn";
-            this.DodajKoordinatoraBtn.Size = new System.Drawing.Size(182, 23);
-            this.DodajKoordinatoraBtn.TabIndex = 1;
-            this.DodajKoordinatoraBtn.Text = "Dodaj koordinatora";
-            this.DodajKoordinatoraBtn.UseVisualStyleBackColor = true;
-            this.DodajKoordinatoraBtn.Click += new System.EventHandler(this.DodajKoordinatoraBtn_Click);
-            // 
-            // DodeliPomocnikeBtn
-            // 
-            this.DodeliPomocnikeBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.DodeliPomocnikeBtn.Location = new System.Drawing.Point(34, 215);
-            this.DodeliPomocnikeBtn.Name = "DodeliPomocnikeBtn";
-            this.DodeliPomocnikeBtn.Size = new System.Drawing.Size(182, 23);
-            this.DodeliPomocnikeBtn.TabIndex = 2;
-            this.DodeliPomocnikeBtn.Text = "Dodeli pomocnike koordinatora";
-            this.DodeliPomocnikeBtn.UseVisualStyleBackColor = true;
-            this.DodeliPomocnikeBtn.Click += new System.EventHandler(this.DodeliPomocnikeBtn_Click);
-            // 
-            // AkcDeljLetBtn
-            // 
-            this.AkcDeljLetBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.AkcDeljLetBtn.Location = new System.Drawing.Point(243, 51);
-            this.AkcDeljLetBtn.Name = "AkcDeljLetBtn";
-            this.AkcDeljLetBtn.Size = new System.Drawing.Size(182, 23);
-            this.AkcDeljLetBtn.TabIndex = 3;
-            this.AkcDeljLetBtn.Text = "Dodaj Akciju Deljenja letaka";
-            this.AkcDeljLetBtn.UseVisualStyleBackColor = true;
-            this.AkcDeljLetBtn.Click += new System.EventHandler(this.AkcDeljLetBtn_Click);
-            // 
-            // AkcSusKand
-            // 
-            this.AkcSusKand.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.AkcSusKand.Location = new System.Drawing.Point(243, 157);
-            this.AkcSusKand.Name = "AkcSusKand";
-            this.AkcSusKand.Size = new System.Drawing.Size(182, 23);
-            this.AkcSusKand.TabIndex = 4;
-            this.AkcSusKand.Text = "Dodaj Akciju Susreta Kandidata";
-            this.AkcSusKand.UseVisualStyleBackColor = true;
-            this.AkcSusKand.Click += new System.EventHandler(this.AkcSusKand_Click);
-            // 
-            // AkcMitBtn
-            // 
-            this.AkcMitBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.AkcMitBtn.Location = new System.Drawing.Point(34, 456);
-            this.AkcMitBtn.Name = "AkcMitBtn";
-            this.AkcMitBtn.Size = new System.Drawing.Size(182, 23);
-            this.AkcMitBtn.TabIndex = 5;
-            this.AkcMitBtn.Text = "Dodaj Akciju Mitinga";
-            this.AkcMitBtn.UseVisualStyleBackColor = true;
-            this.AkcMitBtn.Click += new System.EventHandler(this.AkcMitBtn_Click);
-            // 
-            // GostMitBtn
-            // 
-            this.GostMitBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.GostMitBtn.Location = new System.Drawing.Point(34, 485);
-            this.GostMitBtn.Name = "GostMitBtn";
-            this.GostMitBtn.Size = new System.Drawing.Size(182, 23);
-            this.GostMitBtn.TabIndex = 6;
-            this.GostMitBtn.Text = "Dodaj Gosta na Mitingu";
-            this.GostMitBtn.UseVisualStyleBackColor = true;
-            this.GostMitBtn.Click += new System.EventHandler(this.GostMitBtn_Click);
-            // 
-            // ReklPanoBtn
-            // 
-            this.ReklPanoBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ReklPanoBtn.Location = new System.Drawing.Point(243, 379);
-            this.ReklPanoBtn.Name = "ReklPanoBtn";
-            this.ReklPanoBtn.Size = new System.Drawing.Size(182, 23);
-            this.ReklPanoBtn.TabIndex = 7;
-            this.ReklPanoBtn.Text = "Dodaj Reklamu na Panou";
-            this.ReklPanoBtn.UseVisualStyleBackColor = true;
-            this.ReklPanoBtn.Click += new System.EventHandler(this.ReklPanoBtn_Click);
-            // 
-            // ReklNovineBtn
-            // 
-            this.ReklNovineBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ReklNovineBtn.Location = new System.Drawing.Point(243, 321);
-            this.ReklNovineBtn.Name = "ReklNovineBtn";
-            this.ReklNovineBtn.Size = new System.Drawing.Size(182, 23);
-            this.ReklNovineBtn.TabIndex = 8;
-            this.ReklNovineBtn.Text = "Dodaj Reklamu u Novinama";
-            this.ReklNovineBtn.UseVisualStyleBackColor = true;
-            this.ReklNovineBtn.Click += new System.EventHandler(this.ReklNovineBtn_Click);
-            // 
-            // ReklTVRadioBtn
-            // 
-            this.ReklTVRadioBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ReklTVRadioBtn.Location = new System.Drawing.Point(243, 263);
-            this.ReklTVRadioBtn.Name = "ReklTVRadioBtn";
-            this.ReklTVRadioBtn.Size = new System.Drawing.Size(182, 23);
-            this.ReklTVRadioBtn.TabIndex = 9;
-            this.ReklTVRadioBtn.Text = "Dodaj TV/Radio Reklamu";
-            this.ReklTVRadioBtn.UseVisualStyleBackColor = true;
-            this.ReklTVRadioBtn.Click += new System.EventHandler(this.ReklTVRadioBtn_Click);
-            // 
-            // PojPKNovineBtn
-            // 
-            this.PojPKNovineBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.PojPKNovineBtn.Location = new System.Drawing.Point(472, 186);
-            this.PojPKNovineBtn.Name = "PojPKNovineBtn";
-            this.PojPKNovineBtn.Size = new System.Drawing.Size(379, 23);
-            this.PojPKNovineBtn.TabIndex = 10;
-            this.PojPKNovineBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata u Novinama";
-            this.PojPKNovineBtn.UseVisualStyleBackColor = true;
-            this.PojPKNovineBtn.Click += new System.EventHandler(this.PojPKNovineBtn_Click);
-            // 
-            // PojPKTVRadBtn
-            // 
-            this.PojPKTVRadBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.PojPKTVRadBtn.Location = new System.Drawing.Point(472, 70);
-            this.PojPKTVRadBtn.Name = "PojPKTVRadBtn";
-            this.PojPKTVRadBtn.Size = new System.Drawing.Size(379, 23);
-            this.PojPKTVRadBtn.TabIndex = 11;
-            this.PojPKTVRadBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata Na TV-u, odnosno Radiju";
-            this.PojPKTVRadBtn.UseVisualStyleBackColor = true;
-            this.PojPKTVRadBtn.Click += new System.EventHandler(this.PojPKTVRadBtn_Click);
-            // 
-            // PojPKTVDuelBtn
-            // 
-            this.PojPKTVDuelBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.PojPKTVDuelBtn.Location = new System.Drawing.Point(472, 128);
-            this.PojPKTVDuelBtn.Name = "PojPKTVDuelBtn";
-            this.PojPKTVDuelBtn.Size = new System.Drawing.Size(379, 23);
-            this.PojPKTVDuelBtn.TabIndex = 12;
-            this.PojPKTVDuelBtn.Text = "Dodaj Pojavljivanje Predsednickog Kandidata Na TV-Duelu";
-            this.PojPKTVDuelBtn.UseVisualStyleBackColor = true;
-            this.PojPKTVDuelBtn.Click += new System.EventHandler(this.PojPKTVDuelBtn_Click);
-            // 
-            // AngAktnaGMBtn
-            // 
-            this.AngAktnaGMBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.AngAktnaGMBtn.Location = new System.Drawing.Point(34, 379);
-            this.AngAktnaGMBtn.Name = "AngAktnaGMBtn";
-            this.AngAktnaGMBtn.Size = new System.Drawing.Size(182, 23);
-            this.AngAktnaGMBtn.TabIndex = 13;
-            this.AngAktnaGMBtn.Text = "Angazuj Aktivistu na Glasacko Mesto";
-            this.AngAktnaGMBtn.UseVisualStyleBackColor = true;
-            this.AngAktnaGMBtn.Click += new System.EventHandler(this.AngAktnaGMBtn_Click);
-            // 
-            // GlasackoMestoBtn
-            // 
-            this.GlasackoMestoBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.GlasackoMestoBtn.Location = new System.Drawing.Point(34, 263);
-            this.GlasackoMestoBtn.Name = "GlasackoMestoBtn";
-            this.GlasackoMestoBtn.Size = new System.Drawing.Size(182, 23);
-            this.GlasackoMestoBtn.TabIndex = 14;
-            this.GlasackoMestoBtn.Text = "Dodaj Glasacko Mesto";
-            this.GlasackoMestoBtn.UseVisualStyleBackColor = true;
-            this.GlasackoMestoBtn.Click += new System.EventHandler(this.GlasackoMestoBtn_Click);
-            // 
-            // RezIzbBtn
-            // 
-            this.RezIzbBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.RezIzbBtn.Location = new System.Drawing.Point(34, 350);
-            this.RezIzbBtn.Name = "RezIzbBtn";
-            this.RezIzbBtn.Size = new System.Drawing.Size(182, 23);
-            this.RezIzbBtn.TabIndex = 15;
-            this.RezIzbBtn.Text = "Prikazi Rezultate Izbora";
-            this.RezIzbBtn.UseVisualStyleBackColor = true;
-            this.RezIzbBtn.Click += new System.EventHandler(this.RezIzbBtn_Click);
-            // 
-            // AkcijaAktivistiBtn
-            // 
-            this.AkcijaAktivistiBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.AkcijaAktivistiBtn.Location = new System.Drawing.Point(34, 109);
-            this.AkcijaAktivistiBtn.Name = "AkcijaAktivistiBtn";
-            this.AkcijaAktivistiBtn.Size = new System.Drawing.Size(182, 23);
-            this.AkcijaAktivistiBtn.TabIndex = 16;
-            this.AkcijaAktivistiBtn.Text = "Dodeli Akciju Aktivisti";
-            this.AkcijaAktivistiBtn.UseVisualStyleBackColor = true;
-            this.AkcijaAktivistiBtn.Click += new System.EventHandler(this.AkcijaAktivistiBtn_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Aktivista";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(240, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Deljenje letaka";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 138);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Koordinator";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 437);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Miting";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(240, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Susret kandidata";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 244);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Glasacko mesto";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(469, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 13);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "Pojavljivanja kandidata";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(240, 244);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Reklame";
-            // 
-            // ShowActv
-            // 
-            this.ShowActv.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ShowActv.Location = new System.Drawing.Point(34, 80);
-            this.ShowActv.Name = "ShowActv";
-            this.ShowActv.Size = new System.Drawing.Size(182, 23);
-            this.ShowActv.TabIndex = 26;
-            this.ShowActv.Text = "Prikazi aktivistu";
-            this.ShowActv.UseVisualStyleBackColor = true;
-            this.ShowActv.Click += new System.EventHandler(this.ShowActv_Click);
-            // 
-            // ShowCoord
-            // 
-            this.ShowCoord.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ShowCoord.Location = new System.Drawing.Point(34, 186);
-            this.ShowCoord.Name = "ShowCoord";
-            this.ShowCoord.Size = new System.Drawing.Size(182, 23);
-            this.ShowCoord.TabIndex = 27;
-            this.ShowCoord.Text = "Prikazi koordinatora";
-            this.ShowCoord.UseVisualStyleBackColor = true;
-            this.ShowCoord.Click += new System.EventHandler(this.ShowCoord_Click);
-            // 
-            // AddNote
-            // 
-            this.AddNote.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.AddNote.Location = new System.Drawing.Point(34, 408);
-            this.AddNote.Name = "AddNote";
-            this.AddNote.Size = new System.Drawing.Size(182, 23);
-            this.AddNote.TabIndex = 29;
-            this.AddNote.Text = "Dodaj primedbe aktiviste";
-            this.AddNote.UseVisualStyleBackColor = true;
-            this.AddNote.Click += new System.EventHandler(this.AddNote_Click);
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button1.Location = new System.Drawing.Point(34, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Prikazi glasacko mesto";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button2.Location = new System.Drawing.Point(34, 321);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 23);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Dodaj rezultate izbora";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button3.Location = new System.Drawing.Point(34, 514);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(182, 23);
-            this.button3.TabIndex = 32;
-            this.button3.Text = "Prikazi miting";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button4.Location = new System.Drawing.Point(34, 543);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(182, 23);
-            this.button4.TabIndex = 33;
-            this.button4.Text = "Prikazi sve goste mitinga";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button5.Location = new System.Drawing.Point(243, 80);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(182, 23);
-            this.button5.TabIndex = 34;
-            this.button5.Text = "Prikazi Akciju Deljenja Letaka";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button6
-            // 
-            this.button6.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button6.Location = new System.Drawing.Point(243, 186);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(182, 23);
-            this.button6.TabIndex = 35;
-            this.button6.Text = "Prikazi Akciju Susreta Kandidata";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // ShowReklTVRadioBtn
-            // 
-            this.ShowReklTVRadioBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ShowReklTVRadioBtn.Location = new System.Drawing.Point(243, 292);
-            this.ShowReklTVRadioBtn.Name = "ShowReklTVRadioBtn";
-            this.ShowReklTVRadioBtn.Size = new System.Drawing.Size(182, 23);
-            this.ShowReklTVRadioBtn.TabIndex = 36;
-            this.ShowReklTVRadioBtn.Text = "Prikazi TV/Radio Reklamu";
-            this.ShowReklTVRadioBtn.UseVisualStyleBackColor = true;
-            this.ShowReklTVRadioBtn.Click += new System.EventHandler(this.ShowReklTVRadioBtn_Click);
-            // 
-            // ShowReklNovineBtn
-            // 
-            this.ShowReklNovineBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ShowReklNovineBtn.Location = new System.Drawing.Point(243, 350);
-            this.ShowReklNovineBtn.Name = "ShowReklNovineBtn";
-            this.ShowReklNovineBtn.Size = new System.Drawing.Size(182, 23);
-            this.ShowReklNovineBtn.TabIndex = 37;
-            this.ShowReklNovineBtn.Text = "Prikazi Reklamu u Novinama";
-            this.ShowReklNovineBtn.UseVisualStyleBackColor = true;
-            this.ShowReklNovineBtn.Click += new System.EventHandler(this.ShowReklNovineBtn_Click);
-            // 
-            // ShowReklPanoBtn
-            // 
-            this.ShowReklPanoBtn.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.ShowReklPanoBtn.Location = new System.Drawing.Point(243, 408);
-            this.ShowReklPanoBtn.Name = "ShowReklPanoBtn";
-            this.ShowReklPanoBtn.Size = new System.Drawing.Size(182, 23);
-            this.ShowReklPanoBtn.TabIndex = 38;
-            this.ShowReklPanoBtn.Text = "Prikazi Reklamu na Panou";
-            this.ShowReklPanoBtn.UseVisualStyleBackColor = true;
-            this.ShowReklPanoBtn.Click += new System.EventHandler(this.ShowReklPanoBtn_Click);
-            // 
-            // button7
-            // 
-            this.button7.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button7.Location = new System.Drawing.Point(472, 215);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(379, 23);
-            this.button7.TabIndex = 39;
-            this.button7.Text = "Prikazi Pojavljivanje Predsednickog Kandidata u Novinama";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button8
-            // 
-            this.button8.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button8.Location = new System.Drawing.Point(472, 99);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(379, 23);
-            this.button8.TabIndex = 40;
-            this.button8.Text = "Prikazi Pojavljivanje Predsednickog Kandidata na TV-u, odnosno Radiju";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.button9.Location = new System.Drawing.Point(472, 157);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(379, 23);
-            this.button9.TabIndex = 41;
-            this.button9.Text = "Prikazi Pojavljivanje Predsednickog Kandidata Na TV-Duelu";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // tabControl1
             // 
@@ -699,7 +233,6 @@ namespace Izbori
             this.tabControl1.Controls.Add(this.gmesto);
             this.tabControl1.Controls.Add(this.mediji);
             this.tabControl1.Controls.Add(this.propaganda);
-            this.tabControl1.Controls.Add(this.sve);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -1291,7 +824,7 @@ namespace Izbori
             // 
             this.btnObrisiLok.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnObrisiLok.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnObrisiLok.Location = new System.Drawing.Point(704, 107);
+            this.btnObrisiLok.Location = new System.Drawing.Point(650, 107);
             this.btnObrisiLok.Name = "btnObrisiLok";
             this.btnObrisiLok.Size = new System.Drawing.Size(24, 23);
             this.btnObrisiLok.TabIndex = 48;
@@ -1303,7 +836,7 @@ namespace Izbori
             // 
             this.btnDodajLok.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajLok.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.btnDodajLok.Location = new System.Drawing.Point(676, 107);
+            this.btnDodajLok.Location = new System.Drawing.Point(622, 107);
             this.btnDodajLok.Name = "btnDodajLok";
             this.btnDodajLok.Size = new System.Drawing.Size(24, 23);
             this.btnDodajLok.TabIndex = 47;
@@ -1314,7 +847,7 @@ namespace Izbori
             // mitZatvoreniP
             // 
             this.mitZatvoreniP.AutoSize = true;
-            this.mitZatvoreniP.Location = new System.Drawing.Point(496, 159);
+            this.mitZatvoreniP.Location = new System.Drawing.Point(442, 159);
             this.mitZatvoreniP.Name = "mitZatvoreniP";
             this.mitZatvoreniP.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.mitZatvoreniP.Size = new System.Drawing.Size(173, 17);
@@ -1323,11 +856,12 @@ namespace Izbori
             this.mitZatvoreniP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.mitZatvoreniP.UseVisualStyleBackColor = true;
             this.mitZatvoreniP.CheckedChanged += new System.EventHandler(this.mitZatvoreniP_CheckedChanged);
+            this.mitZatvoreniP.Click += new System.EventHandler(this.mitZatvoreniP_Click);
             // 
             // labOdabGost
             // 
             this.labOdabGost.AutoSize = true;
-            this.labOdabGost.Location = new System.Drawing.Point(534, 241);
+            this.labOdabGost.Location = new System.Drawing.Point(480, 241);
             this.labOdabGost.Name = "labOdabGost";
             this.labOdabGost.Size = new System.Drawing.Size(73, 13);
             this.labOdabGost.TabIndex = 34;
@@ -1336,7 +870,7 @@ namespace Izbori
             // labFunkcija
             // 
             this.labFunkcija.AutoSize = true;
-            this.labFunkcija.Location = new System.Drawing.Point(481, 347);
+            this.labFunkcija.Location = new System.Drawing.Point(427, 347);
             this.labFunkcija.Name = "labFunkcija";
             this.labFunkcija.Size = new System.Drawing.Size(47, 13);
             this.labFunkcija.TabIndex = 33;
@@ -1345,7 +879,7 @@ namespace Izbori
             // labPrezime
             // 
             this.labPrezime.AutoSize = true;
-            this.labPrezime.Location = new System.Drawing.Point(484, 321);
+            this.labPrezime.Location = new System.Drawing.Point(430, 321);
             this.labPrezime.Name = "labPrezime";
             this.labPrezime.Size = new System.Drawing.Size(44, 13);
             this.labPrezime.TabIndex = 32;
@@ -1354,7 +888,7 @@ namespace Izbori
             // labIme
             // 
             this.labIme.AutoSize = true;
-            this.labIme.Location = new System.Drawing.Point(507, 295);
+            this.labIme.Location = new System.Drawing.Point(453, 295);
             this.labIme.Name = "labIme";
             this.labIme.Size = new System.Drawing.Size(24, 13);
             this.labIme.TabIndex = 31;
@@ -1363,7 +897,7 @@ namespace Izbori
             // labTitula
             // 
             this.labTitula.AutoSize = true;
-            this.labTitula.Location = new System.Drawing.Point(495, 269);
+            this.labTitula.Location = new System.Drawing.Point(441, 269);
             this.labTitula.Name = "labTitula";
             this.labTitula.Size = new System.Drawing.Size(33, 13);
             this.labTitula.TabIndex = 30;
@@ -1371,28 +905,28 @@ namespace Izbori
             // 
             // tbFunkcija
             // 
-            this.tbFunkcija.Location = new System.Drawing.Point(537, 344);
+            this.tbFunkcija.Location = new System.Drawing.Point(483, 344);
             this.tbFunkcija.Name = "tbFunkcija";
             this.tbFunkcija.Size = new System.Drawing.Size(191, 20);
             this.tbFunkcija.TabIndex = 29;
             // 
             // tbPrezime
             // 
-            this.tbPrezime.Location = new System.Drawing.Point(537, 318);
+            this.tbPrezime.Location = new System.Drawing.Point(483, 318);
             this.tbPrezime.Name = "tbPrezime";
             this.tbPrezime.Size = new System.Drawing.Size(191, 20);
             this.tbPrezime.TabIndex = 28;
             // 
             // tbIme
             // 
-            this.tbIme.Location = new System.Drawing.Point(537, 292);
+            this.tbIme.Location = new System.Drawing.Point(483, 292);
             this.tbIme.Name = "tbIme";
             this.tbIme.Size = new System.Drawing.Size(191, 20);
             this.tbIme.TabIndex = 27;
             // 
             // tbTitula
             // 
-            this.tbTitula.Location = new System.Drawing.Point(537, 266);
+            this.tbTitula.Location = new System.Drawing.Point(483, 266);
             this.tbTitula.Name = "tbTitula";
             this.tbTitula.Size = new System.Drawing.Size(191, 20);
             this.tbTitula.TabIndex = 26;
@@ -1405,9 +939,9 @@ namespace Izbori
             this.gosPrezime,
             this.gosFunkcija});
             this.lvGosti.FullRowSelect = true;
-            this.lvGosti.Location = new System.Drawing.Point(751, 56);
+            this.lvGosti.Location = new System.Drawing.Point(697, 56);
             this.lvGosti.Name = "lvGosti";
-            this.lvGosti.Size = new System.Drawing.Size(239, 308);
+            this.lvGosti.Size = new System.Drawing.Size(277, 308);
             this.lvGosti.TabIndex = 25;
             this.lvGosti.UseCompatibleStateImageBehavior = false;
             this.lvGosti.View = System.Windows.Forms.View.Details;
@@ -1431,7 +965,7 @@ namespace Izbori
             // 
             // mitCena
             // 
-            this.mitCena.Location = new System.Drawing.Point(537, 206);
+            this.mitCena.Location = new System.Drawing.Point(483, 206);
             this.mitCena.Name = "mitCena";
             this.mitCena.Size = new System.Drawing.Size(132, 20);
             this.mitCena.TabIndex = 24;
@@ -1441,7 +975,7 @@ namespace Izbori
             // 
             this.susPlaniranoVreme.CustomFormat = "dd.MM.yyyy.  HH:mm";
             this.susPlaniranoVreme.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.susPlaniranoVreme.Location = new System.Drawing.Point(537, 133);
+            this.susPlaniranoVreme.Location = new System.Drawing.Point(483, 133);
             this.susPlaniranoVreme.Name = "susPlaniranoVreme";
             this.susPlaniranoVreme.Size = new System.Drawing.Size(132, 20);
             this.susPlaniranoVreme.TabIndex = 23;
@@ -1449,7 +983,7 @@ namespace Izbori
             // labGosti
             // 
             this.labGosti.AutoSize = true;
-            this.labGosti.Location = new System.Drawing.Point(748, 29);
+            this.labGosti.Location = new System.Drawing.Point(694, 29);
             this.labGosti.Name = "labGosti";
             this.labGosti.Size = new System.Drawing.Size(82, 13);
             this.labGosti.TabIndex = 22;
@@ -1458,7 +992,7 @@ namespace Izbori
             // labCena
             // 
             this.labCena.AutoSize = true;
-            this.labCena.Location = new System.Drawing.Point(395, 209);
+            this.labCena.Location = new System.Drawing.Point(341, 209);
             this.labCena.Name = "labCena";
             this.labCena.Size = new System.Drawing.Size(133, 13);
             this.labCena.TabIndex = 21;
@@ -1468,7 +1002,7 @@ namespace Izbori
             // labIznajm
             // 
             this.labIznajm.AutoSize = true;
-            this.labIznajm.Location = new System.Drawing.Point(391, 183);
+            this.labIznajm.Location = new System.Drawing.Point(337, 183);
             this.labIznajm.Name = "labIznajm";
             this.labIznajm.Size = new System.Drawing.Size(137, 13);
             this.labIznajm.TabIndex = 20;
@@ -1478,7 +1012,7 @@ namespace Izbori
             // labVreme
             // 
             this.labVreme.AutoSize = true;
-            this.labVreme.Location = new System.Drawing.Point(400, 133);
+            this.labVreme.Location = new System.Drawing.Point(346, 133);
             this.labVreme.Name = "labVreme";
             this.labVreme.Size = new System.Drawing.Size(128, 13);
             this.labVreme.TabIndex = 19;
@@ -1487,7 +1021,7 @@ namespace Izbori
             // labLok
             // 
             this.labLok.AutoSize = true;
-            this.labLok.Location = new System.Drawing.Point(450, 110);
+            this.labLok.Location = new System.Drawing.Point(396, 110);
             this.labLok.Name = "labLok";
             this.labLok.Size = new System.Drawing.Size(78, 13);
             this.labLok.TabIndex = 18;
@@ -1496,7 +1030,7 @@ namespace Izbori
             // labGrad
             // 
             this.labGrad.AutoSize = true;
-            this.labGrad.Location = new System.Drawing.Point(467, 83);
+            this.labGrad.Location = new System.Drawing.Point(413, 83);
             this.labGrad.Name = "labGrad";
             this.labGrad.Size = new System.Drawing.Size(61, 13);
             this.labGrad.TabIndex = 17;
@@ -1505,7 +1039,7 @@ namespace Izbori
             // labNaziv
             // 
             this.labNaziv.AutoSize = true;
-            this.labNaziv.Location = new System.Drawing.Point(463, 59);
+            this.labNaziv.Location = new System.Drawing.Point(409, 59);
             this.labNaziv.Name = "labNaziv";
             this.labNaziv.Size = new System.Drawing.Size(65, 13);
             this.labNaziv.TabIndex = 16;
@@ -1513,8 +1047,8 @@ namespace Izbori
             // 
             // btnUpdGuest
             // 
-            this.btnUpdGuest.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnUpdGuest.Location = new System.Drawing.Point(832, 370);
+            this.btnUpdGuest.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdGuest.Location = new System.Drawing.Point(798, 370);
             this.btnUpdGuest.Name = "btnUpdGuest";
             this.btnUpdGuest.Size = new System.Drawing.Size(75, 45);
             this.btnUpdGuest.TabIndex = 15;
@@ -1524,8 +1058,8 @@ namespace Izbori
             // 
             // btnDelGuest
             // 
-            this.btnDelGuest.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnDelGuest.Location = new System.Drawing.Point(915, 370);
+            this.btnDelGuest.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelGuest.Location = new System.Drawing.Point(899, 370);
             this.btnDelGuest.Name = "btnDelGuest";
             this.btnDelGuest.Size = new System.Drawing.Size(75, 45);
             this.btnDelGuest.TabIndex = 14;
@@ -1535,18 +1069,18 @@ namespace Izbori
             // 
             // btnAngazuj
             // 
-            this.btnAngazuj.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnAngazuj.Location = new System.Drawing.Point(200, 421);
+            this.btnAngazuj.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAngazuj.Location = new System.Drawing.Point(546, 370);
             this.btnAngazuj.Name = "btnAngazuj";
-            this.btnAngazuj.Size = new System.Drawing.Size(75, 45);
+            this.btnAngazuj.Size = new System.Drawing.Size(58, 45);
             this.btnAngazuj.TabIndex = 13;
             this.btnAngazuj.Text = "Angažuj aktiviste";
             this.btnAngazuj.UseVisualStyleBackColor = true;
             // 
             // btnAddGuest
             // 
-            this.btnAddGuest.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnAddGuest.Location = new System.Drawing.Point(751, 370);
+            this.btnAddGuest.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAddGuest.Location = new System.Drawing.Point(697, 370);
             this.btnAddGuest.Name = "btnAddGuest";
             this.btnAddGuest.Size = new System.Drawing.Size(75, 45);
             this.btnAddGuest.TabIndex = 12;
@@ -1556,10 +1090,10 @@ namespace Izbori
             // 
             // btnUpdAkc
             // 
-            this.btnUpdAkc.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnUpdAkc.Location = new System.Drawing.Point(111, 421);
+            this.btnUpdAkc.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnUpdAkc.Location = new System.Drawing.Point(612, 370);
             this.btnUpdAkc.Name = "btnUpdAkc";
-            this.btnUpdAkc.Size = new System.Drawing.Size(83, 45);
+            this.btnUpdAkc.Size = new System.Drawing.Size(62, 45);
             this.btnUpdAkc.TabIndex = 11;
             this.btnUpdAkc.Text = "Ažuriranje akcije";
             this.btnUpdAkc.UseVisualStyleBackColor = true;
@@ -1567,10 +1101,10 @@ namespace Izbori
             // 
             // btnDelAkc
             // 
-            this.btnDelAkc.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnDelAkc.Location = new System.Drawing.Point(281, 421);
+            this.btnDelAkc.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnDelAkc.Location = new System.Drawing.Point(483, 370);
             this.btnDelAkc.Name = "btnDelAkc";
-            this.btnDelAkc.Size = new System.Drawing.Size(106, 45);
+            this.btnDelAkc.Size = new System.Drawing.Size(55, 45);
             this.btnDelAkc.TabIndex = 10;
             this.btnDelAkc.Text = "Brisanje akcije";
             this.btnDelAkc.UseVisualStyleBackColor = true;
@@ -1578,8 +1112,8 @@ namespace Izbori
             // 
             // btnAddAkc
             // 
-            this.btnAddAkc.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.btnAddAkc.Location = new System.Drawing.Point(30, 421);
+            this.btnAddAkc.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnAddAkc.Location = new System.Drawing.Point(240, 421);
             this.btnAddAkc.Name = "btnAddAkc";
             this.btnAddAkc.Size = new System.Drawing.Size(75, 45);
             this.btnAddAkc.TabIndex = 9;
@@ -1589,7 +1123,7 @@ namespace Izbori
             // 
             // tbaLokacija
             // 
-            this.tbaLokacija.Location = new System.Drawing.Point(537, 106);
+            this.tbaLokacija.Location = new System.Drawing.Point(483, 106);
             this.tbaLokacija.Name = "tbaLokacija";
             this.tbaLokacija.Size = new System.Drawing.Size(132, 20);
             this.tbaLokacija.TabIndex = 8;
@@ -1597,28 +1131,28 @@ namespace Izbori
             // cbLokacija
             // 
             this.cbLokacija.FormattingEnabled = true;
-            this.cbLokacija.Location = new System.Drawing.Point(537, 106);
+            this.cbLokacija.Location = new System.Drawing.Point(483, 106);
             this.cbLokacija.Name = "cbLokacija";
             this.cbLokacija.Size = new System.Drawing.Size(132, 21);
             this.cbLokacija.TabIndex = 7;
             // 
             // tbaGrad
             // 
-            this.tbaGrad.Location = new System.Drawing.Point(537, 80);
+            this.tbaGrad.Location = new System.Drawing.Point(483, 80);
             this.tbaGrad.Name = "tbaGrad";
             this.tbaGrad.Size = new System.Drawing.Size(191, 20);
             this.tbaGrad.TabIndex = 6;
             // 
             // tbaNaziv
             // 
-            this.tbaNaziv.Location = new System.Drawing.Point(537, 56);
+            this.tbaNaziv.Location = new System.Drawing.Point(483, 56);
             this.tbaNaziv.Name = "tbaNaziv";
             this.tbaNaziv.Size = new System.Drawing.Size(191, 20);
             this.tbaNaziv.TabIndex = 5;
             // 
             // mitIznajmljivac
             // 
-            this.mitIznajmljivac.Location = new System.Drawing.Point(537, 180);
+            this.mitIznajmljivac.Location = new System.Drawing.Point(483, 180);
             this.mitIznajmljivac.Name = "mitIznajmljivac";
             this.mitIznajmljivac.Size = new System.Drawing.Size(191, 20);
             this.mitIznajmljivac.TabIndex = 2;
@@ -1651,7 +1185,7 @@ namespace Izbori
             listViewGroup3});
             this.lvAkcije.Location = new System.Drawing.Point(30, 56);
             this.lvAkcije.Name = "lvAkcije";
-            this.lvAkcije.Size = new System.Drawing.Size(357, 359);
+            this.lvAkcije.Size = new System.Drawing.Size(285, 359);
             this.lvAkcije.TabIndex = 0;
             this.lvAkcije.UseCompatibleStateImageBehavior = false;
             this.lvAkcije.View = System.Windows.Forms.View.Details;
@@ -1915,6 +1449,7 @@ namespace Izbori
             this.mediji.Controls.Add(this.rBtnNovine);
             this.mediji.Controls.Add(this.Naslov);
             this.mediji.Controls.Add(this.listaPojavljivanja);
+            this.mediji.ForeColor = System.Drawing.Color.Azure;
             this.mediji.Location = new System.Drawing.Point(4, 22);
             this.mediji.Name = "mediji";
             this.mediji.Size = new System.Drawing.Size(998, 609);
@@ -1944,6 +1479,7 @@ namespace Izbori
             // lProcenjenaGledanost
             // 
             this.lProcenjenaGledanost.AutoSize = true;
+            this.lProcenjenaGledanost.ForeColor = System.Drawing.Color.Azure;
             this.lProcenjenaGledanost.Location = new System.Drawing.Point(427, 130);
             this.lProcenjenaGledanost.Name = "lProcenjenaGledanost";
             this.lProcenjenaGledanost.Size = new System.Drawing.Size(115, 13);
@@ -1954,6 +1490,7 @@ namespace Izbori
             // lImeVoditelja
             // 
             this.lImeVoditelja.AutoSize = true;
+            this.lImeVoditelja.ForeColor = System.Drawing.Color.Azure;
             this.lImeVoditelja.Location = new System.Drawing.Point(472, 104);
             this.lImeVoditelja.Name = "lImeVoditelja";
             this.lImeVoditelja.Size = new System.Drawing.Size(70, 13);
@@ -2002,6 +1539,7 @@ namespace Izbori
             // lPitanja
             // 
             this.lPitanja.AutoSize = true;
+            this.lPitanja.ForeColor = System.Drawing.Color.Azure;
             this.lPitanja.Location = new System.Drawing.Point(500, 182);
             this.lPitanja.Name = "lPitanja";
             this.lPitanja.Size = new System.Drawing.Size(42, 13);
@@ -2050,6 +1588,7 @@ namespace Izbori
             // lImeProtivkand
             // 
             this.lImeProtivkand.AutoSize = true;
+            this.lImeProtivkand.ForeColor = System.Drawing.Color.Azure;
             this.lImeProtivkand.Location = new System.Drawing.Point(438, 155);
             this.lImeProtivkand.Name = "lImeProtivkand";
             this.lImeProtivkand.Size = new System.Drawing.Size(104, 13);
@@ -2093,6 +1632,7 @@ namespace Izbori
             // chBoxTVDuel
             // 
             this.chBoxTVDuel.AutoSize = true;
+            this.chBoxTVDuel.ForeColor = System.Drawing.Color.Azure;
             this.chBoxTVDuel.Location = new System.Drawing.Point(43, 449);
             this.chBoxTVDuel.Name = "chBoxTVDuel";
             this.chBoxTVDuel.Size = new System.Drawing.Size(112, 17);
@@ -2176,6 +1716,7 @@ namespace Izbori
             // lNovinari
             // 
             this.lNovinari.AutoSize = true;
+            this.lNovinari.ForeColor = System.Drawing.Color.Azure;
             this.lNovinari.Location = new System.Drawing.Point(493, 431);
             this.lNovinari.Name = "lNovinari";
             this.lNovinari.Size = new System.Drawing.Size(49, 13);
@@ -2194,6 +1735,7 @@ namespace Izbori
             // lNazivLista
             // 
             this.lNazivLista.AutoSize = true;
+            this.lNazivLista.ForeColor = System.Drawing.Color.Azure;
             this.lNazivLista.Location = new System.Drawing.Point(480, 45);
             this.lNazivLista.Name = "lNazivLista";
             this.lNazivLista.Size = new System.Drawing.Size(62, 13);
@@ -2204,6 +1746,7 @@ namespace Izbori
             // lDatumObjavljivanja
             // 
             this.lDatumObjavljivanja.AutoSize = true;
+            this.lDatumObjavljivanja.ForeColor = System.Drawing.Color.Azure;
             this.lDatumObjavljivanja.Location = new System.Drawing.Point(438, 254);
             this.lDatumObjavljivanja.Name = "lDatumObjavljivanja";
             this.lDatumObjavljivanja.Size = new System.Drawing.Size(104, 13);
@@ -2223,6 +1766,7 @@ namespace Izbori
             // lDatumIntervjua
             // 
             this.lDatumIntervjua.AutoSize = true;
+            this.lDatumIntervjua.ForeColor = System.Drawing.Color.Azure;
             this.lDatumIntervjua.Location = new System.Drawing.Point(457, 74);
             this.lDatumIntervjua.Name = "lDatumIntervjua";
             this.lDatumIntervjua.Size = new System.Drawing.Size(85, 13);
@@ -2242,6 +1786,7 @@ namespace Izbori
             // rBtnTVRadio
             // 
             this.rBtnTVRadio.AutoSize = true;
+            this.rBtnTVRadio.ForeColor = System.Drawing.Color.Azure;
             this.rBtnTVRadio.Location = new System.Drawing.Point(169, 51);
             this.rBtnTVRadio.Name = "rBtnTVRadio";
             this.rBtnTVRadio.Size = new System.Drawing.Size(129, 17);
@@ -2254,6 +1799,7 @@ namespace Izbori
             // rBtnNovine
             // 
             this.rBtnNovine.AutoSize = true;
+            this.rBtnNovine.ForeColor = System.Drawing.Color.Azure;
             this.rBtnNovine.Location = new System.Drawing.Point(43, 51);
             this.rBtnNovine.Name = "rBtnNovine";
             this.rBtnNovine.Size = new System.Drawing.Size(120, 17);
@@ -2314,6 +1860,7 @@ namespace Izbori
             this.propaganda.Controls.Add(this.propLblmod1);
             this.propaganda.Controls.Add(this.propLblpropaganda);
             this.propaganda.Controls.Add(this.propagandaListView);
+            this.propaganda.ForeColor = System.Drawing.Color.Azure;
             this.propaganda.Location = new System.Drawing.Point(4, 22);
             this.propaganda.Name = "propaganda";
             this.propaganda.Size = new System.Drawing.Size(998, 609);
@@ -2380,6 +1927,7 @@ namespace Izbori
             // propLblDatum
             // 
             this.propLblDatum.AutoSize = true;
+            this.propLblDatum.ForeColor = System.Drawing.Color.Azure;
             this.propLblDatum.Location = new System.Drawing.Point(607, 99);
             this.propLblDatum.Name = "propLblDatum";
             this.propLblDatum.Size = new System.Drawing.Size(81, 13);
@@ -2389,6 +1937,7 @@ namespace Izbori
             // propLblTrajanje
             // 
             this.propLblTrajanje.AutoSize = true;
+            this.propLblTrajanje.ForeColor = System.Drawing.Color.Azure;
             this.propLblTrajanje.Location = new System.Drawing.Point(602, 276);
             this.propLblTrajanje.Name = "propLblTrajanje";
             this.propLblTrajanje.Size = new System.Drawing.Size(88, 13);
@@ -2398,6 +1947,7 @@ namespace Izbori
             // propLblcena
             // 
             this.propLblcena.AutoSize = true;
+            this.propLblcena.ForeColor = System.Drawing.Color.Azure;
             this.propLblcena.Location = new System.Drawing.Point(613, 70);
             this.propLblcena.Name = "propLblcena";
             this.propLblcena.Size = new System.Drawing.Size(75, 13);
@@ -2432,6 +1982,7 @@ namespace Izbori
             // 
             // propLblMod3
             // 
+            this.propLblMod3.ForeColor = System.Drawing.Color.Azure;
             this.propLblMod3.Location = new System.Drawing.Point(611, 483);
             this.propLblMod3.Name = "propLblMod3";
             this.propLblMod3.Size = new System.Drawing.Size(77, 13);
@@ -2442,6 +1993,7 @@ namespace Izbori
             // propRBTVRad
             // 
             this.propRBTVRad.AutoSize = true;
+            this.propRBTVRad.ForeColor = System.Drawing.Color.Azure;
             this.propRBTVRad.Location = new System.Drawing.Point(146, 70);
             this.propRBTVRad.Name = "propRBTVRad";
             this.propRBTVRad.Size = new System.Drawing.Size(72, 17);
@@ -2454,6 +2006,7 @@ namespace Izbori
             // propRBPano
             // 
             this.propRBPano.AutoSize = true;
+            this.propRBPano.ForeColor = System.Drawing.Color.Azure;
             this.propRBPano.Location = new System.Drawing.Point(90, 70);
             this.propRBPano.Name = "propRBPano";
             this.propRBPano.Size = new System.Drawing.Size(50, 17);
@@ -2466,6 +2019,7 @@ namespace Izbori
             // propRBNovine
             // 
             this.propRBNovine.AutoSize = true;
+            this.propRBNovine.ForeColor = System.Drawing.Color.Azure;
             this.propRBNovine.Location = new System.Drawing.Point(25, 70);
             this.propRBNovine.Name = "propRBNovine";
             this.propRBNovine.Size = new System.Drawing.Size(59, 17);
@@ -2510,6 +2064,7 @@ namespace Izbori
             // 
             // propLblMod2
             // 
+            this.propLblMod2.ForeColor = System.Drawing.Color.Azure;
             this.propLblMod2.Location = new System.Drawing.Point(602, 457);
             this.propLblMod2.Name = "propLblMod2";
             this.propLblMod2.Size = new System.Drawing.Size(86, 13);
@@ -2519,6 +2074,7 @@ namespace Izbori
             // 
             // propLblMod0
             // 
+            this.propLblMod0.ForeColor = System.Drawing.Color.Azure;
             this.propLblMod0.Location = new System.Drawing.Point(611, 405);
             this.propLblMod0.Name = "propLblMod0";
             this.propLblMod0.Size = new System.Drawing.Size(77, 13);
@@ -2528,6 +2084,7 @@ namespace Izbori
             // 
             // propLblmod1
             // 
+            this.propLblmod1.ForeColor = System.Drawing.Color.Azure;
             this.propLblmod1.Location = new System.Drawing.Point(608, 431);
             this.propLblmod1.Name = "propLblmod1";
             this.propLblmod1.Size = new System.Drawing.Size(80, 13);
@@ -2583,57 +2140,6 @@ namespace Izbori
             this.columnHeader5.Text = "Trajanje zakupa";
             this.columnHeader5.Width = 96;
             // 
-            // sve
-            // 
-            this.sve.BackColor = System.Drawing.Color.SlateGray;
-            this.sve.Controls.Add(this.ShowReklPanoBtn);
-            this.sve.Controls.Add(this.button9);
-            this.sve.Controls.Add(this.DodajAktivistuBtn);
-            this.sve.Controls.Add(this.button8);
-            this.sve.Controls.Add(this.DodajKoordinatoraBtn);
-            this.sve.Controls.Add(this.button7);
-            this.sve.Controls.Add(this.label7);
-            this.sve.Controls.Add(this.DodeliPomocnikeBtn);
-            this.sve.Controls.Add(this.PojPKTVDuelBtn);
-            this.sve.Controls.Add(this.AkcDeljLetBtn);
-            this.sve.Controls.Add(this.PojPKTVRadBtn);
-            this.sve.Controls.Add(this.ShowReklNovineBtn);
-            this.sve.Controls.Add(this.PojPKNovineBtn);
-            this.sve.Controls.Add(this.AkcSusKand);
-            this.sve.Controls.Add(this.ShowReklTVRadioBtn);
-            this.sve.Controls.Add(this.AkcMitBtn);
-            this.sve.Controls.Add(this.button6);
-            this.sve.Controls.Add(this.GostMitBtn);
-            this.sve.Controls.Add(this.button5);
-            this.sve.Controls.Add(this.ReklPanoBtn);
-            this.sve.Controls.Add(this.button4);
-            this.sve.Controls.Add(this.ReklNovineBtn);
-            this.sve.Controls.Add(this.button3);
-            this.sve.Controls.Add(this.ReklTVRadioBtn);
-            this.sve.Controls.Add(this.button2);
-            this.sve.Controls.Add(this.AngAktnaGMBtn);
-            this.sve.Controls.Add(this.button1);
-            this.sve.Controls.Add(this.GlasackoMestoBtn);
-            this.sve.Controls.Add(this.AddNote);
-            this.sve.Controls.Add(this.RezIzbBtn);
-            this.sve.Controls.Add(this.ShowCoord);
-            this.sve.Controls.Add(this.AkcijaAktivistiBtn);
-            this.sve.Controls.Add(this.ShowActv);
-            this.sve.Controls.Add(this.label1);
-            this.sve.Controls.Add(this.label9);
-            this.sve.Controls.Add(this.label2);
-            this.sve.Controls.Add(this.label3);
-            this.sve.Controls.Add(this.label6);
-            this.sve.Controls.Add(this.label4);
-            this.sve.Controls.Add(this.label5);
-            this.sve.ForeColor = System.Drawing.Color.AliceBlue;
-            this.sve.Location = new System.Drawing.Point(4, 22);
-            this.sve.Name = "sve";
-            this.sve.Padding = new System.Windows.Forms.Padding(3);
-            this.sve.Size = new System.Drawing.Size(998, 609);
-            this.sve.TabIndex = 0;
-            this.sve.Text = "Sva dugmad";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2656,56 +2162,12 @@ namespace Izbori
             this.mediji.PerformLayout();
             this.propaganda.ResumeLayout(false);
             this.propaganda.PerformLayout();
-            this.sve.ResumeLayout(false);
-            this.sve.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button DodajAktivistuBtn;
-        private System.Windows.Forms.Button DodajKoordinatoraBtn;
-        private System.Windows.Forms.Button DodeliPomocnikeBtn;
-        private System.Windows.Forms.Button AkcDeljLetBtn;
-        private System.Windows.Forms.Button AkcSusKand;
-        private System.Windows.Forms.Button AkcMitBtn;
-        private System.Windows.Forms.Button GostMitBtn;
-        private System.Windows.Forms.Button ReklPanoBtn;
-        private System.Windows.Forms.Button ReklNovineBtn;
-        private System.Windows.Forms.Button ReklTVRadioBtn;
-        private System.Windows.Forms.Button PojPKNovineBtn;
-        private System.Windows.Forms.Button PojPKTVRadBtn;
-        private System.Windows.Forms.Button PojPKTVDuelBtn;
-        private System.Windows.Forms.Button AngAktnaGMBtn;
-        private System.Windows.Forms.Button GlasackoMestoBtn;
-        private System.Windows.Forms.Button RezIzbBtn;
-        private System.Windows.Forms.Button AkcijaAktivistiBtn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button ShowActv;
-        private System.Windows.Forms.Button ShowCoord;
-        private System.Windows.Forms.Button AddNote;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button ShowReklTVRadioBtn;
-        private System.Windows.Forms.Button ShowReklNovineBtn;
-        private System.Windows.Forms.Button ShowReklPanoBtn;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage sve;
         private System.Windows.Forms.TabPage aktKoord;
         private System.Windows.Forms.TabPage mediji;
         private System.Windows.Forms.TabPage propaganda;
