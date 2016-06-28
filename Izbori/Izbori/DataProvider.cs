@@ -7,16 +7,45 @@ using NHibernate;
 using NHibernate.Linq;
 using Izbori.Entiteti;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace Izbori
 {
     public class DataProvider
     {
+        /**
+         * Funkcija koja pribavlja sve kopmlekse propertije (one koji nisu string ili Int32)
+         * */
+        private IEnumerable<PropertyInfo> GetComplexProps<T>(T ent)
+        {
+            var t = ent.GetType().GetProperties().Where(p => p.PropertyType != typeof(string) && p.PropertyType != typeof(Int32));
+
+            return t;
+        }
+        /**
+         * Funkcija koja anulira sve tipove propertija koji nisu string ili Int32 (kompleksne propertije).
+         * */
+        private void NullComplexProps<T>(T ent)
+        {
+            var props = GetComplexProps<T>(ent);
+
+            foreach (var p in props)
+            {
+                ent.GetType().GetProperty(p.Name).SetValue(ent, null);
+            }
+
+        }
         public IEnumerable<T> GetEntities<T>()
         {
             ISession s = DataLayer.GetSession();
 
             IEnumerable<T> entities = s.Query<T>().Select(p => p);
+
+            foreach(T ent in entities)
+            {
+                NullComplexProps<T>(ent); //anuliranje propertija
+            }
+
             return entities;
         }
 
@@ -25,6 +54,7 @@ namespace Izbori
             ISession s = DataLayer.GetSession();
 
             T ent = s.Get<T>(id);
+            NullComplexProps<T>(ent); //anuliranje propertija
 
             return ent;
         }
@@ -36,7 +66,7 @@ namespace Izbori
                 ISession s = DataLayer.GetSession();
 
                 T ent = s.Get<T>(id);
-
+                NullComplexProps<T>(ent);
                 s.Delete(ent);
                 s.Flush();
                 s.Close();
@@ -53,8 +83,10 @@ namespace Izbori
             try
             {
                 ISession s = DataLayer.GetSession();
-                //ent.id 
+
                 T e = s.Load<T>(id);
+                NullComplexProps<T>(e);
+                NullComplexProps<T>(ent);
 
                 var prop = ent.GetType().GetProperties();
 
@@ -92,6 +124,8 @@ namespace Izbori
             try
             {
                 ISession s = DataLayer.GetSession();
+
+                NullComplexProps<T>(ent);
 
                 s.Save(ent);
 

@@ -269,7 +269,6 @@
     <Compile Include="Controllers\PanoReklamaController.cs" />
     <Compile Include="Controllers\PitanjaTVDuelController.cs" />
     <Compile Include="Controllers\PrimedbeController.cs" />
-    <Compile Include="Controllers\Program.cs" />
     <Compile Include="Controllers\ProtivKandidatiTVDuelController.cs" />
     <Compile Include="Controllers\ReklamaController.cs" />
     <Compile Include="Controllers\RezultatiIzboraController.cs" />

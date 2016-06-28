@@ -50,4 +50,5 @@ namespace IzboriREST.Controllers
 
             return dProv.RemoveEntity<BrTel>(id);
        }
-   }}
+   }
+}
