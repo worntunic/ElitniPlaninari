@@ -48,8 +48,6 @@ namespace Izbori
                 NullComplexProps<T>(ent); //anuliranje propertija
             }
 
-            s.Close();
-
             return entities;
         }
 
