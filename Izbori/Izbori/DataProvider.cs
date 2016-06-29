@@ -38,52 +38,65 @@ namespace Izbori
         public IEnumerable<T> GetEntities<T>()
         {
             ISession s = DataLayer.GetSession();
-
-            IEnumerable<T> entities = s.Query<T>().Select(p => p);
-
-            foreach(T ent in entities)
+            try
             {
-                NullComplexProps<T>(ent); //anuliranje propertija
-            }
+                IEnumerable<T> entities = s.Query<T>().Select(p => p);
 
-            return entities;
+                foreach (T ent in entities)
+                {
+                    NullComplexProps<T>(ent); //anuliranje propertija
+                }
+
+                return entities;
+            }
+            finally
+            {
+                s.Close();
+            }
         }
 
         public T GetEntity<T>(int id)
         {
             ISession s = DataLayer.GetSession();
+            try
+            {
+                T ent = s.Get<T>(id);
+                NullComplexProps<T>(ent); //anuliranje propertija
 
-            T ent = s.Get<T>(id);
-            NullComplexProps<T>(ent); //anuliranje propertija
-
-            return ent;
+                return ent;
+            }
+            finally
+            {
+                s.Close();
+            }
         }
 
         public int RemoveEntity<T>(int id)
         {
+            ISession s = DataLayer.GetSession();
             try
             {
-                ISession s = DataLayer.GetSession();
-
                 T ent = s.Get<T>(id);
                 NullComplexProps<T>(ent);
                 s.Delete(ent);
                 s.Flush();
-                s.Close();
-                return 1;                
+                return 1;
             }
             catch (Exception)
             {
-                return -1;                
+                return -1;
+            }
+            finally
+            {
+                s.Close();
             }
         }
 
         public int UpdateEntity<T>(int id, T ent)
         {
+            ISession s = DataLayer.GetSession();
             try
             {
-                ISession s = DataLayer.GetSession();
-
                 T e = s.Load<T>(id);
                 NullComplexProps<T>(e);
                 NullComplexProps<T>(ent);
@@ -108,7 +121,6 @@ namespace Izbori
                 }
                 s.SaveOrUpdate(e);
                 s.Flush();
-                s.Close();
 
                 return 1;
             }
@@ -117,26 +129,32 @@ namespace Izbori
                 Console.WriteLine(ex.Message + " | Inner: " + ex.InnerException.Message);
                 return -1;
             }
+            finally
+            {
+                s.Close();
+            }
         }
 
         public int AddEntity<T>(T ent)
         {
+            ISession s = DataLayer.GetSession();
             try
             {
-                ISession s = DataLayer.GetSession();
-
                 NullComplexProps<T>(ent);
 
                 s.Save(ent);
 
                 s.Flush();
-                s.Close();
 
                 return 1;
             }
             catch (Exception ec)
             {
                 return -1;
+            }
+            finally
+            {
+                s.Close();
             }
         }
     }
