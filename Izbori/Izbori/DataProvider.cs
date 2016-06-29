@@ -37,6 +37,8 @@ namespace Izbori
         }
         public IEnumerable<T> GetEntities<T>()
         {
+            //Bla
+
             ISession s = DataLayer.GetSession();
 
             IEnumerable<T> entities = s.Query<T>().Select(p => p);
@@ -45,6 +47,8 @@ namespace Izbori
             {
                 NullComplexProps<T>(ent); //anuliranje propertija
             }
+
+            s.Close();
 
             return entities;
         }
